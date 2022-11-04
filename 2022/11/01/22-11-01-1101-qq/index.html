@@ -28,13 +28,16 @@
 <meta property="og:site_name" content="The Sea &amp; Chaos">
 <meta property="og:description" content="The problem is mainly based on the backdoor. In RSA library, it has the CVE of CVE-2017-15361.In this case, we can calculate the prime which is likely random with the equation that:$$Prime &#x3D; k \t">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://windeurynome.github.io/22-11-01-1101-qq/image-20221104153309697.png">
 <meta property="article:published_time" content="2022-11-01T10:56:01.000Z">
-<meta property="article:modified_time" content="2022-11-03T11:15:39.439Z">
+<meta property="article:modified_time" content="2022-11-04T07:41:15.133Z">
 <meta property="article:author" content="Eurynome">
+<meta property="article:tag" content="crypto">
 <meta property="article:tag" content="RSA">
 <meta property="article:tag" content="openssl">
 <meta property="article:tag" content="wp">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://windeurynome.github.io/22-11-01-1101-qq/image-20221104153309697.png">
 
 
 <link rel="canonical" href="https://windeurynome.github.io/2022/11/01/22-11-01-1101-qq/">
@@ -134,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -144,7 +147,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -219,7 +222,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-03 19:15:39" itemprop="dateModified" datetime="2022-11-03T19:15:39+08:00">2022-11-03</time>
+      <time title="Modified: 2022-11-04 15:41:15" itemprop="dateModified" datetime="2022-11-04T15:41:15+08:00">2022-11-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -258,9 +261,8 @@
     <div class="post-body" itemprop="articleBody">
         <p>The problem is mainly based on the <strong>backdoor</strong>. In RSA library, it has the CVE of <code>CVE-2017-15361</code>.In this case, we can calculate the prime which is likely random with the equation that:<br>$$<br>Prime &#x3D; k \times M + (65537^{a} \mod M)<br>$$<br>It means that produce the list of primes and make them to collide， which satisfy the condition, thus output the target prime.</p>
 <p>Also，the PKI system has different standards， we make some distinctions between different standards. </p>
-<span id="more"></span><!--toc-->
+<span id="more"></span>
 
-<p>[TOC]</p>
 <h1 id="RSA-Backdoor"><a href="#RSA-Backdoor" class="headerlink" title="RSA Backdoor"></a>RSA Backdoor</h1><blockquote>
 <p>reference: <a target="_blank" rel="noopener" href="https://asecuritysite.com/encryption/copper">https://asecuritysite.com/encryption/copper</a></p>
 </blockquote>
@@ -347,6 +349,7 @@
 
 <h3 id="exp-py-1"><a href="#exp-py-1" class="headerlink" title="exp.py"></a>exp.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> PKCS1_OAEP</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">2. public.key：rb-&gt;RSA.import_key-&gt;e,n</span></span><br><span class="line"><span class="string">3. construct to privatekey</span></span><br><span class="line"><span class="string">    1. (n,e,d,(p),(q)) to save</span></span><br><span class="line"><span class="string">    2. RSA.construct() to construct</span></span><br><span class="line"><span class="string">    3. 2.exportKey() import</span></span><br><span class="line"><span class="string">    4. RSA.importKey() export</span></span><br><span class="line"><span class="string">    5. PKCS1_OAEP.new()  -&gt; important!</span></span><br><span class="line"><span class="string">4. d by using invert(), and int(d) to get integer</span></span><br><span class="line"><span class="string">5. use private key to decrypt</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;public.key&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    pub = RSA.import_key(f.read())</span><br><span class="line">e = pub.e</span><br><span class="line">n = pub.n</span><br><span class="line"><span class="comment"># e = 65537</span></span><br><span class="line"><span class="comment"># n = 79832181757332818552764610761349592984614744432279135328398999801627880283610900361281249973175805069916210179560506497075132524902086881120372213626641879468491936860976686933630869673826972619938321951599146744807653301076026577949579618331502776303983485566046485431039541708467141408260220098592761245010678592347501894176269580510459729633673468068467144199744563731826362102608811033400887813754780282628099443490170016087838606998017490456601315802448567772411623826281747245660954245413781519794295336197555688543537992197142258053220453757666537840276416475602759374950715283890232230741542737319569819793988431443</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># yafu-x64/factordb.com</span></span><br><span class="line">p = <span class="number">3133337</span></span><br><span class="line">q = <span class="number">25478326064937419292200172136399497719081842914528228316455906211693118321971399936004729134841162974144246271486439695786036588117424611881955950996219646807378822278285638261582099108339438949573034101215141156156408742843820048066830863814362379885720395082318462850002901605689761876319151147352730090957556940842144299887394678743607766937828094478336401159449035878306853716216548374273462386508307367713112073004011383418967894930554067582453248981022011922883374442736848045920676341361871231787163441467533076890081721882179369168787287724769642665399992556052144845878600126283968890273067575342061776244939</span></span><br><span class="line">N = (p-<span class="number">1</span>) * (q-<span class="number">1</span>)</span><br><span class="line">d = <span class="built_in">int</span>(gmpy2.invert(e, N))</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;flag.enc&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    cipher = b64decode(f.read())</span><br><span class="line">    <span class="comment"># print(c)</span></span><br><span class="line">con = RSA.construct((n, e, d, p, q))</span><br><span class="line">pri = PKCS1_OAEP.new(RSA.importKey(con.exportKey()))</span><br><span class="line">m = pri.decrypt(cipher)</span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="comment"># b&#x27;afctf&#123;R54_|5_$0_B0rin9&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 
+<p><img src="/22-11-01-1101-qq/image-20221104153309697.png" alt="image-20221104153309697"></p>
 
     </div>
 
@@ -356,6 +359,7 @@
 
     <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/crypto/" rel="tag"># crypto</a>
               <a href="/tags/RSA/" rel="tag"># RSA</a>
               <a href="/tags/openssl/" rel="tag"># openssl</a>
               <a href="/tags/wp/" rel="tag"># wp</a>
@@ -370,6 +374,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/11/04/22-11-04-1104/" rel="next" title="22-11-04-1104">
+                  22-11-04-1104 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
