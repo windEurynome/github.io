@@ -232,6 +232,32 @@
       </tags>
   </entry>
   <entry>
+    <title>22-11-15-math</title>
+    <url>/2022/11/15/22-11-15-math/</url>
+    <content><![CDATA[<span id="more"></span><!--toc-->
+]]></content>
+  </entry>
+  <entry>
+    <title>22-11-15-functions</title>
+    <url>/2022/11/15/22-11-15-functions/</url>
+    <content><![CDATA[<p>To conclude the functions that I met in these years. </p>
+<p>Just show that how the functions and equations </p>
+<p>make a one-to-one relation. </p>
+<p>Relating to <strong>python</strong>, <strong>sagemath</strong>……</p>
+<span id="more"></span>
+
+<h1 id="gmpy2"><a href="#gmpy2" class="headerlink" title="gmpy2"></a>gmpy2</h1><h2 id="gcd-a-b"><a href="#gcd-a-b" class="headerlink" title="gcd(a, b)"></a>gcd(a, b)</h2><h2 id="gcdext-a-b"><a href="#gcdext-a-b" class="headerlink" title="gcdext(a, b)"></a>gcdext(a, b)</h2><h2 id="invert-a-n"><a href="#invert-a-n" class="headerlink" title="invert(a, n)"></a>invert(a, n)</h2><h2 id="powmod-a-b-c"><a href="#powmod-a-b-c" class="headerlink" title="powmod(a, b, c)"></a>powmod(a, b, c)</h2><h2 id="next-prime-a"><a href="#next-prime-a" class="headerlink" title="next_prime(a)"></a>next_prime(a)</h2><h1 id="pycryptodome"><a href="#pycryptodome" class="headerlink" title="pycryptodome"></a>pycryptodome</h1><h2 id="bytes-to-long"><a href="#bytes-to-long" class="headerlink" title="bytes_to_long()"></a>bytes_to_long()</h2><h2 id="long-to-bytes"><a href="#long-to-bytes" class="headerlink" title="long_to_bytes()"></a>long_to_bytes()</h2><h1 id="sympy"><a href="#sympy" class="headerlink" title="sympy"></a>sympy</h1><blockquote>
+<p><a href="https://geek-docs.com/sympy/sympy-method/python-sympy-solve-method.html">sympy.solve()方法|极客教程 (geek-docs.com)</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Studying</category>
+      </categories>
+      <tags>
+        <tag>functions</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>22-11-04-RSA</title>
     <url>/2022/11/04/22-11-04-RSA/</url>
     <content><![CDATA[<p><strong>JUST</strong> conclude the attacks about RSA. </p>
@@ -510,32 +536,6 @@
       <tags>
         <tag>RSA</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>22-11-15-functions</title>
-    <url>/2022/11/15/22-11-15-functions/</url>
-    <content><![CDATA[<p>To conclude the functions that I met in these years. </p>
-<p>Just show that how the functions and equations </p>
-<p>make a one-to-one relation. </p>
-<p>Relating to <strong>python</strong>, <strong>sagemath</strong>……</p>
-<span id="more"></span>
-
-<h1 id="gmpy2"><a href="#gmpy2" class="headerlink" title="gmpy2"></a>gmpy2</h1><h2 id="gcd-a-b"><a href="#gcd-a-b" class="headerlink" title="gcd(a, b)"></a>gcd(a, b)</h2><h2 id="gcdext-a-b"><a href="#gcdext-a-b" class="headerlink" title="gcdext(a, b)"></a>gcdext(a, b)</h2><h2 id="invert-a-n"><a href="#invert-a-n" class="headerlink" title="invert(a, n)"></a>invert(a, n)</h2><h2 id="powmod-a-b-c"><a href="#powmod-a-b-c" class="headerlink" title="powmod(a, b, c)"></a>powmod(a, b, c)</h2><h2 id="next-prime-a"><a href="#next-prime-a" class="headerlink" title="next_prime(a)"></a>next_prime(a)</h2><h1 id="pycryptodome"><a href="#pycryptodome" class="headerlink" title="pycryptodome"></a>pycryptodome</h1><h2 id="bytes-to-long"><a href="#bytes-to-long" class="headerlink" title="bytes_to_long()"></a>bytes_to_long()</h2><h2 id="long-to-bytes"><a href="#long-to-bytes" class="headerlink" title="long_to_bytes()"></a>long_to_bytes()</h2><h1 id="sympy"><a href="#sympy" class="headerlink" title="sympy"></a>sympy</h1><blockquote>
-<p><a href="https://geek-docs.com/sympy/sympy-method/python-sympy-solve-method.html">sympy.solve()方法|极客教程 (geek-docs.com)</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Studying</category>
-      </categories>
-      <tags>
-        <tag>functions</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>22-11-15-math</title>
-    <url>/2022/11/15/22-11-15-math/</url>
-    <content><![CDATA[<span id="more"></span><!--toc-->
-]]></content>
   </entry>
   <entry>
     <title>22-11-16-YD</title>
