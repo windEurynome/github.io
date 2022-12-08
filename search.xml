@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>22-11-15-math</title>
+    <url>/2022/11/15/22-11-15-math/</url>
+    <content><![CDATA[<span id="more"></span><!--toc-->
+
+<h1 id="Fermat’s-little-theorem"><a href="#Fermat’s-little-theorem" class="headerlink" title="Fermat’s little theorem"></a>Fermat’s little theorem</h1><p>Let $p$ be a prime number,  and $a$ be any integer. Then $a^{p} - a$ is always divisible by $p$. </p>
+<p>And we can write as:<br>$$<br>a^{p} \equiv a \mod p<br>$$<br>Make a deduction, we can get that:<br>$$<br>a^{p-1} \equiv 1 \mod p<br>$$</p>
+]]></content>
+      <categories>
+        <category>Studying</category>
+      </categories>
+      <tags>
+        <tag>math</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>22-10-21-hexo-build-beautify</title>
     <url>/2022/10/21/22-10-21-hexo-build-beautify/</url>
     <content><![CDATA[<p>The article is used to record how to use hexo to build my own blog. I will try my best to make records by using English. To Be Honest, this is really somewhat a hard challenge for me.</p>
@@ -128,8 +143,28 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>self-promtion</tag>
+        <tag>self_promtion</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/10/21/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>22-11-01-1101-qq</title>
@@ -226,7 +261,6 @@
         <tag>crypto</tag>
         <tag>RSA</tag>
         <tag>openssl</tag>
-        <tag>enc</tag>
         <tag>factor</tag>
         <tag>backdoor</tag>
       </tags>
@@ -519,6 +553,108 @@
       </tags>
   </entry>
   <entry>
+    <title>22-11-16-YD</title>
+    <url>/2022/11/16/22-11-16-YD/</url>
+    <content><![CDATA[<p>1115-YD-GAME. </p>
+<p>Write Up about <strong>crypto</strong> and <strong>misc</strong>. </p>
+<p>AK the crypto~ </p>
+<span id="more"></span><!--toc-->
+
+<h1 id="rrrrsa"><a href="#rrrrsa" class="headerlink" title="rrrrsa"></a>rrrrsa</h1><ul>
+<li>Euler’s totient function</li>
+<li>$e$ and $phi$ are not relatively-prime</li>
+</ul>
+<h2 id="Euler’s-totient-function"><a href="#Euler’s-totient-function" class="headerlink" title="Euler’s totient function"></a>Euler’s totient function</h2><p>Mainly use the Euler 3, which has the equation that:<br>$$<br>\varphi(p^{k}\cdot q^{r}) &#x3D; \varphi(p^{k})\cdot \varphi(q^{r})<br>$$</p>
+<p>$$<br>\Longrightarrow \varphi(p) \times p^{k-1} \times \varphi(q) \times q^{r-1}<br>$$</p>
+<p>$$<br>\Longrightarrow (p-1)\times p^{k-1} \times (q-1)\times q^{r-1}<br>$$</p>
+<h2 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h2><p><code>task.py</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p=getPrime(<span class="number">256</span>)</span><br><span class="line">q=getPrime(<span class="number">256</span>)</span><br><span class="line">r=getPrime(<span class="number">256</span>)</span><br><span class="line">s=getPrime(<span class="number">256</span>)</span><br><span class="line">n=p**<span class="number">2</span>*q**<span class="number">3</span>*r**<span class="number">4</span>*s**<span class="number">5</span></span><br><span class="line">e=<span class="number">14</span></span><br><span class="line">m=bytes_to_long(flag)</span><br><span class="line">c=<span class="built_in">pow</span>(m,e,n)</span><br><span class="line"><span class="built_in">print</span>(p,q,r,s,c,sep=<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+
+<p><code>exp.py</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">p=<span class="number">82740843489176005842917905237448676902781319326096412115804401131397466993701</span></span><br><span class="line">q=<span class="number">85263643568597752465513069151877689268453731648228759206805083081972094635829</span></span><br><span class="line">r=<span class="number">79374890087283111247783732293463483039814224158289962524595401321277418666013</span></span><br><span class="line">s=<span class="number">102732199362754952069273055525350226201958416532282326662545431277468292741447</span></span><br><span class="line">c=<span class="number">209764158198100932214155089968863460960764115788843889450050526143389381127082813487813848764081174468416915862387829518066498286649325136938861327501126507330636283194491774843852097326223633337209701533553768182215060190222820102775941550334063704345167980872865539263669078518722589070762176421658193780663489275300987379291331254855029837613791180120722762611589441493216729829935815928668091245317003984177304991150484204972754604505926951762889894890977781284204135659968910559636276248002638001257927724627172934291321960032984200304503486457400466222152687435733385861015747679424548570249193669289227091923991244140876236848584520997920469772887694030202115298206597699720631193271607873611648764756487112169968220121850963271008810056644983219771177431102811348959976986368053544506721049809904407594329574573889027703243130484608315308768672733480521699846869769824733283356920305979098527936478174996930553057717113709689343835430493021845720498504798696915665856537146177480318328251379204246844497037689723120344053581795715706628542369652261282102647414868089</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">n = p**<span class="number">2</span>*q**<span class="number">3</span>*r**<span class="number">4</span>*s**<span class="number">5</span></span><br><span class="line"><span class="built_in">print</span>(n)</span><br><span class="line">N = (p-<span class="number">1</span>)*p**(<span class="number">2</span>-<span class="number">1</span>) * (q-<span class="number">1</span>)*q**(<span class="number">3</span>-<span class="number">1</span>) * (r-<span class="number">1</span>)*r**(<span class="number">4</span>-<span class="number">1</span>) * (s-<span class="number">1</span>)*s**(<span class="number">5</span>-<span class="number">1</span>) <span class="comment"># key 1</span></span><br><span class="line">e = <span class="number">14</span></span><br><span class="line">d = invert(e//<span class="number">2</span>, N) <span class="comment"># key2-1</span></span><br><span class="line">m = iroot(powmod(c, d, n), <span class="number">2</span>)[<span class="number">0</span>] <span class="comment"># key2-2</span></span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line"><span class="comment"># 46327402297749589082353363703523801418931778189802600046922737992686461676413</span></span><br><span class="line"><span class="comment"># b&#x27;flag&#123;YqcbT7kcyeciLpEE3YQuRsLzJk&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="ASR"><a href="#ASR" class="headerlink" title="ASR"></a>ASR</h1><blockquote>
+<p>Reference: [CryptoCTF2022]PolyRSA</p>
+</blockquote>
+<ul>
+<li>Polynomial solving</li>
+</ul>
+<p><code>task.py</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">genprime</span>():</span><br><span class="line">	<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">		r = getRandomNBitInteger(<span class="number">64</span>)</span><br><span class="line">		p = r**<span class="number">6</span> + <span class="number">8</span>*r**<span class="number">4</span> - <span class="number">41</span>*r**<span class="number">3</span> + <span class="number">14</span>*r**<span class="number">2</span> - <span class="number">116</span>*r + <span class="number">31387</span></span><br><span class="line">		q = r**<span class="number">5</span> - <span class="number">9</span>*r**<span class="number">4</span> + <span class="number">17</span>*r**<span class="number">3</span> - <span class="number">311</span>*r**<span class="number">2</span> - <span class="number">16</span>*r + <span class="number">14029</span></span><br><span class="line">		<span class="keyword">if</span> isPrime(p) <span class="keyword">and</span> isPrime(q):</span><br><span class="line">			<span class="keyword">return</span> p, q</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">enc</span>(<span class="params">flag, n</span>):</span><br><span class="line">	m = bytes_to_long(flag)</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">pow</span>(m, <span class="number">31337</span>, n)</span><br><span class="line"></span><br><span class="line">p, q = genprime()</span><br><span class="line">n = p * q</span><br><span class="line">c = enc(flag, n)</span><br><span class="line"><span class="built_in">print</span>(n)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>exp.py</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="number">73553176031506251642448229714220151174734540964434813056145000616720019024269982417494553771890010861489245572362590935764438928110836109730139595790550323300572059713433794357690270439325805603980903813396260703</span></span><br><span class="line">c = <span class="number">19209686331218755173713714974036153099675780768506975193406617712945126866438211292560144823093347834048813455853960982766572556698881387553177980003129346158494272297017876567974550982519632403844694686184532804</span></span><br><span class="line">e = <span class="number">31337</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Original_RSA</span>(<span class="params">p,q,e,c,n</span>):</span><br><span class="line">    N = (p-<span class="number">1</span>)*(q-<span class="number">1</span>)</span><br><span class="line">    d = <span class="built_in">int</span>(invert(e, N))</span><br><span class="line">    m = powmod(c, d, n)</span><br><span class="line">    <span class="keyword">return</span> m</span><br><span class="line">r = Symbol(<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">p = <span class="keyword">lambda</span> r: r ** <span class="number">6</span> + <span class="number">8</span> * r ** <span class="number">4</span> - <span class="number">41</span> * r ** <span class="number">3</span> + <span class="number">14</span> * r ** <span class="number">2</span> - <span class="number">116</span> * r + <span class="number">31387</span></span><br><span class="line">q = <span class="keyword">lambda</span> r: r ** <span class="number">5</span> - <span class="number">9</span> * r ** <span class="number">4</span> + <span class="number">17</span> * r ** <span class="number">3</span> - <span class="number">311</span> * r ** <span class="number">2</span> - <span class="number">16</span> * r + <span class="number">14029</span></span><br><span class="line">n0 = p(r) * q(r)</span><br><span class="line">f = n - n0</span><br><span class="line"><span class="comment"># print(f)</span></span><br><span class="line">sol = solve([f], [r])</span><br><span class="line">x = sol[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">p = mpz(p(x))</span><br><span class="line">q = mpz(q(x))</span><br><span class="line">m = Original_RSA(p, q, e, c, n)</span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m).decode())</span><br><span class="line"><span class="comment"># 642921858775320553662877496454459277194994123046130653667709</span></span><br><span class="line"><span class="comment"># flag&#123;G3t_m0re_fuN_RSA!!!&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># or sage to solve out p, q</span></span><br><span class="line">PR.&lt;k&gt; = PolynomialRing(ZZ) <span class="comment"># define k</span></span><br><span class="line">p = k**<span class="number">6</span> + <span class="number">7</span>*k**<span class="number">4</span> - <span class="number">40</span>*k**<span class="number">3</span> + <span class="number">12</span>*k**<span class="number">2</span> - <span class="number">114</span>*k + <span class="number">31377</span></span><br><span class="line">q = k**<span class="number">5</span> - <span class="number">8</span>*k**<span class="number">4</span> + <span class="number">19</span>*k**<span class="number">3</span> - <span class="number">313</span>*k**<span class="number">2</span> - <span class="number">14</span>*k + <span class="number">14011</span></span><br><span class="line">n0 = p*q</span><br><span class="line"><span class="comment"># k^11 - 8*k^10 + 26*k^9 - 409*k^8 + 451*k^7 + 10850*k^6 + 44939*k^5 - 158301*k^4 + 71237*k^3 - 9651273*k^2 - 2036532*k + 439623147</span></span><br><span class="line">f = n - n0</span><br><span class="line">sol = f.roots() <span class="comment"># solve the root of the equation</span></span><br><span class="line"><span class="comment"># print(sol)</span></span><br><span class="line"><span class="comment"># [(9291098683758154336, 1)]</span></span><br><span class="line">x = sol[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">p = p(x)</span><br><span class="line">q = q(x)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="ezmisc"><a href="#ezmisc" class="headerlink" title="ezmisc"></a>ezmisc</h1><blockquote>
+<p>Download: <a href="ezmisc1.zip">ezmisc</a></p>
+</blockquote>
+<ul>
+<li>Archive pseudo-encryption</li>
+<li>Repair the file header</li>
+<li>Extract the hidden files</li>
+<li>Unzip nested packages</li>
+<li>Properties area steganation &amp;&amp; Brute force</li>
+<li>Blast file height or width</li>
+</ul>
+<h2 id="Archive-pseudo-encryption"><a href="#Archive-pseudo-encryption" class="headerlink" title="Archive pseudo-encryption"></a>Archive pseudo-encryption</h2><blockquote>
+<p>Winhex</p>
+</blockquote>
+<p>Use winhex to find <code>504B0102</code>, and the keypoint <code>09</code> which is the 5th behind the <code>504B0102</code>. Edit it to <code>00</code> and unzip the zip. </p>
+<img src="/2022/11/16/22-11-16-YD/1.jpg" class="" title="Edit and unzip">
+
+<p> And get the output <code>1.png</code>.</p>
+<h2 id="Repair-the-file-header"><a href="#Repair-the-file-header" class="headerlink" title="Repair the file header"></a>Repair the file header</h2><blockquote>
+<p>Winhex</p>
+</blockquote>
+<p>Find the <code>1.png</code> cannot open well. Check the file header, we find that the header is <code>000000000D0A1A0A</code> which is different to <code>89504E470D0A1A0A</code>. Thus, use winhex to edit and get the real <code>1.png</code>.</p>
+<img src="/2022/11/16/22-11-16-YD/1.png" class="" title="1.png">
+
+<h2 id="Extract-the-hidden-files"><a href="#Extract-the-hidden-files" class="headerlink" title="Extract the hidden files"></a>Extract the hidden files</h2><blockquote>
+<p>binwalk</p>
+<p>foremost</p>
+</blockquote>
+<p>Use binwalk to check if there are hidden files in the picture. If yes, and we execute the foremost to get the hidden files. </p>
+<p><em>Make the <strong>output</strong> file empty!</em></p>
+<h2 id="Unzip-nested-packages"><a href="#Unzip-nested-packages" class="headerlink" title="Unzip nested packages"></a>Unzip nested packages</h2><blockquote>
+<p>ExtractNow</p>
+<p>Download: <a href="ExtractNow_V4.8.3.0.zip">ExtractNow</a></p>
+</blockquote>
+<p>After using the tool <code>ExtractNow</code>, we get the <code>flag.zip</code> and <code>password.zip</code> both of which are encrypted.</p>
+<h2 id="Properties-area-steganation-amp-amp-Brute-force"><a href="#Properties-area-steganation-amp-amp-Brute-force" class="headerlink" title="Properties area steganation &amp;&amp; Brute force"></a>Properties area steganation &amp;&amp; Brute force</h2><blockquote>
+<p>ARCHPR</p>
+</blockquote>
+<p>From the <code>password.zip</code> ‘s properties, we get the hint that <code>8 digits</code>. We brute the zip’s password by ARCHPR. </p>
+<p>Unzip the <code>password.zip</code>, we get the <code>password.txt</code>. By this dictionary, we can also brute the <code>flag.zip</code> by ARCHPR and obtain the final picture <code>flag.png</code>.</p>
+<h2 id="Blast-file-height-or-width"><a href="#Blast-file-height-or-width" class="headerlink" title="Blast file height or width"></a>Blast file height or width</h2><blockquote>
+<p>stegsolve</p>
+<p>python</p>
+<p>winhex</p>
+</blockquote>
+<p>By the <code>stegsolve</code>, we can make a conclusion that the picture’s height or width has been edited from the <code>Calculated CRC</code>. </p>
+<img src="/2022/11/16/22-11-16-YD/2.png" class="" title="stegsolve_check">
+
+<p>Use a script for blasting, remember that the script has its rules. </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hexstr2bytes</span>(<span class="params">s</span>):</span><br><span class="line">    b = <span class="string">b&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(s), <span class="number">2</span>):</span><br><span class="line">        temp = s[i:i+<span class="number">2</span>]</span><br><span class="line">        b += struct.pack(<span class="string">&#x27;B&#x27;</span>, <span class="built_in">int</span>(temp, <span class="number">16</span>))</span><br><span class="line">    <span class="keyword">return</span> b</span><br><span class="line">str1 = <span class="string">&#x27;49484452&#x27;</span>   <span class="comment"># HEX/IHDR</span></span><br><span class="line">str2 = <span class="string">&#x27;0802000000&#x27;</span> <span class="comment"># Bit depth，ColorType，Compression method，Filter method，Interlace method</span></span><br><span class="line">bytes1 = hexstr2bytes(str1)</span><br><span class="line">bytes2 = hexstr2bytes(str2)</span><br><span class="line">wid, hei = <span class="number">507</span>, <span class="number">507</span>  <span class="comment"># width height</span></span><br><span class="line"></span><br><span class="line">crc32 = <span class="string">&#x27;0xe440b49a&#x27;</span> <span class="comment"># CRC32</span></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> <span class="built_in">range</span>(wid, wid+<span class="number">2000</span>):</span><br><span class="line">    <span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(hei, hei+<span class="number">2000</span>):</span><br><span class="line">        width = <span class="built_in">hex</span>(w)[<span class="number">2</span>:].rjust(<span class="number">8</span>, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">        height = <span class="built_in">hex</span>(h)[<span class="number">2</span>:].rjust(<span class="number">8</span>, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">        bytes_tmp = hexstr2bytes(width+height)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">eval</span>(<span class="built_in">hex</span>(zlib.crc32(bytes1+bytes_tmp+bytes2))) == <span class="built_in">eval</span>(crc32):</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">hex</span>(w), <span class="built_in">hex</span>(h))</span><br><span class="line">            </span><br><span class="line"><span class="comment"># 0x260 0x1fb</span></span><br></pre></td></tr></table></figure>
+
+<p>Edit the width, and we will get the true <code>flag.png</code>.</p>
+<img src="/2022/11/16/22-11-16-YD/flag.png" class="" title="true_flag">
+
+]]></content>
+      <categories>
+        <category>Studying</category>
+      </categories>
+      <tags>
+        <tag>RSA</tag>
+        <tag>wp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>22-11-15-functions</title>
     <url>/2022/11/15/22-11-15-functions/</url>
     <content><![CDATA[<p>To conclude the functions that I met in these years. </p>
@@ -633,140 +769,75 @@
         <category>Studying</category>
       </categories>
       <tags>
-        <tag>functions</tag>
+        <tag>function</tag>
       </tags>
   </entry>
   <entry>
-    <title>22-11-15-math</title>
-    <url>/2022/11/15/22-11-15-math/</url>
-    <content><![CDATA[<span id="more"></span><!--toc-->
-
-<h1 id="Fermat’s-little-theorem"><a href="#Fermat’s-little-theorem" class="headerlink" title="Fermat’s little theorem"></a>Fermat’s little theorem</h1><p>Let $p$ be a prime number,  and $a$ be any integer. Then $a^{p} - a$ is always divisible by $p$. </p>
-<p>And we can write as:<br>$$<br>a^{p} \equiv a \mod p<br>$$<br>Make a deduction, we can get that:<br>$$<br>a^{p-1} \equiv 1 \mod p<br>$$</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/10/21/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>22-11-16-YD</title>
-    <url>/2022/11/16/22-11-16-YD/</url>
-    <content><![CDATA[<p>1115-YD-GAME. </p>
-<p>Write Up about <strong>crypto</strong> and <strong>misc</strong>. </p>
-<p>AK the crypto~ </p>
+    <title>22-12-07-2022CnHoneKe</title>
+    <url>/2022/12/07/22-12-07-2022CnHoneKe/</url>
+    <content><![CDATA[<p>The competition was held in August. </p>
+<p>The exercises except <code>factor2</code> are done. And the article is mainly aim to make a record for myself. The <code>Modus</code> is about the multiplicative homomorphic system, which is similar to the <code>Extended Euclidean algorithm</code>. </p>
+<p><strong>List</strong></p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Modus</li>
+<li><input checked="" disabled="" type="checkbox"> rsa</li>
+<li><input disabled="" type="checkbox"> factor2</li>
+<li><input checked="" disabled="" type="checkbox"> secret_data</li>
+</ul>
+<p>Wish I can solve out above. </p>
 <span id="more"></span><!--toc-->
 
-<h1 id="rrrrsa"><a href="#rrrrsa" class="headerlink" title="rrrrsa"></a>rrrrsa</h1><ul>
-<li>Euler’s totient function</li>
-<li>$e$ and $phi$ are not relatively-prime</li>
+<h1 id="Modus"><a href="#Modus" class="headerlink" title="Modus"></a>Modus</h1><ul>
+<li>multiplicative_homomorphic</li>
 </ul>
-<h2 id="Euler’s-totient-function"><a href="#Euler’s-totient-function" class="headerlink" title="Euler’s totient function"></a>Euler’s totient function</h2><p>Mainly use the Euler 3, which has the equation that:<br>$$<br>\varphi(p^{k}\cdot q^{r}) &#x3D; \varphi(p^{k})\cdot \varphi(q^{r})<br>$$</p>
-<p>$$<br>\Longrightarrow \varphi(p) \times p^{k-1} \times \varphi(q) \times q^{r-1}<br>$$</p>
-<p>$$<br>\Longrightarrow (p-1)\times p^{k-1} \times (q-1)\times q^{r-1}<br>$$</p>
-<h2 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h2><p><code>task.py</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p=getPrime(<span class="number">256</span>)</span><br><span class="line">q=getPrime(<span class="number">256</span>)</span><br><span class="line">r=getPrime(<span class="number">256</span>)</span><br><span class="line">s=getPrime(<span class="number">256</span>)</span><br><span class="line">n=p**<span class="number">2</span>*q**<span class="number">3</span>*r**<span class="number">4</span>*s**<span class="number">5</span></span><br><span class="line">e=<span class="number">14</span></span><br><span class="line">m=bytes_to_long(flag)</span><br><span class="line">c=<span class="built_in">pow</span>(m,e,n)</span><br><span class="line"><span class="built_in">print</span>(p,q,r,s,c,sep=<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
-
-<p><code>exp.py</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">p=<span class="number">82740843489176005842917905237448676902781319326096412115804401131397466993701</span></span><br><span class="line">q=<span class="number">85263643568597752465513069151877689268453731648228759206805083081972094635829</span></span><br><span class="line">r=<span class="number">79374890087283111247783732293463483039814224158289962524595401321277418666013</span></span><br><span class="line">s=<span class="number">102732199362754952069273055525350226201958416532282326662545431277468292741447</span></span><br><span class="line">c=<span class="number">209764158198100932214155089968863460960764115788843889450050526143389381127082813487813848764081174468416915862387829518066498286649325136938861327501126507330636283194491774843852097326223633337209701533553768182215060190222820102775941550334063704345167980872865539263669078518722589070762176421658193780663489275300987379291331254855029837613791180120722762611589441493216729829935815928668091245317003984177304991150484204972754604505926951762889894890977781284204135659968910559636276248002638001257927724627172934291321960032984200304503486457400466222152687435733385861015747679424548570249193669289227091923991244140876236848584520997920469772887694030202115298206597699720631193271607873611648764756487112169968220121850963271008810056644983219771177431102811348959976986368053544506721049809904407594329574573889027703243130484608315308768672733480521699846869769824733283356920305979098527936478174996930553057717113709689343835430493021845720498504798696915665856537146177480318328251379204246844497037689723120344053581795715706628542369652261282102647414868089</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">n = p**<span class="number">2</span>*q**<span class="number">3</span>*r**<span class="number">4</span>*s**<span class="number">5</span></span><br><span class="line"><span class="built_in">print</span>(n)</span><br><span class="line">N = (p-<span class="number">1</span>)*p**(<span class="number">2</span>-<span class="number">1</span>) * (q-<span class="number">1</span>)*q**(<span class="number">3</span>-<span class="number">1</span>) * (r-<span class="number">1</span>)*r**(<span class="number">4</span>-<span class="number">1</span>) * (s-<span class="number">1</span>)*s**(<span class="number">5</span>-<span class="number">1</span>) <span class="comment"># key 1</span></span><br><span class="line">e = <span class="number">14</span></span><br><span class="line">d = invert(e//<span class="number">2</span>, N) <span class="comment"># key2-1</span></span><br><span class="line">m = iroot(powmod(c, d, n), <span class="number">2</span>)[<span class="number">0</span>] <span class="comment"># key2-2</span></span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line"><span class="comment"># 46327402297749589082353363703523801418931778189802600046922737992686461676413</span></span><br><span class="line"><span class="comment"># b&#x27;flag&#123;YqcbT7kcyeciLpEE3YQuRsLzJk&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><strong>output.txt</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="number">14142010206099386143235977555692857399310494373372334255226213043954222671886219214790080363755519983589419573494262932031062165425660149023699589427423291076757673539031113758789961660789969074666728548356143546954548237178966812807683542026090314756465049840269239582841323515153189937744280883895942616355068450477244038093783025761830910527817275117470273068582606801561816182028771714266926279491448124072638544823523354972471012076902504991756879694948477398253632905720027515230565063830199860044535605314432273647912553716877788661706091962626029470938285869557993283863813783012548154763397158585969860496209</span></span><br><span class="line">e1 = <span class="number">8044170206501208651566242545498471362911890649958881015968520025930186294576023443506808099677296038797758573489705294289102108150592764180571398770862282775413964383616485564171756065468610971753771700993772575426420613330938626182989999507422559869431997096499661057456703567386749182728255894961711</span></span><br><span class="line">c1 = <span class="number">11517322714245526592044873592382373283428914348422645739336159016405003731268657488015847458779166523731678788259036486197351408324218938844963108776390284845014868126098529982171539875948326597563481747612010865265679909207769244324752454968172401384300433252342047155447253514663020084257315172025978213587941036806257025876560069777775117798912056950800470305039358493009376541529192357082470617915062674822440632959240104574498373020678875137349967659371746447815516349204225897744273956308472359601558104152900628002351072193856499370256139818744736463310402972428459727204523498170929275318085749369313370330104</span></span><br><span class="line">e2 = <span class="number">7981110843177277522743262582712207767500318326009118362192817529414323700650435360291001887232564132664914694220334201133850645107707193720930288877874115700468049318771691746592219604611120450612600603061311788240065247605723819417162805390035814213048743243801428908542140081097421519822132590047533</span></span><br><span class="line">c2 = <span class="number">12907231513900923422005862146378905589636791955213455533815625546155661275692081099543894853443339737652933422555561840945917851059973294781475696342510739464313686827430856742266071924616860913810640580296234473777303348248031669837803543965896443694327322478656672147536068477193332582821244877632320706358476947499828283809012293724747791713411303065091158644428874828519807586496004634361827049528190857803358038226873772036022804215684911051370929474550764142943510840488678370689581686370179457811111602201500802245275266633124851078915997894235280935026230159846619929979668248511374747926732890795947582868735</span></span><br><span class="line">e3 = <span class="number">8321945773137532897701269832287423438330975369722946793416731752574708023263908693097168458920645511451157398450278461406044452962800707032660103849647429968263806321843635237930345258217128805872313308435747131438472827261934005675575066641207582827978944766548998867180054428477087525524476746729443</span></span><br><span class="line">c3 = <span class="number">14065425026445215199826296511184881258323064633386950509660192854866326626040354040592178906620984652169865998063876885421774133239148395916412178848784041317916589243316140373118461629430419305769180856968279675982734449182890302977853892881391084830333333875116598959777525928574769839174695101654696531535920235825780434207646161363349309470260223615977113109458426965856166705879375711518022880712089324008258280991081209228374850515248942548172463741894540420262751207821783524890116559086561517224038086473047623408064157594299815732082781632190258405091440187576055868450259807171733509904666142689629066721239</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="ASR"><a href="#ASR" class="headerlink" title="ASR"></a>ASR</h1><blockquote>
-<p>Reference: [CryptoCTF2022]PolyRSA</p>
-</blockquote>
-<ul>
-<li>Polynomial solving</li>
+<p><strong>Analyse</strong></p>
+<p>When I see the <code>output.txt</code>, the first thing appeared in my mind is the <code>SameModAttack</code>, using the <code>Extended-Extended Euclidean algorithm</code>. :) </p>
+<p>Obviously it is wrong, and the correct solution is to use the <code>multiplicative homomorphic properties</code>. </p>
+<p>From the <code>output</code>, we can get a condition that <code>gcd(e1, e2, e3) = 1</code>. Using the <code>Extended Euclidean algorithm</code> we can get $gcdext(a, b) \Longrightarrow gcd(a, b) &#x3D; r * a + s * b$. </p>
+<p>By deduction, we will get the relation that:<br>$$<br>gcd(e1, e2) \equiv e1 * r1 + e2 * s1<br>$$</p>
+<p>$$<br>gcd(gcd(e1, e2), e3) \equiv gcd(e1, e2) * r2 + e3 * s2<br>$$</p>
+<p>$$<br>\Longrightarrow 1 \equiv (e1 * r1 + e2 * s1) * r2 + e3 * s2<br>$$</p>
+<p>Using this important equation, we can deduce the plaintext:<br>$$<br>c1^{r1 \cdot r2} * c2^{r2 \cdot s1} * c3^{s3} \mod n<br>$$</p>
+<p>$$<br>\Longrightarrow m^{e1\cdot r1 \cdot r2 + e2 \cdot r2 \cdot s1 + e3 \cdot s2} \equiv m \mod n<br>$$</p>
+<p>And we can solve out the important <code>m</code>.</p>
+<p><strong>exp.py</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">g1, r1, s1 = gcdext(e1, e2)</span><br><span class="line">g2, r2, s2 = gcdext(g1, e3)</span><br><span class="line"><span class="built_in">print</span>(g2)</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line">m = powmod(c1, r1*r2, n)*powmod(c2, r2*s1, n)*powmod(c3, s2, n) % n</span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="comment"># 158364088221424626103916028957988006099747465255174624548375855659785449250446255975244653061928080738353296765</span></span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m).decode())</span><br><span class="line"><span class="comment"># CnHongKe&#123;e4d0e72e-7589-46a5-973a-cb2a561ab9b5&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="rsa"><a href="#rsa" class="headerlink" title="rsa"></a>rsa</h1><ul>
+<li>Euler function 2</li>
+<li>fermat factor</li>
 </ul>
-<p><code>task.py</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">genprime</span>():</span><br><span class="line">	<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">		r = getRandomNBitInteger(<span class="number">64</span>)</span><br><span class="line">		p = r**<span class="number">6</span> + <span class="number">8</span>*r**<span class="number">4</span> - <span class="number">41</span>*r**<span class="number">3</span> + <span class="number">14</span>*r**<span class="number">2</span> - <span class="number">116</span>*r + <span class="number">31387</span></span><br><span class="line">		q = r**<span class="number">5</span> - <span class="number">9</span>*r**<span class="number">4</span> + <span class="number">17</span>*r**<span class="number">3</span> - <span class="number">311</span>*r**<span class="number">2</span> - <span class="number">16</span>*r + <span class="number">14029</span></span><br><span class="line">		<span class="keyword">if</span> isPrime(p) <span class="keyword">and</span> isPrime(q):</span><br><span class="line">			<span class="keyword">return</span> p, q</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">enc</span>(<span class="params">flag, n</span>):</span><br><span class="line">	m = bytes_to_long(flag)</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">pow</span>(m, <span class="number">31337</span>, n)</span><br><span class="line"></span><br><span class="line">p, q = genprime()</span><br><span class="line">n = p * q</span><br><span class="line">c = enc(flag, n)</span><br><span class="line"><span class="built_in">print</span>(n)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br></pre></td></tr></table></figure>
+<p><strong>task.py</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> getPrime, bytes_to_long</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">p1 = getPrime(<span class="number">256</span>)</span><br><span class="line">p2 = gmpy2.next_prime(p1)</span><br><span class="line">q1 = getPrime(<span class="number">256</span>)</span><br><span class="line">q2 = gmpy2.next_prime(q1)</span><br><span class="line">n = p1 * p2 * q1 * q2</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">c = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;n = %s&quot;</span> % <span class="built_in">str</span>(n)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;c = %s&quot;</span> % <span class="built_in">str</span>(c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># n = 64167976067579049714960625453369319623574147507612434283986049223337768780480307767872484679214997588434480836733456745370562072077109044069294552424055163225824033286416753073591864962033181307822913035174676405849974928866646899569297852568167037383571518655075260561571463850326020102574832776970253538663</span></span><br><span class="line"><span class="comment"># c = 61862798948167945139222097835309318688214053098609025632041946354708220281670731577734398373186075525909035569024535800893559811995294302363408878574730352951360726686941143742759917076156204564133401228995322937563878389120770732315714920284214472911769619065607001763986611359218449802649142381309774537696</span></span><br></pre></td></tr></table></figure>
 
 
 
-<p><code>exp.py</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="number">73553176031506251642448229714220151174734540964434813056145000616720019024269982417494553771890010861489245572362590935764438928110836109730139595790550323300572059713433794357690270439325805603980903813396260703</span></span><br><span class="line">c = <span class="number">19209686331218755173713714974036153099675780768506975193406617712945126866438211292560144823093347834048813455853960982766572556698881387553177980003129346158494272297017876567974550982519632403844694686184532804</span></span><br><span class="line">e = <span class="number">31337</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Original_RSA</span>(<span class="params">p,q,e,c,n</span>):</span><br><span class="line">    N = (p-<span class="number">1</span>)*(q-<span class="number">1</span>)</span><br><span class="line">    d = <span class="built_in">int</span>(invert(e, N))</span><br><span class="line">    m = powmod(c, d, n)</span><br><span class="line">    <span class="keyword">return</span> m</span><br><span class="line">r = Symbol(<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">p = <span class="keyword">lambda</span> r: r ** <span class="number">6</span> + <span class="number">8</span> * r ** <span class="number">4</span> - <span class="number">41</span> * r ** <span class="number">3</span> + <span class="number">14</span> * r ** <span class="number">2</span> - <span class="number">116</span> * r + <span class="number">31387</span></span><br><span class="line">q = <span class="keyword">lambda</span> r: r ** <span class="number">5</span> - <span class="number">9</span> * r ** <span class="number">4</span> + <span class="number">17</span> * r ** <span class="number">3</span> - <span class="number">311</span> * r ** <span class="number">2</span> - <span class="number">16</span> * r + <span class="number">14029</span></span><br><span class="line">n0 = p(r) * q(r)</span><br><span class="line">f = n - n0</span><br><span class="line"><span class="comment"># print(f)</span></span><br><span class="line">sol = solve([f], [r])</span><br><span class="line">x = sol[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">p = mpz(p(x))</span><br><span class="line">q = mpz(q(x))</span><br><span class="line">m = Original_RSA(p, q, e, c, n)</span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m).decode())</span><br><span class="line"><span class="comment"># 642921858775320553662877496454459277194994123046130653667709</span></span><br><span class="line"><span class="comment"># flag&#123;G3t_m0re_fuN_RSA!!!&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># or sage to solve out p, q</span></span><br><span class="line">PR.&lt;k&gt; = PolynomialRing(ZZ) <span class="comment"># define k</span></span><br><span class="line">p = k**<span class="number">6</span> + <span class="number">7</span>*k**<span class="number">4</span> - <span class="number">40</span>*k**<span class="number">3</span> + <span class="number">12</span>*k**<span class="number">2</span> - <span class="number">114</span>*k + <span class="number">31377</span></span><br><span class="line">q = k**<span class="number">5</span> - <span class="number">8</span>*k**<span class="number">4</span> + <span class="number">19</span>*k**<span class="number">3</span> - <span class="number">313</span>*k**<span class="number">2</span> - <span class="number">14</span>*k + <span class="number">14011</span></span><br><span class="line">n0 = p*q</span><br><span class="line"><span class="comment"># k^11 - 8*k^10 + 26*k^9 - 409*k^8 + 451*k^7 + 10850*k^6 + 44939*k^5 - 158301*k^4 + 71237*k^3 - 9651273*k^2 - 2036532*k + 439623147</span></span><br><span class="line">f = n - n0</span><br><span class="line">sol = f.roots() <span class="comment"># solve the root of the equation</span></span><br><span class="line"><span class="comment"># print(sol)</span></span><br><span class="line"><span class="comment"># [(9291098683758154336, 1)]</span></span><br><span class="line">x = sol[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">p = p(x)</span><br><span class="line">q = q(x)</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="ezmisc"><a href="#ezmisc" class="headerlink" title="ezmisc"></a>ezmisc</h1><blockquote>
-<p>Download: <a href="ezmisc1.zip">ezmisc</a></p>
-</blockquote>
-<ul>
-<li>Archive pseudo-encryption</li>
-<li>Repair the file header</li>
-<li>Extract the hidden files</li>
-<li>Unzip nested packages</li>
-<li>Properties area steganation &amp;&amp; Brute force</li>
-<li>Blast file height or width</li>
+<p><strong>Analyse</strong></p>
+<p>From the code, we can make a conclusion that the <code>p1</code> and <code>p2</code> are primes which are neighbors, and the <code>q1</code> and <code>q2</code> are the same. </p>
+<p>At this time, we can use <code>fermat factor</code> to solve out the different <code>p1</code>, <code>p2</code>, <code>q1</code> and <code>q2</code>. </p>
+<p>The <code>n</code>  is <code>Composite number</code> , so we will use <code>Euler function 2</code> to solve out $\varphi(n)$. </p>
+<p>We use <code>fermat factor</code> to make a possible list and make sure that the <code>n = p1 * p2 * q1 * q2</code></p>
+<h1 id="factor2"><a href="#factor2" class="headerlink" title="factor2"></a>factor2</h1><h1 id="secret-data"><a href="#secret-data" class="headerlink" title="secret_data"></a>secret_data</h1><ul>
+<li>change and fix the data</li>
+<li>convert data to zip</li>
+<li>zip to xlsx</li>
+<li>kali-grep to find the flag</li>
 </ul>
-<h2 id="Archive-pseudo-encryption"><a href="#Archive-pseudo-encryption" class="headerlink" title="Archive pseudo-encryption"></a>Archive pseudo-encryption</h2><blockquote>
-<p>Winhex</p>
-</blockquote>
-<p>Use winhex to find <code>504B0102</code>, and the keypoint <code>09</code> which is the 5th behind the <code>504B0102</code>. Edit it to <code>00</code> and unzip the zip. </p>
-<img src="/2022/11/16/22-11-16-YD/1.jpg" class="" title="Edit and unzip">
-
-<p> And get the output <code>1.png</code>.</p>
-<h2 id="Repair-the-file-header"><a href="#Repair-the-file-header" class="headerlink" title="Repair the file header"></a>Repair the file header</h2><blockquote>
-<p>Winhex</p>
-</blockquote>
-<p>Find the <code>1.png</code> cannot open well. Check the file header, we find that the header is <code>000000000D0A1A0A</code> which is different to <code>89504E470D0A1A0A</code>. Thus, use winhex to edit and get the real <code>1.png</code>.</p>
-<img src="/2022/11/16/22-11-16-YD/1.png" class="" title="1.png">
-
-<h2 id="Extract-the-hidden-files"><a href="#Extract-the-hidden-files" class="headerlink" title="Extract the hidden files"></a>Extract the hidden files</h2><blockquote>
-<p>binwalk</p>
-<p>foremost</p>
-</blockquote>
-<p>Use binwalk to check if there are hidden files in the picture. If yes, and we execute the foremost to get the hidden files. </p>
-<p><em>Make the <strong>output</strong> file empty!</em></p>
-<h2 id="Unzip-nested-packages"><a href="#Unzip-nested-packages" class="headerlink" title="Unzip nested packages"></a>Unzip nested packages</h2><blockquote>
-<p>ExtractNow</p>
-<p>Download: <a href="ExtractNow_V4.8.3.0.zip">ExtractNow</a></p>
-</blockquote>
-<p>After using the tool <code>ExtractNow</code>, we get the <code>flag.zip</code> and <code>password.zip</code> both of which are encrypted.</p>
-<h2 id="Properties-area-steganation-amp-amp-Brute-force"><a href="#Properties-area-steganation-amp-amp-Brute-force" class="headerlink" title="Properties area steganation &amp;&amp; Brute force"></a>Properties area steganation &amp;&amp; Brute force</h2><blockquote>
-<p>ARCHPR</p>
-</blockquote>
-<p>From the <code>password.zip</code> ‘s properties, we get the hint that <code>8 digits</code>. We brute the zip’s password by ARCHPR. </p>
-<p>Unzip the <code>password.zip</code>, we get the <code>password.txt</code>. By this dictionary, we can also brute the <code>flag.zip</code> by ARCHPR and obtain the final picture <code>flag.png</code>.</p>
-<h2 id="Blast-file-height-or-width"><a href="#Blast-file-height-or-width" class="headerlink" title="Blast file height or width"></a>Blast file height or width</h2><blockquote>
-<p>stegsolve</p>
-<p>python</p>
-<p>winhex</p>
-</blockquote>
-<p>By the <code>stegsolve</code>, we can make a conclusion that the picture’s height or width has been edited from the <code>Calculated CRC</code>. </p>
-<img src="/2022/11/16/22-11-16-YD/2.png" class="" title="stegsolve_check">
-
-<p>Use a script for blasting, remember that the script has its rules. </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hexstr2bytes</span>(<span class="params">s</span>):</span><br><span class="line">    b = <span class="string">b&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(s), <span class="number">2</span>):</span><br><span class="line">        temp = s[i:i+<span class="number">2</span>]</span><br><span class="line">        b += struct.pack(<span class="string">&#x27;B&#x27;</span>, <span class="built_in">int</span>(temp, <span class="number">16</span>))</span><br><span class="line">    <span class="keyword">return</span> b</span><br><span class="line">str1 = <span class="string">&#x27;49484452&#x27;</span>   <span class="comment"># HEX/IHDR</span></span><br><span class="line">str2 = <span class="string">&#x27;0802000000&#x27;</span> <span class="comment"># Bit depth，ColorType，Compression method，Filter method，Interlace method</span></span><br><span class="line">bytes1 = hexstr2bytes(str1)</span><br><span class="line">bytes2 = hexstr2bytes(str2)</span><br><span class="line">wid, hei = <span class="number">507</span>, <span class="number">507</span>  <span class="comment"># width height</span></span><br><span class="line"></span><br><span class="line">crc32 = <span class="string">&#x27;0xe440b49a&#x27;</span> <span class="comment"># CRC32</span></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> <span class="built_in">range</span>(wid, wid+<span class="number">2000</span>):</span><br><span class="line">    <span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(hei, hei+<span class="number">2000</span>):</span><br><span class="line">        width = <span class="built_in">hex</span>(w)[<span class="number">2</span>:].rjust(<span class="number">8</span>, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">        height = <span class="built_in">hex</span>(h)[<span class="number">2</span>:].rjust(<span class="number">8</span>, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">        bytes_tmp = hexstr2bytes(width+height)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">eval</span>(<span class="built_in">hex</span>(zlib.crc32(bytes1+bytes_tmp+bytes2))) == <span class="built_in">eval</span>(crc32):</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">hex</span>(w), <span class="built_in">hex</span>(h))</span><br><span class="line">            </span><br><span class="line"><span class="comment"># 0x260 0x1fb</span></span><br></pre></td></tr></table></figure>
-
-<p>Edit the width, and we will get the true <code>flag.png</code>.</p>
-<img src="/2022/11/16/22-11-16-YD/flag.png" class="" title="true_flag">
-
 ]]></content>
       <categories>
         <category>Studying</category>
       </categories>
       <tags>
-        <tag>crypto</tag>
-        <tag>RSA</tag>
         <tag>wp</tag>
-        <tag>misc</tag>
+        <tag>cnhongke</tag>
+        <tag>multiplicative_homomorphic</tag>
       </tags>
   </entry>
 </search>
