@@ -1,184 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>22-11-15-functions</title>
-    <url>/2022/11/15/22-11-15-functions/</url>
-    <content><![CDATA[<p>To conclude the functions that I met in these years. </p>
-<p>Just show that how the functions and equations </p>
-<p>make a one-to-one relation. </p>
-<p>Relating to <strong>python</strong>, <strong>sagemath</strong>……</p>
-<span id="more"></span>
-
-<h1 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h1><h2 id="normal"><a href="#normal" class="headerlink" title="normal"></a>normal</h2><h3 id="num-bit-length"><a href="#num-bit-length" class="headerlink" title="num.bit_length()"></a>num.bit_length()</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">generate_prime(<span class="number">10</span>).bit_length()</span><br><span class="line"><span class="comment"># 10</span></span><br><span class="line">num = <span class="number">1024</span></span><br><span class="line">num.bit_length()</span><br><span class="line"><span class="comment"># 11</span></span><br><span class="line"><span class="number">1024.</span>bit_length()</span><br><span class="line"><span class="comment"># error</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="gmpy2"><a href="#gmpy2" class="headerlink" title="gmpy2"></a>gmpy2</h2><h3 id="gcd"><a href="#gcd" class="headerlink" title="gcd()"></a>gcd()</h3><blockquote>
-<p>input: gcd(a, b)</p>
-<p>output: the greatest</p>
-</blockquote>
-<p>To solve out the greatest common factor between $a$ and $b$</p>
-<h3 id="gcdext-a-b"><a href="#gcdext-a-b" class="headerlink" title="gcdext(a, b)"></a>gcdext(a, b)</h3><h3 id="invert-a-n"><a href="#invert-a-n" class="headerlink" title="invert(a, n)"></a>invert(a, n)</h3><h3 id="powmod-a-b-c"><a href="#powmod-a-b-c" class="headerlink" title="powmod(a, b, c)"></a>powmod(a, b, c)</h3><h3 id="next-prime-a"><a href="#next-prime-a" class="headerlink" title="next_prime(a)"></a>next_prime(a)</h3><h3 id="iroot"><a href="#iroot" class="headerlink" title="iroot()"></a>iroot()</h3><h2 id="pycryptodome"><a href="#pycryptodome" class="headerlink" title="pycryptodome"></a>pycryptodome</h2><h3 id="bytes-to-long"><a href="#bytes-to-long" class="headerlink" title="bytes_to_long()"></a>bytes_to_long()</h3><h3 id="long-to-bytes"><a href="#long-to-bytes" class="headerlink" title="long_to_bytes()"></a>long_to_bytes()</h3><h2 id="sympy"><a href="#sympy" class="headerlink" title="sympy"></a>sympy</h2><blockquote>
-<p><a href="https://geek-docs.com/sympy/sympy-method/python-sympy-solve-method.html">sympy.solve()方法|极客教程 (geek-docs.com)</a></p>
-</blockquote>
-<h3 id="symbol"><a href="#symbol" class="headerlink" title="symbol()"></a>symbol()</h3><blockquote>
-<p>input: unknowns</p>
-<p>output: defined unknowns</p>
-</blockquote>
-<p>Define the unknowns, such as $x$, $y$, etc.</p>
-<p>Two ways to define: </p>
-<ul>
-<li>an unknown quantity: <code>x = Symbol(&#39;x&#39;)</code></li>
-<li>more than one unknown quantity: <code>x, y = symbols(&#39;x y&#39;)</code></li>
-</ul>
-<h3 id="solve"><a href="#solve" class="headerlink" title="solve()"></a>solve()</h3><blockquote>
-<p>input: solve([equations], [unknowns])</p>
-<p>output: the root of the equations</p>
-</blockquote>
-<h2 id="z3"><a href="#z3" class="headerlink" title="z3"></a>z3</h2><p><strong>install</strong></p>
-<ul>
-<li>cmd <code>pip install z3_solver</code></li>
-<li>pycharm <code>setting -&gt; python interpreter -&gt; + -&gt; search for z3_solver.eg</code></li>
-</ul>
-<p><strong>import</strong></p>
-<ul>
-<li><code>from z3 import *</code></li>
-<li><code>import z3</code></li>
-</ul>
-<h3 id="Int-x2F-Ints"><a href="#Int-x2F-Ints" class="headerlink" title="Int()&#x2F;Ints()"></a>Int()&#x2F;Ints()</h3><blockquote>
-<p>input: unknown</p>
-<p>output: Integer variable. </p>
-<p>eg: 3, 5, 7……</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = Int(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">a, b = Ints(<span class="string">&#x27;a b&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Real-x2F-Reals"><a href="#Real-x2F-Reals" class="headerlink" title="Real()&#x2F;Reals()"></a>Real()&#x2F;Reals()</h3><blockquote>
-<p>input: unknown</p>
-<p>output: Real variable. </p>
-<p>eg: $2^{\frac{1}{2}}$……</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = Real(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line"><span class="comment"># or </span></span><br><span class="line">a, b = Reals(<span class="string">&#x27;a b&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><em>Same above.</em></p>
-<h3 id="BitVec-x2F-BitVecs"><a href="#BitVec-x2F-BitVecs" class="headerlink" title="BitVec()&#x2F;BitVecs()"></a>BitVec()&#x2F;BitVecs()</h3><blockquote>
-<p>input: bit vector unknown</p>
-<p>output: bit vectors</p>
-<p>eg: 11000001, 11111000……</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = BitVec(<span class="string">&#x27;a&#x27;</span>, <span class="number">8</span>)</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">a, b = BitVecs(<span class="string">&#x27;a b&#x27;</span>, <span class="number">8</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Solver"><a href="#Solver" class="headerlink" title="Solver()"></a>Solver()</h3><blockquote>
-<p>create a  Solver to calculate</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = Solver()</span><br></pre></td></tr></table></figure>
-
-<h3 id="add"><a href="#add" class="headerlink" title="add()"></a>add()</h3><blockquote>
-<p>input: equations or constraints</p>
-<p>output: add to conditions</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># s = Solver()</span></span><br><span class="line"><span class="comment"># equ = [a + b == 10, a - b == 6]</span></span><br><span class="line">s.add(equ)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="check"><a href="#check" class="headerlink" title="check()"></a>check()</h3><blockquote>
-<p>to check the conditions and solve out</p>
-<p>output: sat &#x2F; unsat</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># s.add(equ)</span></span><br><span class="line">s.check()</span><br><span class="line"><span class="comment"># sat</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="model"><a href="#model" class="headerlink" title="model()"></a>model()</h3><blockquote>
-<p>solve out the satisfied roots</p>
-<p>output: the roots</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># s.check()</span></span><br><span class="line"><span class="comment"># if the output is sat that stands for there exist roots</span></span><br><span class="line">s.model()</span><br><span class="line"><span class="comment"># [a = 8, b = 2]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h2><blockquote>
-<p>Traverse all possibilities</p>
-</blockquote>
-<blockquote>
-<p><a href="https://docs.python.org/3/library/itertools.html">itertools — Functions creating iterators for efficient looping — Python 3.11.1 documentation</a></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> itertools</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="product"><a href="#product" class="headerlink" title="product()"></a>product()</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">product(<span class="string">&#x27;ABCD&#x27;</span>, repeat = <span class="number">2</span>)</span><br><span class="line"><span class="comment"># AA AB AC AD BA BB BC BD CA CB CC CD DA DB DC DD</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="permutations"><a href="#permutations" class="headerlink" title="permutations()"></a>permutations()</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">permutations(<span class="string">&#x27;ABCD&#x27;</span>, <span class="number">2</span>)</span><br><span class="line"><span class="comment"># AB AC AD BA BC BD CA CB CD DA DB DC</span></span><br><span class="line"><span class="comment"># no repeated compared to result above</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="combinations"><a href="#combinations" class="headerlink" title="combinations()"></a>combinations()</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">combinations(<span class="string">&#x27;ABCD&#x27;</span>, <span class="number">2</span>)</span><br><span class="line"><span class="comment"># AB AC AD BC BD CD</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="combinations-with-replacement"><a href="#combinations-with-replacement" class="headerlink" title="combinations_with_replacement()"></a>combinations_with_replacement()</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">combinations_with_replacement(<span class="string">&#x27;ABCD&#x27;</span>, <span class="number">2</span>)</span><br><span class="line"><span class="comment"># AA AB AC AD BB BC BD CC CD DD</span></span><br><span class="line"><span class="comment"># repeated compared to result above</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="libnum"><a href="#libnum" class="headerlink" title="libnum"></a>libnum</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> libnum <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> libnum</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="n2s-n"><a href="#n2s-n" class="headerlink" title="n2s(n)"></a>n2s(n)</h3><blockquote>
-<p>number convert to string</p>
-</blockquote>
-<h3 id="s2n-s"><a href="#s2n-s" class="headerlink" title="s2n(s)"></a>s2n(s)</h3><blockquote>
-<p>string convert to number</p>
-</blockquote>
-<h3 id="s2b-s"><a href="#s2b-s" class="headerlink" title="s2b(s)"></a>s2b(s)</h3><blockquote>
-<p>string convert to binary</p>
-</blockquote>
-<h3 id="b2s-b"><a href="#b2s-b" class="headerlink" title="b2s(b)"></a>b2s(b)</h3><blockquote>
-<p>binary convert to string</p>
-</blockquote>
-<h3 id="prime-n"><a href="#prime-n" class="headerlink" title="prime(n)"></a>prime(n)</h3><blockquote>
-<p>produce primes &lt; &#x3D; n</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>primes(<span class="number">14</span>)</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>primes(<span class="number">13</span>)</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="generate-prime-n"><a href="#generate-prime-n" class="headerlink" title="generate_prime(n)"></a>generate_prime(n)</h3><blockquote>
-<p>generate bit_length&#x3D;n prime</p>
-</blockquote>
- <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">generate_prime(<span class="number">10</span>)</span><br><span class="line"><span class="comment"># 787</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="sagemath"><a href="#sagemath" class="headerlink" title="sagemath"></a>sagemath</h1><h2 id="var"><a href="#var" class="headerlink" title="var()"></a>var()</h2><blockquote>
-<p>input: Integer</p>
-<p>output:  Integer variables</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x, y, z = var(<span class="string">&#x27;x y z&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="solve-1"><a href="#solve-1" class="headerlink" title="solve()"></a>solve()</h2><blockquote>
-<p>input: solve([equations], [variables])</p>
-<p>output: roots</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">3x-y+z=185</span></span><br><span class="line"><span class="string">2x+3y-z=321</span></span><br><span class="line"><span class="string">x+y+z=173</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">x, y, z = var(<span class="string">&#x27;x y z&#x27;</span>)</span><br><span class="line">f1 = <span class="number">3</span>*x - y + z == <span class="number">185</span></span><br><span class="line">f2 = <span class="number">2</span>*x + <span class="number">3</span>*y - z == <span class="number">321</span></span><br><span class="line">f3 = x + y + z == <span class="number">185</span></span><br><span class="line">sol = solve([f1, f2, f3], [x, y, z])</span><br><span class="line"><span class="comment"># [[x == 74, y == 68, z == 31]]</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">x*x+x-7943722218936282=0</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">f = x*x + x - <span class="number">7943722218936282</span></span><br><span class="line">solve([f], [x])</span><br><span class="line"><span class="comment"># [x == 89127561, x == -89127562]</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Studying</category>
-      </categories>
-      <tags>
-        <tag>function</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>22-10-21-hexo-build-beautify</title>
     <url>/2022/10/21/22-10-21-hexo-build-beautify/</url>
     <content><![CDATA[<p>The article is used to record how to use hexo to build my own blog. I will try my best to make records by using English. To Be Honest, this is really somewhat a hard challenge for me.</p>
@@ -813,6 +635,184 @@
       </tags>
   </entry>
   <entry>
+    <title>22-11-15-functions</title>
+    <url>/2022/11/15/22-11-15-functions/</url>
+    <content><![CDATA[<p>To conclude the functions that I met in these years. </p>
+<p>Just show that how the functions and equations </p>
+<p>make a one-to-one relation. </p>
+<p>Relating to <strong>python</strong>, <strong>sagemath</strong>……</p>
+<span id="more"></span>
+
+<h1 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h1><h2 id="normal"><a href="#normal" class="headerlink" title="normal"></a>normal</h2><h3 id="num-bit-length"><a href="#num-bit-length" class="headerlink" title="num.bit_length()"></a>num.bit_length()</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">generate_prime(<span class="number">10</span>).bit_length()</span><br><span class="line"><span class="comment"># 10</span></span><br><span class="line">num = <span class="number">1024</span></span><br><span class="line">num.bit_length()</span><br><span class="line"><span class="comment"># 11</span></span><br><span class="line"><span class="number">1024.</span>bit_length()</span><br><span class="line"><span class="comment"># error</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="gmpy2"><a href="#gmpy2" class="headerlink" title="gmpy2"></a>gmpy2</h2><h3 id="gcd"><a href="#gcd" class="headerlink" title="gcd()"></a>gcd()</h3><blockquote>
+<p>input: gcd(a, b)</p>
+<p>output: the greatest</p>
+</blockquote>
+<p>To solve out the greatest common factor between $a$ and $b$</p>
+<h3 id="gcdext-a-b"><a href="#gcdext-a-b" class="headerlink" title="gcdext(a, b)"></a>gcdext(a, b)</h3><h3 id="invert-a-n"><a href="#invert-a-n" class="headerlink" title="invert(a, n)"></a>invert(a, n)</h3><h3 id="powmod-a-b-c"><a href="#powmod-a-b-c" class="headerlink" title="powmod(a, b, c)"></a>powmod(a, b, c)</h3><h3 id="next-prime-a"><a href="#next-prime-a" class="headerlink" title="next_prime(a)"></a>next_prime(a)</h3><h3 id="iroot"><a href="#iroot" class="headerlink" title="iroot()"></a>iroot()</h3><h2 id="pycryptodome"><a href="#pycryptodome" class="headerlink" title="pycryptodome"></a>pycryptodome</h2><h3 id="bytes-to-long"><a href="#bytes-to-long" class="headerlink" title="bytes_to_long()"></a>bytes_to_long()</h3><h3 id="long-to-bytes"><a href="#long-to-bytes" class="headerlink" title="long_to_bytes()"></a>long_to_bytes()</h3><h2 id="sympy"><a href="#sympy" class="headerlink" title="sympy"></a>sympy</h2><blockquote>
+<p><a href="https://geek-docs.com/sympy/sympy-method/python-sympy-solve-method.html">sympy.solve()方法|极客教程 (geek-docs.com)</a></p>
+</blockquote>
+<h3 id="symbol"><a href="#symbol" class="headerlink" title="symbol()"></a>symbol()</h3><blockquote>
+<p>input: unknowns</p>
+<p>output: defined unknowns</p>
+</blockquote>
+<p>Define the unknowns, such as $x$, $y$, etc.</p>
+<p>Two ways to define: </p>
+<ul>
+<li>an unknown quantity: <code>x = Symbol(&#39;x&#39;)</code></li>
+<li>more than one unknown quantity: <code>x, y = symbols(&#39;x y&#39;)</code></li>
+</ul>
+<h3 id="solve"><a href="#solve" class="headerlink" title="solve()"></a>solve()</h3><blockquote>
+<p>input: solve([equations], [unknowns])</p>
+<p>output: the root of the equations</p>
+</blockquote>
+<h2 id="z3"><a href="#z3" class="headerlink" title="z3"></a>z3</h2><p><strong>install</strong></p>
+<ul>
+<li>cmd <code>pip install z3_solver</code></li>
+<li>pycharm <code>setting -&gt; python interpreter -&gt; + -&gt; search for z3_solver.eg</code></li>
+</ul>
+<p><strong>import</strong></p>
+<ul>
+<li><code>from z3 import *</code></li>
+<li><code>import z3</code></li>
+</ul>
+<h3 id="Int-x2F-Ints"><a href="#Int-x2F-Ints" class="headerlink" title="Int()&#x2F;Ints()"></a>Int()&#x2F;Ints()</h3><blockquote>
+<p>input: unknown</p>
+<p>output: Integer variable. </p>
+<p>eg: 3, 5, 7……</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = Int(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">a, b = Ints(<span class="string">&#x27;a b&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Real-x2F-Reals"><a href="#Real-x2F-Reals" class="headerlink" title="Real()&#x2F;Reals()"></a>Real()&#x2F;Reals()</h3><blockquote>
+<p>input: unknown</p>
+<p>output: Real variable. </p>
+<p>eg: $2^{\frac{1}{2}}$……</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = Real(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line"><span class="comment"># or </span></span><br><span class="line">a, b = Reals(<span class="string">&#x27;a b&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><em>Same above.</em></p>
+<h3 id="BitVec-x2F-BitVecs"><a href="#BitVec-x2F-BitVecs" class="headerlink" title="BitVec()&#x2F;BitVecs()"></a>BitVec()&#x2F;BitVecs()</h3><blockquote>
+<p>input: bit vector unknown</p>
+<p>output: bit vectors</p>
+<p>eg: 11000001, 11111000……</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = BitVec(<span class="string">&#x27;a&#x27;</span>, <span class="number">8</span>)</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">a, b = BitVecs(<span class="string">&#x27;a b&#x27;</span>, <span class="number">8</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Solver"><a href="#Solver" class="headerlink" title="Solver()"></a>Solver()</h3><blockquote>
+<p>create a  Solver to calculate</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = Solver()</span><br></pre></td></tr></table></figure>
+
+<h3 id="add"><a href="#add" class="headerlink" title="add()"></a>add()</h3><blockquote>
+<p>input: equations or constraints</p>
+<p>output: add to conditions</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># s = Solver()</span></span><br><span class="line"><span class="comment"># equ = [a + b == 10, a - b == 6]</span></span><br><span class="line">s.add(equ)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="check"><a href="#check" class="headerlink" title="check()"></a>check()</h3><blockquote>
+<p>to check the conditions and solve out</p>
+<p>output: sat &#x2F; unsat</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># s.add(equ)</span></span><br><span class="line">s.check()</span><br><span class="line"><span class="comment"># sat</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="model"><a href="#model" class="headerlink" title="model()"></a>model()</h3><blockquote>
+<p>solve out the satisfied roots</p>
+<p>output: the roots</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># s.check()</span></span><br><span class="line"><span class="comment"># if the output is sat that stands for there exist roots</span></span><br><span class="line">s.model()</span><br><span class="line"><span class="comment"># [a = 8, b = 2]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h2><blockquote>
+<p>Traverse all possibilities</p>
+</blockquote>
+<blockquote>
+<p><a href="https://docs.python.org/3/library/itertools.html">itertools — Functions creating iterators for efficient looping — Python 3.11.1 documentation</a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> itertools</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="product"><a href="#product" class="headerlink" title="product()"></a>product()</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">product(<span class="string">&#x27;ABCD&#x27;</span>, repeat = <span class="number">2</span>)</span><br><span class="line"><span class="comment"># AA AB AC AD BA BB BC BD CA CB CC CD DA DB DC DD</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="permutations"><a href="#permutations" class="headerlink" title="permutations()"></a>permutations()</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">permutations(<span class="string">&#x27;ABCD&#x27;</span>, <span class="number">2</span>)</span><br><span class="line"><span class="comment"># AB AC AD BA BC BD CA CB CD DA DB DC</span></span><br><span class="line"><span class="comment"># no repeated compared to result above</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="combinations"><a href="#combinations" class="headerlink" title="combinations()"></a>combinations()</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">combinations(<span class="string">&#x27;ABCD&#x27;</span>, <span class="number">2</span>)</span><br><span class="line"><span class="comment"># AB AC AD BC BD CD</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="combinations-with-replacement"><a href="#combinations-with-replacement" class="headerlink" title="combinations_with_replacement()"></a>combinations_with_replacement()</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">combinations_with_replacement(<span class="string">&#x27;ABCD&#x27;</span>, <span class="number">2</span>)</span><br><span class="line"><span class="comment"># AA AB AC AD BB BC BD CC CD DD</span></span><br><span class="line"><span class="comment"># repeated compared to result above</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="libnum"><a href="#libnum" class="headerlink" title="libnum"></a>libnum</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> libnum <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> libnum</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="n2s-n"><a href="#n2s-n" class="headerlink" title="n2s(n)"></a>n2s(n)</h3><blockquote>
+<p>number convert to string</p>
+</blockquote>
+<h3 id="s2n-s"><a href="#s2n-s" class="headerlink" title="s2n(s)"></a>s2n(s)</h3><blockquote>
+<p>string convert to number</p>
+</blockquote>
+<h3 id="s2b-s"><a href="#s2b-s" class="headerlink" title="s2b(s)"></a>s2b(s)</h3><blockquote>
+<p>string convert to binary</p>
+</blockquote>
+<h3 id="b2s-b"><a href="#b2s-b" class="headerlink" title="b2s(b)"></a>b2s(b)</h3><blockquote>
+<p>binary convert to string</p>
+</blockquote>
+<h3 id="prime-n"><a href="#prime-n" class="headerlink" title="prime(n)"></a>prime(n)</h3><blockquote>
+<p>produce primes &lt; &#x3D; n</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>primes(<span class="number">14</span>)</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>primes(<span class="number">13</span>)</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="generate-prime-n"><a href="#generate-prime-n" class="headerlink" title="generate_prime(n)"></a>generate_prime(n)</h3><blockquote>
+<p>generate bit_length&#x3D;n prime</p>
+</blockquote>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">generate_prime(<span class="number">10</span>)</span><br><span class="line"><span class="comment"># 787</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="sagemath"><a href="#sagemath" class="headerlink" title="sagemath"></a>sagemath</h1><h2 id="var"><a href="#var" class="headerlink" title="var()"></a>var()</h2><blockquote>
+<p>input: Integer</p>
+<p>output:  Integer variables</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x, y, z = var(<span class="string">&#x27;x y z&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="solve-1"><a href="#solve-1" class="headerlink" title="solve()"></a>solve()</h2><blockquote>
+<p>input: solve([equations], [variables])</p>
+<p>output: roots</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">3x-y+z=185</span></span><br><span class="line"><span class="string">2x+3y-z=321</span></span><br><span class="line"><span class="string">x+y+z=173</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">x, y, z = var(<span class="string">&#x27;x y z&#x27;</span>)</span><br><span class="line">f1 = <span class="number">3</span>*x - y + z == <span class="number">185</span></span><br><span class="line">f2 = <span class="number">2</span>*x + <span class="number">3</span>*y - z == <span class="number">321</span></span><br><span class="line">f3 = x + y + z == <span class="number">185</span></span><br><span class="line">sol = solve([f1, f2, f3], [x, y, z])</span><br><span class="line"><span class="comment"># [[x == 74, y == 68, z == 31]]</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">x*x+x-7943722218936282=0</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">f = x*x + x - <span class="number">7943722218936282</span></span><br><span class="line">solve([f], [x])</span><br><span class="line"><span class="comment"># [x == 89127561, x == -89127562]</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Studying</category>
+      </categories>
+      <tags>
+        <tag>function</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>22-12-07-2022CnHoneKe</title>
     <url>/2022/12/07/22-12-07-2022CnHoneKe/</url>
     <content><![CDATA[<p>The competition was held in August. </p>
@@ -881,16 +881,6 @@
       </tags>
   </entry>
   <entry>
-    <title>22-12-14-docker-record</title>
-    <url>/2022/12/14/22-12-14-docker-record/</url>
-    <content><![CDATA[<p>I want to learn the docker to compile my environment. But this week   I have no time to make full studying. </p>
-<p>Thus, I make a record which made by <code>Dalao-Zimablue</code>  in this post. </p>
-<span id="more"></span><!--toc-->
-
-<p><a href="https://www.zimablue.life/2022/02/10/Docker%E5%AD%A6%E4%B9%A0/#more">https://www.zimablue.life/2022/02/10/Docker%E5%AD%A6%E4%B9%A0/#more</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>22-12-15-gaps</title>
     <url>/2022/12/15/22-12-15-gaps/</url>
     <content><![CDATA[<p>The gap is aim to complete the puzzle. </p>
@@ -921,29 +911,6 @@
       <tags>
         <tag>tool</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>ART&#39;N DIOR</title>
-    <url>/2022/12/10/ART-N-DIOR/</url>
-    <content><![CDATA[<p>By visiting the exhibition which named “ART’N DIOR”, I arise the interest in Artists’ Inner World. There are many exhibits in the exhibition which is created by artists all over the world.</p>
-<p>These exhibits with unique design concepts are very interesting and novel. Therefore, they are the introductory subject of this article. </p>
-<p>How amazing and fantastical the <strong>ART</strong> is. </p>
-<span id="more"></span><!--toc-->
-
-<h1 id="CONSTRUCT"><a href="#CONSTRUCT" class="headerlink" title="CONSTRUCT"></a>CONSTRUCT</h1><h1 id="CHAIR"><a href="#CHAIR" class="headerlink" title="CHAIR"></a>CHAIR</h1><h1 id="LADY-DIOR"><a href="#LADY-DIOR" class="headerlink" title="LADY DIOR"></a>LADY DIOR</h1>]]></content>
-      <categories>
-        <category>Amusing</category>
-      </categories>
-      <tags>
-        <tag>DIOR</tag>
-        <tag>SHOW</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MAKSIM-NABF-RYUICHI&amp;SAKAMOTO</title>
-    <url>/2022/12/19/MAKSIM-NABF-RYUICHI-SAKAMOTO/</url>
-    <content><![CDATA[<span id="more"></span><!--toc-->
-]]></content>
   </entry>
   <entry>
     <title>22-12-19-basecrack</title>
@@ -999,6 +966,33 @@
       </tags>
   </entry>
   <entry>
+    <title>22-12-14-docker-record</title>
+    <url>/2022/12/14/22-12-14-docker-record/</url>
+    <content><![CDATA[<p>I want to learn the docker to compile my environment. But this week   I have no time to make full studying. </p>
+<p>Thus, I make a record which made by <code>Dalao-Zimablue</code>  in this post. </p>
+<span id="more"></span><!--toc-->
+
+<p><a href="https://www.zimablue.life/2022/02/10/Docker%E5%AD%A6%E4%B9%A0/#more">https://www.zimablue.life/2022/02/10/Docker%E5%AD%A6%E4%B9%A0/#more</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>ART&#39;N DIOR</title>
+    <url>/2022/12/10/ART-N-DIOR/</url>
+    <content><![CDATA[<p>By visiting the exhibition which named “ART’N DIOR”, I arise the interest in Artists’ Inner World. There are many exhibits in the exhibition which is created by artists all over the world.</p>
+<p>These exhibits with unique design concepts are very interesting and novel. Therefore, they are the introductory subject of this article. </p>
+<p>How amazing and fantastical the <strong>ART</strong> is. </p>
+<span id="more"></span><!--toc-->
+
+<h1 id="CONSTRUCT"><a href="#CONSTRUCT" class="headerlink" title="CONSTRUCT"></a>CONSTRUCT</h1><h1 id="CHAIR"><a href="#CHAIR" class="headerlink" title="CHAIR"></a>CHAIR</h1><h1 id="LADY-DIOR"><a href="#LADY-DIOR" class="headerlink" title="LADY DIOR"></a>LADY DIOR</h1>]]></content>
+      <categories>
+        <category>Amusing</category>
+      </categories>
+      <tags>
+        <tag>DIOR</tag>
+        <tag>SHOW</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2022/10/21/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -1016,6 +1010,97 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>22-12-20-Encrypto-Wireshark</title>
+    <url>/2022/12/20/22-12-20-Encrypto-Wireshark/</url>
+    <content><![CDATA[<p>Some traffic packets may be encrypted. When I import the private key in one case, I can’t get the decrypted packets like http.</p>
+<p>FinalIy, I search for this problem and get the solution.</p>
+<p>This post aims to make a conclusion about the <code>encrypted-traffic-packets(tls/ssl)</code>. </p>
+<span id="more"></span><!--toc-->
+
+<h1 id="REFERENCE"><a href="#REFERENCE" class="headerlink" title="REFERENCE"></a>REFERENCE</h1><blockquote>
+<p><a href="https://www.cnblogs.com/jasy/p/16157388.html">https://www.cnblogs.com/jasy/p/16157388.html</a></p>
+</blockquote>
+<p>Really thank for the article!</p>
+<h1 id="DECRYPT-TLS-x2F-SSL"><a href="#DECRYPT-TLS-x2F-SSL" class="headerlink" title="DECRYPT TLS&#x2F;SSL"></a>DECRYPT TLS&#x2F;SSL</h1><p>There are three methods to decrypt the encrypted-ssl&#x2F;tls packets.</p>
+<ul>
+<li>Use the <code>server&#39;s cert</code> or the <code>private-key</code> to decrypt.</li>
+<li>Use the <code>ssl-key-log-file</code> to decrypt. </li>
+<li>Disable the config setting to decrypt packets which use the <code>Diffie-Hellman-Exchange</code>.</li>
+</ul>
+<h2 id="Server’s-cert-x2F-Private-key"><a href="#Server’s-cert-x2F-Private-key" class="headerlink" title="Server’s cert&#x2F;Private-key"></a>Server’s cert&#x2F;Private-key</h2><h3 id="preparation"><a href="#preparation" class="headerlink" title="preparation"></a>preparation</h3><ul>
+<li>TLS&#x2F;SSL packets</li>
+<li>cert or private-key</li>
+<li>wireshark</li>
+</ul>
+<h3 id="notice"><a href="#notice" class="headerlink" title="notice"></a>notice</h3><p>The TLS&#x2F;SSL packets should not relate to the <code>Diffie-Hellman-Exchange</code> and just a common encrypted packets. </p>
+<h4 id="CERT-x2F-PRIVATEKEY"><a href="#CERT-x2F-PRIVATEKEY" class="headerlink" title="CERT&#x2F;PRIVATEKEY"></a>CERT&#x2F;PRIVATEKEY</h4><p>The cert or private-key should not be encrypted. And usually, the private-key is the standard of <code>PKCS#8</code>.</p>
+<p>If you have a binary DER, it cannot be used in wireshark, and we ought to make a convert. </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">openssl pkcs8 -nocrypt -<span class="keyword">in</span> der.key -informat DER -out pem.key -outformat PEM</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><em>der.key: the name and root of DER</em></li>
+<li><em>pem.key: the output file</em></li>
+</ul>
+<p>And, the private-key ought to be like this: </p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/1.png" class="" title="Private-key">
+
+<p>which shows that the beginning is <code>-----BEGIN RSA PRIVATE KEY-----</code>.</p>
+<h4 id="DECRYPT-KEY"><a href="#DECRYPT-KEY" class="headerlink" title="DECRYPT KEY"></a>DECRYPT KEY</h4><blockquote>
+<p><a href="https://www.openssl.org/docs/manmaster/man1/rsa.html#EXAMPLES">&#x2F;docs&#x2F;manmaster&#x2F;man1&#x2F;rsa.html (openssl.org)</a></p>
+</blockquote>
+<p>If the beginning is <code>-----BEGIN ENCRYPTED PRIVATE KEY-----</code>, we should decrypt the key in a proper way. </p>
+<p>a common command is:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">openssl rsa -<span class="keyword">in</span> [source file] -out [outfile]</span><br><span class="line"><span class="comment"># ?Maybe.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="step"><a href="#step" class="headerlink" title="step"></a>step</h3><ul>
+<li>OPEN the wireshark and import the private-key or cert.</li>
+</ul>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/2.png" class="" title="setting">
+
+<ol>
+<li><strong>RSA keys list.</strong> Import private key, add the <code>port</code>, <code>ip</code>, <code>protocol</code>, <code>root</code> and the chosen <code>password</code>. <strong>Mainly used.</strong> </li>
+<li><strong>TLS debug file.</strong> Some debug file.</li>
+<li><strong>Master-Secret log.</strong> Key log file.</li>
+</ol>
+<ul>
+<li>If all things right, and we will see the <code>http traffic</code>.</li>
+</ul>
+<h2 id="Key-log-file"><a href="#Key-log-file" class="headerlink" title="Key log file"></a>Key log file</h2><p>Use the <code>key log file</code>. Usually, this file is in the traffic packets. The key log file is like this.</p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/3.png" class="" title="key log file">
+
+<h2 id="Relate-to-D-H"><a href="#Relate-to-D-H" class="headerlink" title="Relate to D-H"></a>Relate to D-H</h2><p>Sometimes, the encrypted traffic packets cannot be decrypted by using methods above. </p>
+<h3 id="how-to-recognize"><a href="#how-to-recognize" class="headerlink" title="how to recognize"></a>how to recognize</h3><p>When we analyze the traffic packets, we use command like <code>ip.addr == xxx.xxx.xxx.xxx &amp;&amp; tls</code> to find the target packets. </p>
+<p>If we see the <code>Client Hello</code>, we should make a notice that it maybe a <code>D-H encrypted traffic packet</code>. </p>
+<p>For example: </p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/4.png" class="" title="D-H encrypted">
+
+<p>We can change the browser to catch the traffic again.</p>
+<h3 id="set-the-firefox"><a href="#set-the-firefox" class="headerlink" title="set the firefox"></a>set the firefox</h3><p>The address is <code>about:config</code>, and search for the <code>dhe</code>. </p>
+<p>We can change the target according to the traffic packets or make all things   <code>false</code>. </p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/5.png" class="" title="change firefox setting">
+
+<h3 id="recatch-the-traffic-and-analyze"><a href="#recatch-the-traffic-and-analyze" class="headerlink" title="recatch the traffic and analyze"></a>recatch the traffic and analyze</h3><img src="/2022/12/20/22-12-20-Encrypto-Wireshark/6.png" class="" title="remove dhe">
+
+<p>After importing the private key, we can see the  decrypted<code>http traffic</code>. </p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/7.png" class="" title="decrypted http traffic">
+
+<h1 id="CONCLUSION"><a href="#CONCLUSION" class="headerlink" title="CONCLUSION"></a>CONCLUSION</h1><p>The <code>Diffie-Hellman-Exchange</code> is really beyond my imagination. </p>
+]]></content>
+      <categories>
+        <category>Studying</category>
+      </categories>
+      <tags>
+        <tag>wireshark</tag>
+        <tag>diffie_hellman</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MAKSIM-NABF-RYUICHI&amp;SAKAMOTO</title>
+    <url>/2022/12/19/MAKSIM-NABF-RYUICHI-SAKAMOTO/</url>
+    <content><![CDATA[<span id="more"></span><!--toc-->
 ]]></content>
   </entry>
 </search>
