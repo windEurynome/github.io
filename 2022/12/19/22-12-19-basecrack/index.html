@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -18,7 +19,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"windeurynome.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null,"show_result":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"windeurynome.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null,"show_result":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="The guidance to install the basecrack.">
 <meta property="og:type" content="article">
@@ -145,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#INSTALL"><span class="nav-number">1.</span> <span class="nav-text">INSTALL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Support"><span class="nav-number">1.1.</span> <span class="nav-text">Support</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#USAGE"><span class="nav-number">2.</span> <span class="nav-text">USAGE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EXAMPLE"><span class="nav-number">3.</span> <span class="nav-text">EXAMPLE</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">INSTALL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Support"><span class="nav-number">1.1.</span> <span class="nav-text">Support</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">USAGE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">EXAMPLE</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -276,18 +277,19 @@
     <div class="post-body" itemprop="articleBody">
         <p>The guidance to install the <code>basecrack</code>.</p>
 <span id="more"></span><!--toc-->
-
-<h1 id="INSTALL"><a href="#INSTALL" class="headerlink" title="INSTALL"></a>INSTALL</h1><blockquote>
+<h1>INSTALL</h1>
+<blockquote>
 <p><a target="_blank" rel="noopener" href="https://github.com/mufeedvh/basecrack/">https://github.com/mufeedvh/basecrack/</a></p>
 </blockquote>
 <ul>
 <li>git clone <a target="_blank" rel="noopener" href="https://github.com/mufeedvh/basecrack.git">https://github.com/mufeedvh/basecrack.git</a></li>
 <li>cd basecrack</li>
 <li>pip3 install -r requirements.txt</li>
-<li>python3 basecrack.py -h</li>
+<li>python3 <a target="_blank" rel="noopener" href="http://basecrack.py">basecrack.py</a> -h</li>
 </ul>
 <p><em>python2 may get error</em></p>
-<h2 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h2><p>Recently: </p>
+<h2 id="Support">Support</h2>
+<p>Recently:</p>
 <ul>
 <li>Base16</li>
 <li>Base32</li>
@@ -302,20 +304,17 @@
 <li>Base92</li>
 <li>Base100</li>
 </ul>
-<h1 id="USAGE"><a href="#USAGE" class="headerlink" title="USAGE"></a>USAGE</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">usage: basecrack.py [-h] [-b BASE] [-f FILE] [-m] [-i IMAGE] [-c] [-e] [-o OUTPUT]</span><br><span class="line"></span><br><span class="line">options:</span><br><span class="line">  -h, --<span class="built_in">help</span>            show this <span class="built_in">help</span> message <span class="keyword">and</span> exit</span><br><span class="line">  -b BASE, --base BASE  Decode a single encoded base <span class="keyword">from</span> argument.</span><br><span class="line">  -f FILE, --file FILE  Decode multiple encoded bases <span class="keyword">from</span> a file.</span><br><span class="line">  -m, --magic           Decode multi-encoded bases <span class="keyword">in</span> one shot.</span><br><span class="line">  -i IMAGE, --image IMAGE</span><br><span class="line">                        Decode base encodings <span class="keyword">from</span> image <span class="keyword">with</span> OCR detection <span class="keyword">or</span> EXIF data.</span><br><span class="line">  -c, --ocr             OCR detection mode.</span><br><span class="line">  -e, --exif            EXIF data detection mode. (default)</span><br><span class="line">  -o OUTPUT, --output OUTPUT</span><br><span class="line">                        Generate a wordlist/output <span class="keyword">with</span> the decoded bases, enter filename</span><br><span class="line">                        <span class="keyword">as</span> the value.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="EXAMPLE"><a href="#EXAMPLE" class="headerlink" title="EXAMPLE"></a>EXAMPLE</h1><p><a href="base.txt">base</a></p>
+<h1>USAGE</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">usage: basecrack.py [-h] [-b BASE] [-f FILE] [-m] [-i IMAGE] [-c] [-e] [-o OUTPUT]</span><br><span class="line"></span><br><span class="line">options:</span><br><span class="line">  -h, --<span class="built_in">help</span>            show this <span class="built_in">help</span> message <span class="keyword">and</span> exit</span><br><span class="line">  -b BASE, --base BASE  Decode a single encoded base <span class="keyword">from</span> argument.</span><br><span class="line">  -f FILE, --file FILE  Decode multiple encoded bases <span class="keyword">from</span> a file.</span><br><span class="line">  -m, --magic           Decode multi-encoded bases <span class="keyword">in</span> one shot.</span><br><span class="line">  -i IMAGE, --image IMAGE</span><br><span class="line">                        Decode base encodings <span class="keyword">from</span> image <span class="keyword">with</span> OCR detection <span class="keyword">or</span> EXIF data.</span><br><span class="line">  -c, --ocr             OCR detection mode.</span><br><span class="line">  -e, --exif            EXIF data detection mode. (default)</span><br><span class="line">  -o OUTPUT, --output OUTPUT</span><br><span class="line">                        Generate a wordlist/output <span class="keyword">with</span> the decoded bases, enter filename</span><br><span class="line">                        <span class="keyword">as</span> the value.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>EXAMPLE</h1>
+<p><a href="base.txt">base</a></p>
 <blockquote>
-<p>The <code>base.txt</code> is a muti-base, which use base32-&gt;base64-&gt;base64-&gt;base32-&gt;base92-&gt;base100. </p>
+<p>The <code>base.txt</code> is a muti-base, which use base32-&gt;base64-&gt;base64-&gt;base32-&gt;base92-&gt;base100.</p>
 </blockquote>
-<p>The <code>basecrack</code> now supports the base100. And we can  use the command to solve the problem. </p>
+<p>The <code>basecrack</code> now supports the base100. And we can  use the command to solve the problem.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3 basecrack.py -f <span class="string">&quot;xxx/base.txt&quot;</span> -m</span><br><span class="line"><span class="comment"># if is just a ciphertext</span></span><br><span class="line"><span class="comment"># python3 basecrack.py -b &quot;ciphertext&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>The main output: </p>
+<p>The main output:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[-] Iteration: <span class="number">6</span>                                                                             </span><br><span class="line">[-] Heuristic Found Encoding To Be: Base32                                                   </span><br><span class="line">[-] Decoding <span class="keyword">as</span> Base32: This_is_So_S1mple                                                    </span><br><span class="line">&#123;&#123;&lt;&lt;======================================================================&gt;&gt;&#125;&#125;               </span><br><span class="line">[-] Total Iterations: <span class="number">6</span>                                                                      </span><br><span class="line">[-] Encoding Pattern: Base100 -&gt; Base92 -&gt; Base32 -&gt; Base64 -&gt; Base64 -&gt; Base32              </span><br><span class="line">[-] Magic Decode Finished With Result: This_is_So_S1mple                                     </span><br><span class="line">[-] Finished <span class="keyword">in</span> <span class="number">0.0019</span> seconds                         </span><br></pre></td></tr></table></figure>
-
 
     </div>
     <!-- end of the post-->
@@ -383,14 +382,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">53k</span>
+    <span title="Symbols count total">52k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">48 mins.</span>
+    <span title="Reading time total">47 mins.</span>
   </span>
 </div>
 <!--
