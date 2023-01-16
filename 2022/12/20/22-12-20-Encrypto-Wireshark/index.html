@@ -155,7 +155,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#REFERENCE"><span class="nav-number">1.</span> <span class="nav-text">REFERENCE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DECRYPT-TLS-x2F-SSL"><span class="nav-number">2.</span> <span class="nav-text">DECRYPT TLS&#x2F;SSL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Server%E2%80%99s-cert-x2F-Private-key"><span class="nav-number">2.1.</span> <span class="nav-text">Server’s cert&#x2F;Private-key</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#preparation"><span class="nav-number">2.1.1.</span> <span class="nav-text">preparation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#notice"><span class="nav-number">2.1.2.</span> <span class="nav-text">notice</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CERT-x2F-PRIVATEKEY"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">CERT&#x2F;PRIVATEKEY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DECRYPT-KEY"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">DECRYPT KEY</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step"><span class="nav-number">2.1.3.</span> <span class="nav-text">step</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Key-log-file"><span class="nav-number">2.2.</span> <span class="nav-text">Key log file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relate-to-D-H"><span class="nav-number">2.3.</span> <span class="nav-text">Relate to D-H</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#how-to-recognize"><span class="nav-number">2.3.1.</span> <span class="nav-text">how to recognize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set-the-firefox"><span class="nav-number">2.3.2.</span> <span class="nav-text">set the firefox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recatch-the-traffic-and-analyze"><span class="nav-number">2.3.3.</span> <span class="nav-text">recatch the traffic and analyze</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CONCLUSION"><span class="nav-number">3.</span> <span class="nav-text">CONCLUSION</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">REFERENCE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">DECRYPT TLS&#x2F;SSL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Server%E2%80%99s-cert-Private-key"><span class="nav-number">2.1.</span> <span class="nav-text">Server’s cert&#x2F;Private-key</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#preparation"><span class="nav-number">2.1.1.</span> <span class="nav-text">preparation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#notice"><span class="nav-number">2.1.2.</span> <span class="nav-text">notice</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CERT-PRIVATEKEY"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">CERT&#x2F;PRIVATEKEY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DECRYPT-KEY"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">DECRYPT KEY</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step"><span class="nav-number">2.1.3.</span> <span class="nav-text">step</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Key-log-file"><span class="nav-number">2.2.</span> <span class="nav-text">Key log file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relate-to-D-H"><span class="nav-number">2.3.</span> <span class="nav-text">Relate to D-H</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#how-to-recognize"><span class="nav-number">2.3.1.</span> <span class="nav-text">how to recognize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set-the-firefox"><span class="nav-number">2.3.2.</span> <span class="nav-text">set the firefox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recatch-the-traffic-and-analyze"><span class="nav-number">2.3.3.</span> <span class="nav-text">recatch the traffic and analyze</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">CONCLUSION</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -286,79 +286,83 @@
     <div class="post-body" itemprop="articleBody">
         <p>Some traffic packets may be encrypted. When I import the private key in one case, I can’t get the decrypted packets like http.</p>
 <p>FinalIy, I search for this problem and get the solution.</p>
-<p>This post aims to make a conclusion about the <code>encrypted-traffic-packets(tls/ssl)</code>. </p>
+<p>This post aims to make a conclusion about the <code>encrypted-traffic-packets(tls/ssl)</code>.</p>
 <span id="more"></span><!--toc-->
-
-<h1 id="REFERENCE"><a href="#REFERENCE" class="headerlink" title="REFERENCE"></a>REFERENCE</h1><blockquote>
+<h1>REFERENCE</h1>
+<blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jasy/p/16157388.html">https://www.cnblogs.com/jasy/p/16157388.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.joji.me/zh-cn/blog/walkthrough-decrypt-ssl-tls-traffic-https-and-http2-in-wireshark/#md-sslkeylogfile">如何通过Wireshark查看HTTPS、HTTP&#x2F;2网络包（解码TLS、SSL） (joji.me)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.joji.me/zh-cn/blog/walkthrough-decrypt-ssl-tls-traffic-https-and-http2-in-wireshark/#md-sslkeylogfile">如何通过Wireshark查看HTTPS、HTTP/2网络包（解码TLS、SSL） (joji.me)</a></p>
 </blockquote>
 <p>Really thank for the article!</p>
 <p><em>The second is to edit the configuration of computer, which can be caught in the direct way by using webshell.</em></p>
-<h1 id="DECRYPT-TLS-x2F-SSL"><a href="#DECRYPT-TLS-x2F-SSL" class="headerlink" title="DECRYPT TLS&#x2F;SSL"></a>DECRYPT TLS&#x2F;SSL</h1><p>There are three methods to decrypt the encrypted-ssl&#x2F;tls packets.</p>
+<h1>DECRYPT TLS/SSL</h1>
+<p>There are three methods to decrypt the encrypted-ssl/tls packets.</p>
 <ul>
-<li>Use the <code>server&#39;s cert</code> or the <code>private-key</code> to decrypt.</li>
-<li>Use the <code>ssl-key-log-file</code> to decrypt. </li>
+<li>Use the <code>server's cert</code> or the <code>private-key</code> to decrypt.</li>
+<li>Use the <code>ssl-key-log-file</code> to decrypt.</li>
 <li>Disable the config setting to decrypt packets which use the <code>Diffie-Hellman-Exchange</code>.</li>
 </ul>
-<h2 id="Server’s-cert-x2F-Private-key"><a href="#Server’s-cert-x2F-Private-key" class="headerlink" title="Server’s cert&#x2F;Private-key"></a>Server’s cert&#x2F;Private-key</h2><h3 id="preparation"><a href="#preparation" class="headerlink" title="preparation"></a>preparation</h3><ul>
-<li>TLS&#x2F;SSL packets</li>
+<h2 id="Server’s-cert-Private-key">Server’s cert/Private-key</h2>
+<h3 id="preparation">preparation</h3>
+<ul>
+<li>TLS/SSL packets</li>
 <li>cert or private-key</li>
 <li>wireshark</li>
 </ul>
-<h3 id="notice"><a href="#notice" class="headerlink" title="notice"></a>notice</h3><p>The TLS&#x2F;SSL packets should not relate to the <code>Diffie-Hellman-Exchange</code> and just a common encrypted packets. </p>
-<h4 id="CERT-x2F-PRIVATEKEY"><a href="#CERT-x2F-PRIVATEKEY" class="headerlink" title="CERT&#x2F;PRIVATEKEY"></a>CERT&#x2F;PRIVATEKEY</h4><p>The cert or private-key should not be encrypted. And usually, the private-key is the standard of <code>PKCS#8</code>.</p>
-<p>If you have a binary DER, it cannot be used in wireshark, and we ought to make a convert. </p>
+<h3 id="notice">notice</h3>
+<p>The TLS/SSL packets should not relate to the <code>Diffie-Hellman-Exchange</code> and just a common encrypted packets.</p>
+<h4 id="CERT-PRIVATEKEY">CERT/PRIVATEKEY</h4>
+<p>The cert or private-key should not be encrypted. And usually, the private-key is the standard of <code>PKCS#8</code>.</p>
+<p>If you have a binary DER, it cannot be used in wireshark, and we ought to make a convert.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs8 -nocrypt -<span class="keyword">in</span> der.key -informat DER -out pem.key -outformat PEM</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><em>der.key: the name and root of DER</em></li>
 <li><em>pem.key: the output file</em></li>
 </ul>
-<p>And, the private-key ought to be like this: </p>
+<p>And, the private-key ought to be like this:</p>
 <img src="/2022/12/20/22-12-20-Encrypto-Wireshark/1.png" class="" title="Private-key">
-
 <p>which shows that the beginning is <code>-----BEGIN RSA PRIVATE KEY-----</code>.</p>
-<h4 id="DECRYPT-KEY"><a href="#DECRYPT-KEY" class="headerlink" title="DECRYPT KEY"></a>DECRYPT KEY</h4><blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.openssl.org/docs/manmaster/man1/rsa.html#EXAMPLES">&#x2F;docs&#x2F;manmaster&#x2F;man1&#x2F;rsa.html (openssl.org)</a></p>
+<h4 id="DECRYPT-KEY">DECRYPT KEY</h4>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.openssl.org/docs/manmaster/man1/rsa.html#EXAMPLES">/docs/manmaster/man1/rsa.html (openssl.org)</a></p>
 </blockquote>
-<p>If the beginning is <code>-----BEGIN ENCRYPTED PRIVATE KEY-----</code>, we should decrypt the key in a proper way. </p>
+<p>If the beginning is <code>-----BEGIN ENCRYPTED PRIVATE KEY-----</code>, we should decrypt the key in a proper way.</p>
 <p>a common command is:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -<span class="keyword">in</span> [source file] -out [outfile]</span><br><span class="line"><span class="comment"># ?Maybe.</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="step"><a href="#step" class="headerlink" title="step"></a>step</h3><ul>
+<h3 id="step">step</h3>
+<ul>
 <li>OPEN the wireshark and import the private-key or cert.</li>
 </ul>
 <img src="/2022/12/20/22-12-20-Encrypto-Wireshark/2.png" class="" title="setting">
-
 <ol>
-<li><strong>RSA keys list.</strong> Import private key, add the <code>port</code>, <code>ip</code>, <code>protocol</code>, <code>root</code> and the chosen <code>password</code>. <strong>Mainly used.</strong> </li>
+<li><strong>RSA keys list.</strong> Import private key, add the <code>port</code>, <code>ip</code>, <code>protocol</code>, <code>root</code> and the chosen <code>password</code>. <strong>Mainly used.</strong></li>
 <li><strong>TLS debug file.</strong> Some debug file.</li>
 <li><strong>Master-Secret log.</strong> Key log file.</li>
 </ol>
 <ul>
 <li>If all things right, and we will see the <code>http traffic</code>.</li>
 </ul>
-<h2 id="Key-log-file"><a href="#Key-log-file" class="headerlink" title="Key log file"></a>Key log file</h2><p>Use the <code>key log file</code>. Usually, this file is in the traffic packets. The key log file is like this.</p>
+<h2 id="Key-log-file">Key log file</h2>
+<p>Use the <code>key log file</code>. Usually, this file is in the traffic packets. The key log file is like this.</p>
 <img src="/2022/12/20/22-12-20-Encrypto-Wireshark/3.png" class="" title="key log file">
-
-<h2 id="Relate-to-D-H"><a href="#Relate-to-D-H" class="headerlink" title="Relate to D-H"></a>Relate to D-H</h2><p>Sometimes, the encrypted traffic packets cannot be decrypted by using methods above. </p>
-<h3 id="how-to-recognize"><a href="#how-to-recognize" class="headerlink" title="how to recognize"></a>how to recognize</h3><p>When we analyze the traffic packets, we use command like <code>ip.addr == xxx.xxx.xxx.xxx &amp;&amp; tls</code> to find the target packets. </p>
-<p>If we see the <code>Client Hello</code>, we should make a notice that it maybe a <code>D-H encrypted traffic packet</code>. </p>
-<p>For example: </p>
+<h2 id="Relate-to-D-H">Relate to D-H</h2>
+<p>Sometimes, the encrypted traffic packets cannot be decrypted by using methods above.</p>
+<h3 id="how-to-recognize">how to recognize</h3>
+<p>When we analyze the traffic packets, we use command like <code>ip.addr == xxx.xxx.xxx.xxx &amp;&amp; tls</code> to find the target packets.</p>
+<p>If we see the <code>Client Hello</code>, we should make a notice that it maybe a <code>D-H encrypted traffic packet</code>.</p>
+<p>For example:</p>
 <img src="/2022/12/20/22-12-20-Encrypto-Wireshark/4.png" class="" title="D-H encrypted">
-
 <p>We can change the browser to catch the traffic again.</p>
-<h3 id="set-the-firefox"><a href="#set-the-firefox" class="headerlink" title="set the firefox"></a>set the firefox</h3><p>The address is <code>about:config</code>, and search for the <code>dhe</code>. </p>
-<p>We can change the target according to the traffic packets or make all things   <code>false</code>. </p>
+<h3 id="set-the-firefox">set the firefox</h3>
+<p>The address is <code>about:config</code>, and search for the <code>dhe</code>.</p>
+<p>We can change the target according to the traffic packets or make all things   <code>false</code>.</p>
 <img src="/2022/12/20/22-12-20-Encrypto-Wireshark/5.png" class="" title="change firefox setting">
-
-<h3 id="recatch-the-traffic-and-analyze"><a href="#recatch-the-traffic-and-analyze" class="headerlink" title="recatch the traffic and analyze"></a>recatch the traffic and analyze</h3><img src="/2022/12/20/22-12-20-Encrypto-Wireshark/6.png" class="" title="remove dhe">
-
-<p>After importing the private key, we can see the  decrypted<code>http traffic</code>. </p>
+<h3 id="recatch-the-traffic-and-analyze">recatch the traffic and analyze</h3>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/6.png" class="" title="remove dhe">
+<p>After importing the private key, we can see the  decrypted<code>http traffic</code>.</p>
 <img src="/2022/12/20/22-12-20-Encrypto-Wireshark/7.png" class="" title="decrypted http traffic">
-
-<h1 id="CONCLUSION"><a href="#CONCLUSION" class="headerlink" title="CONCLUSION"></a>CONCLUSION</h1><p>The <code>Diffie-Hellman-Exchange</code> is really beyond my imagination. </p>
+<h1>CONCLUSION</h1>
+<p>The <code>Diffie-Hellman-Exchange</code> is really beyond my imagination.</p>
 
     </div>
     <!-- end of the post-->
