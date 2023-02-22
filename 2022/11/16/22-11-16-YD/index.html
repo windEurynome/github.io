@@ -21,22 +21,23 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"windeurynome.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null,"show_result":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1115-YD-GAME.  Write Up about crypto and misc.  AK the crypto~">
+    <meta name="description" content="1115-YD-GAME. Write Up about crypto and misc. AK the crypto~">
 <meta property="og:type" content="article">
 <meta property="og:title" content="22-11-16-YD">
 <meta property="og:url" content="https://windeurynome.github.io/2022/11/16/22-11-16-YD/index.html">
 <meta property="og:site_name" content="The Sea &amp; Chaos">
-<meta property="og:description" content="1115-YD-GAME.  Write Up about crypto and misc.  AK the crypto~">
+<meta property="og:description" content="1115-YD-GAME. Write Up about crypto and misc. AK the crypto~">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://windeurynome.github.io/2022/11/16/22-11-16-YD/1.jpg">
 <meta property="og:image" content="https://windeurynome.github.io/2022/11/16/22-11-16-YD/1.png">
 <meta property="og:image" content="https://windeurynome.github.io/2022/11/16/22-11-16-YD/2.png">
 <meta property="og:image" content="https://windeurynome.github.io/2022/11/16/22-11-16-YD/flag.png">
 <meta property="article:published_time" content="2022-11-16T02:50:38.000Z">
-<meta property="article:modified_time" content="2022-12-08T01:14:41.019Z">
+<meta property="article:modified_time" content="2023-02-22T02:38:48.141Z">
 <meta property="article:author" content="Eurynome">
-<meta property="article:tag" content="RSA">
-<meta property="article:tag" content="wp">
+<meta property="article:tag" content="euler">
+<meta property="article:tag" content="polynomial">
+<meta property="article:tag" content="file">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://windeurynome.github.io/2022/11/16/22-11-16-YD/1.jpg">
 
@@ -152,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rrrrsa"><span class="nav-number">1.</span> <span class="nav-text">rrrrsa</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Euler%E2%80%99s-totient-function"><span class="nav-number">1.1.</span> <span class="nav-text">Euler’s totient function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main"><span class="nav-number">1.2.</span> <span class="nav-text">Main</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ASR"><span class="nav-number">2.</span> <span class="nav-text">ASR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ezmisc"><span class="nav-number">3.</span> <span class="nav-text">ezmisc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Archive-pseudo-encryption"><span class="nav-number">3.1.</span> <span class="nav-text">Archive pseudo-encryption</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Repair-the-file-header"><span class="nav-number">3.2.</span> <span class="nav-text">Repair the file header</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extract-the-hidden-files"><span class="nav-number">3.3.</span> <span class="nav-text">Extract the hidden files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unzip-nested-packages"><span class="nav-number">3.4.</span> <span class="nav-text">Unzip nested packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Properties-area-steganation-amp-amp-Brute-force"><span class="nav-number">3.5.</span> <span class="nav-text">Properties area steganation &amp;&amp; Brute force</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Blast-file-height-or-width"><span class="nav-number">3.6.</span> <span class="nav-text">Blast file height or width</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">rrrrsa</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Euler%E2%80%99s-totient-function"><span class="nav-number">1.1.</span> <span class="nav-text">Euler’s totient function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main"><span class="nav-number">1.2.</span> <span class="nav-text">Main</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">ASR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">ezmisc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Archive-pseudo-encryption"><span class="nav-number">3.1.</span> <span class="nav-text">Archive pseudo-encryption</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Repair-the-file-header"><span class="nav-number">3.2.</span> <span class="nav-text">Repair the file header</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extract-the-hidden-files"><span class="nav-number">3.3.</span> <span class="nav-text">Extract the hidden files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unzip-nested-packages"><span class="nav-number">3.4.</span> <span class="nav-text">Unzip nested packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Properties-area-steganation-Brute-force"><span class="nav-number">3.5.</span> <span class="nav-text">Properties area steganation &amp;&amp; Brute force</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Blast-file-height-or-width"><span class="nav-number">3.6.</span> <span class="nav-text">Blast file height or width</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -165,17 +166,17 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -250,7 +251,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-12-08 09:14:41" itemprop="dateModified" datetime="2022-12-08T09:14:41+08:00">2022-12-08</time>
+      <time title="Modified: 2023-02-22 10:38:48" itemprop="dateModified" datetime="2023-02-22T10:38:48+08:00">2023-02-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -258,7 +259,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Studying/" itemprop="url" rel="index"><span itemprop="name">Studying</span></a>
+          <a href="/categories/Writeup/" itemprop="url" rel="index"><span itemprop="name">Writeup</span></a>
         </span>
     </span>
 
@@ -287,27 +288,33 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>1115-YD-GAME. </p>
-<p>Write Up about <strong>crypto</strong> and <strong>misc</strong>. </p>
-<p>AK the crypto~ </p>
+        <p>1115-YD-GAME.</p>
+<p>Write Up about <strong>crypto</strong> and <strong>misc</strong>.</p>
+<p>AK the crypto~</p>
 <span id="more"></span><!--toc-->
-
-<h1 id="rrrrsa"><a href="#rrrrsa" class="headerlink" title="rrrrsa"></a>rrrrsa</h1><ul>
+<h1>rrrrsa</h1>
+<ul>
 <li>Euler’s totient function</li>
 <li>$e$ and $phi$ are not relatively-prime</li>
 </ul>
-<h2 id="Euler’s-totient-function"><a href="#Euler’s-totient-function" class="headerlink" title="Euler’s totient function"></a>Euler’s totient function</h2><p>Mainly use the Euler 3, which has the equation that:<br>$$<br>\varphi(p^{k}\cdot q^{r}) &#x3D; \varphi(p^{k})\cdot \varphi(q^{r})<br>$$</p>
-<p>$$<br>\Longrightarrow \varphi(p) \times p^{k-1} \times \varphi(q) \times q^{r-1}<br>$$</p>
-<p>$$<br>\Longrightarrow (p-1)\times p^{k-1} \times (q-1)\times q^{r-1}<br>$$</p>
-<h2 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h2><p><code>task.py</code></p>
+<h2 id="Euler’s-totient-function">Euler’s totient function</h2>
+<p>Mainly use the Euler 3, which has the equation that:<br>
+$$<br>
+\varphi(p^{k}\cdot q^{r}) = \varphi(p^{k})\cdot \varphi(q^{r})<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow \varphi§ \times p^{k-1} \times \varphi(q) \times q^{r-1}<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow (p-1)\times p^{k-1} \times (q-1)\times q^{r-1}<br>
+$$</p>
+<h2 id="Main">Main</h2>
+<p><code>task.py</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p=getPrime(<span class="number">256</span>)</span><br><span class="line">q=getPrime(<span class="number">256</span>)</span><br><span class="line">r=getPrime(<span class="number">256</span>)</span><br><span class="line">s=getPrime(<span class="number">256</span>)</span><br><span class="line">n=p**<span class="number">2</span>*q**<span class="number">3</span>*r**<span class="number">4</span>*s**<span class="number">5</span></span><br><span class="line">e=<span class="number">14</span></span><br><span class="line">m=bytes_to_long(flag)</span><br><span class="line">c=<span class="built_in">pow</span>(m,e,n)</span><br><span class="line"><span class="built_in">print</span>(p,q,r,s,c,sep=<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
-
 <p><code>exp.py</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">p=<span class="number">82740843489176005842917905237448676902781319326096412115804401131397466993701</span></span><br><span class="line">q=<span class="number">85263643568597752465513069151877689268453731648228759206805083081972094635829</span></span><br><span class="line">r=<span class="number">79374890087283111247783732293463483039814224158289962524595401321277418666013</span></span><br><span class="line">s=<span class="number">102732199362754952069273055525350226201958416532282326662545431277468292741447</span></span><br><span class="line">c=<span class="number">209764158198100932214155089968863460960764115788843889450050526143389381127082813487813848764081174468416915862387829518066498286649325136938861327501126507330636283194491774843852097326223633337209701533553768182215060190222820102775941550334063704345167980872865539263669078518722589070762176421658193780663489275300987379291331254855029837613791180120722762611589441493216729829935815928668091245317003984177304991150484204972754604505926951762889894890977781284204135659968910559636276248002638001257927724627172934291321960032984200304503486457400466222152687435733385861015747679424548570249193669289227091923991244140876236848584520997920469772887694030202115298206597699720631193271607873611648764756487112169968220121850963271008810056644983219771177431102811348959976986368053544506721049809904407594329574573889027703243130484608315308768672733480521699846869769824733283356920305979098527936478174996930553057717113709689343835430493021845720498504798696915665856537146177480318328251379204246844497037689723120344053581795715706628542369652261282102647414868089</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">n = p**<span class="number">2</span>*q**<span class="number">3</span>*r**<span class="number">4</span>*s**<span class="number">5</span></span><br><span class="line"><span class="built_in">print</span>(n)</span><br><span class="line">N = (p-<span class="number">1</span>)*p**(<span class="number">2</span>-<span class="number">1</span>) * (q-<span class="number">1</span>)*q**(<span class="number">3</span>-<span class="number">1</span>) * (r-<span class="number">1</span>)*r**(<span class="number">4</span>-<span class="number">1</span>) * (s-<span class="number">1</span>)*s**(<span class="number">5</span>-<span class="number">1</span>) <span class="comment"># key 1</span></span><br><span class="line">e = <span class="number">14</span></span><br><span class="line">d = invert(e//<span class="number">2</span>, N) <span class="comment"># key2-1</span></span><br><span class="line">m = iroot(powmod(c, d, n), <span class="number">2</span>)[<span class="number">0</span>] <span class="comment"># key2-2</span></span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line"><span class="comment"># 46327402297749589082353363703523801418931778189802600046922737992686461676413</span></span><br><span class="line"><span class="comment"># b&#x27;flag&#123;YqcbT7kcyeciLpEE3YQuRsLzJk&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="ASR"><a href="#ASR" class="headerlink" title="ASR"></a>ASR</h1><blockquote>
+<h1>ASR</h1>
+<blockquote>
 <p>Reference: [CryptoCTF2022]PolyRSA</p>
 </blockquote>
 <ul>
@@ -315,15 +322,10 @@
 </ul>
 <p><code>task.py</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">genprime</span>():</span><br><span class="line">	<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">		r = getRandomNBitInteger(<span class="number">64</span>)</span><br><span class="line">		p = r**<span class="number">6</span> + <span class="number">8</span>*r**<span class="number">4</span> - <span class="number">41</span>*r**<span class="number">3</span> + <span class="number">14</span>*r**<span class="number">2</span> - <span class="number">116</span>*r + <span class="number">31387</span></span><br><span class="line">		q = r**<span class="number">5</span> - <span class="number">9</span>*r**<span class="number">4</span> + <span class="number">17</span>*r**<span class="number">3</span> - <span class="number">311</span>*r**<span class="number">2</span> - <span class="number">16</span>*r + <span class="number">14029</span></span><br><span class="line">		<span class="keyword">if</span> isPrime(p) <span class="keyword">and</span> isPrime(q):</span><br><span class="line">			<span class="keyword">return</span> p, q</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">enc</span>(<span class="params">flag, n</span>):</span><br><span class="line">	m = bytes_to_long(flag)</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">pow</span>(m, <span class="number">31337</span>, n)</span><br><span class="line"></span><br><span class="line">p, q = genprime()</span><br><span class="line">n = p * q</span><br><span class="line">c = enc(flag, n)</span><br><span class="line"><span class="built_in">print</span>(n)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br></pre></td></tr></table></figure>
-
-
-
 <p><code>exp.py</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">73553176031506251642448229714220151174734540964434813056145000616720019024269982417494553771890010861489245572362590935764438928110836109730139595790550323300572059713433794357690270439325805603980903813396260703</span></span><br><span class="line">c = <span class="number">19209686331218755173713714974036153099675780768506975193406617712945126866438211292560144823093347834048813455853960982766572556698881387553177980003129346158494272297017876567974550982519632403844694686184532804</span></span><br><span class="line">e = <span class="number">31337</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Original_RSA</span>(<span class="params">p,q,e,c,n</span>):</span><br><span class="line">    N = (p-<span class="number">1</span>)*(q-<span class="number">1</span>)</span><br><span class="line">    d = <span class="built_in">int</span>(invert(e, N))</span><br><span class="line">    m = powmod(c, d, n)</span><br><span class="line">    <span class="keyword">return</span> m</span><br><span class="line">r = Symbol(<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">p = <span class="keyword">lambda</span> r: r ** <span class="number">6</span> + <span class="number">8</span> * r ** <span class="number">4</span> - <span class="number">41</span> * r ** <span class="number">3</span> + <span class="number">14</span> * r ** <span class="number">2</span> - <span class="number">116</span> * r + <span class="number">31387</span></span><br><span class="line">q = <span class="keyword">lambda</span> r: r ** <span class="number">5</span> - <span class="number">9</span> * r ** <span class="number">4</span> + <span class="number">17</span> * r ** <span class="number">3</span> - <span class="number">311</span> * r ** <span class="number">2</span> - <span class="number">16</span> * r + <span class="number">14029</span></span><br><span class="line">n0 = p(r) * q(r)</span><br><span class="line">f = n - n0</span><br><span class="line"><span class="comment"># print(f)</span></span><br><span class="line">sol = solve([f], [r])</span><br><span class="line">x = sol[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">p = mpz(p(x))</span><br><span class="line">q = mpz(q(x))</span><br><span class="line">m = Original_RSA(p, q, e, c, n)</span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m).decode())</span><br><span class="line"><span class="comment"># 642921858775320553662877496454459277194994123046130653667709</span></span><br><span class="line"><span class="comment"># flag&#123;G3t_m0re_fuN_RSA!!!&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># or sage to solve out p, q</span></span><br><span class="line">PR.&lt;k&gt; = PolynomialRing(ZZ) <span class="comment"># define k</span></span><br><span class="line">p = k**<span class="number">6</span> + <span class="number">7</span>*k**<span class="number">4</span> - <span class="number">40</span>*k**<span class="number">3</span> + <span class="number">12</span>*k**<span class="number">2</span> - <span class="number">114</span>*k + <span class="number">31377</span></span><br><span class="line">q = k**<span class="number">5</span> - <span class="number">8</span>*k**<span class="number">4</span> + <span class="number">19</span>*k**<span class="number">3</span> - <span class="number">313</span>*k**<span class="number">2</span> - <span class="number">14</span>*k + <span class="number">14011</span></span><br><span class="line">n0 = p*q</span><br><span class="line"><span class="comment"># k^11 - 8*k^10 + 26*k^9 - 409*k^8 + 451*k^7 + 10850*k^6 + 44939*k^5 - 158301*k^4 + 71237*k^3 - 9651273*k^2 - 2036532*k + 439623147</span></span><br><span class="line">f = n - n0</span><br><span class="line">sol = f.roots() <span class="comment"># solve the root of the equation</span></span><br><span class="line"><span class="comment"># print(sol)</span></span><br><span class="line"><span class="comment"># [(9291098683758154336, 1)]</span></span><br><span class="line">x = sol[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">p = p(x)</span><br><span class="line">q = q(x)</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="ezmisc"><a href="#ezmisc" class="headerlink" title="ezmisc"></a>ezmisc</h1><blockquote>
+<h1>ezmisc</h1>
+<blockquote>
 <p>Download: <a href="ezmisc1.zip">ezmisc</a></p>
 </blockquote>
 <ul>
@@ -334,49 +336,50 @@
 <li>Properties area steganation &amp;&amp; Brute force</li>
 <li>Blast file height or width</li>
 </ul>
-<h2 id="Archive-pseudo-encryption"><a href="#Archive-pseudo-encryption" class="headerlink" title="Archive pseudo-encryption"></a>Archive pseudo-encryption</h2><blockquote>
+<h2 id="Archive-pseudo-encryption">Archive pseudo-encryption</h2>
+<blockquote>
 <p>Winhex</p>
 </blockquote>
-<p>Use winhex to find <code>504B0102</code>, and the keypoint <code>09</code> which is the 5th behind the <code>504B0102</code>. Edit it to <code>00</code> and unzip the zip. </p>
+<p>Use winhex to find <code>504B0102</code>, and the keypoint <code>09</code> which is the 5th behind the <code>504B0102</code>. Edit it to <code>00</code> and unzip the zip.</p>
 <img src="/2022/11/16/22-11-16-YD/1.jpg" class="" title="Edit and unzip">
-
-<p> And get the output <code>1.png</code>.</p>
-<h2 id="Repair-the-file-header"><a href="#Repair-the-file-header" class="headerlink" title="Repair the file header"></a>Repair the file header</h2><blockquote>
+<p>And get the output <code>1.png</code>.</p>
+<h2 id="Repair-the-file-header">Repair the file header</h2>
+<blockquote>
 <p>Winhex</p>
 </blockquote>
 <p>Find the <code>1.png</code> cannot open well. Check the file header, we find that the header is <code>000000000D0A1A0A</code> which is different to <code>89504E470D0A1A0A</code>. Thus, use winhex to edit and get the real <code>1.png</code>.</p>
 <img src="/2022/11/16/22-11-16-YD/1.png" class="" title="1.png">
-
-<h2 id="Extract-the-hidden-files"><a href="#Extract-the-hidden-files" class="headerlink" title="Extract the hidden files"></a>Extract the hidden files</h2><blockquote>
+<h2 id="Extract-the-hidden-files">Extract the hidden files</h2>
+<blockquote>
 <p>binwalk</p>
 <p>foremost</p>
 </blockquote>
-<p>Use binwalk to check if there are hidden files in the picture. If yes, and we execute the foremost to get the hidden files. </p>
+<p>Use binwalk to check if there are hidden files in the picture. If yes, and we execute the foremost to get the hidden files.</p>
 <p><em>Make the <strong>output</strong> file empty!</em></p>
-<h2 id="Unzip-nested-packages"><a href="#Unzip-nested-packages" class="headerlink" title="Unzip nested packages"></a>Unzip nested packages</h2><blockquote>
+<h2 id="Unzip-nested-packages">Unzip nested packages</h2>
+<blockquote>
 <p>ExtractNow</p>
 <p>Download: <a href="ExtractNow_V4.8.3.0.zip">ExtractNow</a></p>
 </blockquote>
 <p>After using the tool <code>ExtractNow</code>, we get the <code>flag.zip</code> and <code>password.zip</code> both of which are encrypted.</p>
-<h2 id="Properties-area-steganation-amp-amp-Brute-force"><a href="#Properties-area-steganation-amp-amp-Brute-force" class="headerlink" title="Properties area steganation &amp;&amp; Brute force"></a>Properties area steganation &amp;&amp; Brute force</h2><blockquote>
+<h2 id="Properties-area-steganation-Brute-force">Properties area steganation &amp;&amp; Brute force</h2>
+<blockquote>
 <p>ARCHPR</p>
 </blockquote>
-<p>From the <code>password.zip</code> ‘s properties, we get the hint that <code>8 digits</code>. We brute the zip’s password by ARCHPR. </p>
+<p>From the <code>password.zip</code> 's properties, we get the hint that <code>8 digits</code>. We brute the zip’s password by ARCHPR.</p>
 <p>Unzip the <code>password.zip</code>, we get the <code>password.txt</code>. By this dictionary, we can also brute the <code>flag.zip</code> by ARCHPR and obtain the final picture <code>flag.png</code>.</p>
-<h2 id="Blast-file-height-or-width"><a href="#Blast-file-height-or-width" class="headerlink" title="Blast file height or width"></a>Blast file height or width</h2><blockquote>
+<h2 id="Blast-file-height-or-width">Blast file height or width</h2>
+<blockquote>
 <p>stegsolve</p>
 <p>python</p>
 <p>winhex</p>
 </blockquote>
-<p>By the <code>stegsolve</code>, we can make a conclusion that the picture’s height or width has been edited from the <code>Calculated CRC</code>. </p>
+<p>By the <code>stegsolve</code>, we can make a conclusion that the picture’s height or width has been edited from the <code>Calculated CRC</code>.</p>
 <img src="/2022/11/16/22-11-16-YD/2.png" class="" title="stegsolve_check">
-
-<p>Use a script for blasting, remember that the script has its rules. </p>
+<p>Use a script for blasting, remember that the script has its rules.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hexstr2bytes</span>(<span class="params">s</span>):</span><br><span class="line">    b = <span class="string">b&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(s), <span class="number">2</span>):</span><br><span class="line">        temp = s[i:i+<span class="number">2</span>]</span><br><span class="line">        b += struct.pack(<span class="string">&#x27;B&#x27;</span>, <span class="built_in">int</span>(temp, <span class="number">16</span>))</span><br><span class="line">    <span class="keyword">return</span> b</span><br><span class="line">str1 = <span class="string">&#x27;49484452&#x27;</span>   <span class="comment"># HEX/IHDR</span></span><br><span class="line">str2 = <span class="string">&#x27;0802000000&#x27;</span> <span class="comment"># Bit depth，ColorType，Compression method，Filter method，Interlace method</span></span><br><span class="line">bytes1 = hexstr2bytes(str1)</span><br><span class="line">bytes2 = hexstr2bytes(str2)</span><br><span class="line">wid, hei = <span class="number">507</span>, <span class="number">507</span>  <span class="comment"># width height</span></span><br><span class="line"></span><br><span class="line">crc32 = <span class="string">&#x27;0xe440b49a&#x27;</span> <span class="comment"># CRC32</span></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> <span class="built_in">range</span>(wid, wid+<span class="number">2000</span>):</span><br><span class="line">    <span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(hei, hei+<span class="number">2000</span>):</span><br><span class="line">        width = <span class="built_in">hex</span>(w)[<span class="number">2</span>:].rjust(<span class="number">8</span>, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">        height = <span class="built_in">hex</span>(h)[<span class="number">2</span>:].rjust(<span class="number">8</span>, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">        bytes_tmp = hexstr2bytes(width+height)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">eval</span>(<span class="built_in">hex</span>(zlib.crc32(bytes1+bytes_tmp+bytes2))) == <span class="built_in">eval</span>(crc32):</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">hex</span>(w), <span class="built_in">hex</span>(h))</span><br><span class="line">            </span><br><span class="line"><span class="comment"># 0x260 0x1fb</span></span><br></pre></td></tr></table></figure>
-
 <p>Edit the width, and we will get the true <code>flag.png</code>.</p>
 <img src="/2022/11/16/22-11-16-YD/flag.png" class="" title="true_flag">
-
 
     </div>
     <!-- end of the post-->
@@ -397,8 +400,9 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/RSA/" rel="tag"><i class="fa fa-tag"></i> RSA</a>
-              <a href="/tags/wp/" rel="tag"><i class="fa fa-tag"></i> wp</a>
+              <a href="/tags/euler/" rel="tag"><i class="fa fa-tag"></i> euler</a>
+              <a href="/tags/polynomial/" rel="tag"><i class="fa fa-tag"></i> polynomial</a>
+              <a href="/tags/file/" rel="tag"><i class="fa fa-tag"></i> file</a>
           </div>
 
         
@@ -445,14 +449,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">73k</span>
+    <span title="Symbols count total">72k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:06</span>
+    <span title="Reading time total">1:05</span>
   </span>
 </div>
 <!--
