@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"windeurynome.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null,"show_result":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Descriptions about the common difficult problems in cryptography. I will learn about them in the nearly future.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Description-About-Common-Difficult-Problems-in-Cryptography">
+<meta property="og:url" content="https://windeurynome.github.io/2023/03/02/Description-about-common-difficult-problems-in-cryptography/index.html">
+<meta property="og:site_name" content="The Sea &amp; Chaos">
+<meta property="og:description" content="Descriptions about the common difficult problems in cryptography. I will learn about them in the nearly future.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-02T01:57:45.000Z">
+<meta property="article:modified_time" content="2023-03-02T02:14:28.772Z">
+<meta property="article:author" content="Eurynome">
+<meta property="article:tag" content="description">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://windeurynome.github.io/2023/03/02/Description-about-common-difficult-problems-in-cryptography/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://windeurynome.github.io/2023/03/02/Description-about-common-difficult-problems-in-cryptography/","path":"2023/03/02/Description-about-common-difficult-problems-in-cryptography/","title":"Description-About-Common-Difficult-Problems-in-Cryptography"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Description-About-Common-Difficult-Problems-in-Cryptography | The Sea & Chaos</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <a target="_blank" rel="noopener" href="https://github.com/windeurynome" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">The Sea & Chaos</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">FOREVER brave & warm.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Discrete-logarithm-problem"><span class="nav-number">1.</span> <span class="nav-text">Discrete logarithm problem</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Factoring"><span class="nav-number">2.</span> <span class="nav-text">Factoring</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Product-groups"><span class="nav-number">3.</span> <span class="nav-text">Product groups</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pairings"><span class="nav-number">4.</span> <span class="nav-text">Pairings</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lattices"><span class="nav-number">5.</span> <span class="nav-text">Lattices</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Main-Lattice-Problems"><span class="nav-number">5.1.</span> <span class="nav-text">Main Lattice Problems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modular-Lattice-Problems"><span class="nav-number">5.2.</span> <span class="nav-text">Modular Lattice Problems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Miscellaneous-Lattice-Problems"><span class="nav-number">5.3.</span> <span class="nav-text">Miscellaneous Lattice Problems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ideal-Lattice-Problems"><span class="nav-number">5.4.</span> <span class="nav-text">Ideal Lattice Problems</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Miscellaneous-Problems"><span class="nav-number">6.</span> <span class="nav-text">Miscellaneous Problems</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Details"><span class="nav-number">7.</span> <span class="nav-text">Problem Details</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CDH-computational-Diffie-Hellman-problem"><span class="nav-number">7.1.</span> <span class="nav-text">CDH: computational Diffie-Hellman problem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Addendum-Unlisted-Problem-s"><span class="nav-number">8.</span> <span class="nav-text">Addendum: Unlisted Problem(s)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Subset-Sum-x2F-Knapsack-problem"><span class="nav-number">8.1.</span> <span class="nav-text">Subset Sum&#x2F;Knapsack problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note-about-parameters"><span class="nav-number">8.2.</span> <span class="nav-text">Note about parameters</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Eurynome</p>
+  <div class="site-description" itemprop="description">Recording...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://windeurynome.github.io/2023/03/02/Description-about-common-difficult-problems-in-cryptography/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eurynome">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Sea & Chaos">
+      <meta itemprop="description" content="Recording...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Description-About-Common-Difficult-Problems-in-Cryptography | The Sea & Chaos">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Description-About-Common-Difficult-Problems-in-Cryptography
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-03-02 09:57:45 / Modified: 10:14:28" itemprop="dateCreated datePublished" datetime="2023-03-02T09:57:45+08:00">2023-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Crypto/" itemprop="url" rel="index"><span itemprop="name">Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>6.2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Descriptions about the common difficult problems in cryptography.</p>
+<p>I will learn about them in the nearly future. </p>
+<span id="more"></span><!--toc-->
+
+
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://web.archive.org/web/20120121090326/http://www.ecrypt.eu.org/wiki/index.php/Main_Page">web.archive.org</a></p>
+</blockquote>
+<h1 id="Discrete-logarithm-problem"><a href="#Discrete-logarithm-problem" class="headerlink" title="Discrete logarithm problem"></a>Discrete logarithm problem</h1><ul>
+<li>DLP: discrete logarithm problem</li>
+<li>CDH: computational Diffie-Hellman problem</li>
+<li>SDH: static Diffie-Hellman problem</li>
+<li>gap-CDH: Gap Diffie-Hellman problem</li>
+<li>DDH: decision Diffie-Hellman problem</li>
+<li>Strong-DDH: strong decision Diffie-Hellman problem</li>
+<li>sDDH: skewed decision Diffie-Hellman problem</li>
+<li>PDDH: parallel decision Diffie-Hellman problem</li>
+<li>Square-DH: Square Diffie-Hellman problem</li>
+<li>l-DHI: l-Diffie-Hellman inversion problem</li>
+<li>l-DDHI: l-Decisional Diffie-Hellman inversion problem</li>
+<li>REPRESENTATION: Representation problem</li>
+<li>LRSW: LRSW Problem</li>
+<li>Linear: Linear problem</li>
+<li>D-Linear1: Decision Linear problem (version 1)</li>
+<li>l-SDH: l-Strong Diffie-Hellman problem</li>
+<li>c-DLSE: Discrete Logarithm with Short Exponents</li>
+<li>CONF: (conference-key sharing scheme)</li>
+<li>3PASS: 3-Pass Message Transmission Scheme</li>
+<li>LUCAS: Lucas Problem</li>
+<li>XLP: x-Logarithm Problem</li>
+<li>MDHP: Matching Diffie-Hellman Problem</li>
+<li>DDLP: Double Discrete Logarithm Problem</li>
+<li>rootDLP: Root of Discrete Logarithm Problem</li>
+<li>n-M-DDH: Multiple Decision Diffie-Hellman Problem</li>
+<li>l-HENSEL-DLP: l-Hensel Discrete Logarithm Problem</li>
+<li>DLP(Inn(G)): Discrete Logarithm Problem over Inner Automorphism Group</li>
+<li>IE: Inverse Exponent</li>
+<li>TDH: The Twin Diffie-Hellman Assumption</li>
+<li>XTR-DL: XTR discrete logarithm problem</li>
+<li>XTR-DH: XTR Diffie-Hellman problem</li>
+<li>XTR-DHD: XTR decision Diffie-Hellman problem</li>
+<li>CL-DLP: discrete logarithms in class groups of imaginary quadratic orders</li>
+<li>TV-DDH: Tzeng Variant Decision Diffie-Hellman problem</li>
+<li>n-DHE: n-Diffie-Hellman Exponent problem</li>
+</ul>
+<h1 id="Factoring"><a href="#Factoring" class="headerlink" title="Factoring"></a>Factoring</h1><ul>
+<li>FACTORING: integer factorisation problem</li>
+<li>SQRT: square roots modulo a composite</li>
+<li>CHARACTERd: character problem</li>
+<li>MOVAd: character problem</li>
+<li>CYCLOFACTd: factorisation in Z[θ]</li>
+<li>FERMATd: factorisation in Z[θ]</li>
+<li>RSAP: RSA problem</li>
+<li>Strong-RSAP: strong RSA problem</li>
+<li>Difference-RSAP: Difference RSA problem</li>
+<li>Partial-DL-ZN2P: Partial Discrete Logarithm problem in Z∗n</li>
+<li>DDH-ZN2P: Decision Diffie-Hellman problem over Z∗n</li>
+<li>Lift-DH-ZN2P: Lift Diffie-Hellman problem over Z∗n</li>
+<li>EPHP: Election Privacy Homomorphism problem</li>
+<li>AERP: Approximate e-th root problem l-HENSEL-RSAP: l-Hensel RSA</li>
+<li>DSeRP: Decisional Small e-Residues in Z∗n2</li>
+<li>DS2eRP: Decisional Small 2e-Residues in Z∗n2</li>
+<li>DSmallRSAKP: Decisional Reciprocal RSA-Paillier in Z∗n2 HRP: Higher Residuosity Problem</li>
+<li>ECSQRT: Square roots in elliptic curve groups over Z&#x2F;nZ</li>
+<li>RFP: Root Finding Problem</li>
+<li>phiA: PHI-Assumption</li>
+<li>C-DRSA: Computational Dependent-RSA problem</li>
+<li>D-DRSA: Decisional Dependent-RSA problem</li>
+<li>E-DRSA: Extraction Dependent-RSA problem</li>
+<li>DCR: Decisional Composite Residuosity problem</li>
+<li>CRC: Composite Residuosity Class problem</li>
+<li>DCRC: Decisional Composite Residuosity Class problem</li>
+<li>GenBBS: generalised Blum-Blum-Shub assumption</li>
+</ul>
+<h1 id="Product-groups"><a href="#Product-groups" class="headerlink" title="Product groups"></a>Product groups</h1><ul>
+<li>co-CDH: co-Computational Diffie-Hellman Problem</li>
+<li>PG-CDH: Computational Diffie-Hellman Problem for Product Groups</li>
+<li>XDDH: External Decision Diffie-Hellman Problem</li>
+<li>D-Linear2: Decision Linear Problem (version 2)</li>
+<li>PG-DLIN: Decision Linear Problem for Product Groups</li>
+<li>FSDH: Flexible Square Diffie-Hellman Problem</li>
+<li>KSW1: Assumption 1 of Katz-Sahai-Waters</li>
+</ul>
+<h1 id="Pairings"><a href="#Pairings" class="headerlink" title="Pairings"></a>Pairings</h1><ul>
+<li>BDHP: Bilinear Diffie-Hellman Problem</li>
+<li>DBDH: Decision Bilinear Diffie-Hellman Problem</li>
+<li>B-DLIN: Bilinear Decision-Linear Problem</li>
+<li>l-BDHI: l-Bilinear Diffie-Hellman Inversion Problem</li>
+<li>l-DBDHI: l-Bilinear Decision Diffie-Hellman Inversion Problem</li>
+<li>l-wBDHI: l-weak Bilinear Diffie-Hellman Inversion  Problem</li>
+<li>l-wDBDHI: l-weak Decisional Bilinear Diffie-Hellman Inversion Problem</li>
+<li>KSW2: Assumption 2 of Katz-Sahai-Waters</li>
+<li>MSEDH: Multi-sequence of Exponents Diffie-Hellman Assumption</li>
+</ul>
+<h1 id="Lattices"><a href="#Lattices" class="headerlink" title="Lattices"></a>Lattices</h1><h2 id="Main-Lattice-Problems"><a href="#Main-Lattice-Problems" class="headerlink" title="Main Lattice Problems"></a>Main Lattice Problems</h2><ul>
+<li>SVPγp: (Approximate) Shortest vector problem</li>
+<li>CVPpγ: (Approximate) Closest vector problem</li>
+<li>GapSVPpγ: Decisional shortest vector problem</li>
+<li>GapCVPpγ: Decisional closest vector problem</li>
+</ul>
+<h2 id="Modular-Lattice-Problems"><a href="#Modular-Lattice-Problems" class="headerlink" title="Modular Lattice Problems"></a>Modular Lattice Problems</h2><ul>
+<li>SISp(n,m,q,β): Short integer solution problem</li>
+<li>ISISp(n,m,q,β): Inhomogeneous short integer solution problem</li>
+<li>LWE(n,q,φ): Learning with errors problem</li>
+</ul>
+<h2 id="Miscellaneous-Lattice-Problems"><a href="#Miscellaneous-Lattice-Problems" class="headerlink" title="Miscellaneous Lattice Problems"></a>Miscellaneous Lattice Problems</h2><ul>
+<li>USVPp(n,γ): Approximate unique shortest vector problem</li>
+<li>SBPp(n,γ): Approximate shortest basis problem</li>
+<li>SLPp(n,γ): Approximate shortest length problem</li>
+<li>SIVPp(n,γ): Approximate shortest independent vector problem</li>
+<li>hermiteSVP: Hermite shortest vector problem</li>
+<li>CRP: Covering radius problem</li>
+</ul>
+<h2 id="Ideal-Lattice-Problems"><a href="#Ideal-Lattice-Problems" class="headerlink" title="Ideal Lattice Problems"></a>Ideal Lattice Problems</h2><ul>
+<li>Ideal-SVPf,pγ: (Approximate) Ideal shortest vector problem &#x2F; Shortest polynomial problem</li>
+<li>Ideal-SISf,p q,m,β: Ideal small integer solution problem</li>
+</ul>
+<h1 id="Miscellaneous-Problems"><a href="#Miscellaneous-Problems" class="headerlink" title="Miscellaneous Problems"></a>Miscellaneous Problems</h1><ul>
+<li>KEA1: Knowledge of Exponent assumption</li>
+<li>MQ: Multivariable Quadratic equations</li>
+<li>CF: Given-weight codeword finding</li>
+<li>ConjSP: Braid group conjugacy search problem</li>
+<li>GenConjSP: Generalised braid group conjugacy search problem</li>
+<li>ConjDecomP: Braid group conjugacy decomposition problem</li>
+<li>ConjDP: Braid group conjugacy decision problem</li>
+<li>DHCP: Braid group decisional Diffie-Hellman-type conjugacy problem</li>
+<li>ConjSearch: (multiple simlutaneous) Braid group conjugacy search problem</li>
+<li>SubConjSearch: subgroup restricted Braid group conjugacy search problem</li>
+<li>LINPOLY : A linear algebra problem on polynomials<br>HFE-DP: Hidden Field Equations Decomposition Problem</li>
+<li>HFE-SP: Hidden Field Equations Solving Problem</li>
+<li>MKS: Multiplicative Knapsack</li>
+<li>BP: Balance Problem</li>
+<li>AHA: Adaptive Hardness Assumptions</li>
+<li>SPI: Sparse Polynomial Interpolation</li>
+<li>SPP: Self-Power Problem</li>
+<li>VDP: Vector Decomposition Problem</li>
+<li>2-DL: 2-generalized Discrete Logarithm Problem</li>
+</ul>
+<h1 id="Problem-Details"><a href="#Problem-Details" class="headerlink" title="Problem Details"></a>Problem Details</h1><p>The full paper provides details about each assumption. Here is an example entry:</p>
+<h2 id="CDH-computational-Diffie-Hellman-problem"><a href="#CDH-computational-Diffie-Hellman-problem" class="headerlink" title="CDH: computational Diffie-Hellman problem"></a>CDH: computational Diffie-Hellman problem</h2><ul>
+<li><p>Definition :<br>Given ga,gb∈G to compute gab.</p>
+</li>
+<li><p>Reductions:<br>CDH ≤p DLP<br>DLP ≤subexp CDH in groups of squarefree order.</p>
+</li>
+<li><p>Algorithms:<br>The best known algorithm for CDH is to actually solve the DLP.</p>
+</li>
+</ul>
+<p>Use in cryptography: Diffie-Hellman key exchange and variants, Elgamal encryption and variants, BLS signatures and variants.</p>
+<ul>
+<li><p>History:<br>Discovered by W. Diffie and M. Hellman.</p>
+</li>
+<li><p>Remark:<br>A variant of CDH is: Given g0,ga0,gb0∈G to compute gab0. This is ≡p CDH.</p>
+</li>
+<li><p>References:</p>
+<ul>
+<li>W. Diffie and M. E. Hellman, New directions in cryptography, IEEE Transactions on Information Theory, vol. IT-22, No. 6, Nov. 1976, p. 644-654</li>
+<li>U.M. Maurer and S. Wolf, Diffie-Hellman Oracles, 	Proceedings of CRYPTO ’96, p. 268-282.</li>
+<li>D. Boneh and R.J. Lipton Algorithms for Black-Box Fields and Applications to Cryp- tography, Proceedings of CRYPTO ’96, p. 283-297.</li>
+<li>The complete text is far too long to copy paste here, but this provides a pretty good example of how extensive and thorough it is.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Addendum-Unlisted-Problem-s"><a href="#Addendum-Unlisted-Problem-s" class="headerlink" title="Addendum: Unlisted Problem(s)"></a>Addendum: Unlisted Problem(s)</h1><p>The following problem(s) were not listed in the above - - </p>
+<ul>
+<li>reference:<ul>
+<li>MIHNP: Modular Inversion Hidden Number Problem</li>
+<li>AGCD: Approximate Greatest Common Divisor</li>
+<li>SIP: Small Inverse Problem</li>
+</ul>
+</li>
+</ul>
+<h2 id="Subset-Sum-x2F-Knapsack-problem"><a href="#Subset-Sum-x2F-Knapsack-problem" class="headerlink" title="Subset Sum&#x2F;Knapsack problem"></a>Subset Sum&#x2F;Knapsack problem</h2><ul>
+<li>Subset Sum problem<ul>
+<li>(0,1) knapsack problem (The standard version of the problem)</li>
+</ul>
+</li>
+<li>Bounded knapsack problem<br>Unbounded knapsack problem</li>
+<li>RMSS: Random Modular Subset Sum</li>
+</ul>
+<h2 id="Note-about-parameters"><a href="#Note-about-parameters" class="headerlink" title="Note about parameters"></a>Note about parameters</h2><p>Hardness assumptions only hold when parameterized correctly. Inappropriate parameters can lead to easily solved instances of hard problems.</p>
+
+    </div>
+    <!-- end of the post-->
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------THE <i class="fa-solid fa-cloud"></i> END-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/description/" rel="tag"><i class="fa fa-tag"></i> description</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/22/weekly-descriptions-about-crypto/" rel="prev" title="Weekly-Descriptions-About-Crypto">
+                  <i class="fa fa-chevron-left"></i> Weekly-Descriptions-About-Crypto
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eurynome</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">84k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">1:16</span>
+  </span>
+</div>
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+-->
+
+    </div>
+  </footer>
+  <!-- Background picture -->
+    <script type="text/javascript" src="/js/canvas-nest.js"></script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
