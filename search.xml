@@ -1,6 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>22-10-21-Hexo-Build-Beautify</title>
+    <url>/2022/10/21/22-10-21-hexo-build-beautify/</url>
+    <content><![CDATA[<p>The article is used to record how to use hexo to build my own blog. I will try my best to make records by using English. To Be Honest, this is really somewhat a hard challenge for me.</p>
+<p>The problems and some solutions are as follows.</p>
+<span id="more"></span>
+<blockquote>
+<p><a href="https://hexo-next.readthedocs.io/">https://hexo-next.readthedocs.io/</a></p>
+</blockquote>
+<h1>BUILD HEXO</h1>
+<blockquote>
+<p>preparation:</p>
+<p>git</p>
+<p>node.js</p>
+</blockquote>
+<p>after the installation, test:</p>
+<p><code>node -v</code>/<code>npm -v</code>/ <code>git -v</code></p>
+<h2 id="HEXO-BLOG">HEXO BLOG</h2>
+<blockquote>
+<p>all use git-bash</p>
+</blockquote>
+<ul>
+<li>to install hexo:</li>
+</ul>
+<p><code>npm install -g hexo-cli</code></p>
+<ul>
+<li>init hexo and build blog:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init [blogname]</span><br><span class="line">cd [blogname]</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<ul>
+<li>after building the common commands:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate/hexo g</span><br><span class="line">hexo server/hexo s</span><br><span class="line">hexo deploy/hexo d(unless everything is OK)</span><br><span class="line"># hexo clean &amp;&amp; hexo g &amp; hexo s</span><br></pre></td></tr></table></figure>
+<h2 id="NEW-POST">NEW POST</h2>
+<ul>
+<li>set markdown</li>
+</ul>
+<p>In <code>scaffolds\post.md</code>, above the <code>!--more--</code> can make the article excerption</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories: </span><br><span class="line">tags: </span><br><span class="line">mathjax: true</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"># to limit the length of article</span><br></pre></td></tr></table></figure>
+<ul>
+<li>new post</li>
+</ul>
+<p><code>hexo new [postname]</code></p>
+<p>To make the article and everting clean, follow the standard <code>YY-MM-DD-article-name.md</code></p>
+<p>And the categories are as follows:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">	- Studing</span><br><span class="line">	- Reading</span><br><span class="line">	- Recording</span><br><span class="line">	- Amusing</span><br></pre></td></tr></table></figure>
+<h1>DRAFT/BAND GITHUB</h1>
+<ul>
+<li>register the github account</li>
+<li>new repository</li>
+</ul>
+<p>Create a new repository, github has reserved your own website.</p>
+<p><code>[githubaccount].github.io</code></p>
+<ul>
+<li>use token to authenticate</li>
+</ul>
+<p>In the root menu, add the follows to the file <strong>_config.yml</strong>.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># install:</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"># _config.yml</span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://[token]@github.com/[githubaccount]/[githubaccount].github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<ul>
+<li>git config</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># if authentication failed</span><br><span class="line">git config --globaluser.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>after everything above is ready</li>
+</ul>
+<p><code>hexo d</code>, test if the running is well.</p>
+<p>the default website is: <code>localhost:4000/</code></p>
+<h1>MATH</h1>
+<p>If the markdown can not display well,  maybe the renderer gets wrong.</p>
+<p>The hexo default renderer is <code>hexo-renderer-marked</code>.</p>
+<p>You can use <code>hexo-renderer-kramed</code> or <code>@upupming/renderer-markdown-it-plus</code> to replace the default one.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm i @upupming/hexo-renderer-markdown-it-plus --save</span><br></pre></td></tr></table></figure>
+<p><strong>DON’T FORGET!</strong></p>
+<p>In <code>_config.next.yml</code> set:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">math:</span><br><span class="line">  # Default (false) will load mathjax / katex script on demand.</span><br><span class="line">  # That is it only render those page which has `mathjax: true` in front-matter.</span><br><span class="line">  # If you set it to true, it will load mathjax / katex script EVERY PAGE.</span><br><span class="line">  every_page: true</span><br><span class="line"></span><br><span class="line">  mathjax:</span><br><span class="line">    enable: true</span><br><span class="line">    # Available values: none | ams | all</span><br><span class="line">    tags: none</span><br><span class="line"></span><br><span class="line">  katex:</span><br><span class="line">    enable: false</span><br><span class="line">    # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex</span><br><span class="line">    copy_tex: false</span><br></pre></td></tr></table></figure>
+<p>and in your every post fonts, add <code>math: true</code></p>
+<h1>NOT 404</h1>
+<h2 id="question">question</h2>
+<p>When I visit the tags, the website always return <code>404</code>. I search for some solutions all over the web. However, most of them are wrong, until I see the solution in the Zhihu.</p>
+<h2 id="solution">solution</h2>
+<h3 id="new-page">new page</h3>
+<p>In the root of the blog, open the git bash command.</p>
+<p><code>hexo new page &quot;tags&quot;</code></p>
+<h3 id="edit-the-index">edit the index</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">type: tags</span><br><span class="line">layout: tags # /theme/next/layout/[tags].njk</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p><em>Behind the layout, to write down <strong>the name of the target njk</strong>, which is in the depth of the file path.</em></p>
+<h3 id="edit-the-config-file">edit the _config file</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Dirctory</span><br><span class="line">tag_dir: tags</span><br></pre></td></tr></table></figure>
+<p>Make the names one-to-one.</p>
+<h1>CALCULATE WORDS</h1>
+<h2 id="hexo-word-counter">hexo-word-counter</h2>
+<p>Install the plugin <code>hexo-word-counter</code>, in the root path of blog.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-word-counter</span><br><span class="line">hexo clean &amp;&amp; hexo g</span><br></pre></td></tr></table></figure>
+<h2 id="config">config</h2>
+<p>In <code>_config.yml</code>, at the end of the file add the follows:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br><span class="line">  exclude_codeblock: false</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br><span class="line">  suffix: &quot;mins.&quot;</span><br></pre></td></tr></table></figure>
+<p><em>In <code>_config.next.yml</code>, edit the finding <code>item_text_total: false</code>. Change <code>false</code> to <code>true</code>.</em></p>
+<h1>BACKGROUND PICTURE</h1>
+<p>I tried more ways to set background picture, more thins were wrong. Util I saw an article, I done this thing.</p>
+<p>When I reflected all my things on this part, I knew the keypoint part was to **add the correct source path **to <code>next_config</code>.</p>
+<h2 id="js-file">js file</h2>
+<p>The NexT v8 has the <code>canvas-nest.js</code> in <code>themes\next\source\js</code>.</p>
+<p>If you don’t have the <strong>JS</strong> file, create the new file contains：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">!<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="keyword">function</span> <span class="title function_">n</span>(<span class="params">n,e,t</span>)&#123;<span class="keyword">return</span> n.<span class="title function_">getAttribute</span>(e)||t&#125;<span class="keyword">function</span> <span class="title function_">e</span>(<span class="params">n</span>)&#123;<span class="keyword">return</span> <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(n)&#125;<span class="keyword">function</span> <span class="title function_">t</span>(<span class="params"></span>)&#123;<span class="keyword">var</span> t=<span class="title function_">e</span>(<span class="string">&quot;script&quot;</span>),o=t.<span class="property">length</span>,i=t[o-<span class="number">1</span>];<span class="keyword">return</span>&#123;<span class="attr">l</span>:o,<span class="attr">z</span>:<span class="title function_">n</span>(i,<span class="string">&quot;zIndex&quot;</span>,-<span class="number">1</span>),<span class="attr">o</span>:<span class="title function_">n</span>(i,<span class="string">&quot;opacity&quot;</span>,<span class="number">.5</span>),<span class="attr">c</span>:<span class="title function_">n</span>(i,<span class="string">&quot;color&quot;</span>,<span class="string">&quot;0,0,0&quot;</span>),<span class="attr">n</span>:<span class="title function_">n</span>(i,<span class="string">&quot;count&quot;</span>,<span class="number">99</span>)&#125;&#125;<span class="keyword">function</span> <span class="title function_">o</span>(<span class="params"></span>)&#123;c=u.<span class="property">width</span>=<span class="variable language_">window</span>.<span class="property">innerWidth</span>||<span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientWidth</span>||<span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">clientWidth</span>,a=u.<span class="property">height</span>=<span class="variable language_">window</span>.<span class="property">innerHeight</span>||<span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span>||<span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">clientHeight</span>&#125;<span class="keyword">function</span> <span class="title function_">i</span>(<span class="params"></span>)&#123;l.<span class="title function_">clearRect</span>(<span class="number">0</span>,<span class="number">0</span>,c,a);<span class="keyword">var</span> n,e,t,o,u,d,x=[w].<span class="title function_">concat</span>(y);y.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">i</span>)&#123;<span class="keyword">for</span>(i.<span class="property">x</span>+=i.<span class="property">xa</span>,i.<span class="property">y</span>+=i.<span class="property">ya</span>,i.<span class="property">xa</span>*=i.<span class="property">x</span>&gt;c||i.<span class="property">x</span>&lt;<span class="number">0</span>?-<span class="number">1</span>:<span class="number">1</span>,i.<span class="property">ya</span>*=i.<span class="property">y</span>&gt;a||i.<span class="property">y</span>&lt;<span class="number">0</span>?-<span class="number">1</span>:<span class="number">1</span>,l.<span class="title function_">fillRect</span>(i.<span class="property">x</span>-<span class="number">.5</span>,i.<span class="property">y</span>-<span class="number">.5</span>,<span class="number">1</span>,<span class="number">1</span>),e=<span class="number">0</span>;e&lt;x.<span class="property">length</span>;e++)n=x[e],i!==n&amp;&amp;<span class="literal">null</span>!==n.<span class="property">x</span>&amp;&amp;<span class="literal">null</span>!==n.<span class="property">y</span>&amp;&amp;(o=i.<span class="property">x</span>-n.<span class="property">x</span>,u=i.<span class="property">y</span>-n.<span class="property">y</span>,d=o*o+u*u,d&lt;n.<span class="property">max</span>&amp;&amp;(n===w&amp;&amp;d&gt;=n.<span class="property">max</span>/<span class="number">2</span>&amp;&amp;(i.<span class="property">x</span>-=<span class="number">.03</span>*o,i.<span class="property">y</span>-=<span class="number">.03</span>*u),t=(n.<span class="property">max</span>-d)/n.<span class="property">max</span>,l.<span class="title function_">beginPath</span>(),l.<span class="property">lineWidth</span>=t/<span class="number">2</span>,l.<span class="property">strokeStyle</span>=<span class="string">&quot;rgba(&quot;</span>+m.<span class="property">c</span>+<span class="string">&quot;,&quot;</span>+(t+<span class="number">.2</span>)+<span class="string">&quot;)&quot;</span>,l.<span class="title function_">moveTo</span>(i.<span class="property">x</span>,i.<span class="property">y</span>),l.<span class="title function_">lineTo</span>(n.<span class="property">x</span>,n.<span class="property">y</span>),l.<span class="title function_">stroke</span>()));x.<span class="title function_">splice</span>(x.<span class="title function_">indexOf</span>(i),<span class="number">1</span>)&#125;),<span class="title function_">r</span>(i)&#125;<span class="keyword">var</span> c,a,u=<span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;canvas&quot;</span>),m=<span class="title function_">t</span>(),d=<span class="string">&quot;c_n&quot;</span>+m.<span class="property">l</span>,l=u.<span class="title function_">getContext</span>(<span class="string">&quot;2d&quot;</span>),r=<span class="variable language_">window</span>.<span class="property">requestAnimationFrame</span>||<span class="variable language_">window</span>.<span class="property">webkitRequestAnimationFrame</span>||<span class="variable language_">window</span>.<span class="property">mozRequestAnimationFrame</span>||<span class="variable language_">window</span>.<span class="property">oRequestAnimationFrame</span>||<span class="variable language_">window</span>.<span class="property">msRequestAnimationFrame</span>||<span class="keyword">function</span>(<span class="params">n</span>)&#123;<span class="variable language_">window</span>.<span class="built_in">setTimeout</span>(n,<span class="number">1e3</span>/<span class="number">45</span>)&#125;,x=<span class="title class_">Math</span>.<span class="property">random</span>,w=&#123;<span class="attr">x</span>:<span class="literal">null</span>,<span class="attr">y</span>:<span class="literal">null</span>,<span class="attr">max</span>:<span class="number">2e4</span>&#125;;u.<span class="property">id</span>=d,u.<span class="property">style</span>.<span class="property">cssText</span>=<span class="string">&quot;position:fixed;top:0;left:0;z-index:&quot;</span>+m.<span class="property">z</span>+<span class="string">&quot;;opacity:&quot;</span>+m.<span class="property">o</span>,<span class="title function_">e</span>(<span class="string">&quot;body&quot;</span>)[<span class="number">0</span>].<span class="title function_">appendChild</span>(u),<span class="title function_">o</span>(),<span class="variable language_">window</span>.<span class="property">onresize</span>=o,<span class="variable language_">window</span>.<span class="property">onmousemove</span>=<span class="keyword">function</span>(<span class="params">n</span>)&#123;n=n||<span class="variable language_">window</span>.<span class="property">event</span>,w.<span class="property">x</span>=n.<span class="property">clientX</span>,w.<span class="property">y</span>=n.<span class="property">clientY</span>&#125;,<span class="variable language_">window</span>.<span class="property">onmouseout</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;w.<span class="property">x</span>=<span class="literal">null</span>,w.<span class="property">y</span>=<span class="literal">null</span>&#125;;<span class="keyword">for</span>(<span class="keyword">var</span> y=[],s=<span class="number">0</span>;m.<span class="property">n</span>&gt;s;s++)&#123;<span class="keyword">var</span> f=<span class="title function_">x</span>()*c,h=<span class="title function_">x</span>()*a,g=<span class="number">2</span>*<span class="title function_">x</span>()-<span class="number">1</span>,p=<span class="number">2</span>*<span class="title function_">x</span>()-<span class="number">1</span>;y.<span class="title function_">push</span>(&#123;<span class="attr">x</span>:f,<span class="attr">y</span>:h,<span class="attr">xa</span>:g,<span class="attr">ya</span>:p,<span class="attr">max</span>:<span class="number">6e3</span>&#125;)&#125;<span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="title function_">i</span>()&#125;,<span class="number">100</span>)&#125;();</span><br></pre></td></tr></table></figure>
+<h2 id="add-path">add path</h2>
+<p>My NexT layout file is in the path <code>themes\next\layout\_layout.njk</code>.</p>
+<p>For we created the js file, we saved as <code>canvas-nest.js</code>. Open the <code>_layout.njk</code>, and add the following words. <em>REMEMBER above the <code>&lt;/body&gt;</code></em></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- Background picture --&gt;</span><br><span class="line">  &lt;script type=&quot;text/javascript&quot; src=&quot;/js/canvas-nest.js&quot;&gt;	   &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h1>ICON</h1>
+<blockquote>
+<p><a href="https://fontawesome.com/search">https://fontawesome.com/search</a></p>
+</blockquote>
+<h1>ATTACH FILES</h1>
+<p>We may hope visitors that can download files easily and conveniently. Thus, we can upload our relating files onto the same name file. Eg. The post is named <code>22-10-21-hexo-build-beautify.md</code>, and its same name file is <code>22-10-21-hexo-build-beautify</code>. They are created at the same time.</p>
+<p>After uploading, and you can quote the file path in the post. And we can download these things while visiting.</p>
+<ul>
+<li>Picture <code>![filename](filepath)</code></li>
+<li>Zip <code>[filename](filepath)</code></li>
+<li>……</li>
+</ul>
+<p><em>At the same path!</em></p>
+<p><strong>TBC</strong></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>self_promtion</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>22-11-01-Qq</title>
     <url>/2022/11/01/22-11-01-qq/</url>
     <content><![CDATA[<p>The problem is mainly based on the <strong>backdoor</strong>. In RSA library, it has the CVE of <code>CVE-2017-15361</code>.In this case, we can calculate the prime which is likely random with the equation that:<br>
@@ -602,6 +733,30 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>22-11-15-Math</title>
+    <url>/2022/11/15/22-11-15-math/</url>
+    <content><![CDATA[<p>Some import theorems which are suitable for applying to Cryptography.</p>
+<p>At the same time, the post which is made as the record to note me that how to improve or deduction.</p>
+<span id="more"></span><!--toc-->
+<h1>Fermat’s little theorem</h1>
+<p>Let $p$ be a prime number,  and $a$ be any integer. Then $a^{p} - a$ is always divisible by $p$.</p>
+<p>And we can write as:<br>
+$$<br>
+a^{p} \equiv a \mod p<br>
+$$<br>
+Make a deduction, we can get that:<br>
+$$<br>
+a^{p-1} \equiv 1 \mod p<br>
+$$</p>
+]]></content>
+      <categories>
+        <category>Math</category>
+      </categories>
+      <tags>
+        <tag>fermat_little_theorem</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>22-11-15-Functions</title>
     <url>/2022/11/15/22-11-15-functions/</url>
     <content><![CDATA[<p>To conclude the functions that I met in these years.</p>
@@ -775,158 +930,77 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>22-11-15-Math</title>
-    <url>/2022/11/15/22-11-15-math/</url>
-    <content><![CDATA[<p>Some import theorems which are suitable for applying to Cryptography.</p>
-<p>At the same time, the post which is made as the record to note me that how to improve or deduction.</p>
+    <title>22-12-07-2022CnHoneKe</title>
+    <url>/2022/12/07/22-12-07-2022CnHoneKe/</url>
+    <content><![CDATA[<p>The competition was held in August.</p>
+<p>The exercises except <code>factor2</code> are done. And the article is mainly aim to make a record for myself. The <code>Modus</code> is about the multiplicative homomorphic system, which is similar to the <code>Extended Euclidean algorithm</code>.</p>
+<p><strong>List</strong></p>
+<ul>
+<li>[x] Modus</li>
+<li>[x] rsa</li>
+<li>[ ] factor2</li>
+<li>[x] secret_data</li>
+</ul>
+<p>Wish I can solve out above.</p>
 <span id="more"></span><!--toc-->
-<h1>Fermat’s little theorem</h1>
-<p>Let $p$ be a prime number,  and $a$ be any integer. Then $a^{p} - a$ is always divisible by $p$.</p>
-<p>And we can write as:<br>
+<h1>Modus</h1>
+<ul>
+<li>multiplicative_homomorphic</li>
+</ul>
+<p><strong>output.txt</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="number">14142010206099386143235977555692857399310494373372334255226213043954222671886219214790080363755519983589419573494262932031062165425660149023699589427423291076757673539031113758789961660789969074666728548356143546954548237178966812807683542026090314756465049840269239582841323515153189937744280883895942616355068450477244038093783025761830910527817275117470273068582606801561816182028771714266926279491448124072638544823523354972471012076902504991756879694948477398253632905720027515230565063830199860044535605314432273647912553716877788661706091962626029470938285869557993283863813783012548154763397158585969860496209</span></span><br><span class="line">e1 = <span class="number">8044170206501208651566242545498471362911890649958881015968520025930186294576023443506808099677296038797758573489705294289102108150592764180571398770862282775413964383616485564171756065468610971753771700993772575426420613330938626182989999507422559869431997096499661057456703567386749182728255894961711</span></span><br><span class="line">c1 = <span class="number">11517322714245526592044873592382373283428914348422645739336159016405003731268657488015847458779166523731678788259036486197351408324218938844963108776390284845014868126098529982171539875948326597563481747612010865265679909207769244324752454968172401384300433252342047155447253514663020084257315172025978213587941036806257025876560069777775117798912056950800470305039358493009376541529192357082470617915062674822440632959240104574498373020678875137349967659371746447815516349204225897744273956308472359601558104152900628002351072193856499370256139818744736463310402972428459727204523498170929275318085749369313370330104</span></span><br><span class="line">e2 = <span class="number">7981110843177277522743262582712207767500318326009118362192817529414323700650435360291001887232564132664914694220334201133850645107707193720930288877874115700468049318771691746592219604611120450612600603061311788240065247605723819417162805390035814213048743243801428908542140081097421519822132590047533</span></span><br><span class="line">c2 = <span class="number">12907231513900923422005862146378905589636791955213455533815625546155661275692081099543894853443339737652933422555561840945917851059973294781475696342510739464313686827430856742266071924616860913810640580296234473777303348248031669837803543965896443694327322478656672147536068477193332582821244877632320706358476947499828283809012293724747791713411303065091158644428874828519807586496004634361827049528190857803358038226873772036022804215684911051370929474550764142943510840488678370689581686370179457811111602201500802245275266633124851078915997894235280935026230159846619929979668248511374747926732890795947582868735</span></span><br><span class="line">e3 = <span class="number">8321945773137532897701269832287423438330975369722946793416731752574708023263908693097168458920645511451157398450278461406044452962800707032660103849647429968263806321843635237930345258217128805872313308435747131438472827261934005675575066641207582827978944766548998867180054428477087525524476746729443</span></span><br><span class="line">c3 = <span class="number">14065425026445215199826296511184881258323064633386950509660192854866326626040354040592178906620984652169865998063876885421774133239148395916412178848784041317916589243316140373118461629430419305769180856968279675982734449182890302977853892881391084830333333875116598959777525928574769839174695101654696531535920235825780434207646161363349309470260223615977113109458426965856166705879375711518022880712089324008258280991081209228374850515248942548172463741894540420262751207821783524890116559086561517224038086473047623408064157594299815732082781632190258405091440187576055868450259807171733509904666142689629066721239</span></span><br></pre></td></tr></table></figure>
+<p><strong>Analyse</strong></p>
+<p>When I see the <code>output.txt</code>, the first thing appeared in my mind is the <code>SameModAttack</code>, using the <code>Extended-Extended Euclidean algorithm</code>. :)</p>
+<p>Obviously it is wrong, and the correct solution is to use the <code>multiplicative homomorphic properties</code>.</p>
+<p>From the <code>output</code>, we can get a condition that <code>gcd(e1, e2, e3) = 1</code>. Using the <code>Extended Euclidean algorithm</code> we can get $gcdext(a, b) \Longrightarrow gcd(a, b) = r * a + s * b$.</p>
+<p>By deduction, we will get the relation that:<br>
 $$<br>
-a^{p} \equiv a \mod p<br>
-$$<br>
-Make a deduction, we can get that:<br>
-$$<br>
-a^{p-1} \equiv 1 \mod p<br>
+gcd(e1, e2) \equiv e1 * r1 + e2 * s1<br>
 $$</p>
+<p>$$<br>
+gcd(gcd(e1, e2), e3) \equiv gcd(e1, e2) * r2 + e3 * s2<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow 1 \equiv (e1 * r1 + e2 * s1) * r2 + e3 * s2<br>
+$$</p>
+<p>Using this important equation, we can deduce the plaintext:<br>
+$$<br>
+c1^{r1 \cdot r2} * c2^{r2 \cdot s1} * c3^{s3} \mod n<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow m^{e1\cdot r1 \cdot r2 + e2 \cdot r2 \cdot s1 + e3 \cdot s2} \equiv m \mod n<br>
+$$</p>
+<p>And we can solve out the important <code>m</code>.</p>
+<p><strong><a href="http://exp.py">exp.py</a></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">g1, r1, s1 = gcdext(e1, e2)</span><br><span class="line">g2, r2, s2 = gcdext(g1, e3)</span><br><span class="line"><span class="built_in">print</span>(g2)</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line">m = powmod(c1, r1*r2, n)*powmod(c2, r2*s1, n)*powmod(c3, s2, n) % n</span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="comment"># 158364088221424626103916028957988006099747465255174624548375855659785449250446255975244653061928080738353296765</span></span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m).decode())</span><br><span class="line"><span class="comment"># CnHongKe&#123;e4d0e72e-7589-46a5-973a-cb2a561ab9b5&#125;</span></span><br></pre></td></tr></table></figure>
+<h1>rsa</h1>
+<ul>
+<li>Euler function 2</li>
+<li>fermat factor</li>
+</ul>
+<p><strong><a href="http://task.py">task.py</a></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> getPrime, bytes_to_long</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">p1 = getPrime(<span class="number">256</span>)</span><br><span class="line">p2 = gmpy2.next_prime(p1)</span><br><span class="line">q1 = getPrime(<span class="number">256</span>)</span><br><span class="line">q2 = gmpy2.next_prime(q1)</span><br><span class="line">n = p1 * p2 * q1 * q2</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">c = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;n = %s&quot;</span> % <span class="built_in">str</span>(n)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;c = %s&quot;</span> % <span class="built_in">str</span>(c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># n = 64167976067579049714960625453369319623574147507612434283986049223337768780480307767872484679214997588434480836733456745370562072077109044069294552424055163225824033286416753073591864962033181307822913035174676405849974928866646899569297852568167037383571518655075260561571463850326020102574832776970253538663</span></span><br><span class="line"><span class="comment"># c = 61862798948167945139222097835309318688214053098609025632041946354708220281670731577734398373186075525909035569024535800893559811995294302363408878574730352951360726686941143742759917076156204564133401228995322937563878389120770732315714920284214472911769619065607001763986611359218449802649142381309774537696</span></span><br></pre></td></tr></table></figure>
+<p><strong>Analyse</strong></p>
+<p>From the code, we can make a conclusion that the <code>p1</code> and <code>p2</code> are primes which are neighbors, and the <code>q1</code> and <code>q2</code> are the same.</p>
+<p>At this time, we can use <code>fermat factor</code> to solve out the different <code>p1</code>, <code>p2</code>, <code>q1</code> and <code>q2</code>.</p>
+<p>The <code>n</code>  is <code>Composite number</code> , so we will use <code>Euler function 2</code> to solve out $\varphi(n)$.</p>
+<p>We use <code>fermat factor</code> to make a possible list and make sure that the <code>n = p1 * p2 * q1 * q2</code></p>
+<h1>factor2</h1>
+<h1>secret_data</h1>
+<ul>
+<li>change and fix the data</li>
+<li>convert data to zip</li>
+<li>zip to xlsx</li>
+<li>kali-grep to find the flag</li>
+</ul>
 ]]></content>
       <categories>
-        <category>Math</category>
+        <category>Writeup</category>
       </categories>
       <tags>
-        <tag>fermat_little_theorem</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>22-10-21-Hexo-Build-Beautify</title>
-    <url>/2022/10/21/22-10-21-hexo-build-beautify/</url>
-    <content><![CDATA[<p>The article is used to record how to use hexo to build my own blog. I will try my best to make records by using English. To Be Honest, this is really somewhat a hard challenge for me.</p>
-<p>The problems and some solutions are as follows.</p>
-<span id="more"></span>
-<blockquote>
-<p><a href="https://hexo-next.readthedocs.io/">https://hexo-next.readthedocs.io/</a></p>
-</blockquote>
-<h1>BUILD HEXO</h1>
-<blockquote>
-<p>preparation:</p>
-<p>git</p>
-<p>node.js</p>
-</blockquote>
-<p>after the installation, test:</p>
-<p><code>node -v</code>/<code>npm -v</code>/ <code>git -v</code></p>
-<h2 id="HEXO-BLOG">HEXO BLOG</h2>
-<blockquote>
-<p>all use git-bash</p>
-</blockquote>
-<ul>
-<li>to install hexo:</li>
-</ul>
-<p><code>npm install -g hexo-cli</code></p>
-<ul>
-<li>init hexo and build blog:</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init [blogname]</span><br><span class="line">cd [blogname]</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<ul>
-<li>after building the common commands:</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate/hexo g</span><br><span class="line">hexo server/hexo s</span><br><span class="line">hexo deploy/hexo d(unless everything is OK)</span><br><span class="line"># hexo clean &amp;&amp; hexo g &amp; hexo s</span><br></pre></td></tr></table></figure>
-<h2 id="NEW-POST">NEW POST</h2>
-<ul>
-<li>set markdown</li>
-</ul>
-<p>In <code>scaffolds\post.md</code>, above the <code>!--more--</code> can make the article excerption</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories: </span><br><span class="line">tags: </span><br><span class="line">mathjax: true</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"># to limit the length of article</span><br></pre></td></tr></table></figure>
-<ul>
-<li>new post</li>
-</ul>
-<p><code>hexo new [postname]</code></p>
-<p>To make the article and everting clean, follow the standard <code>YY-MM-DD-article-name.md</code></p>
-<p>And the categories are as follows:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">	- Studing</span><br><span class="line">	- Reading</span><br><span class="line">	- Recording</span><br><span class="line">	- Amusing</span><br></pre></td></tr></table></figure>
-<h1>DRAFT/BAND GITHUB</h1>
-<ul>
-<li>register the github account</li>
-<li>new repository</li>
-</ul>
-<p>Create a new repository, github has reserved your own website.</p>
-<p><code>[githubaccount].github.io</code></p>
-<ul>
-<li>use token to authenticate</li>
-</ul>
-<p>In the root menu, add the follows to the file <strong>_config.yml</strong>.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># install:</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"># _config.yml</span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://[token]@github.com/[githubaccount]/[githubaccount].github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<ul>
-<li>git config</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># if authentication failed</span><br><span class="line">git config --globaluser.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>after everything above is ready</li>
-</ul>
-<p><code>hexo d</code>, test if the running is well.</p>
-<p>the default website is: <code>localhost:4000/</code></p>
-<h1>MATH</h1>
-<p>If the markdown can not display well,  maybe the renderer gets wrong.</p>
-<p>The hexo default renderer is <code>hexo-renderer-marked</code>.</p>
-<p>You can use <code>hexo-renderer-kramed</code> or <code>@upupming/renderer-markdown-it-plus</code> to replace the default one.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm i @upupming/hexo-renderer-markdown-it-plus --save</span><br></pre></td></tr></table></figure>
-<p><strong>DON’T FORGET!</strong></p>
-<p>In <code>_config.next.yml</code> set:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">math:</span><br><span class="line">  # Default (false) will load mathjax / katex script on demand.</span><br><span class="line">  # That is it only render those page which has `mathjax: true` in front-matter.</span><br><span class="line">  # If you set it to true, it will load mathjax / katex script EVERY PAGE.</span><br><span class="line">  every_page: true</span><br><span class="line"></span><br><span class="line">  mathjax:</span><br><span class="line">    enable: true</span><br><span class="line">    # Available values: none | ams | all</span><br><span class="line">    tags: none</span><br><span class="line"></span><br><span class="line">  katex:</span><br><span class="line">    enable: false</span><br><span class="line">    # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex</span><br><span class="line">    copy_tex: false</span><br></pre></td></tr></table></figure>
-<p>and in your every post fonts, add <code>math: true</code></p>
-<h1>NOT 404</h1>
-<h2 id="question">question</h2>
-<p>When I visit the tags, the website always return <code>404</code>. I search for some solutions all over the web. However, most of them are wrong, until I see the solution in the Zhihu.</p>
-<h2 id="solution">solution</h2>
-<h3 id="new-page">new page</h3>
-<p>In the root of the blog, open the git bash command.</p>
-<p><code>hexo new page &quot;tags&quot;</code></p>
-<h3 id="edit-the-index">edit the index</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">type: tags</span><br><span class="line">layout: tags # /theme/next/layout/[tags].njk</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p><em>Behind the layout, to write down <strong>the name of the target njk</strong>, which is in the depth of the file path.</em></p>
-<h3 id="edit-the-config-file">edit the _config file</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Dirctory</span><br><span class="line">tag_dir: tags</span><br></pre></td></tr></table></figure>
-<p>Make the names one-to-one.</p>
-<h1>CALCULATE WORDS</h1>
-<h2 id="hexo-word-counter">hexo-word-counter</h2>
-<p>Install the plugin <code>hexo-word-counter</code>, in the root path of blog.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-word-counter</span><br><span class="line">hexo clean &amp;&amp; hexo g</span><br></pre></td></tr></table></figure>
-<h2 id="config">config</h2>
-<p>In <code>_config.yml</code>, at the end of the file add the follows:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br><span class="line">  exclude_codeblock: false</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br><span class="line">  suffix: &quot;mins.&quot;</span><br></pre></td></tr></table></figure>
-<p><em>In <code>_config.next.yml</code>, edit the finding <code>item_text_total: false</code>. Change <code>false</code> to <code>true</code>.</em></p>
-<h1>BACKGROUND PICTURE</h1>
-<p>I tried more ways to set background picture, more thins were wrong. Util I saw an article, I done this thing.</p>
-<p>When I reflected all my things on this part, I knew the keypoint part was to **add the correct source path **to <code>next_config</code>.</p>
-<h2 id="js-file">js file</h2>
-<p>The NexT v8 has the <code>canvas-nest.js</code> in <code>themes\next\source\js</code>.</p>
-<p>If you don’t have the <strong>JS</strong> file, create the new file contains：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">!<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="keyword">function</span> <span class="title function_">n</span>(<span class="params">n,e,t</span>)&#123;<span class="keyword">return</span> n.<span class="title function_">getAttribute</span>(e)||t&#125;<span class="keyword">function</span> <span class="title function_">e</span>(<span class="params">n</span>)&#123;<span class="keyword">return</span> <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(n)&#125;<span class="keyword">function</span> <span class="title function_">t</span>(<span class="params"></span>)&#123;<span class="keyword">var</span> t=<span class="title function_">e</span>(<span class="string">&quot;script&quot;</span>),o=t.<span class="property">length</span>,i=t[o-<span class="number">1</span>];<span class="keyword">return</span>&#123;<span class="attr">l</span>:o,<span class="attr">z</span>:<span class="title function_">n</span>(i,<span class="string">&quot;zIndex&quot;</span>,-<span class="number">1</span>),<span class="attr">o</span>:<span class="title function_">n</span>(i,<span class="string">&quot;opacity&quot;</span>,<span class="number">.5</span>),<span class="attr">c</span>:<span class="title function_">n</span>(i,<span class="string">&quot;color&quot;</span>,<span class="string">&quot;0,0,0&quot;</span>),<span class="attr">n</span>:<span class="title function_">n</span>(i,<span class="string">&quot;count&quot;</span>,<span class="number">99</span>)&#125;&#125;<span class="keyword">function</span> <span class="title function_">o</span>(<span class="params"></span>)&#123;c=u.<span class="property">width</span>=<span class="variable language_">window</span>.<span class="property">innerWidth</span>||<span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientWidth</span>||<span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">clientWidth</span>,a=u.<span class="property">height</span>=<span class="variable language_">window</span>.<span class="property">innerHeight</span>||<span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span>||<span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">clientHeight</span>&#125;<span class="keyword">function</span> <span class="title function_">i</span>(<span class="params"></span>)&#123;l.<span class="title function_">clearRect</span>(<span class="number">0</span>,<span class="number">0</span>,c,a);<span class="keyword">var</span> n,e,t,o,u,d,x=[w].<span class="title function_">concat</span>(y);y.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">i</span>)&#123;<span class="keyword">for</span>(i.<span class="property">x</span>+=i.<span class="property">xa</span>,i.<span class="property">y</span>+=i.<span class="property">ya</span>,i.<span class="property">xa</span>*=i.<span class="property">x</span>&gt;c||i.<span class="property">x</span>&lt;<span class="number">0</span>?-<span class="number">1</span>:<span class="number">1</span>,i.<span class="property">ya</span>*=i.<span class="property">y</span>&gt;a||i.<span class="property">y</span>&lt;<span class="number">0</span>?-<span class="number">1</span>:<span class="number">1</span>,l.<span class="title function_">fillRect</span>(i.<span class="property">x</span>-<span class="number">.5</span>,i.<span class="property">y</span>-<span class="number">.5</span>,<span class="number">1</span>,<span class="number">1</span>),e=<span class="number">0</span>;e&lt;x.<span class="property">length</span>;e++)n=x[e],i!==n&amp;&amp;<span class="literal">null</span>!==n.<span class="property">x</span>&amp;&amp;<span class="literal">null</span>!==n.<span class="property">y</span>&amp;&amp;(o=i.<span class="property">x</span>-n.<span class="property">x</span>,u=i.<span class="property">y</span>-n.<span class="property">y</span>,d=o*o+u*u,d&lt;n.<span class="property">max</span>&amp;&amp;(n===w&amp;&amp;d&gt;=n.<span class="property">max</span>/<span class="number">2</span>&amp;&amp;(i.<span class="property">x</span>-=<span class="number">.03</span>*o,i.<span class="property">y</span>-=<span class="number">.03</span>*u),t=(n.<span class="property">max</span>-d)/n.<span class="property">max</span>,l.<span class="title function_">beginPath</span>(),l.<span class="property">lineWidth</span>=t/<span class="number">2</span>,l.<span class="property">strokeStyle</span>=<span class="string">&quot;rgba(&quot;</span>+m.<span class="property">c</span>+<span class="string">&quot;,&quot;</span>+(t+<span class="number">.2</span>)+<span class="string">&quot;)&quot;</span>,l.<span class="title function_">moveTo</span>(i.<span class="property">x</span>,i.<span class="property">y</span>),l.<span class="title function_">lineTo</span>(n.<span class="property">x</span>,n.<span class="property">y</span>),l.<span class="title function_">stroke</span>()));x.<span class="title function_">splice</span>(x.<span class="title function_">indexOf</span>(i),<span class="number">1</span>)&#125;),<span class="title function_">r</span>(i)&#125;<span class="keyword">var</span> c,a,u=<span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;canvas&quot;</span>),m=<span class="title function_">t</span>(),d=<span class="string">&quot;c_n&quot;</span>+m.<span class="property">l</span>,l=u.<span class="title function_">getContext</span>(<span class="string">&quot;2d&quot;</span>),r=<span class="variable language_">window</span>.<span class="property">requestAnimationFrame</span>||<span class="variable language_">window</span>.<span class="property">webkitRequestAnimationFrame</span>||<span class="variable language_">window</span>.<span class="property">mozRequestAnimationFrame</span>||<span class="variable language_">window</span>.<span class="property">oRequestAnimationFrame</span>||<span class="variable language_">window</span>.<span class="property">msRequestAnimationFrame</span>||<span class="keyword">function</span>(<span class="params">n</span>)&#123;<span class="variable language_">window</span>.<span class="built_in">setTimeout</span>(n,<span class="number">1e3</span>/<span class="number">45</span>)&#125;,x=<span class="title class_">Math</span>.<span class="property">random</span>,w=&#123;<span class="attr">x</span>:<span class="literal">null</span>,<span class="attr">y</span>:<span class="literal">null</span>,<span class="attr">max</span>:<span class="number">2e4</span>&#125;;u.<span class="property">id</span>=d,u.<span class="property">style</span>.<span class="property">cssText</span>=<span class="string">&quot;position:fixed;top:0;left:0;z-index:&quot;</span>+m.<span class="property">z</span>+<span class="string">&quot;;opacity:&quot;</span>+m.<span class="property">o</span>,<span class="title function_">e</span>(<span class="string">&quot;body&quot;</span>)[<span class="number">0</span>].<span class="title function_">appendChild</span>(u),<span class="title function_">o</span>(),<span class="variable language_">window</span>.<span class="property">onresize</span>=o,<span class="variable language_">window</span>.<span class="property">onmousemove</span>=<span class="keyword">function</span>(<span class="params">n</span>)&#123;n=n||<span class="variable language_">window</span>.<span class="property">event</span>,w.<span class="property">x</span>=n.<span class="property">clientX</span>,w.<span class="property">y</span>=n.<span class="property">clientY</span>&#125;,<span class="variable language_">window</span>.<span class="property">onmouseout</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;w.<span class="property">x</span>=<span class="literal">null</span>,w.<span class="property">y</span>=<span class="literal">null</span>&#125;;<span class="keyword">for</span>(<span class="keyword">var</span> y=[],s=<span class="number">0</span>;m.<span class="property">n</span>&gt;s;s++)&#123;<span class="keyword">var</span> f=<span class="title function_">x</span>()*c,h=<span class="title function_">x</span>()*a,g=<span class="number">2</span>*<span class="title function_">x</span>()-<span class="number">1</span>,p=<span class="number">2</span>*<span class="title function_">x</span>()-<span class="number">1</span>;y.<span class="title function_">push</span>(&#123;<span class="attr">x</span>:f,<span class="attr">y</span>:h,<span class="attr">xa</span>:g,<span class="attr">ya</span>:p,<span class="attr">max</span>:<span class="number">6e3</span>&#125;)&#125;<span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="title function_">i</span>()&#125;,<span class="number">100</span>)&#125;();</span><br></pre></td></tr></table></figure>
-<h2 id="add-path">add path</h2>
-<p>My NexT layout file is in the path <code>themes\next\layout\_layout.njk</code>.</p>
-<p>For we created the js file, we saved as <code>canvas-nest.js</code>. Open the <code>_layout.njk</code>, and add the following words. <em>REMEMBER above the <code>&lt;/body&gt;</code></em></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- Background picture --&gt;</span><br><span class="line">  &lt;script type=&quot;text/javascript&quot; src=&quot;/js/canvas-nest.js&quot;&gt;	   &lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h1>ICON</h1>
-<blockquote>
-<p><a href="https://fontawesome.com/search">https://fontawesome.com/search</a></p>
-</blockquote>
-<h1>ATTACH FILES</h1>
-<p>We may hope visitors that can download files easily and conveniently. Thus, we can upload our relating files onto the same name file. Eg. The post is named <code>22-10-21-hexo-build-beautify.md</code>, and its same name file is <code>22-10-21-hexo-build-beautify</code>. They are created at the same time.</p>
-<p>After uploading, and you can quote the file path in the post. And we can download these things while visiting.</p>
-<ul>
-<li>Picture <code>![filename](filepath)</code></li>
-<li>Zip <code>[filename](filepath)</code></li>
-<li>……</li>
-</ul>
-<p><em>At the same path!</em></p>
-<p><strong>TBC</strong></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>self_promtion</tag>
+        <tag>cnhongke</tag>
+        <tag>multiplicative_homomorphic</tag>
+        <tag>euclidean</tag>
       </tags>
   </entry>
   <entry>
@@ -1068,21 +1142,6 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>22-12-14-Docker-Record</title>
-    <url>/2022/12/14/22-12-14-docker-record/</url>
-    <content><![CDATA[<p>I want to learn the docker to compile my environment. But this week   I have no time to make full studying.</p>
-<p>Thus, I make a record which made by <code>Dalao-Zimablue</code>  in this post.</p>
-<span id="more"></span><!--toc-->
-<p><a href="https://www.zimablue.life/2022/02/10/Docker%E5%AD%A6%E4%B9%A0/#more">https://www.zimablue.life/2022/02/10/Docker学习/#more</a></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>22-12-19-Basecrack</title>
     <url>/2022/12/19/22-12-19-basecrack/</url>
     <content><![CDATA[<p>The guidance to install the <code>basecrack</code>.</p>
@@ -1134,77 +1193,172 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>22-12-07-2022CnHoneKe</title>
-    <url>/2022/12/07/22-12-07-2022CnHoneKe/</url>
-    <content><![CDATA[<p>The competition was held in August.</p>
-<p>The exercises except <code>factor2</code> are done. And the article is mainly aim to make a record for myself. The <code>Modus</code> is about the multiplicative homomorphic system, which is similar to the <code>Extended Euclidean algorithm</code>.</p>
-<p><strong>List</strong></p>
-<ul>
-<li>[x] Modus</li>
-<li>[x] rsa</li>
-<li>[ ] factor2</li>
-<li>[x] secret_data</li>
-</ul>
-<p>Wish I can solve out above.</p>
+    <title>22-12-20-Encrypto-Wireshark</title>
+    <url>/2022/12/20/22-12-20-Encrypto-Wireshark/</url>
+    <content><![CDATA[<p>Some traffic packets may be encrypted. When I import the private key in one case, I can’t get the decrypted packets like http.</p>
+<p>FinalIy, I search for this problem and get the solution.</p>
+<p>This post aims to make a conclusion about the <code>encrypted-traffic-packets(tls/ssl)</code>.</p>
 <span id="more"></span><!--toc-->
-<h1>Modus</h1>
+<h1>REFERENCE</h1>
+<blockquote>
+<p><a href="https://www.cnblogs.com/jasy/p/16157388.html">https://www.cnblogs.com/jasy/p/16157388.html</a></p>
+<p><a href="https://www.joji.me/zh-cn/blog/walkthrough-decrypt-ssl-tls-traffic-https-and-http2-in-wireshark/#md-sslkeylogfile">如何通过Wireshark查看HTTPS、HTTP/2网络包（解码TLS、SSL） (joji.me)</a></p>
+</blockquote>
+<p>Really thank for the article!</p>
+<p><em>The second is to edit the configuration of computer, which can be caught in the direct way by using webshell.</em></p>
+<h1>DECRYPT TLS/SSL</h1>
+<p>There are three methods to decrypt the encrypted-ssl/tls packets.</p>
 <ul>
-<li>multiplicative_homomorphic</li>
+<li>Use the <code>server's cert</code> or the <code>private-key</code> to decrypt.</li>
+<li>Use the <code>ssl-key-log-file</code> to decrypt.</li>
+<li>Disable the config setting to decrypt packets which use the <code>Diffie-Hellman-Exchange</code>.</li>
 </ul>
-<p><strong>output.txt</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="number">14142010206099386143235977555692857399310494373372334255226213043954222671886219214790080363755519983589419573494262932031062165425660149023699589427423291076757673539031113758789961660789969074666728548356143546954548237178966812807683542026090314756465049840269239582841323515153189937744280883895942616355068450477244038093783025761830910527817275117470273068582606801561816182028771714266926279491448124072638544823523354972471012076902504991756879694948477398253632905720027515230565063830199860044535605314432273647912553716877788661706091962626029470938285869557993283863813783012548154763397158585969860496209</span></span><br><span class="line">e1 = <span class="number">8044170206501208651566242545498471362911890649958881015968520025930186294576023443506808099677296038797758573489705294289102108150592764180571398770862282775413964383616485564171756065468610971753771700993772575426420613330938626182989999507422559869431997096499661057456703567386749182728255894961711</span></span><br><span class="line">c1 = <span class="number">11517322714245526592044873592382373283428914348422645739336159016405003731268657488015847458779166523731678788259036486197351408324218938844963108776390284845014868126098529982171539875948326597563481747612010865265679909207769244324752454968172401384300433252342047155447253514663020084257315172025978213587941036806257025876560069777775117798912056950800470305039358493009376541529192357082470617915062674822440632959240104574498373020678875137349967659371746447815516349204225897744273956308472359601558104152900628002351072193856499370256139818744736463310402972428459727204523498170929275318085749369313370330104</span></span><br><span class="line">e2 = <span class="number">7981110843177277522743262582712207767500318326009118362192817529414323700650435360291001887232564132664914694220334201133850645107707193720930288877874115700468049318771691746592219604611120450612600603061311788240065247605723819417162805390035814213048743243801428908542140081097421519822132590047533</span></span><br><span class="line">c2 = <span class="number">12907231513900923422005862146378905589636791955213455533815625546155661275692081099543894853443339737652933422555561840945917851059973294781475696342510739464313686827430856742266071924616860913810640580296234473777303348248031669837803543965896443694327322478656672147536068477193332582821244877632320706358476947499828283809012293724747791713411303065091158644428874828519807586496004634361827049528190857803358038226873772036022804215684911051370929474550764142943510840488678370689581686370179457811111602201500802245275266633124851078915997894235280935026230159846619929979668248511374747926732890795947582868735</span></span><br><span class="line">e3 = <span class="number">8321945773137532897701269832287423438330975369722946793416731752574708023263908693097168458920645511451157398450278461406044452962800707032660103849647429968263806321843635237930345258217128805872313308435747131438472827261934005675575066641207582827978944766548998867180054428477087525524476746729443</span></span><br><span class="line">c3 = <span class="number">14065425026445215199826296511184881258323064633386950509660192854866326626040354040592178906620984652169865998063876885421774133239148395916412178848784041317916589243316140373118461629430419305769180856968279675982734449182890302977853892881391084830333333875116598959777525928574769839174695101654696531535920235825780434207646161363349309470260223615977113109458426965856166705879375711518022880712089324008258280991081209228374850515248942548172463741894540420262751207821783524890116559086561517224038086473047623408064157594299815732082781632190258405091440187576055868450259807171733509904666142689629066721239</span></span><br></pre></td></tr></table></figure>
-<p><strong>Analyse</strong></p>
-<p>When I see the <code>output.txt</code>, the first thing appeared in my mind is the <code>SameModAttack</code>, using the <code>Extended-Extended Euclidean algorithm</code>. :)</p>
-<p>Obviously it is wrong, and the correct solution is to use the <code>multiplicative homomorphic properties</code>.</p>
-<p>From the <code>output</code>, we can get a condition that <code>gcd(e1, e2, e3) = 1</code>. Using the <code>Extended Euclidean algorithm</code> we can get $gcdext(a, b) \Longrightarrow gcd(a, b) = r * a + s * b$.</p>
-<p>By deduction, we will get the relation that:<br>
-$$<br>
-gcd(e1, e2) \equiv e1 * r1 + e2 * s1<br>
-$$</p>
-<p>$$<br>
-gcd(gcd(e1, e2), e3) \equiv gcd(e1, e2) * r2 + e3 * s2<br>
-$$</p>
-<p>$$<br>
-\Longrightarrow 1 \equiv (e1 * r1 + e2 * s1) * r2 + e3 * s2<br>
-$$</p>
-<p>Using this important equation, we can deduce the plaintext:<br>
-$$<br>
-c1^{r1 \cdot r2} * c2^{r2 \cdot s1} * c3^{s3} \mod n<br>
-$$</p>
-<p>$$<br>
-\Longrightarrow m^{e1\cdot r1 \cdot r2 + e2 \cdot r2 \cdot s1 + e3 \cdot s2} \equiv m \mod n<br>
-$$</p>
-<p>And we can solve out the important <code>m</code>.</p>
-<p><strong><a href="http://exp.py">exp.py</a></strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">g1, r1, s1 = gcdext(e1, e2)</span><br><span class="line">g2, r2, s2 = gcdext(g1, e3)</span><br><span class="line"><span class="built_in">print</span>(g2)</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line">m = powmod(c1, r1*r2, n)*powmod(c2, r2*s1, n)*powmod(c3, s2, n) % n</span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="comment"># 158364088221424626103916028957988006099747465255174624548375855659785449250446255975244653061928080738353296765</span></span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m).decode())</span><br><span class="line"><span class="comment"># CnHongKe&#123;e4d0e72e-7589-46a5-973a-cb2a561ab9b5&#125;</span></span><br></pre></td></tr></table></figure>
-<h1>rsa</h1>
+<h2 id="Server’s-cert-Private-key">Server’s cert/Private-key</h2>
+<h3 id="preparation">preparation</h3>
 <ul>
-<li>Euler function 2</li>
-<li>fermat factor</li>
+<li>TLS/SSL packets</li>
+<li>cert or private-key</li>
+<li>wireshark</li>
 </ul>
-<p><strong><a href="http://task.py">task.py</a></strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> getPrime, bytes_to_long</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">p1 = getPrime(<span class="number">256</span>)</span><br><span class="line">p2 = gmpy2.next_prime(p1)</span><br><span class="line">q1 = getPrime(<span class="number">256</span>)</span><br><span class="line">q2 = gmpy2.next_prime(q1)</span><br><span class="line">n = p1 * p2 * q1 * q2</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">c = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;n = %s&quot;</span> % <span class="built_in">str</span>(n)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;c = %s&quot;</span> % <span class="built_in">str</span>(c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># n = 64167976067579049714960625453369319623574147507612434283986049223337768780480307767872484679214997588434480836733456745370562072077109044069294552424055163225824033286416753073591864962033181307822913035174676405849974928866646899569297852568167037383571518655075260561571463850326020102574832776970253538663</span></span><br><span class="line"><span class="comment"># c = 61862798948167945139222097835309318688214053098609025632041946354708220281670731577734398373186075525909035569024535800893559811995294302363408878574730352951360726686941143742759917076156204564133401228995322937563878389120770732315714920284214472911769619065607001763986611359218449802649142381309774537696</span></span><br></pre></td></tr></table></figure>
-<p><strong>Analyse</strong></p>
-<p>From the code, we can make a conclusion that the <code>p1</code> and <code>p2</code> are primes which are neighbors, and the <code>q1</code> and <code>q2</code> are the same.</p>
-<p>At this time, we can use <code>fermat factor</code> to solve out the different <code>p1</code>, <code>p2</code>, <code>q1</code> and <code>q2</code>.</p>
-<p>The <code>n</code>  is <code>Composite number</code> , so we will use <code>Euler function 2</code> to solve out $\varphi(n)$.</p>
-<p>We use <code>fermat factor</code> to make a possible list and make sure that the <code>n = p1 * p2 * q1 * q2</code></p>
-<h1>factor2</h1>
-<h1>secret_data</h1>
+<h3 id="notice">notice</h3>
+<p>The TLS/SSL packets should not relate to the <code>Diffie-Hellman-Exchange</code> and just a common encrypted packets.</p>
+<h4 id="CERT-PRIVATEKEY">CERT/PRIVATEKEY</h4>
+<p>The cert or private-key should not be encrypted. And usually, the private-key is the standard of <code>PKCS#8</code>.</p>
+<p>If you have a binary DER, it cannot be used in wireshark, and we ought to make a convert.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">openssl pkcs8 -nocrypt -<span class="keyword">in</span> der.key -informat DER -out pem.key -outformat PEM</span><br></pre></td></tr></table></figure>
 <ul>
-<li>change and fix the data</li>
-<li>convert data to zip</li>
-<li>zip to xlsx</li>
-<li>kali-grep to find the flag</li>
+<li><em>der.key: the name and root of DER</em></li>
+<li><em>pem.key: the output file</em></li>
 </ul>
+<p>And, the private-key ought to be like this:</p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/1.png" class="" title="Private-key">
+<p>which shows that the beginning is <code>-----BEGIN RSA PRIVATE KEY-----</code>.</p>
+<h4 id="DECRYPT-KEY">DECRYPT KEY</h4>
+<blockquote>
+<p><a href="https://www.openssl.org/docs/manmaster/man1/rsa.html#EXAMPLES">/docs/manmaster/man1/rsa.html (openssl.org)</a></p>
+</blockquote>
+<p>If the beginning is <code>-----BEGIN ENCRYPTED PRIVATE KEY-----</code>, we should decrypt the key in a proper way.</p>
+<p>a common command is:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">openssl rsa -<span class="keyword">in</span> [source file] -out [outfile]</span><br><span class="line"><span class="comment"># ?Maybe.</span></span><br></pre></td></tr></table></figure>
+<h3 id="step">step</h3>
+<ul>
+<li>OPEN the wireshark and import the private-key or cert.</li>
+</ul>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/2.png" class="" title="setting">
+<ol>
+<li><strong>RSA keys list.</strong> Import private key, add the <code>port</code>, <code>ip</code>, <code>protocol</code>, <code>root</code> and the chosen <code>password</code>. <strong>Mainly used.</strong></li>
+<li><strong>TLS debug file.</strong> Some debug file.</li>
+<li><strong>Master-Secret log.</strong> Key log file.</li>
+</ol>
+<ul>
+<li>If all things right, and we will see the <code>http traffic</code>.</li>
+</ul>
+<h2 id="Key-log-file">Key log file</h2>
+<p>Use the <code>key log file</code>. Usually, this file is in the traffic packets. The key log file is like this.</p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/3.png" class="" title="key log file">
+<h2 id="Relate-to-D-H">Relate to D-H</h2>
+<p>Sometimes, the encrypted traffic packets cannot be decrypted by using methods above.</p>
+<h3 id="how-to-recognize">how to recognize</h3>
+<p>When we analyze the traffic packets, we use command like <code>ip.addr == xxx.xxx.xxx.xxx &amp;&amp; tls</code> to find the target packets.</p>
+<p>If we see the <code>Client Hello</code>, we should make a notice that it maybe a <code>D-H encrypted traffic packet</code>.</p>
+<p>For example:</p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/4.png" class="" title="D-H encrypted">
+<p>We can change the browser to catch the traffic again.</p>
+<h3 id="set-the-firefox">set the firefox</h3>
+<p>The address is <code>about:config</code>, and search for the <code>dhe</code>.</p>
+<p>We can change the target according to the traffic packets or make all things   <code>false</code>.</p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/5.png" class="" title="change firefox setting">
+<h3 id="recatch-the-traffic-and-analyze">recatch the traffic and analyze</h3>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/6.png" class="" title="remove dhe">
+<p>After importing the private key, we can see the  decrypted<code>http traffic</code>.</p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/7.png" class="" title="decrypted http traffic">
+<h1>CONCLUSION</h1>
+<p>The <code>Diffie-Hellman-Exchange</code> is really beyond my imagination.</p>
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>wireshark</tag>
+        <tag>diffie_hellman</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>22-12-21-UNknown</title>
+    <url>/2022/12/21/22-12-21-UNknown/</url>
+    <content><![CDATA[<p>Figure out 2 tasks.</p>
+<p>One is for crypto, and the other is for misc.</p>
+<p>Both of them are easy.</p>
+<span id="more"></span><!--toc-->
+<h1>poem</h1>
+<blockquote>
+<p>reference: [ACTF新生赛2020]base64隐写</p>
+</blockquote>
+<ul>
+<li>base64stego</li>
+<li>caeser cipher</li>
+</ul>
+<h2 id="base64stego">base64stego</h2>
+<p><a href="22-12-21-UNknown/poem.txt">poem.txt</a></p>
+<p><em>Make sure that the end of each line. This ending is <code>\r\n</code></em></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">base64stego</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">b64chars = <span class="string">&#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;poem.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    bin_str = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># print(f.readlines())</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">        stegb64 = <span class="built_in">str</span>(line, <span class="string">&#x27;utf-8&#x27;</span>).strip(<span class="string">&#x27;\r\n&#x27;</span>) <span class="comment"># edit</span></span><br><span class="line">        <span class="comment"># print(stegb64)</span></span><br><span class="line">        row64 = <span class="built_in">str</span>(base64.b64encode(base64.b64decode(stegb64)), <span class="string">&#x27;utf-8&#x27;</span>).strip(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        offset = <span class="built_in">abs</span>(b64chars.index(stegb64.replace(<span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;&#x27;</span>)[-<span class="number">1</span>]) - b64chars.index(row64.replace(<span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;&#x27;</span>)[-<span class="number">1</span>]))</span><br><span class="line">        equalnum = stegb64.count(<span class="string">&#x27;=&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> equalnum:</span><br><span class="line">            bin_str += <span class="built_in">bin</span>(offset)[<span class="number">2</span>:].zfill(equalnum * <span class="number">2</span>)</span><br><span class="line">    output = [<span class="built_in">chr</span>(<span class="built_in">int</span>(bin_str[i:i + <span class="number">8</span>], <span class="number">2</span>)) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(bin_str), <span class="number">8</span>)]</span><br><span class="line">    flag = <span class="string">&#x27;&#x27;</span>.join(output)</span><br><span class="line">    <span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
+<h2 id="caeser-cipher">caeser cipher</h2>
+<p><em>Just crack!</em></p>
+<p>key is <code>13</code>.</p>
+<h1>Alex2Bob</h1>
+<p><a href="22-12-21-UNknown/Alex2Bob.zip">Alex2Bob</a></p>
+<ul>
+<li>ARCHPR-mask</li>
+<li>PNG-header</li>
+<li>PNG-crack width</li>
+<li>LSB</li>
+</ul>
+<h2 id="ARCHPR-mask">ARCHPR-mask</h2>
+<p>Known the end of the key is <code>kitty</code>.</p>
+<p>This is the <code>mask attack</code>. We don’t know the length of the key, so we try some possibilities.</p>
+<p>Until we try to set unknown length is 4, we get the key.</p>
+<img src="/2022/12/21/22-12-21-UNknown/1.png" class="" title="setting&amp;output">
+<h2 id="PNG-header">PNG-header</h2>
+<p>Use the <code>winhex</code> and analyze the png. We find that the file header is wrong, so we should edit the file header <code>88 -&gt; 89</code>.</p>
+<img src="/2022/12/21/22-12-21-UNknown/2.png" class="" title="PNG-header">
+<p>Still can’t open the picture or see the content.</p>
+<h2 id="PNG-crack-width">PNG-crack width</h2>
+<p>Crack the true width, and we will get the width is <code>0x260</code>.</p>
+<img src="/2022/12/21/22-12-21-UNknown/3.png" class="" title="real width">
+<p>Edit the width by winhex or 010Editor, and we will get the real picture.</p>
+<img src="/2022/12/21/22-12-21-UNknown/newcat.png" class="" title="newcat">
+<h2 id="LSB">LSB</h2>
+<p>Two ways to get the information embedded in LSB.</p>
+<ul>
+<li>stegsolve-original</li>
+<li>zsteg</li>
+</ul>
+<img src="/2022/12/21/22-12-21-UNknown/4.png" class="" title="stegsolve-original">
+<img src="/2022/12/21/22-12-21-UNknown/5.png" class="" title="zsteg">
+<p>The cipher is <code>ZmxhZ3tsb3ZlX3JhZ2RvbGxfY2F0fQ==</code>, and base64 decode.</p>
 ]]></content>
       <categories>
         <category>Writeup</category>
       </categories>
       <tags>
-        <tag>cnhongke</tag>
-        <tag>multiplicative_homomorphic</tag>
-        <tag>euclidean</tag>
+        <tag>base64steg</tag>
+        <tag>mask_attack</tag>
+        <tag>lsb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>22-12-14-Docker-Record</title>
+    <url>/2022/12/14/22-12-14-docker-record/</url>
+    <content><![CDATA[<p>I want to learn the docker to compile my environment. But this week   I have no time to make full studying.</p>
+<p>Thus, I make a record which made by <code>Dalao-Zimablue</code>  in this post.</p>
+<span id="more"></span><!--toc-->
+<p><a href="https://www.zimablue.life/2022/02/10/Docker%E5%AD%A6%E4%B9%A0/#more">https://www.zimablue.life/2022/02/10/Docker学习/#more</a></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -1355,94 +1509,23 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>22-12-20-Encrypto-Wireshark</title>
-    <url>/2022/12/20/22-12-20-Encrypto-Wireshark/</url>
-    <content><![CDATA[<p>Some traffic packets may be encrypted. When I import the private key in one case, I can’t get the decrypted packets like http.</p>
-<p>FinalIy, I search for this problem and get the solution.</p>
-<p>This post aims to make a conclusion about the <code>encrypted-traffic-packets(tls/ssl)</code>.</p>
+    <title>23-02-14-Abstract</title>
+    <url>/2023/02/14/23-02-14-Abstract/</url>
+    <content><![CDATA[<p>I am reading <em>Ideal, varieties, and algorithms</em>, however I haven’t learnt the abstract algebra. Thus I will make some records for some typical definitions, which can help me learn well about this book.</p>
 <span id="more"></span><!--toc-->
-<h1>REFERENCE</h1>
-<blockquote>
-<p><a href="https://www.cnblogs.com/jasy/p/16157388.html">https://www.cnblogs.com/jasy/p/16157388.html</a></p>
-<p><a href="https://www.joji.me/zh-cn/blog/walkthrough-decrypt-ssl-tls-traffic-https-and-http2-in-wireshark/#md-sslkeylogfile">如何通过Wireshark查看HTTPS、HTTP/2网络包（解码TLS、SSL） (joji.me)</a></p>
-</blockquote>
-<p>Really thank for the article!</p>
-<p><em>The second is to edit the configuration of computer, which can be caught in the direct way by using webshell.</em></p>
-<h1>DECRYPT TLS/SSL</h1>
-<p>There are three methods to decrypt the encrypted-ssl/tls packets.</p>
+<h1>Fields and Rings</h1>
+<p><strong>Def1</strong> a set $k$ and two binary operations $\cdot$ and $+$ defined on $k$.</p>
+<h2 id="Conditions">Conditions</h2>
 <ul>
-<li>Use the <code>server's cert</code> or the <code>private-key</code> to decrypt.</li>
-<li>Use the <code>ssl-key-log-file</code> to decrypt.</li>
-<li>Disable the config setting to decrypt packets which use the <code>Diffie-Hellman-Exchange</code>.</li>
+<li>$(a + b) + c = a + (b + c)$ and $(a \cdot b) \cdot c = a \cdot(b \cdot c)$ for all $a, b, c$</li>
 </ul>
-<h2 id="Server’s-cert-Private-key">Server’s cert/Private-key</h2>
-<h3 id="preparation">preparation</h3>
-<ul>
-<li>TLS/SSL packets</li>
-<li>cert or private-key</li>
-<li>wireshark</li>
-</ul>
-<h3 id="notice">notice</h3>
-<p>The TLS/SSL packets should not relate to the <code>Diffie-Hellman-Exchange</code> and just a common encrypted packets.</p>
-<h4 id="CERT-PRIVATEKEY">CERT/PRIVATEKEY</h4>
-<p>The cert or private-key should not be encrypted. And usually, the private-key is the standard of <code>PKCS#8</code>.</p>
-<p>If you have a binary DER, it cannot be used in wireshark, and we ought to make a convert.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">openssl pkcs8 -nocrypt -<span class="keyword">in</span> der.key -informat DER -out pem.key -outformat PEM</span><br></pre></td></tr></table></figure>
-<ul>
-<li><em>der.key: the name and root of DER</em></li>
-<li><em>pem.key: the output file</em></li>
-</ul>
-<p>And, the private-key ought to be like this:</p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/1.png" class="" title="Private-key">
-<p>which shows that the beginning is <code>-----BEGIN RSA PRIVATE KEY-----</code>.</p>
-<h4 id="DECRYPT-KEY">DECRYPT KEY</h4>
-<blockquote>
-<p><a href="https://www.openssl.org/docs/manmaster/man1/rsa.html#EXAMPLES">/docs/manmaster/man1/rsa.html (openssl.org)</a></p>
-</blockquote>
-<p>If the beginning is <code>-----BEGIN ENCRYPTED PRIVATE KEY-----</code>, we should decrypt the key in a proper way.</p>
-<p>a common command is:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">openssl rsa -<span class="keyword">in</span> [source file] -out [outfile]</span><br><span class="line"><span class="comment"># ?Maybe.</span></span><br></pre></td></tr></table></figure>
-<h3 id="step">step</h3>
-<ul>
-<li>OPEN the wireshark and import the private-key or cert.</li>
-</ul>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/2.png" class="" title="setting">
-<ol>
-<li><strong>RSA keys list.</strong> Import private key, add the <code>port</code>, <code>ip</code>, <code>protocol</code>, <code>root</code> and the chosen <code>password</code>. <strong>Mainly used.</strong></li>
-<li><strong>TLS debug file.</strong> Some debug file.</li>
-<li><strong>Master-Secret log.</strong> Key log file.</li>
-</ol>
-<ul>
-<li>If all things right, and we will see the <code>http traffic</code>.</li>
-</ul>
-<h2 id="Key-log-file">Key log file</h2>
-<p>Use the <code>key log file</code>. Usually, this file is in the traffic packets. The key log file is like this.</p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/3.png" class="" title="key log file">
-<h2 id="Relate-to-D-H">Relate to D-H</h2>
-<p>Sometimes, the encrypted traffic packets cannot be decrypted by using methods above.</p>
-<h3 id="how-to-recognize">how to recognize</h3>
-<p>When we analyze the traffic packets, we use command like <code>ip.addr == xxx.xxx.xxx.xxx &amp;&amp; tls</code> to find the target packets.</p>
-<p>If we see the <code>Client Hello</code>, we should make a notice that it maybe a <code>D-H encrypted traffic packet</code>.</p>
-<p>For example:</p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/4.png" class="" title="D-H encrypted">
-<p>We can change the browser to catch the traffic again.</p>
-<h3 id="set-the-firefox">set the firefox</h3>
-<p>The address is <code>about:config</code>, and search for the <code>dhe</code>.</p>
-<p>We can change the target according to the traffic packets or make all things   <code>false</code>.</p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/5.png" class="" title="change firefox setting">
-<h3 id="recatch-the-traffic-and-analyze">recatch the traffic and analyze</h3>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/6.png" class="" title="remove dhe">
-<p>After importing the private key, we can see the  decrypted<code>http traffic</code>.</p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/7.png" class="" title="decrypted http traffic">
-<h1>CONCLUSION</h1>
-<p>The <code>Diffie-Hellman-Exchange</code> is really beyond my imagination.</p>
 ]]></content>
       <categories>
-        <category>Web</category>
+        <category>Math</category>
       </categories>
       <tags>
-        <tag>wireshark</tag>
-        <tag>diffie_hellman</tag>
+        <tag>abstract</tag>
+        <tag>basic</tag>
       </tags>
   </entry>
   <entry>
@@ -1844,69 +1927,6 @@ Unbounded knapsack problem</li>
       </tags>
   </entry>
   <entry>
-    <title>22-12-21-UNknown</title>
-    <url>/2022/12/21/22-12-21-UNknown/</url>
-    <content><![CDATA[<p>Figure out 2 tasks.</p>
-<p>One is for crypto, and the other is for misc.</p>
-<p>Both of them are easy.</p>
-<span id="more"></span><!--toc-->
-<h1>poem</h1>
-<blockquote>
-<p>reference: [ACTF新生赛2020]base64隐写</p>
-</blockquote>
-<ul>
-<li>base64stego</li>
-<li>caeser cipher</li>
-</ul>
-<h2 id="base64stego">base64stego</h2>
-<p><a href="22-12-21-UNknown/poem.txt">poem.txt</a></p>
-<p><em>Make sure that the end of each line. This ending is <code>\r\n</code></em></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">base64stego</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">b64chars = <span class="string">&#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;poem.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    bin_str = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># print(f.readlines())</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">        stegb64 = <span class="built_in">str</span>(line, <span class="string">&#x27;utf-8&#x27;</span>).strip(<span class="string">&#x27;\r\n&#x27;</span>) <span class="comment"># edit</span></span><br><span class="line">        <span class="comment"># print(stegb64)</span></span><br><span class="line">        row64 = <span class="built_in">str</span>(base64.b64encode(base64.b64decode(stegb64)), <span class="string">&#x27;utf-8&#x27;</span>).strip(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        offset = <span class="built_in">abs</span>(b64chars.index(stegb64.replace(<span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;&#x27;</span>)[-<span class="number">1</span>]) - b64chars.index(row64.replace(<span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;&#x27;</span>)[-<span class="number">1</span>]))</span><br><span class="line">        equalnum = stegb64.count(<span class="string">&#x27;=&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> equalnum:</span><br><span class="line">            bin_str += <span class="built_in">bin</span>(offset)[<span class="number">2</span>:].zfill(equalnum * <span class="number">2</span>)</span><br><span class="line">    output = [<span class="built_in">chr</span>(<span class="built_in">int</span>(bin_str[i:i + <span class="number">8</span>], <span class="number">2</span>)) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(bin_str), <span class="number">8</span>)]</span><br><span class="line">    flag = <span class="string">&#x27;&#x27;</span>.join(output)</span><br><span class="line">    <span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
-<h2 id="caeser-cipher">caeser cipher</h2>
-<p><em>Just crack!</em></p>
-<p>key is <code>13</code>.</p>
-<h1>Alex2Bob</h1>
-<p><a href="22-12-21-UNknown/Alex2Bob.zip">Alex2Bob</a></p>
-<ul>
-<li>ARCHPR-mask</li>
-<li>PNG-header</li>
-<li>PNG-crack width</li>
-<li>LSB</li>
-</ul>
-<h2 id="ARCHPR-mask">ARCHPR-mask</h2>
-<p>Known the end of the key is <code>kitty</code>.</p>
-<p>This is the <code>mask attack</code>. We don’t know the length of the key, so we try some possibilities.</p>
-<p>Until we try to set unknown length is 4, we get the key.</p>
-<img src="/2022/12/21/22-12-21-UNknown/1.png" class="" title="setting&amp;output">
-<h2 id="PNG-header">PNG-header</h2>
-<p>Use the <code>winhex</code> and analyze the png. We find that the file header is wrong, so we should edit the file header <code>88 -&gt; 89</code>.</p>
-<img src="/2022/12/21/22-12-21-UNknown/2.png" class="" title="PNG-header">
-<p>Still can’t open the picture or see the content.</p>
-<h2 id="PNG-crack-width">PNG-crack width</h2>
-<p>Crack the true width, and we will get the width is <code>0x260</code>.</p>
-<img src="/2022/12/21/22-12-21-UNknown/3.png" class="" title="real width">
-<p>Edit the width by winhex or 010Editor, and we will get the real picture.</p>
-<img src="/2022/12/21/22-12-21-UNknown/newcat.png" class="" title="newcat">
-<h2 id="LSB">LSB</h2>
-<p>Two ways to get the information embedded in LSB.</p>
-<ul>
-<li>stegsolve-original</li>
-<li>zsteg</li>
-</ul>
-<img src="/2022/12/21/22-12-21-UNknown/4.png" class="" title="stegsolve-original">
-<img src="/2022/12/21/22-12-21-UNknown/5.png" class="" title="zsteg">
-<p>The cipher is <code>ZmxhZ3tsb3ZlX3JhZ2RvbGxfY2F0fQ==</code>, and base64 decode.</p>
-]]></content>
-      <categories>
-        <category>Writeup</category>
-      </categories>
-      <tags>
-        <tag>base64steg</tag>
-        <tag>mask_attack</tag>
-        <tag>lsb</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2022/10/21/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -1925,26 +1945,6 @@ Unbounded knapsack problem</li>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>23-02-14-Abstract</title>
-    <url>/2023/02/14/23-02-14-Abstract/</url>
-    <content><![CDATA[<p>I am reading <em>Ideal, varieties, and algorithms</em>, however I haven’t learnt the abstract algebra. Thus I will make some records for some typical definitions, which can help me learn well about this book.</p>
-<span id="more"></span><!--toc-->
-<h1>Fields and Rings</h1>
-<p><strong>Def1</strong> a set $k$ and two binary operations $\cdot$ and $+$ defined on $k$.</p>
-<h2 id="Conditions">Conditions</h2>
-<ul>
-<li>$(a + b) + c = a + (b + c)$ and $(a \cdot b) \cdot c = a \cdot(b \cdot c)$ for all $a, b, c$</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Math</category>
-      </categories>
-      <tags>
-        <tag>abstract</tag>
-        <tag>basic</tag>
-      </tags>
   </entry>
   <entry>
     <title>Weekly-Descriptions-About-Crypto</title>
@@ -2099,6 +2099,128 @@ Convert to code.</p>
         <tag>MIMIC</tag>
         <tag>chinese_remainder_theorem</tag>
         <tag>Groebner_basis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MISC-Write-Up-Zh</title>
+    <url>/2023/03/09/MISC-Write-Up-zh/</url>
+    <content><![CDATA[<p>放弃挣扎，复现的题目，全放这里了。</p>
+<span id="more"></span><!--toc-->
+<h1>[qwb-2021]threebody</h1>
+<blockquote>
+<p><a href="https://www.anquanke.com/post/id/244533">用图片讲一个故事——第五届强网杯Threebody题目官方题解-安全客 - 安全资讯平台 (anquanke.com)</a></p>
+</blockquote>
+<h2 id="stegsolve查看发现图片">stegsolve查看发现图片</h2>
+<p>你们都是虫子。</p>
+<h2 id="放大发现像素点数">放大发现像素点数</h2>
+<p>相邻像素点数值相差较大。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230308100114529.png" class="" title="image-20230308100114529">
+<p>仔细观察发现如果以4为周期相差像素点数值将相差不大。 -&gt; 修改像素点所占比特数<code>biBitCount 24 -&gt; 32</code></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230308094743609.png" class="" title="image-20230308094743609">
+<p>得到真实图片。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/threebody_output.bmp" class="" title="true threebody">
+<h2 id="再使用solvesolve进行分析">再使用solvesolve进行分析</h2>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230215130857823.png" class="">
+<p><code>stegsolve</code>进行提取。行列都存在隐写数据。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/steg1.png" class="" title="row">
+<img src="/2023/03/09/MISC-Write-Up-zh/steg2.png" class="">
+<p>可得提示<code>希尔伯特曲线</code></p>
+<h2 id="冗余数据赋值">冗余数据赋值</h2>
+<p>观察图片发现存在<code>rgbReserved</code>的字段，表示<code>stegsolve</code>还存在无法识别的通道。</p>
+<p>两种方法。</p>
+<ul>
+<li><code>bmp</code>转化成<code>png</code></li>
+<li><code>blue</code>通道跟<code>Reserved</code>通道大小相近，直接暴力赋值</li>
+</ul>
+<h3 id="bmp转化成png">bmp转化成png</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">image=Image.new(mode=<span class="string">&#x27;RGBA&#x27;</span>,size=(<span class="number">580</span>,<span class="number">435</span>))</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;threebody.bmp&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    file=f.read()</span><br><span class="line">    index=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">434</span>,-<span class="number">1</span>,-<span class="number">1</span>):  <span class="comment">#根据bmp的结构知道该bmp文件上下倒序存储像素值</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">580</span>):</span><br><span class="line">            s=[]</span><br><span class="line">            <span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">4</span>):</span><br><span class="line">                s.append(file[index])</span><br><span class="line">                index+=<span class="number">1</span></span><br><span class="line">            image.putpixel((j,i),(s[<span class="number">2</span>],s[<span class="number">1</span>],s[<span class="number">0</span>],s[<span class="number">3</span>]))  <span class="comment">#</span></span><br><span class="line">    image.show()</span><br><span class="line">    image.save(<span class="string">&#x27;threebody_new.png&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="暴力赋值">暴力赋值</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;threebody.bmp&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    d = f.read()</span><br><span class="line"></span><br><span class="line">w = <span class="number">580</span></span><br><span class="line">h = <span class="number">435</span></span><br><span class="line">b = <span class="number">4</span></span><br><span class="line">l = <span class="built_in">bytearray</span>(d)</span><br><span class="line">off = l[<span class="number">10</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(h):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(w):</span><br><span class="line">        l[off+j*b+i*b*w] = l[off+j*b+i*b*w+<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;threebody_new.bmp&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(l)</span><br></pre></td></tr></table></figure>
+<h2 id="希尔伯特曲线">希尔伯特曲线</h2>
+<blockquote>
+<p>reference: <a href="https://mp.weixin.qq.com/s/IOSGOJnGyiGoD8J1ITQJlg">真·降维打击！《三体》中二向箔吞噬地球的场景成真了！这位B站Up主过于硬核… (qq.com)</a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="comment">#安装：pip install -i https://pypi.tuna.tsinghua.edu.cn/simple hilbertcurve</span></span><br><span class="line"><span class="keyword">from</span> hilbertcurve.hilbertcurve <span class="keyword">import</span> HilbertCurve</span><br><span class="line"><span class="comment">#提取像素数据</span></span><br><span class="line"><span class="keyword">with</span> Image.<span class="built_in">open</span>(<span class="string">&#x27;threebody_new.png&#x27;</span>) <span class="keyword">as</span> img:</span><br><span class="line">    arr = np.asarray(img)</span><br><span class="line">arr = np.vectorize(<span class="keyword">lambda</span> x: x&amp;<span class="number">1</span>)(arr[:,:,<span class="number">2</span>])</span><br><span class="line"><span class="comment">#确定图片中的有效区域</span></span><br><span class="line"><span class="keyword">for</span> x1 <span class="keyword">in</span> <span class="built_in">range</span>(np.size(arr,<span class="number">0</span>)):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">sum</span>(arr[x1])&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="keyword">for</span> x2 <span class="keyword">in</span> <span class="built_in">reversed</span>(<span class="built_in">range</span>(np.size(arr,<span class="number">0</span>))):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">sum</span>(arr[x2])&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="keyword">for</span> y1 <span class="keyword">in</span> <span class="built_in">range</span>(np.size(arr,<span class="number">1</span>)):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">sum</span>(arr[:,y1])&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="keyword">for</span> y2 <span class="keyword">in</span> <span class="built_in">reversed</span>(<span class="built_in">range</span>(np.size(arr,<span class="number">1</span>))):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">sum</span>(arr[:,y2])&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="comment">#剪切出有效二维数据</span></span><br><span class="line">arr = arr[x1:x2+<span class="number">1</span>, y1:y2+<span class="number">1</span>]</span><br><span class="line"><span class="comment">#print(x2+1-x1)#得出是128*128的矩阵</span></span><br><span class="line"><span class="comment">#构建希尔伯特曲线对象</span></span><br><span class="line">hilbert_curve = HilbertCurve(<span class="number">7</span>, <span class="number">2</span>)</span><br><span class="line"><span class="comment">#生成一维的二进制流数据</span></span><br><span class="line">s = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(np.size(arr)):</span><br><span class="line">    [x,y] = hilbert_curve.point_from_distance(i)</span><br><span class="line">    s += <span class="built_in">str</span>(arr[<span class="number">127</span>-y][x])</span><br><span class="line"><span class="comment">#转ASCII文本写入文件</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;output&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="built_in">int</span>(s,<span class="number">2</span>).to_bytes(<span class="number">2048</span>, <span class="string">&#x27;big&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><em>但这个一直没能实现，不清楚是不是没剪切图片的原因。</em></p>
+<p><em><strong>0228，笑死，真的是因为没剪切的原因。</strong></em></p>
+<h2 id="C语言编译">C语言编译</h2>
+<p>打开<code>output.txt</code>发现是C语言脚本，所以用VSCode进行编译运行，发现打印的是自身。</p>
+<blockquote>
+<p>出题人的知识点：</p>
+<p>这种可以打印自身的程序学名叫Quine</p>
+</blockquote>
+<p>即使看似是相同的文件，可能存在某种差异，直接用<code>BCompare4</code>对原始文件以及输出文件进行对比，发现在文件的第11行存在差别。</p>
+<p>原始文件存在<code>Tab</code>以及<code>Space</code>，转化成<code>01</code>数据流。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230228110003750.png" class="" title="image-20230228110003750">
+<p>用<code>Notepad++</code>得到<code>01</code>数据流。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">01100110011011000110000101100111011110110100010000110001011011010100010101101110001101010110100100110000011011100100000101101100010111110101000001110010001100000011011000110001011001010110110101111101</span><br></pre></td></tr></table></figure>
+<h2 id="数据处理">数据处理</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">output = <span class="string">&#x27;2009092020090920200909200909202020090920202020092009092020090909200909090920090920092020200920202020090920202009200909200909200920092020200920092009092009090920202009092009200920090920092020092020090920202020200909200909092020092020202020092009092009092020200920090909090920092009202020202009090920200920202009092020202020200909200909202020090920202009200909202009200920090920090920092009090909092009&#x27;</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">output = output.replace(<span class="string">&#x27;20&#x27;</span>, <span class="string">&#x27;0&#x27;</span>).replace(<span class="string">&#x27;09&#x27;</span>, <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line"><span class="comment"># print(output)</span></span><br><span class="line"><span class="comment"># 01100110011011000110000101100111011110110100010000110001011011010100010101101110001101010110100100110000011011100100000101101100010111110101000001110010001100000011011000110001011001010110110101111101</span></span><br><span class="line">a = re.findall(<span class="string">r&#x27;.&#123;8&#125;&#x27;</span>, output)</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    flag += <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">chr</span>(<span class="built_in">int</span>(i, <span class="number">2</span>)))</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"><span class="comment"># flag&#123;D1mEn5i0nAl_Pr061em&#125;</span></span><br></pre></td></tr></table></figure>
+<h1>[护网杯2018]easy_dump</h1>
+<p>##利用vol查看镜像信息</p>
+<p><code>vol.py -f easy_dump.img imageinfo</code><img src="/2023/03/09/MISC-Write-Up-zh/image-20230309102823595.png" class="" title="image-20230309102823595"></p>
+<p><em>一般以镜像前1，2个操作系统为分析重点，eg: Win7SP1x64</em></p>
+<h2 id="指定镜像进行进程扫描">指定镜像进行进程扫描</h2>
+<p><code>vol.py -f easy_dump.img --profile=WinSP1x64 pslist</code></p>
+<p><code>vol.py -f easy_dump.img --profile=WinSP1x64 pstree</code></p>
+<p><code>vol.py -f easy_dump.img --profile=WinSP1x64 psscan</code></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230309103714601.png" class="" title="image-20230309103714601">
+<p><em>发现可疑进程<code>notepad.exe</code>，那么我们直接把记事本内容给提取出来。</em></p>
+<h2 id="记事本内容dump">记事本内容dump</h2>
+<p><code>vol.py -f easy_dump.img --profile=Win7SP1x64 memdump -p 2616 -D ./</code></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230309104153529.png" class="" title="image-20230309104153529">
+<p><em>把记事本内容dump出来，利用string-grep对dmp文件内容进行检索。</em></p>
+<h2 id="记事本内容直接搜索">记事本内容直接搜索</h2>
+<p><code>strings -eb 2616.dmp | grep flag </code></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230309111116109.png" class="" title="image-20230309111116109">
+<p><em>-el 也适用， -u相关用法不太不清楚具体案例，从而得到提示，找jpg文件。</em></p>
+<h2 id="根据提示查找图片并导出">根据提示查找图片并导出</h2>
+<p><code>vol.py -f easy_dump.img --profile=Win7SP1x64 filescan | grep .jpg</code></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230309111924885.png" class="" title="image-20230309111924885">
+<p><em>grep进行过滤，也可用其他形式进行检索，主体包含jpg即可。</em></p>
+<p><code>vol.py -f easy_dump.img --profile=Win7SP1x64 dumpfiles -Q 0x000000002408c460 -D ./</code></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/phos.jpg" class="" title="phos.jpg">
+<p><em>直接导出的就是<code>file:xxxx</code>的格式，我们直接按照需求把文件改成原始文件名即可，eg: phos.jpg</em></p>
+<h2 id="图片隐写分析">图片隐写分析</h2>
+<p>有图片就回归到图片方面的隐写分析之上。</p>
+<p><code>binwalk</code>分析，发现存在<code>zip</code>，那么直接对其进行<code>foremost</code>提取。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230309112732389.png" class="" title="image-20230309112732389">
+<p>提取出来一个<code>message.img</code>。</p>
+<p>再次进行提取操作，本次使用<code>binwalk -e</code> 进行提取<code>hint.txt</code>。</p>
+<p><em>使用foremost无法分离出来<code>hint.txt</code>文件</em></p>
+<h2 id="生成二维码">生成二维码</h2>
+<ul>
+<li><code>gnuplot</code>转换</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gnuplot         </span><br><span class="line">        G N U P L O T</span><br><span class="line">        Version <span class="number">5.4</span> patchlevel <span class="number">4</span>    last modified <span class="number">2022</span>-07-<span class="number">10</span> </span><br><span class="line"></span><br><span class="line">        Copyright (C) <span class="number">1986</span>-<span class="number">1993</span>, <span class="number">1998</span>, <span class="number">2004</span>, <span class="number">2007</span>-<span class="number">2022</span></span><br><span class="line">        Thomas Williams, Colin Kelley <span class="keyword">and</span> many others</span><br><span class="line"></span><br><span class="line">        gnuplot home:     http://www.gnuplot.info</span><br><span class="line">        faq, bugs, etc:   <span class="built_in">type</span> <span class="string">&quot;help FAQ&quot;</span></span><br><span class="line">        immediate <span class="built_in">help</span>:   <span class="built_in">type</span> <span class="string">&quot;help&quot;</span>  (plot window: hit <span class="string">&#x27;h&#x27;</span>)</span><br><span class="line"></span><br><span class="line">Terminal <span class="built_in">type</span> <span class="keyword">is</span> now <span class="string">&#x27;qt&#x27;</span></span><br><span class="line">gnuplot&gt; plot<span class="string">&#x27;hint.txt&#x27;</span></span><br><span class="line">gnuplot&gt; </span><br></pre></td></tr></table></figure>
+<p><em>然后直接输出二维码图片</em></p>
+<ul>
+<li>脚本转换 <em>暂且没成功……</em> -&gt; <em><strong>成功了，原终端为agg，无图形界面，需要切换为图形界面显示的终端TkAgg</strong></em></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib <span class="comment"># keypoint</span></span><br><span class="line">matplotlib.use(<span class="string">&#x27;TkAgg&#x27;</span>) <span class="comment"># keypoint</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = []</span><br><span class="line">y = []</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;hint.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    datas = f.readlines()</span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> datas:</span><br><span class="line">        arr = data.split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        x.append(<span class="built_in">int</span>(arr[<span class="number">0</span>]))</span><br><span class="line">        y.append(<span class="built_in">int</span>(arr[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">plt.plot(x, y, <span class="string">&#x27;ks&#x27;</span>, ms=<span class="number">1</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><em>扫描即可得到信息：1. 维吉尼亚密钥为<code>aeolus</code> 2. 加密后的密文被删除了</em></p>
+<h2 id="恢复镜像删除信息">恢复镜像删除信息</h2>
+<p>使用<code>testdisk</code>进行恢复：<code>testdisk message.img</code>，进入相应的操作界面。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230309133925809.png" class="" title="image-20230309133925809">
+<p>进入<code>Proceed</code>。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230309134503976.png" class="" title="image-20230309134503976">
+<p>进入<code>None</code>。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230309134823519.png" class="" title="image-20230309134823519">
+<p>因为涉及删除的文件，所以直接找该功能模块<code>Undelete</code>。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230309134918426.png" class="" title="image-20230309134918426">
+<p>找到标红处，说明该处存在删除文件。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230309135112638.png" class="" title="image-20230309135112638">
+<p>按<code>c</code>确定文件以及路径之后，出现该红框内内容说明导出成功。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230309135208693.png" class="" title="image-20230309135208693">
+<p>到保存路径之下，使用<code>ls -a</code>发现保存下来的文件，直接利用<code>strings</code>查找字符串即可。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230309135334653.png" class="" title="image-20230309135334653">
+<p>找到加密后的密文，使用在线解密网站结合密钥解密即可，最终得到相应的flag。</p>
+]]></content>
+      <categories>
+        <category>Writeup</category>
+      </categories>
+      <tags>
+        <tag>recurrent</tag>
       </tags>
   </entry>
 </search>
