@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"windeurynome.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null,"show_result":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Some basics about elliptic curves. Make a description about ECC, and show the attacks and conversions to code.  ECC is somewhat difficult, and also the analysis which is necessary ought to be detailed">
+    <meta name="description" content="Some basics about elliptic curves. Make a description about ECC, and show the attacks and conversions to code. ECC is somewhat difficult, and also the analysis which is necessary ought to be detailed.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23-01-11-ECC">
 <meta property="og:url" content="https://windeurynome.github.io/2023/01/11/23-01-11-ECC/index.html">
 <meta property="og:site_name" content="The Sea &amp; Chaos">
-<meta property="og:description" content="Some basics about elliptic curves. Make a description about ECC, and show the attacks and conversions to code.  ECC is somewhat difficult, and also the analysis which is necessary ought to be detailed">
+<meta property="og:description" content="Some basics about elliptic curves. Make a description about ECC, and show the attacks and conversions to code. ECC is somewhat difficult, and also the analysis which is necessary ought to be detailed.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://windeurynome.github.io/2023/01/11/23-01-11-ECC/1_hashhash.png">
 <meta property="og:image" content="https://windeurynome.github.io/2023/01/11/23-01-11-ECC/2_hashhash.png">
@@ -150,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PARALLEL"><span class="nav-number">1.</span> <span class="nav-text">PARALLEL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PROJECTIVE-PLANE-COORDINATE-SYSTEM"><span class="nav-number">2.</span> <span class="nav-text">PROJECTIVE PLANE COORDINATE SYSTEM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ELLIPTIC-CURVE"><span class="nav-number">3.</span> <span class="nav-text">ELLIPTIC CURVE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ALGORITHM-ON-AN-ELLIPTIC-CURVE"><span class="nav-number">4.</span> <span class="nav-text">ALGORITHM ON AN ELLIPTIC CURVE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ELLIPTIC-CURVE-IN-CRYPTOGRAPHY"><span class="nav-number">5.</span> <span class="nav-text">ELLIPTIC CURVE IN CRYPTOGRAPHY</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SIMPLE-ENCRYPTION-AND-DECRYPTION-ON-ELLIPTIC-CURVES"><span class="nav-number">6.</span> <span class="nav-text">SIMPLE ENCRYPTION AND DECRYPTION ON ELLIPTIC CURVES</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ATTACKs"><span class="nav-number">7.</span> <span class="nav-text">ATTACKs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pohlig-Hellman"><span class="nav-number">7.1.</span> <span class="nav-text">Pohlig-Hellman</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smart-Attack"><span class="nav-number">7.2.</span> <span class="nav-text">Smart Attack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BSGS"><span class="nav-number">7.3.</span> <span class="nav-text">BSGS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Original"><span class="nav-number">7.3.1.</span> <span class="nav-text">Original</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extended"><span class="nav-number">7.3.2.</span> <span class="nav-text">Extended</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">PARALLEL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">PROJECTIVE PLANE COORDINATE SYSTEM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">ELLIPTIC CURVE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">ALGORITHM ON AN ELLIPTIC CURVE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">ELLIPTIC CURVE IN CRYPTOGRAPHY</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">SIMPLE ENCRYPTION AND DECRYPTION ON ELLIPTIC CURVES</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">ATTACKs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pohlig-Hellman"><span class="nav-number">7.1.</span> <span class="nav-text">Pohlig-Hellman</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smart-Attack"><span class="nav-number">7.2.</span> <span class="nav-text">Smart Attack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BSGS"><span class="nav-number">7.3.</span> <span class="nav-text">BSGS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Original"><span class="nav-number">7.3.1.</span> <span class="nav-text">Original</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extended"><span class="nav-number">7.3.2.</span> <span class="nav-text">Extended</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -267,7 +267,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>7.9k</span>
+      <span>7.7k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -285,140 +285,173 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Some basics about elliptic curves. Make a description about ECC, and show the attacks and conversions to code. </p>
-<p>ECC is somewhat difficult, and also the analysis which is necessary ought to be detailed. </p>
-<p>The ECC always connects to the usage of sagemath, this post also introduces some common usages about ECC in sagemath. </p>
+        <p>Some basics about elliptic curves. Make a description about ECC, and show the attacks and conversions to code.</p>
+<p>ECC is somewhat difficult, and also the analysis which is necessary ought to be detailed.</p>
+<p>The ECC always connects to the usage of sagemath, this post also introduces some common usages about ECC in sagemath.</p>
 <span id="more"></span><!--toc-->
-
-<h1 id="PARALLEL"><a href="#PARALLEL" class="headerlink" title="PARALLEL"></a>PARALLEL</h1><p><strong>Assume:</strong> Parallel lines intersect at infinity which is called the infinity point <code>P</code>. (parallel and intersecting unity)</p>
-<p>The properties of infinite <code>P</code>: </p>
+<h1>PARALLEL</h1>
+<p><strong>Assume:</strong> Parallel lines intersect at infinity which is called the infinity point <code>P</code>. (parallel and intersecting unity)</p>
+<p>The properties of infinite <code>P</code>:</p>
 <ul>
 <li>The infinite <code>P</code> of Line L has only one.</li>
-<li>The lines which are parallel to each other have the public infinite $P_{\infty}$. </li>
+<li>The lines which are parallel to each other have the public infinite $P_{\infty}$.</li>
 <li>Any lines which are intersect have different infinite points $P_{\infty}$s. (If they have public infinity,  it will contrary to assumption.)</li>
 <li>All infinity points formulate a infinity line.</li>
 <li>The total infinity points and all ordinary points in the plane form the projective plane.</li>
 </ul>
-<h1 id="PROJECTIVE-PLANE-COORDINATE-SYSTEM"><a href="#PROJECTIVE-PLANE-COORDINATE-SYSTEM" class="headerlink" title="PROJECTIVE PLANE COORDINATE SYSTEM"></a>PROJECTIVE PLANE COORDINATE SYSTEM</h1><p><strong>Formulate:</strong> Make $x &#x3D; X&#x2F;Z$, $y &#x3D; Y&#x2F;Z$, ($Z \neq 0$), and the Point <code>A</code> is $(X:Y:Z)$. </p>
-<p>The infinity points are expressed as $(X:Y:0)$. The ordinary points is $Z \neq 0$,and the infinities are $Z &#x3D; 0$, meaning that the equation of infinity points is $Z &#x3D; 0$. </p>
-<p>Thus, $(X:Y:Z)$ is called as projective plane coordinate system. </p>
-<h1 id="ELLIPTIC-CURVE"><a href="#ELLIPTIC-CURVE" class="headerlink" title="ELLIPTIC CURVE"></a>ELLIPTIC CURVE</h1><p><strong>Definition:</strong>  The elliptic curve in projective plane satisfies the equation that $Y^2Z + a_1XYZ + a_3YZ^2 &#x3D; X^3 + a_2X^2Z + a_4XZ^2 + a_6Z^3$, or Weierstrass homogeneous equation $Y^2&#x3D;X^3+AX+B$, where the whole points are non-singular or smooth.</p>
-<p> <strong>Non-singular&#x2F;Smooth:</strong> Mathematically, the partial derivatives $F_x(x,y,z), F_y(x,y,z),F_z(x,y,z)$ at any point on the curve cannot be 0 at same time, meaning that any point exists tangent. </p>
-<p>Assume that $x &#x3D; X&#x2F;Z, y&#x3D; Y&#x2F;Z$ and substitute into the equation above, we can obtain $y^2 + a_1xy + a_3y &#x3D; x^3 + a_2x^2+a_4x+a_6$ and also the slope is $k &#x3D; (3x^2+2a_2x+a_4 - a_1y)&#x2F;(2y + a_1x+a_3)$. </p>
+<h1>PROJECTIVE PLANE COORDINATE SYSTEM</h1>
+<p><strong>Formulate:</strong> Make $x = X/Z$, $y = Y/Z$, ($Z \neq 0$), and the Point <code>A</code> is $(X:Y:Z)$.</p>
+<p>The infinity points are expressed as $(X:Y:0)$. The ordinary points is $Z \neq 0$,and the infinities are $Z = 0$, meaning that the equation of infinity points is $Z = 0$.</p>
+<p>Thus, $(X:Y:Z)$ is called as projective plane coordinate system.</p>
+<h1>ELLIPTIC CURVE</h1>
+<p><strong>Definition:</strong>  The elliptic curve in projective plane satisfies the equation that $Y^2Z + a_1XYZ + a_3YZ^2 = X^3 + a_2X^2Z + a_4XZ^2 + a_6Z^3$, or Weierstrass homogeneous equation $Y^2=X^3+AX+B$, where the whole points are non-singular or smooth.</p>
+<p><strong>Non-singular/Smooth:</strong> Mathematically, the partial derivatives $F_x(x,y,z), F_y(x,y,z),F_z(x,y,z)$ at any point on the curve cannot be 0 at same time, meaning that any point exists tangent.</p>
+<p>Assume that $x = X/Z, y= Y/Z$ and substitute into the equation above, we can obtain $y^2 + a_1xy + a_3y = x^3 + a_2x^2+a_4x+a_6$ and also the slope is $k = (3x^2+2a_2x+a_4 - a_1y)/(2y + a_1x+a_3)$.</p>
 <img src="/2023/01/11/23-01-11-ECC/1_hashhash.png" class="" title="common ecc">
-
 <p><em>Two curves below which are not satisfied the definition are not elliptic curves , and they are called Singular Curves.</em></p>
-<h1 id="ALGORITHM-ON-AN-ELLIPTIC-CURVE"><a href="#ALGORITHM-ON-AN-ELLIPTIC-CURVE" class="headerlink" title="ALGORITHM ON AN ELLIPTIC CURVE"></a>ALGORITHM ON AN ELLIPTIC CURVE</h1><p><strong>Algorithm:</strong>  Arbitrarily take two points <code>P</code> and <code>Q</code> on the elliptic curve (if the two points <code>P</code> and <code>Q</code> coincide, then make the tangent of point <code>P</code>), make the line intersect the other point <code>R&#39;</code> of the elliptic curve, and cross <code>R&#39;</code> to make the parallel line of the y axis intersect the point <code>R</code>, we specify $P+Q &#x3D; R$.</p>
+<h1>ALGORITHM ON AN ELLIPTIC CURVE</h1>
+<p><strong>Algorithm:</strong>  Arbitrarily take two points <code>P</code> and <code>Q</code> on the elliptic curve (if the two points <code>P</code> and <code>Q</code> coincide, then make the tangent of point <code>P</code>), make the line intersect the other point <code>R'</code> of the elliptic curve, and cross <code>R'</code> to make the parallel line of the y axis intersect the point <code>R</code>, we specify $P+Q = R$.</p>
 <img src="/2023/01/11/23-01-11-ECC/2_hashhash.png" class="" title="find R">
-
-<p>The infinity $O_{\infty}$ and the point $P$ on the elliptic curve intersect at the point $P$. The action of of infinity $O_{\infty}$ is equivalent to 0, which is called the zero element. The equation is that $O_{\infty} + P &#x3D; P$. </p>
-<p><strong>Deduction:</strong> </p>
+<p>The infinity $O_{\infty}$ and the point $P$ on the elliptic curve intersect at the point $P$. The action of of infinity $O_{\infty}$ is equivalent to 0, which is called the zero element. The equation is that $O_{\infty} + P = P$.</p>
+<p><strong>Deduction:</strong></p>
 <ul>
-<li>Three points on elliptic curve are in the straight line $A + B + C &#x3D; O_{\infty}$. </li>
-<li>The sum of $k$ identical points is denoted $kP$. eg: $P+P+P &#x3D; 2P+P &#x3D; 3P$</li>
+<li>Three points on elliptic curve are in the straight line $A + B + C = O_{\infty}$.</li>
+<li>The sum of $k$ identical points is denoted $kP$. eg: $P+P+P = 2P+P = 3P$</li>
 </ul>
 <p><strong>Notice:</strong> <em>Elliptic curves are not necessarily symmetric with respect to x-axis.</em></p>
-<h1 id="ELLIPTIC-CURVE-IN-CRYPTOGRAPHY"><a href="#ELLIPTIC-CURVE-IN-CRYPTOGRAPHY" class="headerlink" title="ELLIPTIC CURVE IN CRYPTOGRAPHY"></a>ELLIPTIC CURVE IN CRYPTOGRAPHY</h1><p><strong>Discretization:</strong> Define elliptic curves on finite field. </p>
-<p><strong>Algorithm:</strong> </p>
+<h1>ELLIPTIC CURVE IN CRYPTOGRAPHY</h1>
+<p><strong>Discretization:</strong> Define elliptic curves on finite field.</p>
+<p><strong>Algorithm:</strong></p>
 <ul>
-<li><p>Finite field $F_p$ only has finite elements. </p>
+<li>
+<p>Finite field $F_p$ only has finite elements.</p>
 </li>
-<li><p>$F_p$ has $p$ elements. $F_p \in {0, 1, 2, 3, \dots, p-1}$</p>
+<li>
+<p>$F_p$ has $p$ elements. $F_p \in {0, 1, 2, 3, \dots, p-1}$</p>
 </li>
-<li><p>+:$a + b \equiv c \mod p$</p>
+<li>
+<p>+:$a + b \equiv c \mod p$</p>
 </li>
-<li><p>×:$a \times b \equiv c \mod p$</p>
+<li>
+<p>×:$a \times b \equiv c \mod p$</p>
 </li>
-<li><p>÷:$a \times b^{-1} \equiv c \mod p$</p>
+<li>
+<p>÷:$a \times b^{-1} \equiv c \mod p$</p>
 </li>
-<li><p>Unit element &#x3D; 1 ; Zero element &#x3D; 0</p>
+<li>
+<p>Unit element = 1 ; Zero element = 0</p>
 </li>
 </ul>
-<p>The elliptic curves that are suitable for encryption: $y^2 &#x3D; x^3 + ax + b$. </p>
-<p>The relationship among $P(x_1, y_1), Q(x_2, y_2)$ and $R(x_3, y_3)$: </p>
+<p>The elliptic curves that are suitable for encryption: $y^2 = x^3 + ax + b$.</p>
+<p>The relationship among $P(x_1, y_1), Q(x_2, y_2)$ and $R(x_3, y_3)$:</p>
 <ul>
 <li>$x_3 \equiv k - x_1 - x_2 (\mod p)$</li>
 <li>$y_3 \equiv k(x_1 - x_3) - y1(\mod p)$</li>
-<li>$k$<ul>
-<li>if $P &#x3D; Q$, the $k &#x3D; (3x^2 + a)&#x2F;2y_1$</li>
-<li>if $P \neq Q$, the $k &#x3D; (y_2 - y_1)&#x2F;(x_2 - x_1)$</li>
+<li>$k$
+<ul>
+<li>if $P = Q$, the $k = (3x^2 + a)/2y_1$</li>
+<li>if $P \neq Q$, the $k = (y_2 - y_1)/(x_2 - x_1)$</li>
 </ul>
 </li>
 </ul>
-<p>Point P exists the minimum positive integer $n$, which make $np &#x3D; O_{\infty}$, and we will call $n$ as the order of n. Otherwise, it is called infinite order. </p>
+<p>Point P exists the minimum positive integer $n$, which make $np = O_{\infty}$, and we will call $n$ as the order of n. Otherwise, it is called infinite order.</p>
 <p><em>n always exists.</em></p>
-<h1 id="SIMPLE-ENCRYPTION-AND-DECRYPTION-ON-ELLIPTIC-CURVES"><a href="#SIMPLE-ENCRYPTION-AND-DECRYPTION-ON-ELLIPTIC-CURVES" class="headerlink" title="SIMPLE ENCRYPTION AND DECRYPTION ON ELLIPTIC CURVES"></a>SIMPLE ENCRYPTION AND DECRYPTION ON ELLIPTIC CURVES</h1><img src="/2023/01/11/23-01-11-ECC/3.png" class="" title="description">
-
+<h1>SIMPLE ENCRYPTION AND DECRYPTION ON ELLIPTIC CURVES</h1>
+<img src="/2023/01/11/23-01-11-ECC/3.png" class="" title="description">
 <ul>
-<li><p>A as the generator and decryptor. B as the encryptor. </p>
+<li>
+<p>A as the generator and decryptor. B as the encryptor.</p>
 </li>
-<li><p>A generates the basic parameters. The $(a, b)$ is to generate the elliptic curve. The $G$ is the chosen base point. Then, send $E_p(a, b), K, G$ to B.</p>
+<li>
+<p>A generates the basic parameters. The $(a, b)$ is to generate the elliptic curve. The $G$ is the chosen base point. Then, send $E_p(a, b), K, G$ to B.</p>
 </li>
-<li><p>B generates the random $r$. Make a encryption and send $C_1 &#x3D; M + rK,C_2 &#x3D; rG$ to A.</p>
+<li>
+<p>B generates the random $r$. Make a encryption and send $C_1 = M + rK,C_2 = rG$ to A.</p>
 </li>
-<li><p>A decrypts the ciphers by the equation $M &#x3D; C1 - kG_2$. Finally, A will get message $M$. </p>
+<li>
+<p>A decrypts the ciphers by the equation $M = C1 - kG_2$. Finally, A will get message $M$.</p>
 </li>
-<li><p>PubKey: $K &#x3D; kG$</p>
+<li>
+<p>PubKey: $K = kG$</p>
 </li>
-<li><p>PriKey: $k$</p>
+<li>
+<p>PriKey: $k$</p>
 </li>
 </ul>
-<p>Common 6 parameters $F(p,a,b,G,n,h)$: </p>
+<p>Common 6 parameters $F(p,a,b,G,n,h)$:</p>
 <ul>
-<li>$p, a, b \rightarrow E_p(a, b)$: $p$ 200 more digits can ensure the security. </li>
-<li>$G$: the chosen base point of $E_p(a, b)$ </li>
+<li>$p, a, b \rightarrow E_p(a, b)$: $p$ 200 more digits can ensure the security.</li>
+<li>$G$: the chosen base point of $E_p(a, b)$</li>
 <li>$n$: the order of $E_p(a, b)$</li>
 <li>$h$: the cofactor and the integer part that $m$, the sum of all points on elliptic curve, divides $n$.</li>
 </ul>
-<h1 id="ATTACKs"><a href="#ATTACKs" class="headerlink" title="ATTACKs"></a>ATTACKs</h1><p>The important part. </p>
+<h1>ATTACKs</h1>
+<p>The important part.</p>
 <p>Make some description about the common attacks on elliptic curves in cryptography.</p>
-<h2 id="Pohlig-Hellman"><a href="#Pohlig-Hellman" class="headerlink" title="Pohlig-Hellman"></a>Pohlig-Hellman</h2><blockquote>
-<p>The order of elliptic curve is factorized into small primes. </p>
+<h2 id="Pohlig-Hellman">Pohlig-Hellman</h2>
+<blockquote>
+<p>The order of elliptic curve is factorized into small primes.</p>
 </blockquote>
-<p><strong>Main idea:</strong> </p>
+<p><strong>Main idea:</strong></p>
 <ol>
-<li>Factorize the order. </li>
-<li>Discrete logarithmic problems in factorized primes. </li>
+<li>Factorize the order.</li>
+<li>Discrete logarithmic problems in factorized primes.</li>
 <li>Chinese reminder theorem.</li>
 </ol>
-<p><strong>Deduction:</strong> </p>
+<p><strong>Deduction:</strong></p>
 <img src="/2023/01/11/23-01-11-ECC/4.png" class="" title="deduction">
-
 <p><strong>Example:</strong> ECC-2</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># polig_hellman</span></span><br><span class="line">a2 = <span class="number">377999945830334462584412960368612</span></span><br><span class="line">b2 = <span class="number">604811648267717218711247799143415167229480</span></span><br><span class="line">p2 = <span class="number">1256438680873352167711863680253958927079458741172412327087203</span></span><br><span class="line">E2 = EllipticCurve(GF(p2), [a2, b2])</span><br><span class="line">P2 = E2(<span class="number">550637390822762334900354060650869238926454800955557622817950</span> ,<span class="number">700751312208881169841494663466728684704743091638451132521079</span> )</span><br><span class="line">Q2 = E2(<span class="number">1152079922659509908913443110457333432642379532625238229329830</span> , <span class="number">819973744403969324837069647827669815566569448190043645544592</span> )</span><br><span class="line"></span><br><span class="line">factors, exponents = <span class="built_in">zip</span>(*factor(P2.order()))</span><br><span class="line"><span class="comment"># print(factors)</span></span><br><span class="line"><span class="comment"># print(exponents)</span></span><br><span class="line">primes = [factors[i] ^ exponents[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(factors))][:-<span class="number">1</span>]</span><br><span class="line"><span class="comment"># print(primes)</span></span><br><span class="line">dlogs = []</span><br><span class="line"><span class="keyword">for</span> fac <span class="keyword">in</span> primes:</span><br><span class="line">    t = <span class="built_in">int</span>(P2.order()) // <span class="built_in">int</span>(fac)</span><br><span class="line">    dlog = discrete_log(t*Q2, t*P2, operation = <span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">    dlogs += [dlog]</span><br><span class="line"><span class="comment"># print(dlogs)</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(primes) == <span class="built_in">len</span>(dlogs):</span><br><span class="line">    m2 = crt(dlogs, primes)</span><br><span class="line">flag2 = long_to_bytes(m2).decode()</span><br><span class="line"><span class="built_in">print</span>(flag2)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Smart-Attack"><a href="#Smart-Attack" class="headerlink" title="Smart Attack"></a>Smart Attack</h2><blockquote>
-<p>$E(F_p) &#x3D; p$, the order of the elliptic curve is a prime. </p>
+<h2 id="Smart-Attack">Smart Attack</h2>
+<blockquote>
+<p>$E(F_p) = p$, the order of the elliptic curve is a prime.</p>
 </blockquote>
 <p><em>It will be updated, if I have time.</em></p>
 <p><strong>Exp:</strong> ECC-3</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># smart_attack</span></span><br><span class="line">a3 = <span class="number">490963434153515882934487973185142842357175523008183292296815140698999054658777820556076794490414610737654365807063916602037816955706321036900113929329671</span></span><br><span class="line">b3 = <span class="number">7668542654793784988436499086739239442915170287346121645884096222948338279165302213440060079141960679678526016348025029558335977042712382611197995002316466</span></span><br><span class="line">p3 = <span class="number">11093300438765357787693823122068501933326829181518693650897090781749379503427651954028543076247583697669597230934286751428880673539155279232304301123931419</span></span><br><span class="line">E3 = EllipticCurve(GF(p3), [a3, b3])</span><br><span class="line">P3 = E3(<span class="number">10121571443191913072732572831490534620810835306892634555532657696255506898960536955568544782337611042739846570602400973952350443413585203452769205144937861</span> , <span class="number">8425218582467077730409837945083571362745388328043930511865174847436798990397124804357982565055918658197831123970115905304092351218676660067914209199149610</span> )</span><br><span class="line">Q3 = E3(<span class="number">964864009142237137341389653756165935542611153576641370639729304570649749004810980672415306977194223081235401355646820597987366171212332294914445469010927</span> , <span class="number">5162185780511783278449342529269970453734248460302908455520831950343371147566682530583160574217543701164101226640565768860451999819324219344705421407572537</span> )</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">SmartAttack</span>(<span class="params">P,Q,p</span>):</span><br><span class="line">    E = P.curve()</span><br><span class="line">    Eqp = EllipticCurve(Qp(p, <span class="number">2</span>), [ ZZ(t) + randint(<span class="number">0</span>,p)*p <span class="keyword">for</span> t <span class="keyword">in</span> E.a_invariants() ])</span><br><span class="line"></span><br><span class="line">    P_Qps = Eqp.lift_x(ZZ(P.xy()[<span class="number">0</span>]), <span class="built_in">all</span>=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">for</span> P_Qp <span class="keyword">in</span> P_Qps:</span><br><span class="line">        <span class="keyword">if</span> GF(p)(P_Qp.xy()[<span class="number">1</span>]) == P.xy()[<span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    Q_Qps = Eqp.lift_x(ZZ(Q.xy()[<span class="number">0</span>]), <span class="built_in">all</span>=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">for</span> Q_Qp <span class="keyword">in</span> Q_Qps:</span><br><span class="line">        <span class="keyword">if</span> GF(p)(Q_Qp.xy()[<span class="number">1</span>]) == Q.xy()[<span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    p_times_P = p*P_Qp</span><br><span class="line">    p_times_Q = p*Q_Qp</span><br><span class="line"></span><br><span class="line">    x_P,y_P = p_times_P.xy()</span><br><span class="line">    x_Q,y_Q = p_times_Q.xy()</span><br><span class="line"></span><br><span class="line">    phi_P = -(x_P/y_P)</span><br><span class="line">    phi_Q = -(x_Q/y_Q)</span><br><span class="line">    k = phi_Q/phi_P</span><br><span class="line">    <span class="keyword">return</span> ZZ(k)</span><br><span class="line"></span><br><span class="line"><span class="comment"># from gmpy2 import is_prime</span></span><br><span class="line"><span class="comment"># print(is_prime(P3.order()))</span></span><br><span class="line">m3 = SmartAttack(P3, Q3, p3)</span><br><span class="line">flag3 = long_to_bytes(m3).decode() + <span class="string">&#x27;&#125;&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(flag3)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="BSGS"><a href="#BSGS" class="headerlink" title="BSGS"></a>BSGS</h2><blockquote>
+<h2 id="BSGS">BSGS</h2>
+<blockquote>
 <p>baby step giant step</p>
 </blockquote>
-<p>discrete_log(P,Q,operation &#x3D; ‘+’)</p>
+<p>discrete_log(P,Q,operation = ‘+’)</p>
 <p><strong>Problems:</strong> $y^x \equiv z \mod p$</p>
 <p>To solve out the $x$.</p>
-<h3 id="Original"><a href="#Original" class="headerlink" title="Original"></a>Original</h3><blockquote>
-<p>$gcd(y, p) &#x3D; 1$</p>
+<h3 id="Original">Original</h3>
+<blockquote>
+<p>$gcd(y, p) = 1$</p>
 </blockquote>
-<p>Assume $x &#x3D; am - b,m &#x3D; \sqrt{p}$, $a \in [0, m), b\in[0, m)$. </p>
-<p><strong>Derivation:</strong><br>$$<br>y^{am-b}\equiv z (\mod p)<br>$$</p>
-<p>$$<br>y^{am} \equiv z \cdot y^{b}(\mod p)<br>$$</p>
-<p>Brute force enumeration, enumerate the right in $[0, m)$ and calculate into list. At the same time, we enumerate the left in $[0, m)$, comparing the two list to find the $x$. </p>
-<h3 id="Extended"><a href="#Extended" class="headerlink" title="Extended"></a>Extended</h3><blockquote>
+<p>Assume $x = am - b,m = \sqrt{p}$, $a \in [0, m), b\in[0, m)$.</p>
+<p><strong>Derivation:</strong><br>
+$$<br>
+y^{am-b}\equiv z (\mod p)<br>
+$$</p>
+<p>$$<br>
+y^{am} \equiv z \cdot y^{b}(\mod p)<br>
+$$</p>
+<p>Brute force enumeration, enumerate the right in $[0, m)$ and calculate into list. At the same time, we enumerate the left in $[0, m)$, comparing the two list to find the $x$.</p>
+<h3 id="Extended">Extended</h3>
+<blockquote>
 <p>$gcd(y, p) \neq 1$</p>
 </blockquote>
-<p>Assume $d &#x3D; gcd(y, p)$. </p>
-<p><strong>Derivation:</strong><br>$$<br>y^{x} + kp &#x3D;z<br>$$</p>
-<p>$$<br>y\cdot y^{x-1} +kp &#x3D; z<br>$$</p>
-<p>If we divide it by $d$., we will get that:<br>$$<br>\frac{y}{d}\cdot y^{x-1} + k \cdot \frac{p}{d} &#x3D;\frac{z}{d}<br>$$<br>Recursive the equation, unless $d &#x3D; 1 $. Assume that the product of all$d$ and we enumerate $c$ times. Thus, we can obtain the condition that $x’ &#x3D; x -c, p’ &#x3D; \frac{p}{g}, z’ &#x3D; \frac{z}{g}$.<br>$$<br>y^{x’} \cdot \frac{y^{c}}{g} \equiv z’ (\mod p’)<br>$$<br>And it convert to the <code>original BSGS</code>.</p>
+<p>Assume $d = gcd(y, p)$.</p>
+<p><strong>Derivation:</strong><br>
+$$<br>
+y^{x} + kp =z<br>
+$$</p>
+<p>$$<br>
+y\cdot y^{x-1} +kp = z<br>
+$$</p>
+<p>If we divide it by $d$., we will get that:<br>
+$$<br>
+\frac{y}{d}\cdot y^{x-1} + k \cdot \frac{p}{d} =\frac{z}{d}<br>
+$$<br>
+Recursive the equation, unless $d = 1 $. Assume that the product of all$d$ and we enumerate $c$ times. Thus, we can obtain the condition that $x’ = x -c, p’ = \frac{p}{g}, z’ = \frac{z}{g}$.<br>
+$$<br>
+y^{x’} \cdot \frac{y^{c}}{g} \equiv z’ (\mod p’)<br>
+$$<br>
+And it convert to the <code>original BSGS</code>.</p>
 <p><strong>Example:</strong> ECC-1</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bsgs</span></span><br><span class="line">a1 = <span class="number">46056180</span></span><br><span class="line">b1 = <span class="number">2316783294673</span></span><br><span class="line">p1 = <span class="number">146808027458411567</span></span><br><span class="line">E1 = EllipticCurve(GF(p1), [a1, b1])</span><br><span class="line">P1 = E1(<span class="number">119851377153561800</span> , <span class="number">50725039619018388</span>)</span><br><span class="line">Q1 = E1(<span class="number">22306318711744209</span> , <span class="number">111808951703508717</span>)</span><br><span class="line">m1 = discrete_log(Q1, P1, operation = <span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">flag1 = <span class="string">&#x27;flag&#123;&#x27;</span> + long_to_bytes(m1).decode()</span><br><span class="line"><span class="comment"># print(flag1)</span></span><br></pre></td></tr></table></figure>
-
 
     </div>
     <!-- end of the post-->
@@ -486,7 +519,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">89k</span>
+    <span title="Symbols count total">90k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
