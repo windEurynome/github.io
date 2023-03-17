@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -19,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"windeurynome.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null,"show_result":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"windeurynome.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null,"show_result":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Two different approaches to homomorphic encryption. These ways are called as “paillier-cryptosystem”.  And to understand the principle behind them, I do the proof.">
 <meta property="og:type" content="article">
@@ -29,7 +28,7 @@
 <meta property="og:description" content="Two different approaches to homomorphic encryption. These ways are called as “paillier-cryptosystem”.  And to understand the principle behind them, I do the proof.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-15T06:31:13.000Z">
-<meta property="article:modified_time" content="2023-03-15T08:30:29.988Z">
+<meta property="article:modified_time" content="2023-03-16T01:32:18.862Z">
 <meta property="article:author" content="Eurynome">
 <meta property="article:tag" content="fermat_little_theorem">
 <meta property="article:tag" content="proof">
@@ -237,9 +236,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-03-15 14:31:13 / Modified: 16:30:29" itemprop="dateCreated datePublished" datetime="2023-03-15T14:31:13+08:00">2023-03-15</time>
+      <time title="Created: 2023-03-15 14:31:13" itemprop="dateCreated datePublished" datetime="2023-03-15T14:31:13+08:00">2023-03-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-16 09:32:18" itemprop="dateModified" datetime="2023-03-16T09:32:18+08:00">2023-03-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -289,7 +294,7 @@
 </li>
 <li><p>define that $L(x) &#x3D; \frac{x-1}{n}$</p>
 </li>
-<li><p>define that $\micro &#x3D; (L(g^{\lambda} \mod n^{2}))^{-1} \mod n$</p>
+<li><p>define that $\mu &#x3D; (L(g^{\lambda} \mod n^{2}))^{-1} \mod n$</p>
 </li>
 </ul>
 <h2 id="SECOND-PATTERN"><a href="#SECOND-PATTERN" class="headerlink" title="SECOND PATTERN"></a>SECOND PATTERN</h2><ul>
@@ -317,16 +322,16 @@
 </ul>
 <p>$$<br>m \equiv (L(g^{m\lambda}\cdot r^{n\lambda} \mod n^{2})\cdot \mu)\mod n<br>$$ {eq1}</p>
 <ul>
-<li>substitute $\micro$ to ${eq1}$, we get the $eq2$</li>
+<li>substitute $\mu$ to ${eq1}$, we get the $eq2$</li>
 </ul>
 <p>$$<br>m \equiv L(g^{m\lambda}\cdot r^{n\lambda} \mod n^{2}) \cdot (L(g^{\lambda} \mod n^{2}))^{-1} \mod n<br>$$ {eq2}</p>
 <ul>
 <li>make some deductions to get the $g^{\lambda}$</li>
 </ul>
-<p>$$<br>p-1 | \lambda \and  q-1 | \lambda<br>$$</p>
-<p>so  we can get the equations that:<br>$$<br>\lambda &#x3D; k_1(p-1)\and \lambda &#x3D; k_2(q-1)<br>$$<br>fermat algorithm:<br>$$<br>g^{\lambda} &#x3D; g^{k_1(p-1)} \equiv 1 \mod p<br>$$</p>
+<p>$$<br>p-1 | \lambda and  q-1 | \lambda<br>$$</p>
+<p>so  we can get the equations that:<br>$$<br>\lambda &#x3D; k_1(p-1) and \lambda &#x3D; k_2(q-1)<br>$$<br>fermat little theorem:<br>$$<br>g^{\lambda} &#x3D; g^{k_1(p-1)} \equiv 1 \mod p<br>$$</p>
 <p>$$<br>g^{\lambda} &#x3D; g^{k_2(q-1)} \equiv 1 \mod q<br>$$</p>
-<p>$$<br>\Longrightarrow g^{\lambda} - 1 | q \and g^{\lambda} - 1 | p<br>$$</p>
+<p>$$<br>\Longrightarrow g^{\lambda} - 1 | q and g^{\lambda} - 1 | p<br>$$</p>
 <p>$$<br>\Longrightarrow g^{\lambda} - 1 | lcm(p, q)<br>$$</p>
 <p>$$<br>\Longrightarrow g^{\lambda} - 1 | n<br>$$</p>
 <p>at last, we get the key equation:<br>$$<br>g^{\lambda} \equiv 1 \mod n<br>$$</p>
@@ -360,12 +365,12 @@
 <li>substitute $\lambda$ into $r^{n\lambda}$ and make some deductions</li>
 </ul>
 <p>$$<br>r^{n\lambda} &#x3D; r^{n(p-1)(q-1)} &#x3D; r^{p(p-1) \cdot q(q-1)}<br>$$</p>
-<p>using Euler’s totient function 3 that $\varphi(p^k) &#x3D; p^k - p^{k-1} &#x3D; (p-1)\cdot p^{k-1} &#x3D; \varphi(p) \cdot p^{k-1}$ and fermat algorithm<br>$$<br>r^{p(p-1) \cdot q(q-1)} &#x3D; r^{\varphi(n^2)} \equiv 1 \mod n^{2}<br>$$</p>
+<p>using Euler’s totient function 3 that $\varphi(p^k) &#x3D; p^k - p^{k-1} &#x3D; (p-1)\cdot p^{k-1} &#x3D; \varphi(p) \cdot p^{k-1}$ and fermat little theorem<br>$$<br>r^{p(p-1) \cdot q(q-1)} &#x3D; r^{\varphi(n^2)} \equiv 1 \mod n^{2}<br>$$</p>
 <p>$$<br>r^{n\lambda} \equiv 1 \mod n^{2}<br>$$</p>
 <ul>
 <li>get the simple equation, we get the $eq3$</li>
 </ul>
-<p>$$<br>(L(g^{m\lambda} \mod n^{2})\cdot \micro) \mod n<br>$$ {eq3}</p>
+<p>$$<br>(L(g^{m\lambda} \mod n^{2})\cdot \mu) \mod n<br>$$ {eq3}</p>
 <ul>
 <li>make some deductions about $g^{m\lambda}$</li>
 </ul>
@@ -375,7 +380,7 @@
 <li>substitute $g^{m\lambda}$ into $eq3$</li>
 </ul>
 <p>$$<br>L(1 + mn\lambda)\cdot \mu \mod n \equiv m\lambda \mu \mod n<br>$$</p>
-<p>as $\lambda &#x3D; (p-1)(q-1) &#x3D; \varphi(n)$ and $\micro \equiv \varphi(n)^{-1}\mod n$, we will get that:<br>$$<br>m \varphi(n)\cdot \varphi(n)^{-1} \equiv m \mod n<br>$$<br><strong>Proved.</strong> </p>
+<p>as $\lambda &#x3D; (p-1)(q-1) &#x3D; \varphi(n)$ and $\mu \equiv \varphi(n)^{-1}\mod n$, we will get that:<br>$$<br>m \varphi(n)\cdot \varphi(n)^{-1} \equiv m \mod n<br>$$<br><strong>Proved.</strong> </p>
 <h1 id="EXERCISE"><a href="#EXERCISE" class="headerlink" title="EXERCISE"></a>EXERCISE</h1><h2 id="FIRST"><a href="#FIRST" class="headerlink" title="FIRST"></a>FIRST</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> flag <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">p = getPrime(<span class="number">512</span>)</span><br><span class="line">q = next_prime(p)</span><br><span class="line"><span class="keyword">assert</span> gcd(p*q, (p-<span class="number">1</span>)*(q-<span class="number">1</span>)) == <span class="number">1</span></span><br><span class="line">n = p*q</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;n = &#x27;</span> + <span class="built_in">str</span>(n))</span><br><span class="line"></span><br><span class="line">g = random.randint(<span class="number">1</span>, n*n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;g = &#x27;</span> + <span class="built_in">str</span>(g))</span><br><span class="line">r = random.randint(<span class="number">1</span>, n)</span><br><span class="line"><span class="keyword">assert</span> gcd(r, n) == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">c = (<span class="built_in">pow</span>(g, m, n*n) * <span class="built_in">pow</span>(r, n, n*n)) % (n*n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;c = &#x27;</span> + <span class="built_in">str</span>(c))</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">n, g, c</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="SECOND"><a href="#SECOND" class="headerlink" title="SECOND"></a>SECOND</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> flag <span class="keyword">import</span> flag, p, q</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">p = getPrime(<span class="number">512</span>)</span><br><span class="line">q = next_prime(p)</span><br><span class="line"></span><br><span class="line">n = p*q</span><br><span class="line">g = n + <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;n = &#x27;</span> + <span class="built_in">str</span>(n))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;g = &#x27;</span> + <span class="built_in">str</span>(g))</span><br><span class="line"></span><br><span class="line">r = random.randint(<span class="number">1</span>, n)</span><br><span class="line"><span class="keyword">assert</span> gcd(r, n) == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">c = (<span class="built_in">pow</span>(g, m, n*n) * <span class="built_in">pow</span>(r, n, n*n)) % (n*n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;c = &#x27;</span> + <span class="built_in">str</span>(c))</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">n, g, c</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
@@ -449,14 +454,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">94k</span>
+    <span title="Symbols count total">95k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:26</span>
+    <span title="Reading time total">1:27</span>
   </span>
 </div>
 <!--
@@ -493,6 +498,35 @@
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: false,
+  label: '🌓',
+  autoMatchOsTheme: false
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+if (window.darkmode && !window.darkmode.isActivated()) {
+  window.darkmode.toggle();
+  var toggleButtons = document.getElementsByClassName("darkmode-toggle");
+  if (toggleButtons && toggleButtons.length > 0) {
+    for (i = 0; i < toggleButtons.length; i++) {
+      toggleButtons[i].classList.add("darkmode-toggle--white");
+    }
+  }
+}
+</script>
 
 </body>
 </html>
