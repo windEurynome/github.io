@@ -28,7 +28,7 @@
 <meta property="og:description" content="As a routine notepad to record some recurrent tasks in Chinese. These tasks are somewhat special or interesting, which deserve recording.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-09T08:02:30.000Z">
-<meta property="article:modified_time" content="2023-03-15T09:27:45.454Z">
+<meta property="article:modified_time" content="2023-04-10T06:58:25.874Z">
 <meta property="article:author" content="Eurynome">
 <meta property="article:tag" content="recurrent">
 <meta name="twitter:card" content="summary">
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DASCTF2020-4-not-RSA"><span class="nav-number">1.</span> <span class="nav-text">[DASCTF2020-4]not RSA</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DASCTF2020-4-not-RSA"><span class="nav-number">1.</span> <span class="nav-text">[DASCTF2020-4]not RSA</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NSSCTF-round11-ez-signin"><span class="nav-number">2.</span> <span class="nav-text">[NSSCTF-round11]ez_signin</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -242,7 +242,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-15 17:27:45" itemprop="dateModified" datetime="2023-03-15T17:27:45+08:00">2023-03-15</time>
+      <time title="Modified: 2023-04-10 14:58:25" itemprop="dateModified" datetime="2023-04-10T14:58:25+08:00">2023-04-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -261,14 +261,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>1k</span>
+      <span>3.4k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -293,6 +293,17 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">c = <span class="number">29088911054711509252215615231015162998042579425917914434962376243477176757448053722602422672251758332052330100944900171067962180230120924963561223495629695702541446456981441239486190458125750543542379899722558637306740763104274377031599875275807723323394379557227060332005571272240560453811389162371812183549</span></span><br><span class="line">n = <span class="number">6401013954612445818165507289870580041358569258817613282142852881965884799988941535910939664068503367303343695466899335792545332690862283029809823423608093</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># yafu</span></span><br><span class="line">p = <span class="number">80006336965345725157774618059504992841841040207998249416678435780577798937819</span></span><br><span class="line">q = <span class="number">80006336965345725157774618059504992841841040207998249416678435780577798937447</span></span><br><span class="line"></span><br><span class="line">L = <span class="keyword">lambda</span> x: (x - <span class="number">1</span>) // n</span><br><span class="line">lam = (p - <span class="number">1</span>)*(q - <span class="number">1</span>)</span><br><span class="line">miu = invert(lam, n)</span><br><span class="line"></span><br><span class="line">m = L(<span class="built_in">pow</span>(c, <span class="built_in">int</span>(lam), n*n)) * miu % n</span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br></pre></td></tr></table></figure>
 
 
+
+<h1 id="NSSCTF-round11-ez-signin"><a href="#NSSCTF-round11-ez-signin" class="headerlink" title="[NSSCTF-round11]ez_signin"></a>[NSSCTF-round11]ez_signin</h1><ul>
+<li>basic</li>
+<li>deduction</li>
+<li>rabin</li>
+</ul>
+<p>$$<br>num1 \equiv p^e \mod - q^e \mod n \equiv p^e - q^e \mod n<br>$$ {1}</p>
+<p>利用二项式展开定理对其进行展开以及模运算：<br>$$<br>num2 \equiv (p + q)^e \mod n \equiv p^e + q^e \mod n<br>$$ {2}<br>(1)式 + (2)式可得：<br>$$<br>num1 + num2 \equiv 2 p^e \mod n<br>$$<br>又从题目得到$n &#x3D; p \times q$，利用<code>gcd()</code>可得<code>p</code>：<br>$$<br>p &#x3D; gcd(num1 + num2, n)<br>$$<br>而<code>q</code>即为$q &#x3D; n &#x2F;&#x2F; p$.</p>
+<p>得到<code>p</code>以及&#96;&#96;q<code>后，发现$p\equiv q \equiv 3 \mod 4$，$e = 65536 = 2^&#123;16&#125;$，可得下一个知识点为</code>Rabin&#96;算法，且循环使用16次。</p>
+<p>所以我们对原始的<code>c</code>先进行一次<code>Rabin</code>，所得的四个明文作为<code>c</code>继续循环使用<code>Rabin</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="number">134186458247304184975418956047750205959249518467116558944535042073046353646812210914711656218265319503240074967140027248278994209294869476247136854741631971975560846483033205230015783696055443897579440474585892990793595602095853960468928457703619205343030230201261058516219352855127626321847429189498666288452</span></span><br><span class="line">num2 = <span class="number">142252615203395148320392930915384149783801592719030740337592034613073131106036364733480644482188684184951026866672011061092572389846929838149296357261088256882232316029199097203257003822750826537629358422813658558008420810100860520289261141533787464661186681371090873356089237613080052677646446751824502044253</span></span><br><span class="line">n = <span class="number">154128165952806886790805410291540694477027958542517309121222164274741570806324940112942356615458298064007096476638232940977238598879453357856259085001745763666030177657087772721079761302637352680091939676709372354103177660093164629417313468356185431895723026835950366030712541994019375251534778666996491342313</span></span><br><span class="line">c = <span class="number">9061020000447780498751583220055526057707259079063266050917693522289697419950637286020502996753375864826169562714946009146452528404466989211057548905704856329650955828939737304126685040898740775635547039660982064419976700425595503919207903099686497044429265908046033565745195837408532764433870408185128447965</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes</span><br><span class="line">p = gcd(num1 + num2, n)</span><br><span class="line">q = n // p</span><br><span class="line"><span class="keyword">assert</span> is_prime(p)</span><br><span class="line"><span class="keyword">assert</span> is_prime(q)</span><br><span class="line"><span class="keyword">assert</span> p % <span class="number">4</span> == <span class="number">3</span></span><br><span class="line"><span class="keyword">assert</span> q % <span class="number">4</span> == <span class="number">3</span></span><br><span class="line"><span class="comment"># print(p)</span></span><br><span class="line"><span class="comment"># print(q)</span></span><br><span class="line"><span class="comment"># print(p.bit_length())</span></span><br><span class="line"><span class="comment"># print(q.bit_length())</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 65536 == 2**16</span></span><br><span class="line">cs = [c]</span><br><span class="line"></span><br><span class="line">gcd, yp, yq = gcdext(p, q)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>):</span><br><span class="line">    ps = []</span><br><span class="line">    <span class="keyword">for</span> cc <span class="keyword">in</span> cs:</span><br><span class="line">        mp = powmod(cc, (p + <span class="number">1</span>) // <span class="number">4</span>, p)</span><br><span class="line">        mq = powmod(cc, (q + <span class="number">1</span>) // <span class="number">4</span>, q)</span><br><span class="line"></span><br><span class="line">        m1 = (yp * p * mq + yq * q * mp) % n</span><br><span class="line">        m2 = n - m1</span><br><span class="line">        m3 = (yp * p * mq - yq * q * mp) % n</span><br><span class="line">        m4 = n - m3</span><br><span class="line">        <span class="keyword">if</span> m1 <span class="keyword">not</span> <span class="keyword">in</span> ps:</span><br><span class="line">            ps.append(m1)</span><br><span class="line">        <span class="keyword">if</span> m2 <span class="keyword">not</span> <span class="keyword">in</span> ps:</span><br><span class="line">            ps.append(m2)</span><br><span class="line">        <span class="keyword">if</span> m3 <span class="keyword">not</span> <span class="keyword">in</span> ps:</span><br><span class="line">            ps.append(m3)</span><br><span class="line">        <span class="keyword">if</span> m4 <span class="keyword">not</span> <span class="keyword">in</span> ps:</span><br><span class="line">            ps.append(m4)</span><br><span class="line"></span><br><span class="line">    cs = ps</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> ps:</span><br><span class="line">        flag = long_to_bytes(m)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">b&#x27;nss&#x27;</span> <span class="keyword">in</span> flag:</span><br><span class="line">            <span class="built_in">print</span>(flag)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"><span class="comment"># nssctf&#123;W3lc0me_t0_nssctf_R0undll_w15h_U_can_have_Fun_t0day!!!#0919&#125;</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -361,14 +372,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">97k</span>
+    <span title="Symbols count total">100k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:28</span>
+    <span title="Reading time total">1:31</span>
   </span>
 </div>
 <!--
