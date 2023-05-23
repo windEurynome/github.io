@@ -28,7 +28,7 @@
 <meta property="og:description" content="Some import theorems which are suitable for applying to Cryptography. At the same time, the post which is made as the record to note me that how to improve or deduction.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-11-15T02:03:05.000Z">
-<meta property="article:modified_time" content="2023-02-22T02:57:17.230Z">
+<meta property="article:modified_time" content="2023-05-05T09:25:38.807Z">
 <meta property="article:author" content="Eurynome">
 <meta property="article:tag" content="fermat_little_theorem">
 <meta name="twitter:card" content="summary">
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Fermat%E2%80%99s-little-theorem"><span class="nav-number">1.</span> <span class="nav-text">Fermat’s little theorem</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Fermat%E2%80%99s-little-theorem"><span class="nav-number">1.</span> <span class="nav-text">Fermat’s little theorem</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Euler%E2%80%99s-criterion"><span class="nav-number">2.</span> <span class="nav-text">Euler’s criterion</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#proof"><span class="nav-number">2.1.</span> <span class="nav-text">proof</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -242,7 +242,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-22 10:57:17" itemprop="dateModified" datetime="2023-02-22T10:57:17+08:00">2023-02-22</time>
+      <time title="Modified: 2023-05-05 17:25:38" itemprop="dateModified" datetime="2023-05-05T17:25:38+08:00">2023-05-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -261,7 +261,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>324</span>
+      <span>852</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -285,6 +285,14 @@
 
 <h1 id="Fermat’s-little-theorem"><a href="#Fermat’s-little-theorem" class="headerlink" title="Fermat’s little theorem"></a>Fermat’s little theorem</h1><p>Let $p$ be a prime number,  and $a$ be any integer. Then $a^{p} - a$ is always divisible by $p$. </p>
 <p>And we can write as:<br>$$<br>a^{p} \equiv a \mod p<br>$$<br>Make a deduction, we can get that:<br>$$<br>a^{p-1} \equiv 1 \mod p<br>$$</p>
+<h1 id="Euler’s-criterion"><a href="#Euler’s-criterion" class="headerlink" title="Euler’s criterion"></a>Euler’s criterion</h1><p>If the modulo $p$ is a odd prime and is prime to $a$, we can get $a^{p-1}\equiv 1 \mod p$ by using the fermat’s little theorem. </p>
+<p>We define that $p &#x3D; 2q + 1$， and we will get $a^{2q} \equiv 1 \mod p$:<br>$$<br>\Longrightarrow (a^{2q} - 1) \times (2^{2q} + 1) \equiv 0 \mod p<br>$$<br>So the $a^q \equiv \pm 1 \mod p$，means that $a^{\frac{p-1}{2}} \equiv \pm 1 \mod p$. </p>
+<p>In fact, we have the equation which is called euler’s criterion.<br>$$<br>(\frac{a}{p}) \equiv a^{\frac{p - 1}{2}} \mod p<br>$$</p>
+<h2 id="proof"><a href="#proof" class="headerlink" title="proof"></a>proof</h2><p>“$a$ is the quadratic remainder of modulo $p$” is a sufficient condition for “$a^{\frac{p-1}{2}} \equiv 1 \mod p$”. </p>
+<ul>
+<li>Sufficiency: </li>
+<li>Necessity:</li>
+</ul>
 
     </div>
     <!-- end of the post-->
@@ -352,14 +360,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">124k</span>
+    <span title="Symbols count total">127k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:52</span>
+    <span title="Reading time total">1:56</span>
   </span>
 </div>
 <!--
