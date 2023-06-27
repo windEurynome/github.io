@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://windeurynome.github.io/2023/03/09/Crypto-Write-Up-zh/1.jpg">
 <meta property="article:published_time" content="2023-03-09T08:02:30.000Z">
-<meta property="article:modified_time" content="2023-06-14T13:49:42.685Z">
+<meta property="article:modified_time" content="2023-06-14T14:30:46.943Z">
 <meta property="article:author" content="Eurynome">
 <meta property="article:tag" content="recurrent">
 <meta name="twitter:card" content="summary">
@@ -159,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -244,7 +244,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-06-14 21:49:42" itemprop="dateModified" datetime="2023-06-14T21:49:42+08:00">2023-06-14</time>
+      <time title="Modified: 2023-06-14 22:30:46" itemprop="dateModified" datetime="2023-06-14T22:30:46+08:00">2023-06-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -464,7 +464,9 @@
 
 <h2 id="q-x3D-next-prime-p-p-gt-gt-500"><a href="#q-x3D-next-prime-p-p-gt-gt-500" class="headerlink" title="q &#x3D; next_prime(p+(p&gt;&gt;500))"></a>q &#x3D; next_prime(p+(p&gt;&gt;500))</h2><p>转换成数学公式$q &#x3D; p + \frac{1}{2^{500}}\cdot{p} + r &#x3D; (1 + \frac{1}{2^{500}})p + r$</p>
 <p>此时：$r$为凑到素数的最小整数</p>
-<h2 id="n-x3D-p-q"><a href="#n-x3D-p-q" class="headerlink" title="n &#x3D; p*q"></a>n &#x3D; p*q</h2><p>代入$q$得到：<br>$$<br>n &#x3D; p\cdot q\<br>n &#x3D; p\cdot((1+\frac{1}{2^{500}})p + r)\<br>n &#x3D; (1+\frac{1}{2^{500}})\cdot p^{2} + r\cdot p<br>$$</p>
+<h2 id="n-x3D-p-q"><a href="#n-x3D-p-q" class="headerlink" title="n &#x3D; p*q"></a>n &#x3D; p*q</h2><p>代入$q$得到：<br>$$<br>n &#x3D; p\cdot q<br>$$</p>
+<p>$$<br>n &#x3D; p\cdot((1+\frac{1}{2^{500}})p + r)<br>$$</p>
+<p>$$<br>n &#x3D; (1+\frac{1}{2^{500}})\cdot p^{2} + r\cdot p<br>$$</p>
 <h2 id="凑平方"><a href="#凑平方" class="headerlink" title="凑平方"></a>凑平方</h2><p>等式左右两边同时乘上$(1+\frac{1}{2^{500}})$，凑出平方：<br>$$<br>(1+ \frac{1}{2^{500}})n &#x3D; ((1+\frac{1}{2^{500}})p)^{2}+(1+\frac{1}{2^{500}})rp<br>\ &gt; ((1+\frac{1}{2^{500}})p)^{2}<br>$$</p>
 <h2 id="进行约束计算"><a href="#进行约束计算" class="headerlink" title="进行约束计算"></a>进行约束计算</h2><p>$$<br>(1+ \frac{1}{2^{500}})n &#x3D; ((1+\frac{1}{2^{500}})p)^{2}+(1+\frac{1}{2^{500}})rp \tag1<br>$$</p>
 <p>$$<br>q^{2} &#x3D; ((1+\frac{1}{2^{500}})p + r)^{2}&#x3D;((1+ \frac{1}{2^{500}})p)^{2} + (1+\frac{1}{2^{500}})rp + (1+\frac{1}{2^{500}})rp + r^{2} \tag2\<br>$$</p>
@@ -554,14 +556,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">145k</span>
+    <span title="Symbols count total">151k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">2:12</span>
+    <span title="Reading time total">2:17</span>
   </span>
 </div>
 <!--
