@@ -20,37 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"windeurynome.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac","show_result":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Some traffic packets may be encrypted. When I import the private key in one case, I can’t get the decrypted packets like http. FinalIy, I search for this problem and get the solution. This post aims t">
+    <meta name="description" content="AKA cat map. The classic Arnold Transform is a two-dimensional reversible map. The discrete form of the Arnold Transform is periodic and changes with the size of the image.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="22-12-20-Encrypto-Wireshark">
-<meta property="og:url" content="https://windeurynome.github.io/2022/12/20/22-12-20-Encrypto-Wireshark/index.html">
+<meta property="og:title" content="Arnold Transform">
+<meta property="og:url" content="https://windeurynome.github.io/2023/07/04/Arnold-Transform/index.html">
 <meta property="og:site_name" content="The Sea &amp; Chaos">
-<meta property="og:description" content="Some traffic packets may be encrypted. When I import the private key in one case, I can’t get the decrypted packets like http. FinalIy, I search for this problem and get the solution. This post aims t">
+<meta property="og:description" content="AKA cat map. The classic Arnold Transform is a two-dimensional reversible map. The discrete form of the Arnold Transform is periodic and changes with the size of the image.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://windeurynome.github.io/2022/12/20/22-12-20-Encrypto-Wireshark/1.png">
-<meta property="og:image" content="https://windeurynome.github.io/2022/12/20/22-12-20-Encrypto-Wireshark/2.png">
-<meta property="og:image" content="https://windeurynome.github.io/2022/12/20/22-12-20-Encrypto-Wireshark/3.png">
-<meta property="og:image" content="https://windeurynome.github.io/2022/12/20/22-12-20-Encrypto-Wireshark/4.png">
-<meta property="og:image" content="https://windeurynome.github.io/2022/12/20/22-12-20-Encrypto-Wireshark/5.png">
-<meta property="og:image" content="https://windeurynome.github.io/2022/12/20/22-12-20-Encrypto-Wireshark/6.png">
-<meta property="og:image" content="https://windeurynome.github.io/2022/12/20/22-12-20-Encrypto-Wireshark/7.png">
-<meta property="article:published_time" content="2022-12-20T02:13:06.000Z">
-<meta property="article:modified_time" content="2023-02-22T02:42:00.411Z">
+<meta property="article:published_time" content="2023-07-04T02:46:35.000Z">
+<meta property="article:modified_time" content="2023-07-04T06:43:29.792Z">
 <meta property="article:author" content="Eurynome">
-<meta property="article:tag" content="wireshark">
-<meta property="article:tag" content="diffie_hellman">
+<meta property="article:tag" content="cat">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://windeurynome.github.io/2022/12/20/22-12-20-Encrypto-Wireshark/1.png">
 
 
-<link rel="canonical" href="https://windeurynome.github.io/2022/12/20/22-12-20-Encrypto-Wireshark/">
+<link rel="canonical" href="https://windeurynome.github.io/2023/07/04/Arnold-Transform/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://windeurynome.github.io/2022/12/20/22-12-20-Encrypto-Wireshark/","path":"2022/12/20/22-12-20-Encrypto-Wireshark/","title":"22-12-20-Encrypto-Wireshark"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://windeurynome.github.io/2023/07/04/Arnold-Transform/","path":"2023/07/04/Arnold-Transform/","title":"Arnold Transform"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>22-12-20-Encrypto-Wireshark | The Sea & Chaos</title>
+<title>Arnold Transform | The Sea & Chaos</title>
   
 
 
@@ -153,7 +144,23 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">REFERENCE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">DECRYPT TLS&#x2F;SSL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Server%E2%80%99s-cert-Private-key"><span class="nav-number">2.1.</span> <span class="nav-text">Server’s cert&#x2F;Private-key</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#preparation"><span class="nav-number">2.1.1.</span> <span class="nav-text">preparation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#notice"><span class="nav-number">2.1.2.</span> <span class="nav-text">notice</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CERT-PRIVATEKEY"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">CERT&#x2F;PRIVATEKEY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DECRYPT-KEY"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">DECRYPT KEY</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step"><span class="nav-number">2.1.3.</span> <span class="nav-text">step</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Key-log-file"><span class="nav-number">2.2.</span> <span class="nav-text">Key log file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relate-to-D-H"><span class="nav-number">2.3.</span> <span class="nav-text">Relate to D-H</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#how-to-recognize"><span class="nav-number">2.3.1.</span> <span class="nav-text">how to recognize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set-the-firefox"><span class="nav-number">2.3.2.</span> <span class="nav-text">set the firefox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recatch-the-traffic-and-analyze"><span class="nav-number">2.3.3.</span> <span class="nav-text">recatch the traffic and analyze</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">CONCLUSION</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Special Arnold Transform</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Def-1"><span class="nav-number">1.1.</span> <span class="nav-text">Def.1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">$$
+\begin{bmatrix}
+x’\\
+y’
+\end{bmatrix}</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Def-2"><span class="nav-number">2.1.</span> <span class="nav-text">Def.2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">$$
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">General Arnold Transform</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Def-1-2"><span class="nav-number">4.1.</span> <span class="nav-text">Def.1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">$$
+\begin{bmatrix}
+x’\\
+y’
+\end{bmatrix}</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Def-2-2"><span class="nav-number">5.1.</span> <span class="nav-text">Def.2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">$$
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">Accomplish</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -215,7 +222,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://windeurynome.github.io/2022/12/20/22-12-20-Encrypto-Wireshark/">
+    <link itemprop="mainEntityOfPage" href="https://windeurynome.github.io/2023/07/04/Arnold-Transform/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -228,12 +235,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="22-12-20-Encrypto-Wireshark | The Sea & Chaos">
+      <meta itemprop="name" content="Arnold Transform | The Sea & Chaos">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          22-12-20-Encrypto-Wireshark
+          Arnold Transform
         </h1>
 
         <div class="post-meta-container">
@@ -243,15 +250,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-12-20 10:13:06" itemprop="dateCreated datePublished" datetime="2022-12-20T10:13:06+08:00">2022-12-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-22 10:42:00" itemprop="dateModified" datetime="2023-02-22T10:42:00+08:00">2023-02-22</time>
+      <time title="Created: 2023-07-04 10:46:35 / Modified: 14:43:29" itemprop="dateCreated datePublished" datetime="2023-07-04T10:46:35+08:00">2023-07-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -259,7 +260,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+          <a href="/categories/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a>
         </span>
     </span>
 
@@ -270,7 +271,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>2.4k</span>
+      <span>2.3k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -288,85 +289,119 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Some traffic packets may be encrypted. When I import the private key in one case, I can’t get the decrypted packets like http.</p>
-<p>FinalIy, I search for this problem and get the solution.</p>
-<p>This post aims to make a conclusion about the <code>encrypted-traffic-packets(tls/ssl)</code>.</p>
+        <p>AKA <code>cat map</code>.</p>
+<p>The classic <code>Arnold Transform</code> is a two-dimensional reversible map. The discrete form of the <code>Arnold Transform</code> is periodic and changes with the size of the image.</p>
 <span id="more"></span><!--toc-->
-<h1>REFERENCE</h1>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jasy/p/16157388.html">https://www.cnblogs.com/jasy/p/16157388.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.joji.me/zh-cn/blog/walkthrough-decrypt-ssl-tls-traffic-https-and-http2-in-wireshark/#md-sslkeylogfile">如何通过Wireshark查看HTTPS、HTTP/2网络包（解码TLS、SSL） (joji.me)</a></p>
-</blockquote>
-<p>Really thank for the article!</p>
-<p><em>The second is to edit the configuration of computer, which can be caught in the direct way by using webshell.</em></p>
-<h1>DECRYPT TLS/SSL</h1>
-<p>There are three methods to decrypt the encrypted-ssl/tls packets.</p>
-<ul>
-<li>Use the <code>server's cert</code> or the <code>private-key</code> to decrypt.</li>
-<li>Use the <code>ssl-key-log-file</code> to decrypt.</li>
-<li>Disable the config setting to decrypt packets which use the <code>Diffie-Hellman-Exchange</code>.</li>
-</ul>
-<h2 id="Server’s-cert-Private-key">Server’s cert/Private-key</h2>
-<h3 id="preparation">preparation</h3>
-<ul>
-<li>TLS/SSL packets</li>
-<li>cert or private-key</li>
-<li>wireshark</li>
-</ul>
-<h3 id="notice">notice</h3>
-<p>The TLS/SSL packets should not relate to the <code>Diffie-Hellman-Exchange</code> and just a common encrypted packets.</p>
-<h4 id="CERT-PRIVATEKEY">CERT/PRIVATEKEY</h4>
-<p>The cert or private-key should not be encrypted. And usually, the private-key is the standard of <code>PKCS#8</code>.</p>
-<p>If you have a binary DER, it cannot be used in wireshark, and we ought to make a convert.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs8 -nocrypt -<span class="keyword">in</span> der.key -informat DER -out pem.key -outformat PEM</span><br></pre></td></tr></table></figure>
-<ul>
-<li><em>der.key: the name and root of DER</em></li>
-<li><em>pem.key: the output file</em></li>
-</ul>
-<p>And, the private-key ought to be like this:</p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/1.png" class="" title="Private-key">
-<p>which shows that the beginning is <code>-----BEGIN RSA PRIVATE KEY-----</code>.</p>
-<h4 id="DECRYPT-KEY">DECRYPT KEY</h4>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.openssl.org/docs/manmaster/man1/rsa.html#EXAMPLES">/docs/manmaster/man1/rsa.html (openssl.org)</a></p>
-</blockquote>
-<p>If the beginning is <code>-----BEGIN ENCRYPTED PRIVATE KEY-----</code>, we should decrypt the key in a proper way.</p>
-<p>a common command is:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -<span class="keyword">in</span> [source file] -out [outfile]</span><br><span class="line"><span class="comment"># ?Maybe.</span></span><br></pre></td></tr></table></figure>
-<h3 id="step">step</h3>
-<ul>
-<li>OPEN the wireshark and import the private-key or cert.</li>
-</ul>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/2.png" class="" title="setting">
-<ol>
-<li><strong>RSA keys list.</strong> Import private key, add the <code>port</code>, <code>ip</code>, <code>protocol</code>, <code>root</code> and the chosen <code>password</code>. <strong>Mainly used.</strong></li>
-<li><strong>TLS debug file.</strong> Some debug file.</li>
-<li><strong>Master-Secret log.</strong> Key log file.</li>
-</ol>
-<ul>
-<li>If all things right, and we will see the <code>http traffic</code>.</li>
-</ul>
-<h2 id="Key-log-file">Key log file</h2>
-<p>Use the <code>key log file</code>. Usually, this file is in the traffic packets. The key log file is like this.</p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/3.png" class="" title="key log file">
-<h2 id="Relate-to-D-H">Relate to D-H</h2>
-<p>Sometimes, the encrypted traffic packets cannot be decrypted by using methods above.</p>
-<h3 id="how-to-recognize">how to recognize</h3>
-<p>When we analyze the traffic packets, we use command like <code>ip.addr == xxx.xxx.xxx.xxx &amp;&amp; tls</code> to find the target packets.</p>
-<p>If we see the <code>Client Hello</code>, we should make a notice that it maybe a <code>D-H encrypted traffic packet</code>.</p>
-<p>For example:</p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/4.png" class="" title="D-H encrypted">
-<p>We can change the browser to catch the traffic again.</p>
-<h3 id="set-the-firefox">set the firefox</h3>
-<p>The address is <code>about:config</code>, and search for the <code>dhe</code>.</p>
-<p>We can change the target according to the traffic packets or make all things   <code>false</code>.</p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/5.png" class="" title="change firefox setting">
-<h3 id="recatch-the-traffic-and-analyze">recatch the traffic and analyze</h3>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/6.png" class="" title="remove dhe">
-<p>After importing the private key, we can see the  decrypted<code>http traffic</code>.</p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/7.png" class="" title="decrypted http traffic">
-<h1>CONCLUSION</h1>
-<p>The <code>Diffie-Hellman-Exchange</code> is really beyond my imagination.</p>
+<h1>Special Arnold Transform</h1>
+<h2 id="Def-1">Def.1</h2>
+<h1>$$<br>
+\begin{bmatrix}<br>
+x’\\<br>
+y’<br>
+\end{bmatrix}</h1>
+<p>A<br>
+\begin{bmatrix}<br>
+x\\<br>
+y<br>
+\end{bmatrix}<br>
+\mod N, A =<br>
+\begin{bmatrix}<br>
+1 &amp; 1 \\<br>
+1 &amp; 2<br>
+\end{bmatrix}<br>
+, 0\le x, y \le 1, 0\le x’, y’ \le 1<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow<br>
+\left\{<br>
+\begin{array}{lr}<br>
+x’ = (x + y) \mod N \\<br>
+y’ = (x + 2y) \mod N<br>
+\end{array}<br>
+\right.<br>
+$$<br>
+Two-dimensional Arnold Transform.</p>
+<h2 id="Def-2">Def.2</h2>
+<h1>$$<br>
+\begin{bmatrix}<br>
+x\\<br>
+y<br>
+\end{bmatrix}</h1>
+<p>A^{-1}<br>
+\begin{bmatrix}<br>
+x’\\<br>
+y’<br>
+\end{bmatrix}<br>
+\mod N, A^{-1} =<br>
+\begin{bmatrix}<br>
+2 &amp; -1 \\<br>
+-1 &amp; 1<br>
+\end{bmatrix}<br>
+, 0\le x, y \le 1, 0\le x’, y’ \le 1<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow<br>
+\left\{<br>
+\begin{array}{lr}<br>
+x = (2x’ - y’) \mod N \\<br>
+y = (-x’ + y’) \mod N<br>
+\end{array}<br>
+\right.<br>
+$$</p>
+<p>Two-dimensional Arnold inverse transformation.</p>
+<h1>General Arnold Transform</h1>
+<h2 id="Def-1-2">Def.1</h2>
+<h1>$$<br>
+\begin{bmatrix}<br>
+x’\\<br>
+y’<br>
+\end{bmatrix}</h1>
+<p>\begin{bmatrix}<br>
+1 &amp; a \\<br>
+b &amp; ab + 1<br>
+\end{bmatrix}<br>
+\begin{bmatrix}<br>
+x\\<br>
+y<br>
+\end{bmatrix}<br>
+\mod N<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow<br>
+\left\{<br>
+\begin{array}{lr}<br>
+x’ = (x + ay) \mod N \\<br>
+y’ = (bx + (ab + 1)y) \mod N<br>
+\end{array}<br>
+\right.<br>
+$$</p>
+<h2 id="Def-2-2">Def.2</h2>
+<h1>$$<br>
+\begin{bmatrix}<br>
+x\\<br>
+y<br>
+\end{bmatrix}</h1>
+<p>\begin{bmatrix}<br>
+ab + 1 &amp; -a \\<br>
+-b &amp; 1<br>
+\end{bmatrix}<br>
+\begin{bmatrix}<br>
+x’\\<br>
+y’<br>
+\end{bmatrix}<br>
+\mod N<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow<br>
+\left\{<br>
+\begin{array}{lr}<br>
+x = ((ab + 1)x’ - ay’) \mod N \\<br>
+y = (-bx’ + y’) \mod N<br>
+\end{array}<br>
+\right.<br>
+$$</p>
+<h1>Accomplish</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">arnold</span>(<span class="params">image, arnold_times</span>):</span><br><span class="line">    a = </span><br><span class="line">    b = </span><br><span class="line">    <span class="comment"># Create a new image, a three-dimensional array of all 0s</span></span><br><span class="line">    decode_image = np.zeros(shape=image.shape)</span><br><span class="line">    <span class="comment"># Read the length and width pixels of the picture</span></span><br><span class="line">    height, width = image.shape[<span class="number">0</span>], image.shape[<span class="number">1</span>]</span><br><span class="line">    N = height  <span class="comment"># if it is a square, height is equal to width</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> time <span class="keyword">in</span> <span class="built_in">range</span>(arnold_times):  <span class="comment"># transformation times</span></span><br><span class="line">        <span class="comment"># Traverse the pixel coordinates of the image</span></span><br><span class="line">        <span class="keyword">for</span> old_x <span class="keyword">in</span> <span class="built_in">range</span>(height):</span><br><span class="line">            <span class="keyword">for</span> old_y <span class="keyword">in</span> <span class="built_in">range</span>(width):</span><br><span class="line">                <span class="comment"># Arnold Inverse Transform</span></span><br><span class="line">                new_x = ((a * b + <span class="number">1</span>) * old_x + (-a) * old_y) % N <span class="comment"># N = height</span></span><br><span class="line">                new_y = ((-b) * old_x + old_y) % N <span class="comment"># N = width</span></span><br><span class="line">                <span class="comment"># Arnold Transform</span></span><br><span class="line">                <span class="comment"># new_x = (old_x + a * old_y) % N # N = height</span></span><br><span class="line">                <span class="comment"># new_y = (b * old_x + (a * b + 1) * old_y) % N # N = width</span></span><br><span class="line"></span><br><span class="line">                decode_image[new_x, new_y, :] = image[old_x, old_y, :]</span><br><span class="line">    cv2.imwrite(<span class="string">&#x27;xxx&#x27;</span>, decode_image, [<span class="built_in">int</span>(cv2.IMWRITE_PNG_COMPRESSION), <span class="number">0</span>])  <span class="comment"># write as PNG</span></span><br><span class="line">    <span class="keyword">return</span> decode_image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># imread(path,flag) reads the picture, the default parameter value of loading a color picture is flag=1, the grayscale is 0, the transparency is -1, the result is a three-dimensional array, the first two dimensions are pixel coordinates, and the last one is the channel index</span></span><br><span class="line">    it = cv2.imread(<span class="string">&#x27;xxx&#x27;</span>)</span><br><span class="line">    arnold(it, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
     </div>
     <!-- end of the post-->
@@ -387,22 +422,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/wireshark/" rel="tag"><i class="fa fa-tag"></i> wireshark</a>
-              <a href="/tags/diffie-hellman/" rel="tag"><i class="fa fa-tag"></i> diffie_hellman</a>
+              <a href="/tags/cat/" rel="tag"><i class="fa fa-tag"></i> cat</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/12/19/22-12-19-basecrack/" rel="prev" title="22-12-19-Basecrack">
-                  <i class="fa fa-chevron-left"></i> 22-12-19-Basecrack
+                <a href="/2023/06/27/LCGs/" rel="prev" title="LCGs">
+                  <i class="fa fa-chevron-left"></i> LCGs
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/12/21/22-12-21-UNknown/" rel="next" title="22-12-21-UNknown">
-                  22-12-21-UNknown <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
