@@ -144,7 +144,23 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Special-Arnold-Transform"><span class="nav-number">1.</span> <span class="nav-text">Special Arnold Transform</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Def-1"><span class="nav-number">1.1.</span> <span class="nav-text">Def.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Def-2"><span class="nav-number">1.2.</span> <span class="nav-text">Def.2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#General-Arnold-Transform"><span class="nav-number">2.</span> <span class="nav-text">General Arnold Transform</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Def-1-1"><span class="nav-number">2.1.</span> <span class="nav-text">Def.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Def-2-1"><span class="nav-number">2.2.</span> <span class="nav-text">Def.2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Accomplish"><span class="nav-number">3.</span> <span class="nav-text">Accomplish</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Special Arnold Transform</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Def-1"><span class="nav-number">1.1.</span> <span class="nav-text">Def.1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">$$
+\begin{bmatrix}
+x’\\
+y’
+\end{bmatrix}</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Def-2"><span class="nav-number">2.1.</span> <span class="nav-text">Def.2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">$$
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">General Arnold Transform</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Def-1-2"><span class="nav-number">4.1.</span> <span class="nav-text">Def.1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">$$
+\begin{bmatrix}
+x’\\
+y’
+\end{bmatrix}</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Def-2-2"><span class="nav-number">5.1.</span> <span class="nav-text">Def.2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">$$
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">Accomplish</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -157,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -255,7 +271,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>2.4k</span>
+      <span>2.3k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -276,18 +292,116 @@
         <p>AKA <code>cat map</code>.</p>
 <p>The classic <code>Arnold Transform</code> is a two-dimensional reversible map. The discrete form of the <code>Arnold Transform</code> is periodic and changes with the size of the image.</p>
 <span id="more"></span><!--toc-->
-
-<h1 id="Special-Arnold-Transform"><a href="#Special-Arnold-Transform" class="headerlink" title="Special Arnold Transform"></a>Special Arnold Transform</h1><h2 id="Def-1"><a href="#Def-1" class="headerlink" title="Def.1"></a>Def.1</h2><p>$$<br>\begin{bmatrix}<br>    x’\\<br>    y’<br>\end{bmatrix}<br>&#x3D;<br>A<br>\begin{bmatrix}<br>    x\\<br>    y<br>\end{bmatrix}<br>\mod N, A &#x3D;<br>\begin{bmatrix}<br>    1 &amp; 1 \\<br>    1 &amp; 2<br>\end{bmatrix}<br>, 0\le x, y \le 1, 0\le x’, y’ \le 1<br>$$</p>
-<p>$$<br>\Longrightarrow<br>\left\{<br>\begin{array}{lr}<br>    x’ &#x3D; (x + y) \mod N \\<br>    y’ &#x3D; (x + 2y) \mod N<br>\end{array}<br>\right.<br>$$<br>Two-dimensional Arnold Transform.</p>
-<h2 id="Def-2"><a href="#Def-2" class="headerlink" title="Def.2"></a>Def.2</h2><p>$$<br>\begin{bmatrix}<br>    x\\<br>    y<br>\end{bmatrix}<br>&#x3D;<br>A^{-1}<br>\begin{bmatrix}<br>    x’\\<br>    y’<br>\end{bmatrix}<br>\mod N, A^{-1} &#x3D;<br>\begin{bmatrix}<br>    2 &amp; -1 \\<br>    -1 &amp; 1<br>\end{bmatrix}<br>, 0\le x, y \le 1, 0\le x’, y’ \le 1<br>$$</p>
-<p>$$<br>\Longrightarrow<br>\left\{<br>\begin{array}{lr}<br>    x &#x3D; (2x’ - y’) \mod N \\<br>    y &#x3D; (-x’ + y’) \mod N<br>\end{array}<br>\right.<br>$$</p>
-<p>Two-dimensional Arnold inverse transformation. </p>
-<h1 id="General-Arnold-Transform"><a href="#General-Arnold-Transform" class="headerlink" title="General Arnold Transform"></a>General Arnold Transform</h1><h2 id="Def-1-1"><a href="#Def-1-1" class="headerlink" title="Def.1"></a>Def.1</h2><p>$$<br>\begin{bmatrix}<br>    x’\\<br>    y’<br>\end{bmatrix}<br>&#x3D;<br>\begin{bmatrix}<br>    1 &amp; a \\<br>    b &amp; ab + 1<br>\end{bmatrix}<br>\begin{bmatrix}<br>    x\\<br>    y<br>\end{bmatrix}<br>\mod N<br>$$</p>
-<p>$$<br>\Longrightarrow<br>\left\{<br>\begin{array}{lr}<br>    x’ &#x3D; (x + ay) \mod N \\<br>    y’ &#x3D; (bx + (ab + 1)y) \mod N<br>\end{array}<br>\right.<br>$$</p>
-<h2 id="Def-2-1"><a href="#Def-2-1" class="headerlink" title="Def.2"></a>Def.2</h2><p>$$<br>\begin{bmatrix}<br>    x\\<br>    y<br>\end{bmatrix}<br>&#x3D;<br>\begin{bmatrix}<br>    ab + 1 &amp; -a \\<br>    -b &amp; 1<br>\end{bmatrix}<br>\begin{bmatrix}<br>    x’\\<br>    y’<br>\end{bmatrix}<br>\mod N<br>$$</p>
-<p>$$<br>\Longrightarrow<br>\left\{<br>\begin{array}{lr}<br>    x &#x3D; ((ab + 1)x’ - ay’) \mod N \\<br>    y &#x3D; (-bx’ + y’) \mod N<br>\end{array}<br>\right.<br>$$</p>
-<h1 id="Accomplish"><a href="#Accomplish" class="headerlink" title="Accomplish"></a>Accomplish</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">arnold</span>(<span class="params">image, arnold_times</span>):</span><br><span class="line">    a = </span><br><span class="line">    b = </span><br><span class="line">    <span class="comment"># Create a new image, a three-dimensional array of all 0s</span></span><br><span class="line">    decode_image = np.zeros(shape=image.shape)</span><br><span class="line">    <span class="comment"># Read the length and width pixels of the picture</span></span><br><span class="line">    height, width = image.shape[<span class="number">0</span>], image.shape[<span class="number">1</span>]</span><br><span class="line">    N = height  <span class="comment"># if it is a square, height is equal to width</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> time <span class="keyword">in</span> <span class="built_in">range</span>(arnold_times):  <span class="comment"># transformation times</span></span><br><span class="line">        <span class="comment"># Traverse the pixel coordinates of the image</span></span><br><span class="line">        <span class="keyword">for</span> old_x <span class="keyword">in</span> <span class="built_in">range</span>(height):</span><br><span class="line">            <span class="keyword">for</span> old_y <span class="keyword">in</span> <span class="built_in">range</span>(width):</span><br><span class="line">                <span class="comment"># Arnold Inverse Transform</span></span><br><span class="line">                new_x = ((a * b + <span class="number">1</span>) * old_x + (-a) * old_y) % N <span class="comment"># N = height</span></span><br><span class="line">                new_y = ((-b) * old_x + old_y) % N <span class="comment"># N = width</span></span><br><span class="line">                <span class="comment"># Arnold Transform</span></span><br><span class="line">                <span class="comment"># new_x = (old_x + a * old_y) % N # N = height</span></span><br><span class="line">                <span class="comment"># new_y = (b * old_x + (a * b + 1) * old_y) % N # N = width</span></span><br><span class="line"></span><br><span class="line">                decode_image[new_x, new_y, :] = image[old_x, old_y, :]</span><br><span class="line">    cv2.imwrite(<span class="string">&#x27;xxx&#x27;</span>, decode_image, [<span class="built_in">int</span>(cv2.IMWRITE_PNG_COMPRESSION), <span class="number">0</span>])  <span class="comment"># write as PNG</span></span><br><span class="line">    <span class="keyword">return</span> decode_image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># imread(path,flag) reads the picture, the default parameter value of loading a color picture is flag=1, the grayscale is 0, the transparency is -1, the result is a three-dimensional array, the first two dimensions are pixel coordinates, and the last one is the channel index</span></span><br><span class="line">    it = cv2.imread(<span class="string">&#x27;xxx&#x27;</span>)</span><br><span class="line">    arnold(it, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
+<h1>Special Arnold Transform</h1>
+<h2 id="Def-1">Def.1</h2>
+<h1>$$<br>
+\begin{bmatrix}<br>
+x’\\<br>
+y’<br>
+\end{bmatrix}</h1>
+<p>A<br>
+\begin{bmatrix}<br>
+x\\<br>
+y<br>
+\end{bmatrix}<br>
+\mod N, A =<br>
+\begin{bmatrix}<br>
+1 &amp; 1 \\<br>
+1 &amp; 2<br>
+\end{bmatrix}<br>
+, 0\le x, y \le 1, 0\le x’, y’ \le 1<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow<br>
+\left\{<br>
+\begin{array}{lr}<br>
+x’ = (x + y) \mod N \\<br>
+y’ = (x + 2y) \mod N<br>
+\end{array}<br>
+\right.<br>
+$$<br>
+Two-dimensional Arnold Transform.</p>
+<h2 id="Def-2">Def.2</h2>
+<h1>$$<br>
+\begin{bmatrix}<br>
+x\\<br>
+y<br>
+\end{bmatrix}</h1>
+<p>A^{-1}<br>
+\begin{bmatrix}<br>
+x’\\<br>
+y’<br>
+\end{bmatrix}<br>
+\mod N, A^{-1} =<br>
+\begin{bmatrix}<br>
+2 &amp; -1 \\<br>
+-1 &amp; 1<br>
+\end{bmatrix}<br>
+, 0\le x, y \le 1, 0\le x’, y’ \le 1<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow<br>
+\left\{<br>
+\begin{array}{lr}<br>
+x = (2x’ - y’) \mod N \\<br>
+y = (-x’ + y’) \mod N<br>
+\end{array}<br>
+\right.<br>
+$$</p>
+<p>Two-dimensional Arnold inverse transformation.</p>
+<h1>General Arnold Transform</h1>
+<h2 id="Def-1-2">Def.1</h2>
+<h1>$$<br>
+\begin{bmatrix}<br>
+x’\\<br>
+y’<br>
+\end{bmatrix}</h1>
+<p>\begin{bmatrix}<br>
+1 &amp; a \\<br>
+b &amp; ab + 1<br>
+\end{bmatrix}<br>
+\begin{bmatrix}<br>
+x\\<br>
+y<br>
+\end{bmatrix}<br>
+\mod N<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow<br>
+\left\{<br>
+\begin{array}{lr}<br>
+x’ = (x + ay) \mod N \\<br>
+y’ = (bx + (ab + 1)y) \mod N<br>
+\end{array}<br>
+\right.<br>
+$$</p>
+<h2 id="Def-2-2">Def.2</h2>
+<h1>$$<br>
+\begin{bmatrix}<br>
+x\\<br>
+y<br>
+\end{bmatrix}</h1>
+<p>\begin{bmatrix}<br>
+ab + 1 &amp; -a \\<br>
+-b &amp; 1<br>
+\end{bmatrix}<br>
+\begin{bmatrix}<br>
+x’\\<br>
+y’<br>
+\end{bmatrix}<br>
+\mod N<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow<br>
+\left\{<br>
+\begin{array}{lr}<br>
+x = ((ab + 1)x’ - ay’) \mod N \\<br>
+y = (-bx’ + y’) \mod N<br>
+\end{array}<br>
+\right.<br>
+$$</p>
+<h1>Accomplish</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">arnold</span>(<span class="params">image, arnold_times</span>):</span><br><span class="line">    a = </span><br><span class="line">    b = </span><br><span class="line">    <span class="comment"># Create a new image, a three-dimensional array of all 0s</span></span><br><span class="line">    decode_image = np.zeros(shape=image.shape)</span><br><span class="line">    <span class="comment"># Read the length and width pixels of the picture</span></span><br><span class="line">    height, width = image.shape[<span class="number">0</span>], image.shape[<span class="number">1</span>]</span><br><span class="line">    N = height  <span class="comment"># if it is a square, height is equal to width</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> time <span class="keyword">in</span> <span class="built_in">range</span>(arnold_times):  <span class="comment"># transformation times</span></span><br><span class="line">        <span class="comment"># Traverse the pixel coordinates of the image</span></span><br><span class="line">        <span class="keyword">for</span> old_x <span class="keyword">in</span> <span class="built_in">range</span>(height):</span><br><span class="line">            <span class="keyword">for</span> old_y <span class="keyword">in</span> <span class="built_in">range</span>(width):</span><br><span class="line">                <span class="comment"># Arnold Inverse Transform</span></span><br><span class="line">                new_x = ((a * b + <span class="number">1</span>) * old_x + (-a) * old_y) % N <span class="comment"># N = height</span></span><br><span class="line">                new_y = ((-b) * old_x + old_y) % N <span class="comment"># N = width</span></span><br><span class="line">                <span class="comment"># Arnold Transform</span></span><br><span class="line">                <span class="comment"># new_x = (old_x + a * old_y) % N # N = height</span></span><br><span class="line">                <span class="comment"># new_y = (b * old_x + (a * b + 1) * old_y) % N # N = width</span></span><br><span class="line"></span><br><span class="line">                decode_image[new_x, new_y, :] = image[old_x, old_y, :]</span><br><span class="line">    cv2.imwrite(<span class="string">&#x27;xxx&#x27;</span>, decode_image, [<span class="built_in">int</span>(cv2.IMWRITE_PNG_COMPRESSION), <span class="number">0</span>])  <span class="comment"># write as PNG</span></span><br><span class="line">    <span class="keyword">return</span> decode_image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># imread(path,flag) reads the picture, the default parameter value of loading a color picture is flag=1, the grayscale is 0, the transparency is -1, the result is a three-dimensional array, the first two dimensions are pixel coordinates, and the last one is the channel index</span></span><br><span class="line">    it = cv2.imread(<span class="string">&#x27;xxx&#x27;</span>)</span><br><span class="line">    arnold(it, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
     </div>
     <!-- end of the post-->
@@ -320,6 +434,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2023/07/20/Environment-Install/" rel="next" title="Environment Install">
+                  Environment Install <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -352,14 +469,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">153k</span>
+    <span title="Symbols count total">159k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">2:19</span>
+    <span title="Reading time total">2:25</span>
   </span>
 </div>
 <!--

@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Fermat%E2%80%99s-little-theorem"><span class="nav-number">1.</span> <span class="nav-text">Fermat’s little theorem</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Euler%E2%80%99s-criterion"><span class="nav-number">2.</span> <span class="nav-text">Euler’s criterion</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#proof"><span class="nav-number">2.1.</span> <span class="nav-text">proof</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Fermat’s little theorem</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Euler’s criterion</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#proof"><span class="nav-number">2.1.</span> <span class="nav-text">proof</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -261,7 +261,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>852</span>
+      <span>847</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -280,17 +280,33 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>Some import theorems which are suitable for applying to Cryptography.</p>
-<p>At the same time, the post which is made as the record to note me that how to improve or deduction. </p>
+<p>At the same time, the post which is made as the record to note me that how to improve or deduction.</p>
 <span id="more"></span><!--toc-->
-
-<h1 id="Fermat’s-little-theorem"><a href="#Fermat’s-little-theorem" class="headerlink" title="Fermat’s little theorem"></a>Fermat’s little theorem</h1><p>Let $p$ be a prime number,  and $a$ be any integer. Then $a^{p} - a$ is always divisible by $p$. </p>
-<p>And we can write as:<br>$$<br>a^{p} \equiv a \mod p<br>$$<br>Make a deduction, we can get that:<br>$$<br>a^{p-1} \equiv 1 \mod p<br>$$</p>
-<h1 id="Euler’s-criterion"><a href="#Euler’s-criterion" class="headerlink" title="Euler’s criterion"></a>Euler’s criterion</h1><p>If the modulo $p$ is a odd prime and is prime to $a$, we can get $a^{p-1}\equiv 1 \mod p$ by using the fermat’s little theorem. </p>
-<p>We define that $p &#x3D; 2q + 1$， and we will get $a^{2q} \equiv 1 \mod p$:<br>$$<br>\Longrightarrow (a^{2q} - 1) \times (2^{2q} + 1) \equiv 0 \mod p<br>$$<br>So the $a^q \equiv \pm 1 \mod p$，means that $a^{\frac{p-1}{2}} \equiv \pm 1 \mod p$. </p>
-<p>In fact, we have the equation which is called euler’s criterion.<br>$$<br>(\frac{a}{p}) \equiv a^{\frac{p - 1}{2}} \mod p<br>$$</p>
-<h2 id="proof"><a href="#proof" class="headerlink" title="proof"></a>proof</h2><p>“$a$ is the quadratic remainder of modulo $p$” is a sufficient condition for “$a^{\frac{p-1}{2}} \equiv 1 \mod p$”. </p>
+<h1>Fermat’s little theorem</h1>
+<p>Let $p$ be a prime number,  and $a$ be any integer. Then $a^{p} - a$ is always divisible by $p$.</p>
+<p>And we can write as:<br>
+$$<br>
+a^{p} \equiv a \mod p<br>
+$$<br>
+Make a deduction, we can get that:<br>
+$$<br>
+a^{p-1} \equiv 1 \mod p<br>
+$$</p>
+<h1>Euler’s criterion</h1>
+<p>If the modulo $p$ is a odd prime and is prime to $a$, we can get $a^{p-1}\equiv 1 \mod p$ by using the fermat’s little theorem.</p>
+<p>We define that $p = 2q + 1$， and we will get $a^{2q} \equiv 1 \mod p$:<br>
+$$<br>
+\Longrightarrow (a^{2q} - 1) \times (2^{2q} + 1) \equiv 0 \mod p<br>
+$$<br>
+So the $a^q \equiv \pm 1 \mod p$，means that $a^{\frac{p-1}{2}} \equiv \pm 1 \mod p$.</p>
+<p>In fact, we have the equation which is called euler’s criterion.<br>
+$$<br>
+(\frac{a}{p}) \equiv a^{\frac{p - 1}{2}} \mod p<br>
+$$</p>
+<h2 id="proof">proof</h2>
+<p>“$a$ is the quadratic remainder of modulo $p$” is a sufficient condition for “$a^{\frac{p-1}{2}} \equiv 1 \mod p$”.</p>
 <ul>
-<li>Sufficiency: </li>
+<li>Sufficiency:</li>
 <li>Necessity:</li>
 </ul>
 
@@ -360,14 +376,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">153k</span>
+    <span title="Symbols count total">159k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">2:19</span>
+    <span title="Reading time total">2:25</span>
   </span>
 </div>
 <!--

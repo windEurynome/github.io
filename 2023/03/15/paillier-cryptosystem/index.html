@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"windeurynome.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac","show_result":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Two different approaches to homomorphic encryption. These ways are called as “paillier-cryptosystem”.  And to understand the principle behind them, I do the proof.">
+    <meta name="description" content="Two different approaches to homomorphic encryption. These ways are called as “paillier-cryptosystem”. And to understand the principle behind them, I do the proof.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Paillier-Cryptosystem">
 <meta property="og:url" content="https://windeurynome.github.io/2023/03/15/paillier-cryptosystem/index.html">
 <meta property="og:site_name" content="The Sea &amp; Chaos">
-<meta property="og:description" content="Two different approaches to homomorphic encryption. These ways are called as “paillier-cryptosystem”.  And to understand the principle behind them, I do the proof.">
+<meta property="og:description" content="Two different approaches to homomorphic encryption. These ways are called as “paillier-cryptosystem”. And to understand the principle behind them, I do the proof.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-15T06:31:13.000Z">
 <meta property="article:modified_time" content="2023-03-16T01:32:18.862Z">
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#INIT"><span class="nav-number">1.</span> <span class="nav-text">INIT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FIRST-PATTERN"><span class="nav-number">1.1.</span> <span class="nav-text">FIRST PATTERN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SECOND-PATTERN"><span class="nav-number">1.2.</span> <span class="nav-text">SECOND PATTERN</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#KEYS"><span class="nav-number">2.</span> <span class="nav-text">KEYS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ENCRYPT-AND-DECRYPT"><span class="nav-number">3.</span> <span class="nav-text">ENCRYPT AND DECRYPT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ENCRYPT"><span class="nav-number">3.1.</span> <span class="nav-text">ENCRYPT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DECRYPT"><span class="nav-number">3.2.</span> <span class="nav-text">DECRYPT</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PROOF"><span class="nav-number">4.</span> <span class="nav-text">PROOF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PATTERN-1"><span class="nav-number">4.1.</span> <span class="nav-text">PATTERN 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PATTERN-2"><span class="nav-number">4.2.</span> <span class="nav-text">PATTERN 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EXERCISE"><span class="nav-number">5.</span> <span class="nav-text">EXERCISE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FIRST"><span class="nav-number">5.1.</span> <span class="nav-text">FIRST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SECOND"><span class="nav-number">5.2.</span> <span class="nav-text">SECOND</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">INIT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FIRST-PATTERN"><span class="nav-number">1.1.</span> <span class="nav-text">FIRST PATTERN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SECOND-PATTERN"><span class="nav-number">1.2.</span> <span class="nav-text">SECOND PATTERN</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">KEYS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">ENCRYPT AND DECRYPT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ENCRYPT"><span class="nav-number">3.1.</span> <span class="nav-text">ENCRYPT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DECRYPT"><span class="nav-number">3.2.</span> <span class="nav-text">DECRYPT</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">PROOF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PATTERN-1"><span class="nav-number">4.1.</span> <span class="nav-text">PATTERN 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PATTERN-2"><span class="nav-number">4.2.</span> <span class="nav-text">PATTERN 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">EXERCISE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FIRST"><span class="nav-number">5.1.</span> <span class="nav-text">FIRST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SECOND"><span class="nav-number">5.2.</span> <span class="nav-text">SECOND</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -159,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -263,7 +263,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>4.1k</span>
+      <span>3.9k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -281,113 +281,197 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Two different approaches to homomorphic encryption. These ways are called as “paillier-cryptosystem”. </p>
-<p>And to understand the principle behind them, I do the proof. </p>
+        <p>Two different approaches to homomorphic encryption. These ways are called as “paillier-cryptosystem”.</p>
+<p>And to understand the principle behind them, I do the proof.</p>
 <span id="more"></span><!--toc-->
-
-<h1 id="INIT"><a href="#INIT" class="headerlink" title="INIT"></a>INIT</h1><h2 id="FIRST-PATTERN"><a href="#FIRST-PATTERN" class="headerlink" title="FIRST PATTERN"></a>FIRST PATTERN</h2><ul>
-<li><p>produce two large primes $p$, $q$, assert them that $gcd(p\times q, (p-1)\times(q-1) &#x3D; 1$</p>
+<h1>INIT</h1>
+<h2 id="FIRST-PATTERN">FIRST PATTERN</h2>
+<ul>
+<li>
+<p>produce two large primes $p$, $q$, assert them that $gcd(p\times q, (p-1)\times(q-1) = 1$</p>
 </li>
-<li><p>calculate $n &#x3D; p\times q$, define that $\lambda &#x3D; lcm(p-1, q-1) &#x3D; \frac{(p-1)\times(q-1)}{gcd(p-1, q-1)}$</p>
+<li>
+<p>calculate $n = p\times q$, define that $\lambda = lcm(p-1, q-1) = \frac{(p-1)\times(q-1)}{gcd(p-1, q-1)}$</p>
 </li>
-<li><p>produce random $g$, and $0&lt;g&lt;n^{2}$</p>
+<li>
+<p>produce random $g$, and $0&lt;g&lt;n^{2}$</p>
 </li>
-<li><p>define that $L(x) &#x3D; \frac{x-1}{n}$</p>
+<li>
+<p>define that $L(x) = \frac{x-1}{n}$</p>
 </li>
-<li><p>define that $\mu &#x3D; (L(g^{\lambda} \mod n^{2}))^{-1} \mod n$</p>
-</li>
-</ul>
-<h2 id="SECOND-PATTERN"><a href="#SECOND-PATTERN" class="headerlink" title="SECOND PATTERN"></a>SECOND PATTERN</h2><ul>
-<li><p>define that $g &#x3D; n  + 1$</p>
-</li>
-<li><p>define that $\lambda &#x3D; \varphi(n) &#x3D; (p-1)\times (q-1) $</p>
-</li>
-<li><p>and also define that $\mu &#x3D; \varphi(n)^{-1} \mod n$</p>
+<li>
+<p>define that $\mu = (L(g^{\lambda} \mod n^{2}))^{-1} \mod n$</p>
 </li>
 </ul>
-<h1 id="KEYS"><a href="#KEYS" class="headerlink" title="KEYS"></a>KEYS</h1><ul>
-<li>PK &#x3D; {$n$, $g$}</li>
-<li>SK &#x3D; {$\lambda$, $\mu$}</li>
+<h2 id="SECOND-PATTERN">SECOND PATTERN</h2>
+<ul>
+<li>
+<p>define that $g = n  + 1$</p>
+</li>
+<li>
+<p>define that $\lambda = \varphi(n) = (p-1)\times (q-1) $</p>
+</li>
+<li>
+<p>and also define that $\mu = \varphi(n)^{-1} \mod n$</p>
+</li>
 </ul>
-<h1 id="ENCRYPT-AND-DECRYPT"><a href="#ENCRYPT-AND-DECRYPT" class="headerlink" title="ENCRYPT AND DECRYPT"></a>ENCRYPT AND DECRYPT</h1><h2 id="ENCRYPT"><a href="#ENCRYPT" class="headerlink" title="ENCRYPT"></a>ENCRYPT</h2><ul>
+<h1>KEYS</h1>
+<ul>
+<li>PK = {$n$, $g$}</li>
+<li>SK = {$\lambda$, $\mu$}</li>
+</ul>
+<h1>ENCRYPT AND DECRYPT</h1>
+<h2 id="ENCRYPT">ENCRYPT</h2>
+<ul>
 <li>assert that $0&lt;m&lt;n$</li>
-<li>produce a random $r$, assert that $gcd(r, n) &#x3D; 1$</li>
+<li>produce a random $r$, assert that $gcd(r, n) = 1$</li>
 <li>$c \equiv g^{m} \cdot r^{n} \mod n^{2}$</li>
 </ul>
-<h2 id="DECRYPT"><a href="#DECRYPT" class="headerlink" title="DECRYPT"></a>DECRYPT</h2><ul>
+<h2 id="DECRYPT">DECRYPT</h2>
+<ul>
 <li>$m \equiv (L(c^{\lambda} \mod n^{2})\cdot \mu)\mod n$</li>
 </ul>
-<h1 id="PROOF"><a href="#PROOF" class="headerlink" title="PROOF"></a>PROOF</h1><h2 id="PATTERN-1"><a href="#PATTERN-1" class="headerlink" title="PATTERN 1"></a>PATTERN 1</h2><ul>
+<h1>PROOF</h1>
+<h2 id="PATTERN-1">PATTERN 1</h2>
+<ul>
 <li>substitute the equation of $c$ into $m$, we get the $eq1$</li>
 </ul>
-<p>$$<br>m \equiv (L(g^{m\lambda}\cdot r^{n\lambda} \mod n^{2})\cdot \mu)\mod n<br>$$ {eq1}</p>
+<p>$$<br>
+m \equiv (L(g^{m\lambda}\cdot r^{n\lambda} \mod n^{2})\cdot \mu)\mod n<br>
+$$ {eq1}</p>
 <ul>
 <li>substitute $\mu$ to ${eq1}$, we get the $eq2$</li>
 </ul>
-<p>$$<br>m \equiv L(g^{m\lambda}\cdot r^{n\lambda} \mod n^{2}) \cdot (L(g^{\lambda} \mod n^{2}))^{-1} \mod n<br>$$ {eq2}</p>
+<p>$$<br>
+m \equiv L(g^{m\lambda}\cdot r^{n\lambda} \mod n^{2}) \cdot (L(g^{\lambda} \mod n^{2}))^{-1} \mod n<br>
+$$ {eq2}</p>
 <ul>
 <li>make some deductions to get the $g^{\lambda}$</li>
 </ul>
-<p>$$<br>p-1 | \lambda and  q-1 | \lambda<br>$$</p>
-<p>so  we can get the equations that:<br>$$<br>\lambda &#x3D; k_1(p-1) and \lambda &#x3D; k_2(q-1)<br>$$<br>fermat little theorem:<br>$$<br>g^{\lambda} &#x3D; g^{k_1(p-1)} \equiv 1 \mod p<br>$$</p>
-<p>$$<br>g^{\lambda} &#x3D; g^{k_2(q-1)} \equiv 1 \mod q<br>$$</p>
-<p>$$<br>\Longrightarrow g^{\lambda} - 1 | q and g^{\lambda} - 1 | p<br>$$</p>
-<p>$$<br>\Longrightarrow g^{\lambda} - 1 | lcm(p, q)<br>$$</p>
-<p>$$<br>\Longrightarrow g^{\lambda} - 1 | n<br>$$</p>
-<p>at last, we get the key equation:<br>$$<br>g^{\lambda} \equiv 1 \mod n<br>$$</p>
-<p>$$<br>\Longrightarrow g^{\lambda} \mod n^{2} \equiv  1 \mod n<br>$$</p>
-<p>$$<br>\Longrightarrow g^{\lambda} &#x3D; 1 + k_g \cdot n<br>$$</p>
+<p>$$<br>
+p-1 | \lambda and  q-1 | \lambda<br>
+$$</p>
+<p>so  we can get the equations that:<br>
+$$<br>
+\lambda = k_1(p-1) and \lambda = k_2(q-1)<br>
+$$<br>
+fermat little theorem:<br>
+$$<br>
+g^{\lambda} = g^{k_1(p-1)} \equiv 1 \mod p<br>
+$$</p>
+<p>$$<br>
+g^{\lambda} = g^{k_2(q-1)} \equiv 1 \mod q<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow g^{\lambda} - 1 | q and g^{\lambda} - 1 | p<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow g^{\lambda} - 1 | lcm(p, q)<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow g^{\lambda} - 1 | n<br>
+$$</p>
+<p>at last, we get the key equation:<br>
+$$<br>
+g^{\lambda} \equiv 1 \mod n<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow g^{\lambda} \mod n^{2} \equiv  1 \mod n<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow g^{\lambda} = 1 + k_g \cdot n<br>
+$$</p>
 <p>the $k_g$ is less than $n$</p>
-<p>substitute $g^{\lambda}$ into $L(x)$:<br>$$<br>L(g^{\lambda} \mod n^{2}) &#x3D; k_g<br>$$</p>
+<p>substitute $g^{\lambda}$ into $L(x)$:<br>
+$$<br>
+L(g^{\lambda} \mod n^{2}) = k_g<br>
+$$</p>
 <ul>
 <li>also make some deductions to get $g^{m\lambda}$</li>
 </ul>
-<p>$$<br>1 + kn \equiv 1 + kn \mod n^{2}<br>$$</p>
-<p>$$<br>(1 + kn)^{2} \equiv 1 + 2kn + (kn)^{2} \mod n^{2} \equiv 1 + 2kn \mod n^{2}<br>$$</p>
-<p>$$<br>(1 + kn)^{3} \equiv 1 + 3kn + 3(kn)^{2} + (kn)^{3} \equiv 1+3kn \mod n^{2}<br>$$</p>
-<p>$$<br>\Longrightarrow (1 + kn)^{m}\equiv 1+mkn \mod n^{2}<br>$$</p>
-<p>$$<br>\Longrightarrow g^{m\lambda}&#x3D;(1+k_gn)^{m}\equiv 1 + mk_gn \mod n^{2}<br>$$</p>
+<p>$$<br>
+1 + kn \equiv 1 + kn \mod n^{2}<br>
+$$</p>
+<p>$$<br>
+(1 + kn)^{2} \equiv 1 + 2kn + (kn)^{2} \mod n^{2} \equiv 1 + 2kn \mod n^{2}<br>
+$$</p>
+<p>$$<br>
+(1 + kn)^{3} \equiv 1 + 3kn + 3(kn)^{2} + (kn)^{3} \equiv 1+3kn \mod n^{2}<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow (1 + kn)^{m}\equiv 1+mkn \mod n^{2}<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow g^{m\lambda}=(1+k_gn)^{m}\equiv 1 + mk_gn \mod n^{2}<br>
+$$</p>
 <ul>
 <li>same to get $r^{n\lambda}$</li>
 </ul>
-<p>$$<br>r^{n\lambda} &#x3D;(1+k_rn)^{n}\equiv 1 + k_r n^{2} \mod n^{2} \equiv 1\mod n^{2}<br>$$</p>
+<p>$$<br>
+r^{n\lambda} =(1+k_rn)^{n}\equiv 1 + k_r n^{2} \mod n^{2} \equiv 1\mod n^{2}<br>
+$$</p>
 <ul>
 <li>substitute $g^{m\lambda}$ , $r^{n\lambda}$ and $L(g^{\lambda} \mod n^{2})$ into $eq2$</li>
 </ul>
-<p>$$<br>m \equiv L(1 + mk_gn \mod n^{2}) \cdot (L(g^{\lambda} \mod n^{2}))^{-1} \mod n<br>$$</p>
-<p>$$<br>m \equiv k_g m \cdot k_g^{-1} \mod n \equiv m \mod n<br>$$</p>
-<p><strong>Proved.</strong> </p>
-<h2 id="PATTERN-2"><a href="#PATTERN-2" class="headerlink" title="PATTERN 2"></a>PATTERN 2</h2><ul>
+<p>$$<br>
+m \equiv L(1 + mk_gn \mod n^{2}) \cdot (L(g^{\lambda} \mod n^{2}))^{-1} \mod n<br>
+$$</p>
+<p>$$<br>
+m \equiv k_g m \cdot k_g^{-1} \mod n \equiv m \mod n<br>
+$$</p>
+<p><strong>Proved.</strong></p>
+<h2 id="PATTERN-2">PATTERN 2</h2>
+<ul>
 <li>also substitute $c$ into $m$</li>
 </ul>
-<p>$$<br>L(g^{m\lambda}\cdot r^{n\lambda} \mod n^{2})\cdot \mu \mod n<br>$$</p>
+<p>$$<br>
+L(g^{m\lambda}\cdot r^{n\lambda} \mod n^{2})\cdot \mu \mod n<br>
+$$</p>
 <ul>
 <li>substitute $\lambda$ into $r^{n\lambda}$ and make some deductions</li>
 </ul>
-<p>$$<br>r^{n\lambda} &#x3D; r^{n(p-1)(q-1)} &#x3D; r^{p(p-1) \cdot q(q-1)}<br>$$</p>
-<p>using Euler’s totient function 3 that $\varphi(p^k) &#x3D; p^k - p^{k-1} &#x3D; (p-1)\cdot p^{k-1} &#x3D; \varphi(p) \cdot p^{k-1}$ and fermat little theorem<br>$$<br>r^{p(p-1) \cdot q(q-1)} &#x3D; r^{\varphi(n^2)} \equiv 1 \mod n^{2}<br>$$</p>
-<p>$$<br>r^{n\lambda} \equiv 1 \mod n^{2}<br>$$</p>
+<p>$$<br>
+r^{n\lambda} = r^{n(p-1)(q-1)} = r^{p(p-1) \cdot q(q-1)}<br>
+$$</p>
+<p>using Euler’s totient function 3 that $\varphi(p^k) = p^k - p^{k-1} = (p-1)\cdot p^{k-1} = \varphi§ \cdot p^{k-1}$ and fermat little theorem<br>
+$$<br>
+r^{p(p-1) \cdot q(q-1)} = r^{\varphi(n^2)} \equiv 1 \mod n^{2}<br>
+$$</p>
+<p>$$<br>
+r^{n\lambda} \equiv 1 \mod n^{2}<br>
+$$</p>
 <ul>
 <li>get the simple equation, we get the $eq3$</li>
 </ul>
-<p>$$<br>(L(g^{m\lambda} \mod n^{2})\cdot \mu) \mod n<br>$$ {eq3}</p>
+<p>$$<br>
+(L(g^{m\lambda} \mod n^{2})\cdot \mu) \mod n<br>
+$$ {eq3}</p>
 <ul>
 <li>make some deductions about $g^{m\lambda}$</li>
 </ul>
-<p>$$<br>g^{m\lambda} \equiv (n + 1)^{m\lambda} \mod n^{2}<br>$$</p>
-<p>$$<br>\Longrightarrow g^{m\lambda} \equiv 1 + mn\lambda \mod n^{2}<br>$$</p>
+<p>$$<br>
+g^{m\lambda} \equiv (n + 1)^{m\lambda} \mod n^{2}<br>
+$$</p>
+<p>$$<br>
+\Longrightarrow g^{m\lambda} \equiv 1 + mn\lambda \mod n^{2}<br>
+$$</p>
 <ul>
 <li>substitute $g^{m\lambda}$ into $eq3$</li>
 </ul>
-<p>$$<br>L(1 + mn\lambda)\cdot \mu \mod n \equiv m\lambda \mu \mod n<br>$$</p>
-<p>as $\lambda &#x3D; (p-1)(q-1) &#x3D; \varphi(n)$ and $\mu \equiv \varphi(n)^{-1}\mod n$, we will get that:<br>$$<br>m \varphi(n)\cdot \varphi(n)^{-1} \equiv m \mod n<br>$$<br><strong>Proved.</strong> </p>
-<h1 id="EXERCISE"><a href="#EXERCISE" class="headerlink" title="EXERCISE"></a>EXERCISE</h1><h2 id="FIRST"><a href="#FIRST" class="headerlink" title="FIRST"></a>FIRST</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> flag <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">p = getPrime(<span class="number">512</span>)</span><br><span class="line">q = next_prime(p)</span><br><span class="line"><span class="keyword">assert</span> gcd(p*q, (p-<span class="number">1</span>)*(q-<span class="number">1</span>)) == <span class="number">1</span></span><br><span class="line">n = p*q</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;n = &#x27;</span> + <span class="built_in">str</span>(n))</span><br><span class="line"></span><br><span class="line">g = random.randint(<span class="number">1</span>, n*n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;g = &#x27;</span> + <span class="built_in">str</span>(g))</span><br><span class="line">r = random.randint(<span class="number">1</span>, n)</span><br><span class="line"><span class="keyword">assert</span> gcd(r, n) == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">c = (<span class="built_in">pow</span>(g, m, n*n) * <span class="built_in">pow</span>(r, n, n*n)) % (n*n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;c = &#x27;</span> + <span class="built_in">str</span>(c))</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">n, g, c</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="SECOND"><a href="#SECOND" class="headerlink" title="SECOND"></a>SECOND</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> flag <span class="keyword">import</span> flag, p, q</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">p = getPrime(<span class="number">512</span>)</span><br><span class="line">q = next_prime(p)</span><br><span class="line"></span><br><span class="line">n = p*q</span><br><span class="line">g = n + <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;n = &#x27;</span> + <span class="built_in">str</span>(n))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;g = &#x27;</span> + <span class="built_in">str</span>(g))</span><br><span class="line"></span><br><span class="line">r = random.randint(<span class="number">1</span>, n)</span><br><span class="line"><span class="keyword">assert</span> gcd(r, n) == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">c = (<span class="built_in">pow</span>(g, m, n*n) * <span class="built_in">pow</span>(r, n, n*n)) % (n*n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;c = &#x27;</span> + <span class="built_in">str</span>(c))</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">n, g, c</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>Follow the <strong>PROOF</strong>, and we can write scripts to decrypt. </p>
+<p>$$<br>
+L(1 + mn\lambda)\cdot \mu \mod n \equiv m\lambda \mu \mod n<br>
+$$</p>
+<p>as $\lambda = (p-1)(q-1) = \varphi(n)$ and $\mu \equiv \varphi(n)^{-1}\mod n$, we will get that:<br>
+$$<br>
+m \varphi(n)\cdot \varphi(n)^{-1} \equiv m \mod n<br>
+$$<br>
+<strong>Proved.</strong></p>
+<h1>EXERCISE</h1>
+<h2 id="FIRST">FIRST</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> flag <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">p = getPrime(<span class="number">512</span>)</span><br><span class="line">q = next_prime(p)</span><br><span class="line"><span class="keyword">assert</span> gcd(p*q, (p-<span class="number">1</span>)*(q-<span class="number">1</span>)) == <span class="number">1</span></span><br><span class="line">n = p*q</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;n = &#x27;</span> + <span class="built_in">str</span>(n))</span><br><span class="line"></span><br><span class="line">g = random.randint(<span class="number">1</span>, n*n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;g = &#x27;</span> + <span class="built_in">str</span>(g))</span><br><span class="line">r = random.randint(<span class="number">1</span>, n)</span><br><span class="line"><span class="keyword">assert</span> gcd(r, n) == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">c = (<span class="built_in">pow</span>(g, m, n*n) * <span class="built_in">pow</span>(r, n, n*n)) % (n*n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;c = &#x27;</span> + <span class="built_in">str</span>(c))</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">n, g, c</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="SECOND">SECOND</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> flag <span class="keyword">import</span> flag, p, q</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">p = getPrime(<span class="number">512</span>)</span><br><span class="line">q = next_prime(p)</span><br><span class="line"></span><br><span class="line">n = p*q</span><br><span class="line">g = n + <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;n = &#x27;</span> + <span class="built_in">str</span>(n))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;g = &#x27;</span> + <span class="built_in">str</span>(g))</span><br><span class="line"></span><br><span class="line">r = random.randint(<span class="number">1</span>, n)</span><br><span class="line"><span class="keyword">assert</span> gcd(r, n) == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">c = (<span class="built_in">pow</span>(g, m, n*n) * <span class="built_in">pow</span>(r, n, n*n)) % (n*n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;c = &#x27;</span> + <span class="built_in">str</span>(c))</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">n, g, c</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Follow the <strong>PROOF</strong>, and we can write scripts to decrypt.</p>
 
     </div>
     <!-- end of the post-->
@@ -457,14 +541,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">153k</span>
+    <span title="Symbols count total">159k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">2:19</span>
+    <span title="Reading time total">2:25</span>
   </span>
 </div>
 <!--
