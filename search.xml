@@ -243,6 +243,31 @@
       </tags>
   </entry>
   <entry>
+    <title>22-11-15-Math</title>
+    <url>/2022/11/15/22-11-15-math/</url>
+    <content><![CDATA[<p>Some import theorems which are suitable for applying to Cryptography.</p>
+<p>At the same time, the post which is made as the record to note me that how to improve or deduction. </p>
+<span id="more"></span><!--toc-->
+
+<h1 id="Fermat’s-little-theorem"><a href="#Fermat’s-little-theorem" class="headerlink" title="Fermat’s little theorem"></a>Fermat’s little theorem</h1><p>Let $p$ be a prime number,  and $a$ be any integer. Then $a^{p} - a$ is always divisible by $p$. </p>
+<p>And we can write as:<br>$$<br>a^{p} \equiv a \mod p<br>$$<br>Make a deduction, we can get that:<br>$$<br>a^{p-1} \equiv 1 \mod p<br>$$</p>
+<h1 id="Euler’s-criterion"><a href="#Euler’s-criterion" class="headerlink" title="Euler’s criterion"></a>Euler’s criterion</h1><p>If the modulo $p$ is a odd prime and is prime to $a$, we can get $a^{p-1}\equiv 1 \mod p$ by using the fermat’s little theorem. </p>
+<p>We define that $p &#x3D; 2q + 1$， and we will get $a^{2q} \equiv 1 \mod p$:<br>$$<br>\Longrightarrow (a^{2q} - 1) \times (2^{2q} + 1) \equiv 0 \mod p<br>$$<br>So the $a^q \equiv \pm 1 \mod p$，means that $a^{\frac{p-1}{2}} \equiv \pm 1 \mod p$. </p>
+<p>In fact, we have the equation which is called euler’s criterion.<br>$$<br>(\frac{a}{p}) \equiv a^{\frac{p - 1}{2}} \mod p<br>$$</p>
+<h2 id="proof"><a href="#proof" class="headerlink" title="proof"></a>proof</h2><p>“$a$ is the quadratic remainder of modulo $p$” is a sufficient condition for “$a^{\frac{p-1}{2}} \equiv 1 \mod p$”. </p>
+<ul>
+<li>Sufficiency: </li>
+<li>Necessity:</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Math</category>
+      </categories>
+      <tags>
+        <tag>fermat_little_theorem</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>22-11-04-RSA</title>
     <url>/2022/11/04/22-11-04-RSA/</url>
     <content><![CDATA[<p><strong>JUST</strong> conclude the attacks about RSA. </p>
@@ -797,325 +822,6 @@
       </tags>
   </entry>
   <entry>
-    <title>22-12-07-2022CnHoneKe</title>
-    <url>/2022/12/07/22-12-07-2022CnHoneKe/</url>
-    <content><![CDATA[<p>The competition was held in August. </p>
-<p>The exercises except <code>factor2</code> are done. And the article is mainly aim to make a record for myself. The <code>Modus</code> is about the multiplicative homomorphic system, which is similar to the <code>Extended Euclidean algorithm</code>. </p>
-<p><strong>List</strong></p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> Modus</li>
-<li><input checked="" disabled="" type="checkbox"> rsa</li>
-<li><input disabled="" type="checkbox"> factor2</li>
-<li><input checked="" disabled="" type="checkbox"> secret_data</li>
-</ul>
-<p>Wish I can solve out above. </p>
-<span id="more"></span><!--toc-->
-
-<h1 id="Modus"><a href="#Modus" class="headerlink" title="Modus"></a>Modus</h1><ul>
-<li>multiplicative_homomorphic</li>
-</ul>
-<p><strong>output.txt</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="number">14142010206099386143235977555692857399310494373372334255226213043954222671886219214790080363755519983589419573494262932031062165425660149023699589427423291076757673539031113758789961660789969074666728548356143546954548237178966812807683542026090314756465049840269239582841323515153189937744280883895942616355068450477244038093783025761830910527817275117470273068582606801561816182028771714266926279491448124072638544823523354972471012076902504991756879694948477398253632905720027515230565063830199860044535605314432273647912553716877788661706091962626029470938285869557993283863813783012548154763397158585969860496209</span></span><br><span class="line">e1 = <span class="number">8044170206501208651566242545498471362911890649958881015968520025930186294576023443506808099677296038797758573489705294289102108150592764180571398770862282775413964383616485564171756065468610971753771700993772575426420613330938626182989999507422559869431997096499661057456703567386749182728255894961711</span></span><br><span class="line">c1 = <span class="number">11517322714245526592044873592382373283428914348422645739336159016405003731268657488015847458779166523731678788259036486197351408324218938844963108776390284845014868126098529982171539875948326597563481747612010865265679909207769244324752454968172401384300433252342047155447253514663020084257315172025978213587941036806257025876560069777775117798912056950800470305039358493009376541529192357082470617915062674822440632959240104574498373020678875137349967659371746447815516349204225897744273956308472359601558104152900628002351072193856499370256139818744736463310402972428459727204523498170929275318085749369313370330104</span></span><br><span class="line">e2 = <span class="number">7981110843177277522743262582712207767500318326009118362192817529414323700650435360291001887232564132664914694220334201133850645107707193720930288877874115700468049318771691746592219604611120450612600603061311788240065247605723819417162805390035814213048743243801428908542140081097421519822132590047533</span></span><br><span class="line">c2 = <span class="number">12907231513900923422005862146378905589636791955213455533815625546155661275692081099543894853443339737652933422555561840945917851059973294781475696342510739464313686827430856742266071924616860913810640580296234473777303348248031669837803543965896443694327322478656672147536068477193332582821244877632320706358476947499828283809012293724747791713411303065091158644428874828519807586496004634361827049528190857803358038226873772036022804215684911051370929474550764142943510840488678370689581686370179457811111602201500802245275266633124851078915997894235280935026230159846619929979668248511374747926732890795947582868735</span></span><br><span class="line">e3 = <span class="number">8321945773137532897701269832287423438330975369722946793416731752574708023263908693097168458920645511451157398450278461406044452962800707032660103849647429968263806321843635237930345258217128805872313308435747131438472827261934005675575066641207582827978944766548998867180054428477087525524476746729443</span></span><br><span class="line">c3 = <span class="number">14065425026445215199826296511184881258323064633386950509660192854866326626040354040592178906620984652169865998063876885421774133239148395916412178848784041317916589243316140373118461629430419305769180856968279675982734449182890302977853892881391084830333333875116598959777525928574769839174695101654696531535920235825780434207646161363349309470260223615977113109458426965856166705879375711518022880712089324008258280991081209228374850515248942548172463741894540420262751207821783524890116559086561517224038086473047623408064157594299815732082781632190258405091440187576055868450259807171733509904666142689629066721239</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Analyse</strong></p>
-<p>When I see the <code>output.txt</code>, the first thing appeared in my mind is the <code>SameModAttack</code>, using the <code>Extended-Extended Euclidean algorithm</code>. :) </p>
-<p>Obviously it is wrong, and the correct solution is to use the <code>multiplicative homomorphic properties</code>. </p>
-<p>From the <code>output</code>, we can get a condition that <code>gcd(e1, e2, e3) = 1</code>. Using the <code>Extended Euclidean algorithm</code> we can get $gcdext(a, b) \Longrightarrow gcd(a, b) &#x3D; r * a + s * b$. </p>
-<p>By deduction, we will get the relation that:<br>$$<br>gcd(e1, e2) \equiv e1 * r1 + e2 * s1<br>$$</p>
-<p>$$<br>gcd(gcd(e1, e2), e3) \equiv gcd(e1, e2) * r2 + e3 * s2<br>$$</p>
-<p>$$<br>\Longrightarrow 1 \equiv (e1 * r1 + e2 * s1) * r2 + e3 * s2<br>$$</p>
-<p>Using this important equation, we can deduce the plaintext:<br>$$<br>c1^{r1 \cdot r2} * c2^{r2 \cdot s1} * c3^{s3} \mod n<br>$$</p>
-<p>$$<br>\Longrightarrow m^{e1\cdot r1 \cdot r2 + e2 \cdot r2 \cdot s1 + e3 \cdot s2} \equiv m \mod n<br>$$</p>
-<p>And we can solve out the important <code>m</code>.</p>
-<p><strong>exp.py</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">g1, r1, s1 = gcdext(e1, e2)</span><br><span class="line">g2, r2, s2 = gcdext(g1, e3)</span><br><span class="line"><span class="built_in">print</span>(g2)</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line">m = powmod(c1, r1*r2, n)*powmod(c2, r2*s1, n)*powmod(c3, s2, n) % n</span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="comment"># 158364088221424626103916028957988006099747465255174624548375855659785449250446255975244653061928080738353296765</span></span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m).decode())</span><br><span class="line"><span class="comment"># CnHongKe&#123;e4d0e72e-7589-46a5-973a-cb2a561ab9b5&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="rsa"><a href="#rsa" class="headerlink" title="rsa"></a>rsa</h1><ul>
-<li>Euler function 2</li>
-<li>fermat factor</li>
-</ul>
-<p><strong>task.py</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> getPrime, bytes_to_long</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">p1 = getPrime(<span class="number">256</span>)</span><br><span class="line">p2 = gmpy2.next_prime(p1)</span><br><span class="line">q1 = getPrime(<span class="number">256</span>)</span><br><span class="line">q2 = gmpy2.next_prime(q1)</span><br><span class="line">n = p1 * p2 * q1 * q2</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">c = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;n = %s&quot;</span> % <span class="built_in">str</span>(n)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;c = %s&quot;</span> % <span class="built_in">str</span>(c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># n = 64167976067579049714960625453369319623574147507612434283986049223337768780480307767872484679214997588434480836733456745370562072077109044069294552424055163225824033286416753073591864962033181307822913035174676405849974928866646899569297852568167037383571518655075260561571463850326020102574832776970253538663</span></span><br><span class="line"><span class="comment"># c = 61862798948167945139222097835309318688214053098609025632041946354708220281670731577734398373186075525909035569024535800893559811995294302363408878574730352951360726686941143742759917076156204564133401228995322937563878389120770732315714920284214472911769619065607001763986611359218449802649142381309774537696</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Analyse</strong></p>
-<p>From the code, we can make a conclusion that the <code>p1</code> and <code>p2</code> are primes which are neighbors, and the <code>q1</code> and <code>q2</code> are the same. </p>
-<p>At this time, we can use <code>fermat factor</code> to solve out the different <code>p1</code>, <code>p2</code>, <code>q1</code> and <code>q2</code>. </p>
-<p>The <code>n</code>  is <code>Composite number</code> , so we will use <code>Euler function 2</code> to solve out $\varphi(n)$. </p>
-<p>We use <code>fermat factor</code> to make a possible list and make sure that the <code>n = p1 * p2 * q1 * q2</code></p>
-<h1 id="factor2"><a href="#factor2" class="headerlink" title="factor2"></a>factor2</h1><h1 id="secret-data"><a href="#secret-data" class="headerlink" title="secret_data"></a>secret_data</h1><ul>
-<li>change and fix the data</li>
-<li>convert data to zip</li>
-<li>zip to xlsx</li>
-<li>kali-grep to find the flag</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Writeup</category>
-      </categories>
-      <tags>
-        <tag>cnhongke</tag>
-        <tag>multiplicative_homomorphic</tag>
-        <tag>euclidean</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>22-12-14-Docker-Record</title>
-    <url>/2022/12/14/22-12-14-docker-record/</url>
-    <content><![CDATA[<p>I want to learn the docker to compile my environment. But this week   I have no time to make full studying. </p>
-<p>Thus, I make a record which made by <code>Dalao-Zimablue</code>  in this post. </p>
-<span id="more"></span><!--toc-->
-
-<p><a href="https://www.zimablue.life/2022/02/10/Docker%E5%AD%A6%E4%B9%A0/#more">https://www.zimablue.life/2022/02/10/Docker%E5%AD%A6%E4%B9%A0/#more</a></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>22-12-20-Encrypto-Wireshark</title>
-    <url>/2022/12/20/22-12-20-Encrypto-Wireshark/</url>
-    <content><![CDATA[<p>Some traffic packets may be encrypted. When I import the private key in one case, I can’t get the decrypted packets like http.</p>
-<p>FinalIy, I search for this problem and get the solution.</p>
-<p>This post aims to make a conclusion about the <code>encrypted-traffic-packets(tls/ssl)</code>. </p>
-<span id="more"></span><!--toc-->
-
-<h1 id="REFERENCE"><a href="#REFERENCE" class="headerlink" title="REFERENCE"></a>REFERENCE</h1><blockquote>
-<p><a href="https://www.cnblogs.com/jasy/p/16157388.html">https://www.cnblogs.com/jasy/p/16157388.html</a></p>
-<p><a href="https://www.joji.me/zh-cn/blog/walkthrough-decrypt-ssl-tls-traffic-https-and-http2-in-wireshark/#md-sslkeylogfile">如何通过Wireshark查看HTTPS、HTTP&#x2F;2网络包（解码TLS、SSL） (joji.me)</a></p>
-</blockquote>
-<p>Really thank for the article!</p>
-<p><em>The second is to edit the configuration of computer, which can be caught in the direct way by using webshell.</em></p>
-<h1 id="DECRYPT-TLS-x2F-SSL"><a href="#DECRYPT-TLS-x2F-SSL" class="headerlink" title="DECRYPT TLS&#x2F;SSL"></a>DECRYPT TLS&#x2F;SSL</h1><p>There are three methods to decrypt the encrypted-ssl&#x2F;tls packets.</p>
-<ul>
-<li>Use the <code>server&#39;s cert</code> or the <code>private-key</code> to decrypt.</li>
-<li>Use the <code>ssl-key-log-file</code> to decrypt. </li>
-<li>Disable the config setting to decrypt packets which use the <code>Diffie-Hellman-Exchange</code>.</li>
-</ul>
-<h2 id="Server’s-cert-x2F-Private-key"><a href="#Server’s-cert-x2F-Private-key" class="headerlink" title="Server’s cert&#x2F;Private-key"></a>Server’s cert&#x2F;Private-key</h2><h3 id="preparation"><a href="#preparation" class="headerlink" title="preparation"></a>preparation</h3><ul>
-<li>TLS&#x2F;SSL packets</li>
-<li>cert or private-key</li>
-<li>wireshark</li>
-</ul>
-<h3 id="notice"><a href="#notice" class="headerlink" title="notice"></a>notice</h3><p>The TLS&#x2F;SSL packets should not relate to the <code>Diffie-Hellman-Exchange</code> and just a common encrypted packets. </p>
-<h4 id="CERT-x2F-PRIVATEKEY"><a href="#CERT-x2F-PRIVATEKEY" class="headerlink" title="CERT&#x2F;PRIVATEKEY"></a>CERT&#x2F;PRIVATEKEY</h4><p>The cert or private-key should not be encrypted. And usually, the private-key is the standard of <code>PKCS#8</code>.</p>
-<p>If you have a binary DER, it cannot be used in wireshark, and we ought to make a convert. </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">openssl pkcs8 -nocrypt -<span class="keyword">in</span> der.key -informat DER -out pem.key -outformat PEM</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><em>der.key: the name and root of DER</em></li>
-<li><em>pem.key: the output file</em></li>
-</ul>
-<p>And, the private-key ought to be like this: </p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/1.png" class="" title="Private-key">
-
-<p>which shows that the beginning is <code>-----BEGIN RSA PRIVATE KEY-----</code>.</p>
-<h4 id="DECRYPT-KEY"><a href="#DECRYPT-KEY" class="headerlink" title="DECRYPT KEY"></a>DECRYPT KEY</h4><blockquote>
-<p><a href="https://www.openssl.org/docs/manmaster/man1/rsa.html#EXAMPLES">&#x2F;docs&#x2F;manmaster&#x2F;man1&#x2F;rsa.html (openssl.org)</a></p>
-</blockquote>
-<p>If the beginning is <code>-----BEGIN ENCRYPTED PRIVATE KEY-----</code>, we should decrypt the key in a proper way. </p>
-<p>a common command is:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">openssl rsa -<span class="keyword">in</span> [source file] -out [outfile]</span><br><span class="line"><span class="comment"># ?Maybe.</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="step"><a href="#step" class="headerlink" title="step"></a>step</h3><ul>
-<li>OPEN the wireshark and import the private-key or cert.</li>
-</ul>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/2.png" class="" title="setting">
-
-<ol>
-<li><strong>RSA keys list.</strong> Import private key, add the <code>port</code>, <code>ip</code>, <code>protocol</code>, <code>root</code> and the chosen <code>password</code>. <strong>Mainly used.</strong> </li>
-<li><strong>TLS debug file.</strong> Some debug file.</li>
-<li><strong>Master-Secret log.</strong> Key log file.</li>
-</ol>
-<ul>
-<li>If all things right, and we will see the <code>http traffic</code>.</li>
-</ul>
-<h2 id="Key-log-file"><a href="#Key-log-file" class="headerlink" title="Key log file"></a>Key log file</h2><p>Use the <code>key log file</code>. Usually, this file is in the traffic packets. The key log file is like this.</p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/3.png" class="" title="key log file">
-
-<h2 id="Relate-to-D-H"><a href="#Relate-to-D-H" class="headerlink" title="Relate to D-H"></a>Relate to D-H</h2><p>Sometimes, the encrypted traffic packets cannot be decrypted by using methods above. </p>
-<h3 id="how-to-recognize"><a href="#how-to-recognize" class="headerlink" title="how to recognize"></a>how to recognize</h3><p>When we analyze the traffic packets, we use command like <code>ip.addr == xxx.xxx.xxx.xxx &amp;&amp; tls</code> to find the target packets. </p>
-<p>If we see the <code>Client Hello</code>, we should make a notice that it maybe a <code>D-H encrypted traffic packet</code>. </p>
-<p>For example: </p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/4.png" class="" title="D-H encrypted">
-
-<p>We can change the browser to catch the traffic again.</p>
-<h3 id="set-the-firefox"><a href="#set-the-firefox" class="headerlink" title="set the firefox"></a>set the firefox</h3><p>The address is <code>about:config</code>, and search for the <code>dhe</code>. </p>
-<p>We can change the target according to the traffic packets or make all things   <code>false</code>. </p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/5.png" class="" title="change firefox setting">
-
-<h3 id="recatch-the-traffic-and-analyze"><a href="#recatch-the-traffic-and-analyze" class="headerlink" title="recatch the traffic and analyze"></a>recatch the traffic and analyze</h3><img src="/2022/12/20/22-12-20-Encrypto-Wireshark/6.png" class="" title="remove dhe">
-
-<p>After importing the private key, we can see the  decrypted<code>http traffic</code>. </p>
-<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/7.png" class="" title="decrypted http traffic">
-
-<h1 id="CONCLUSION"><a href="#CONCLUSION" class="headerlink" title="CONCLUSION"></a>CONCLUSION</h1><p>The <code>Diffie-Hellman-Exchange</code> is really beyond my imagination. </p>
-]]></content>
-      <categories>
-        <category>Web</category>
-      </categories>
-      <tags>
-        <tag>wireshark</tag>
-        <tag>diffie_hellman</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>22-12-19-Basecrack</title>
-    <url>/2022/12/19/22-12-19-basecrack/</url>
-    <content><![CDATA[<p>The guidance to install the <code>basecrack</code>.</p>
-<span id="more"></span><!--toc-->
-
-<h1 id="INSTALL"><a href="#INSTALL" class="headerlink" title="INSTALL"></a>INSTALL</h1><blockquote>
-<p><a href="https://github.com/mufeedvh/basecrack/">https://github.com/mufeedvh/basecrack/</a></p>
-</blockquote>
-<ul>
-<li>git clone <a href="https://github.com/mufeedvh/basecrack.git">https://github.com/mufeedvh/basecrack.git</a></li>
-<li>cd basecrack</li>
-<li>pip3 install -r requirements.txt</li>
-<li>python3 basecrack.py -h</li>
-</ul>
-<p><em>python2 may get error</em></p>
-<h2 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h2><p>Recently: </p>
-<ul>
-<li>Base16</li>
-<li>Base32</li>
-<li>Base36</li>
-<li>Base58</li>
-<li>Base62</li>
-<li>Base64</li>
-<li>Base64Url</li>
-<li>Base85</li>
-<li>Ascii85</li>
-<li>Base91</li>
-<li>Base92</li>
-<li>Base100</li>
-</ul>
-<h1 id="USAGE"><a href="#USAGE" class="headerlink" title="USAGE"></a>USAGE</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">usage: basecrack.py [-h] [-b BASE] [-f FILE] [-m] [-i IMAGE] [-c] [-e] [-o OUTPUT]</span><br><span class="line"></span><br><span class="line">options:</span><br><span class="line">  -h, --<span class="built_in">help</span>            show this <span class="built_in">help</span> message <span class="keyword">and</span> exit</span><br><span class="line">  -b BASE, --base BASE  Decode a single encoded base <span class="keyword">from</span> argument.</span><br><span class="line">  -f FILE, --file FILE  Decode multiple encoded bases <span class="keyword">from</span> a file.</span><br><span class="line">  -m, --magic           Decode multi-encoded bases <span class="keyword">in</span> one shot.</span><br><span class="line">  -i IMAGE, --image IMAGE</span><br><span class="line">                        Decode base encodings <span class="keyword">from</span> image <span class="keyword">with</span> OCR detection <span class="keyword">or</span> EXIF data.</span><br><span class="line">  -c, --ocr             OCR detection mode.</span><br><span class="line">  -e, --exif            EXIF data detection mode. (default)</span><br><span class="line">  -o OUTPUT, --output OUTPUT</span><br><span class="line">                        Generate a wordlist/output <span class="keyword">with</span> the decoded bases, enter filename</span><br><span class="line">                        <span class="keyword">as</span> the value.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="EXAMPLE"><a href="#EXAMPLE" class="headerlink" title="EXAMPLE"></a>EXAMPLE</h1><p><a href="base.txt">base</a></p>
-<blockquote>
-<p>The <code>base.txt</code> is a muti-base, which use base32-&gt;base64-&gt;base64-&gt;base32-&gt;base92-&gt;base100. </p>
-</blockquote>
-<p>The <code>basecrack</code> now supports the base100. And we can  use the command to solve the problem. </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python3 basecrack.py -f <span class="string">&quot;xxx/base.txt&quot;</span> -m</span><br><span class="line"><span class="comment"># if is just a ciphertext</span></span><br><span class="line"><span class="comment"># python3 basecrack.py -b &quot;ciphertext&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>The main output: </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[-] Iteration: <span class="number">6</span>                                                                             </span><br><span class="line">[-] Heuristic Found Encoding To Be: Base32                                                   </span><br><span class="line">[-] Decoding <span class="keyword">as</span> Base32: This_is_So_S1mple                                                    </span><br><span class="line">&#123;&#123;&lt;&lt;======================================================================&gt;&gt;&#125;&#125;               </span><br><span class="line">[-] Total Iterations: <span class="number">6</span>                                                                      </span><br><span class="line">[-] Encoding Pattern: Base100 -&gt; Base92 -&gt; Base32 -&gt; Base64 -&gt; Base64 -&gt; Base32              </span><br><span class="line">[-] Magic Decode Finished With Result: This_is_So_S1mple                                     </span><br><span class="line">[-] Finished <span class="keyword">in</span> <span class="number">0.0019</span> seconds                         </span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>basecrack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>22-12-15-Gaps</title>
-    <url>/2022/12/15/22-12-15-gaps/</url>
-    <content><![CDATA[<p>The <code>gaps</code> is aim to complete the puzzle. </p>
-<span id="more"></span><!--toc-->
-
-<h1 id="INSTALL"><a href="#INSTALL" class="headerlink" title="INSTALL"></a>INSTALL</h1><ul>
-<li>git clone <a href="https://github.com/nemanja-m/gaps.git">https://github.com/nemanja-m/gaps.git</a></li>
-<li>cd gaps</li>
-<li>pip3 install -r requirements.txt</li>
-<li>python3 setup.py install</li>
-</ul>
-<h1 id="REQUIREMENT"><a href="#REQUIREMENT" class="headerlink" title="REQUIREMENT"></a>REQUIREMENT</h1><p>If <code>pip3 install -r requirements.txt</code> failed, make sure that your environments match the <code>requirements.txt</code>. </p>
-<ul>
-<li><code>pip3 install numpy</code></li>
-<li><code>pip3 install opencv-python</code></li>
-<li><code>pip3 install pytest</code></li>
-<li><code>pip3 install matplotlib</code></li>
-<li><code>pip3 install pillow</code></li>
-</ul>
-<h1 id="SETUP"><a href="#SETUP" class="headerlink" title="SETUP"></a>SETUP</h1><p>If run <code>python3 setup.py install</code> failed, maybe you have no permit. So run <code>sudo su</code> and <code>python3 setup.py install</code> again. </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Using /usr/lib/python3/dist-packages</span><br><span class="line">Finished processing dependencies <span class="keyword">for</span> gaps==<span class="number">1.0</span></span><br></pre></td></tr></table></figure>
-
-<p>Finally, the install is success. </p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>gaps</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>22-12-21-UNknown</title>
-    <url>/2022/12/21/22-12-21-UNknown/</url>
-    <content><![CDATA[<p>Figure out 2 tasks. </p>
-<p>One is for crypto, and the other is for misc. </p>
-<p>Both of them are easy. </p>
-<span id="more"></span><!--toc-->
-
-<h1 id="poem"><a href="#poem" class="headerlink" title="poem"></a>poem</h1><blockquote>
-<p>reference: [ACTF新生赛2020]base64隐写</p>
-</blockquote>
-<ul>
-<li>base64stego</li>
-<li>caeser cipher</li>
-</ul>
-<h2 id="base64stego"><a href="#base64stego" class="headerlink" title="base64stego"></a>base64stego</h2><p><a href="22-12-21-UNknown/poem.txt">poem.txt</a></p>
-<p><em>Make sure that the end of each line. This ending is <code>\r\n</code></em></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">base64stego</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">b64chars = <span class="string">&#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;poem.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    bin_str = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># print(f.readlines())</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">        stegb64 = <span class="built_in">str</span>(line, <span class="string">&#x27;utf-8&#x27;</span>).strip(<span class="string">&#x27;\r\n&#x27;</span>) <span class="comment"># edit</span></span><br><span class="line">        <span class="comment"># print(stegb64)</span></span><br><span class="line">        row64 = <span class="built_in">str</span>(base64.b64encode(base64.b64decode(stegb64)), <span class="string">&#x27;utf-8&#x27;</span>).strip(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        offset = <span class="built_in">abs</span>(b64chars.index(stegb64.replace(<span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;&#x27;</span>)[-<span class="number">1</span>]) - b64chars.index(row64.replace(<span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;&#x27;</span>)[-<span class="number">1</span>]))</span><br><span class="line">        equalnum = stegb64.count(<span class="string">&#x27;=&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> equalnum:</span><br><span class="line">            bin_str += <span class="built_in">bin</span>(offset)[<span class="number">2</span>:].zfill(equalnum * <span class="number">2</span>)</span><br><span class="line">    output = [<span class="built_in">chr</span>(<span class="built_in">int</span>(bin_str[i:i + <span class="number">8</span>], <span class="number">2</span>)) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(bin_str), <span class="number">8</span>)]</span><br><span class="line">    flag = <span class="string">&#x27;&#x27;</span>.join(output)</span><br><span class="line">    <span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
-
-<h2 id="caeser-cipher"><a href="#caeser-cipher" class="headerlink" title="caeser cipher"></a>caeser cipher</h2><p><em>Just crack!</em></p>
-<p>key is <code>13</code>.</p>
-<h1 id="Alex2Bob"><a href="#Alex2Bob" class="headerlink" title="Alex2Bob"></a>Alex2Bob</h1><p><a href="22-12-21-UNknown/Alex2Bob.zip">Alex2Bob</a></p>
-<ul>
-<li>ARCHPR-mask</li>
-<li>PNG-header</li>
-<li>PNG-crack width</li>
-<li>LSB</li>
-</ul>
-<h2 id="ARCHPR-mask"><a href="#ARCHPR-mask" class="headerlink" title="ARCHPR-mask"></a>ARCHPR-mask</h2><p>Known the end of the key is <code>kitty</code>.</p>
-<p>This is the <code>mask attack</code>. We don’t know the length of the key, so we try some possibilities. </p>
-<p>Until we try to set unknown length is 4, we get the key. </p>
-<img src="/2022/12/21/22-12-21-UNknown/1.png" class="" title="setting&amp;output">
-
-<h2 id="PNG-header"><a href="#PNG-header" class="headerlink" title="PNG-header"></a>PNG-header</h2><p>Use the <code>winhex</code> and analyze the png. We find that the file header is wrong, so we should edit the file header <code>88 -&gt; 89</code>. </p>
-<img src="/2022/12/21/22-12-21-UNknown/2.png" class="" title="PNG-header">
-
-<p>Still can’t open the picture or see the content. </p>
-<h2 id="PNG-crack-width"><a href="#PNG-crack-width" class="headerlink" title="PNG-crack width"></a>PNG-crack width</h2><p>Crack the true width, and we will get the width is <code>0x260</code>. </p>
-<img src="/2022/12/21/22-12-21-UNknown/3.png" class="" title="real width">
-
-<p>Edit the width by winhex or 010Editor, and we will get the real picture. </p>
-<img src="/2022/12/21/22-12-21-UNknown/newcat.png" class="" title="newcat">
-
-<h2 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a>LSB</h2><p>Two ways to get the information embedded in LSB. </p>
-<ul>
-<li>stegsolve-original</li>
-<li>zsteg</li>
-</ul>
-<img src="/2022/12/21/22-12-21-UNknown/4.png" class="" title="stegsolve-original">
-
-<img src="/2022/12/21/22-12-21-UNknown/5.png" class="" title="zsteg">
-
-<p>The cipher is <code>ZmxhZ3tsb3ZlX3JhZ2RvbGxfY2F0fQ==</code>, and base64 decode. </p>
-]]></content>
-      <categories>
-        <category>Writeup</category>
-      </categories>
-      <tags>
-        <tag>base64steg</tag>
-        <tag>mask_attack</tag>
-        <tag>lsb</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>22-11-16-YD</title>
     <url>/2022/11/16/22-11-16-YD/</url>
     <content><![CDATA[<p>1115-YD-GAME. </p>
@@ -1219,28 +925,367 @@
       </tags>
   </entry>
   <entry>
-    <title>22-11-15-Math</title>
-    <url>/2022/11/15/22-11-15-math/</url>
-    <content><![CDATA[<p>Some import theorems which are suitable for applying to Cryptography.</p>
-<p>At the same time, the post which is made as the record to note me that how to improve or deduction. </p>
+    <title>22-12-14-Docker-Record</title>
+    <url>/2022/12/14/22-12-14-docker-record/</url>
+    <content><![CDATA[<p>I want to learn the docker to compile my environment. But this week   I have no time to make full studying. </p>
+<p>Thus, I make a record which made by <code>Dalao-Zimablue</code>  in this post. </p>
 <span id="more"></span><!--toc-->
 
-<h1 id="Fermat’s-little-theorem"><a href="#Fermat’s-little-theorem" class="headerlink" title="Fermat’s little theorem"></a>Fermat’s little theorem</h1><p>Let $p$ be a prime number,  and $a$ be any integer. Then $a^{p} - a$ is always divisible by $p$. </p>
-<p>And we can write as:<br>$$<br>a^{p} \equiv a \mod p<br>$$<br>Make a deduction, we can get that:<br>$$<br>a^{p-1} \equiv 1 \mod p<br>$$</p>
-<h1 id="Euler’s-criterion"><a href="#Euler’s-criterion" class="headerlink" title="Euler’s criterion"></a>Euler’s criterion</h1><p>If the modulo $p$ is a odd prime and is prime to $a$, we can get $a^{p-1}\equiv 1 \mod p$ by using the fermat’s little theorem. </p>
-<p>We define that $p &#x3D; 2q + 1$， and we will get $a^{2q} \equiv 1 \mod p$:<br>$$<br>\Longrightarrow (a^{2q} - 1) \times (2^{2q} + 1) \equiv 0 \mod p<br>$$<br>So the $a^q \equiv \pm 1 \mod p$，means that $a^{\frac{p-1}{2}} \equiv \pm 1 \mod p$. </p>
-<p>In fact, we have the equation which is called euler’s criterion.<br>$$<br>(\frac{a}{p}) \equiv a^{\frac{p - 1}{2}} \mod p<br>$$</p>
-<h2 id="proof"><a href="#proof" class="headerlink" title="proof"></a>proof</h2><p>“$a$ is the quadratic remainder of modulo $p$” is a sufficient condition for “$a^{\frac{p-1}{2}} \equiv 1 \mod p$”. </p>
+<p><a href="https://www.zimablue.life/2022/02/10/Docker%E5%AD%A6%E4%B9%A0/#more">https://www.zimablue.life/2022/02/10/Docker%E5%AD%A6%E4%B9%A0/#more</a></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>22-12-07-2022CnHoneKe</title>
+    <url>/2022/12/07/22-12-07-2022CnHoneKe/</url>
+    <content><![CDATA[<p>The competition was held in August. </p>
+<p>The exercises except <code>factor2</code> are done. And the article is mainly aim to make a record for myself. The <code>Modus</code> is about the multiplicative homomorphic system, which is similar to the <code>Extended Euclidean algorithm</code>. </p>
+<p><strong>List</strong></p>
 <ul>
-<li>Sufficiency: </li>
-<li>Necessity:</li>
+<li><input checked="" disabled="" type="checkbox"> Modus</li>
+<li><input checked="" disabled="" type="checkbox"> rsa</li>
+<li><input disabled="" type="checkbox"> factor2</li>
+<li><input checked="" disabled="" type="checkbox"> secret_data</li>
+</ul>
+<p>Wish I can solve out above. </p>
+<span id="more"></span><!--toc-->
+
+<h1 id="Modus"><a href="#Modus" class="headerlink" title="Modus"></a>Modus</h1><ul>
+<li>multiplicative_homomorphic</li>
+</ul>
+<p><strong>output.txt</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="number">14142010206099386143235977555692857399310494373372334255226213043954222671886219214790080363755519983589419573494262932031062165425660149023699589427423291076757673539031113758789961660789969074666728548356143546954548237178966812807683542026090314756465049840269239582841323515153189937744280883895942616355068450477244038093783025761830910527817275117470273068582606801561816182028771714266926279491448124072638544823523354972471012076902504991756879694948477398253632905720027515230565063830199860044535605314432273647912553716877788661706091962626029470938285869557993283863813783012548154763397158585969860496209</span></span><br><span class="line">e1 = <span class="number">8044170206501208651566242545498471362911890649958881015968520025930186294576023443506808099677296038797758573489705294289102108150592764180571398770862282775413964383616485564171756065468610971753771700993772575426420613330938626182989999507422559869431997096499661057456703567386749182728255894961711</span></span><br><span class="line">c1 = <span class="number">11517322714245526592044873592382373283428914348422645739336159016405003731268657488015847458779166523731678788259036486197351408324218938844963108776390284845014868126098529982171539875948326597563481747612010865265679909207769244324752454968172401384300433252342047155447253514663020084257315172025978213587941036806257025876560069777775117798912056950800470305039358493009376541529192357082470617915062674822440632959240104574498373020678875137349967659371746447815516349204225897744273956308472359601558104152900628002351072193856499370256139818744736463310402972428459727204523498170929275318085749369313370330104</span></span><br><span class="line">e2 = <span class="number">7981110843177277522743262582712207767500318326009118362192817529414323700650435360291001887232564132664914694220334201133850645107707193720930288877874115700468049318771691746592219604611120450612600603061311788240065247605723819417162805390035814213048743243801428908542140081097421519822132590047533</span></span><br><span class="line">c2 = <span class="number">12907231513900923422005862146378905589636791955213455533815625546155661275692081099543894853443339737652933422555561840945917851059973294781475696342510739464313686827430856742266071924616860913810640580296234473777303348248031669837803543965896443694327322478656672147536068477193332582821244877632320706358476947499828283809012293724747791713411303065091158644428874828519807586496004634361827049528190857803358038226873772036022804215684911051370929474550764142943510840488678370689581686370179457811111602201500802245275266633124851078915997894235280935026230159846619929979668248511374747926732890795947582868735</span></span><br><span class="line">e3 = <span class="number">8321945773137532897701269832287423438330975369722946793416731752574708023263908693097168458920645511451157398450278461406044452962800707032660103849647429968263806321843635237930345258217128805872313308435747131438472827261934005675575066641207582827978944766548998867180054428477087525524476746729443</span></span><br><span class="line">c3 = <span class="number">14065425026445215199826296511184881258323064633386950509660192854866326626040354040592178906620984652169865998063876885421774133239148395916412178848784041317916589243316140373118461629430419305769180856968279675982734449182890302977853892881391084830333333875116598959777525928574769839174695101654696531535920235825780434207646161363349309470260223615977113109458426965856166705879375711518022880712089324008258280991081209228374850515248942548172463741894540420262751207821783524890116559086561517224038086473047623408064157594299815732082781632190258405091440187576055868450259807171733509904666142689629066721239</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Analyse</strong></p>
+<p>When I see the <code>output.txt</code>, the first thing appeared in my mind is the <code>SameModAttack</code>, using the <code>Extended-Extended Euclidean algorithm</code>. :) </p>
+<p>Obviously it is wrong, and the correct solution is to use the <code>multiplicative homomorphic properties</code>. </p>
+<p>From the <code>output</code>, we can get a condition that <code>gcd(e1, e2, e3) = 1</code>. Using the <code>Extended Euclidean algorithm</code> we can get $gcdext(a, b) \Longrightarrow gcd(a, b) &#x3D; r * a + s * b$. </p>
+<p>By deduction, we will get the relation that:<br>$$<br>gcd(e1, e2) \equiv e1 * r1 + e2 * s1<br>$$</p>
+<p>$$<br>gcd(gcd(e1, e2), e3) \equiv gcd(e1, e2) * r2 + e3 * s2<br>$$</p>
+<p>$$<br>\Longrightarrow 1 \equiv (e1 * r1 + e2 * s1) * r2 + e3 * s2<br>$$</p>
+<p>Using this important equation, we can deduce the plaintext:<br>$$<br>c1^{r1 \cdot r2} * c2^{r2 \cdot s1} * c3^{s3} \mod n<br>$$</p>
+<p>$$<br>\Longrightarrow m^{e1\cdot r1 \cdot r2 + e2 \cdot r2 \cdot s1 + e3 \cdot s2} \equiv m \mod n<br>$$</p>
+<p>And we can solve out the important <code>m</code>.</p>
+<p><strong>exp.py</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">g1, r1, s1 = gcdext(e1, e2)</span><br><span class="line">g2, r2, s2 = gcdext(g1, e3)</span><br><span class="line"><span class="built_in">print</span>(g2)</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line">m = powmod(c1, r1*r2, n)*powmod(c2, r2*s1, n)*powmod(c3, s2, n) % n</span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="comment"># 158364088221424626103916028957988006099747465255174624548375855659785449250446255975244653061928080738353296765</span></span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m).decode())</span><br><span class="line"><span class="comment"># CnHongKe&#123;e4d0e72e-7589-46a5-973a-cb2a561ab9b5&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="rsa"><a href="#rsa" class="headerlink" title="rsa"></a>rsa</h1><ul>
+<li>Euler function 2</li>
+<li>fermat factor</li>
+</ul>
+<p><strong>task.py</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> getPrime, bytes_to_long</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">p1 = getPrime(<span class="number">256</span>)</span><br><span class="line">p2 = gmpy2.next_prime(p1)</span><br><span class="line">q1 = getPrime(<span class="number">256</span>)</span><br><span class="line">q2 = gmpy2.next_prime(q1)</span><br><span class="line">n = p1 * p2 * q1 * q2</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">c = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;n = %s&quot;</span> % <span class="built_in">str</span>(n)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;c = %s&quot;</span> % <span class="built_in">str</span>(c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># n = 64167976067579049714960625453369319623574147507612434283986049223337768780480307767872484679214997588434480836733456745370562072077109044069294552424055163225824033286416753073591864962033181307822913035174676405849974928866646899569297852568167037383571518655075260561571463850326020102574832776970253538663</span></span><br><span class="line"><span class="comment"># c = 61862798948167945139222097835309318688214053098609025632041946354708220281670731577734398373186075525909035569024535800893559811995294302363408878574730352951360726686941143742759917076156204564133401228995322937563878389120770732315714920284214472911769619065607001763986611359218449802649142381309774537696</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Analyse</strong></p>
+<p>From the code, we can make a conclusion that the <code>p1</code> and <code>p2</code> are primes which are neighbors, and the <code>q1</code> and <code>q2</code> are the same. </p>
+<p>At this time, we can use <code>fermat factor</code> to solve out the different <code>p1</code>, <code>p2</code>, <code>q1</code> and <code>q2</code>. </p>
+<p>The <code>n</code>  is <code>Composite number</code> , so we will use <code>Euler function 2</code> to solve out $\varphi(n)$. </p>
+<p>We use <code>fermat factor</code> to make a possible list and make sure that the <code>n = p1 * p2 * q1 * q2</code></p>
+<h1 id="factor2"><a href="#factor2" class="headerlink" title="factor2"></a>factor2</h1><h1 id="secret-data"><a href="#secret-data" class="headerlink" title="secret_data"></a>secret_data</h1><ul>
+<li>change and fix the data</li>
+<li>convert data to zip</li>
+<li>zip to xlsx</li>
+<li>kali-grep to find the flag</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Writeup</category>
+      </categories>
+      <tags>
+        <tag>cnhongke</tag>
+        <tag>multiplicative_homomorphic</tag>
+        <tag>euclidean</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>22-12-19-Basecrack</title>
+    <url>/2022/12/19/22-12-19-basecrack/</url>
+    <content><![CDATA[<p>The guidance to install the <code>basecrack</code>.</p>
+<span id="more"></span><!--toc-->
+
+<h1 id="INSTALL"><a href="#INSTALL" class="headerlink" title="INSTALL"></a>INSTALL</h1><blockquote>
+<p><a href="https://github.com/mufeedvh/basecrack/">https://github.com/mufeedvh/basecrack/</a></p>
+</blockquote>
+<ul>
+<li>git clone <a href="https://github.com/mufeedvh/basecrack.git">https://github.com/mufeedvh/basecrack.git</a></li>
+<li>cd basecrack</li>
+<li>pip3 install -r requirements.txt</li>
+<li>python3 basecrack.py -h</li>
+</ul>
+<p><em>python2 may get error</em></p>
+<h2 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h2><p>Recently: </p>
+<ul>
+<li>Base16</li>
+<li>Base32</li>
+<li>Base36</li>
+<li>Base58</li>
+<li>Base62</li>
+<li>Base64</li>
+<li>Base64Url</li>
+<li>Base85</li>
+<li>Ascii85</li>
+<li>Base91</li>
+<li>Base92</li>
+<li>Base100</li>
+</ul>
+<h1 id="USAGE"><a href="#USAGE" class="headerlink" title="USAGE"></a>USAGE</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">usage: basecrack.py [-h] [-b BASE] [-f FILE] [-m] [-i IMAGE] [-c] [-e] [-o OUTPUT]</span><br><span class="line"></span><br><span class="line">options:</span><br><span class="line">  -h, --<span class="built_in">help</span>            show this <span class="built_in">help</span> message <span class="keyword">and</span> exit</span><br><span class="line">  -b BASE, --base BASE  Decode a single encoded base <span class="keyword">from</span> argument.</span><br><span class="line">  -f FILE, --file FILE  Decode multiple encoded bases <span class="keyword">from</span> a file.</span><br><span class="line">  -m, --magic           Decode multi-encoded bases <span class="keyword">in</span> one shot.</span><br><span class="line">  -i IMAGE, --image IMAGE</span><br><span class="line">                        Decode base encodings <span class="keyword">from</span> image <span class="keyword">with</span> OCR detection <span class="keyword">or</span> EXIF data.</span><br><span class="line">  -c, --ocr             OCR detection mode.</span><br><span class="line">  -e, --exif            EXIF data detection mode. (default)</span><br><span class="line">  -o OUTPUT, --output OUTPUT</span><br><span class="line">                        Generate a wordlist/output <span class="keyword">with</span> the decoded bases, enter filename</span><br><span class="line">                        <span class="keyword">as</span> the value.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="EXAMPLE"><a href="#EXAMPLE" class="headerlink" title="EXAMPLE"></a>EXAMPLE</h1><p><a href="base.txt">base</a></p>
+<blockquote>
+<p>The <code>base.txt</code> is a muti-base, which use base32-&gt;base64-&gt;base64-&gt;base32-&gt;base92-&gt;base100. </p>
+</blockquote>
+<p>The <code>basecrack</code> now supports the base100. And we can  use the command to solve the problem. </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python3 basecrack.py -f <span class="string">&quot;xxx/base.txt&quot;</span> -m</span><br><span class="line"><span class="comment"># if is just a ciphertext</span></span><br><span class="line"><span class="comment"># python3 basecrack.py -b &quot;ciphertext&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>The main output: </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[-] Iteration: <span class="number">6</span>                                                                             </span><br><span class="line">[-] Heuristic Found Encoding To Be: Base32                                                   </span><br><span class="line">[-] Decoding <span class="keyword">as</span> Base32: This_is_So_S1mple                                                    </span><br><span class="line">&#123;&#123;&lt;&lt;======================================================================&gt;&gt;&#125;&#125;               </span><br><span class="line">[-] Total Iterations: <span class="number">6</span>                                                                      </span><br><span class="line">[-] Encoding Pattern: Base100 -&gt; Base92 -&gt; Base32 -&gt; Base64 -&gt; Base64 -&gt; Base32              </span><br><span class="line">[-] Magic Decode Finished With Result: This_is_So_S1mple                                     </span><br><span class="line">[-] Finished <span class="keyword">in</span> <span class="number">0.0019</span> seconds                         </span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>basecrack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>22-12-15-Gaps</title>
+    <url>/2022/12/15/22-12-15-gaps/</url>
+    <content><![CDATA[<p>The <code>gaps</code> is aim to complete the puzzle. </p>
+<span id="more"></span><!--toc-->
+
+<h1 id="INSTALL"><a href="#INSTALL" class="headerlink" title="INSTALL"></a>INSTALL</h1><ul>
+<li>git clone <a href="https://github.com/nemanja-m/gaps.git">https://github.com/nemanja-m/gaps.git</a></li>
+<li>cd gaps</li>
+<li>pip3 install -r requirements.txt</li>
+<li>python3 setup.py install</li>
+</ul>
+<h1 id="REQUIREMENT"><a href="#REQUIREMENT" class="headerlink" title="REQUIREMENT"></a>REQUIREMENT</h1><p>If <code>pip3 install -r requirements.txt</code> failed, make sure that your environments match the <code>requirements.txt</code>. </p>
+<ul>
+<li><code>pip3 install numpy</code></li>
+<li><code>pip3 install opencv-python</code></li>
+<li><code>pip3 install pytest</code></li>
+<li><code>pip3 install matplotlib</code></li>
+<li><code>pip3 install pillow</code></li>
+</ul>
+<h1 id="SETUP"><a href="#SETUP" class="headerlink" title="SETUP"></a>SETUP</h1><p>If run <code>python3 setup.py install</code> failed, maybe you have no permit. So run <code>sudo su</code> and <code>python3 setup.py install</code> again. </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Using /usr/lib/python3/dist-packages</span><br><span class="line">Finished processing dependencies <span class="keyword">for</span> gaps==<span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+
+<p>Finally, the install is success. </p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>gaps</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>22-12-20-Encrypto-Wireshark</title>
+    <url>/2022/12/20/22-12-20-Encrypto-Wireshark/</url>
+    <content><![CDATA[<p>Some traffic packets may be encrypted. When I import the private key in one case, I can’t get the decrypted packets like http.</p>
+<p>FinalIy, I search for this problem and get the solution.</p>
+<p>This post aims to make a conclusion about the <code>encrypted-traffic-packets(tls/ssl)</code>. </p>
+<span id="more"></span><!--toc-->
+
+<h1 id="REFERENCE"><a href="#REFERENCE" class="headerlink" title="REFERENCE"></a>REFERENCE</h1><blockquote>
+<p><a href="https://www.cnblogs.com/jasy/p/16157388.html">https://www.cnblogs.com/jasy/p/16157388.html</a></p>
+<p><a href="https://www.joji.me/zh-cn/blog/walkthrough-decrypt-ssl-tls-traffic-https-and-http2-in-wireshark/#md-sslkeylogfile">如何通过Wireshark查看HTTPS、HTTP&#x2F;2网络包（解码TLS、SSL） (joji.me)</a></p>
+</blockquote>
+<p>Really thank for the article!</p>
+<p><em>The second is to edit the configuration of computer, which can be caught in the direct way by using webshell.</em></p>
+<h1 id="DECRYPT-TLS-x2F-SSL"><a href="#DECRYPT-TLS-x2F-SSL" class="headerlink" title="DECRYPT TLS&#x2F;SSL"></a>DECRYPT TLS&#x2F;SSL</h1><p>There are three methods to decrypt the encrypted-ssl&#x2F;tls packets.</p>
+<ul>
+<li>Use the <code>server&#39;s cert</code> or the <code>private-key</code> to decrypt.</li>
+<li>Use the <code>ssl-key-log-file</code> to decrypt. </li>
+<li>Disable the config setting to decrypt packets which use the <code>Diffie-Hellman-Exchange</code>.</li>
+</ul>
+<h2 id="Server’s-cert-x2F-Private-key"><a href="#Server’s-cert-x2F-Private-key" class="headerlink" title="Server’s cert&#x2F;Private-key"></a>Server’s cert&#x2F;Private-key</h2><h3 id="preparation"><a href="#preparation" class="headerlink" title="preparation"></a>preparation</h3><ul>
+<li>TLS&#x2F;SSL packets</li>
+<li>cert or private-key</li>
+<li>wireshark</li>
+</ul>
+<h3 id="notice"><a href="#notice" class="headerlink" title="notice"></a>notice</h3><p>The TLS&#x2F;SSL packets should not relate to the <code>Diffie-Hellman-Exchange</code> and just a common encrypted packets. </p>
+<h4 id="CERT-x2F-PRIVATEKEY"><a href="#CERT-x2F-PRIVATEKEY" class="headerlink" title="CERT&#x2F;PRIVATEKEY"></a>CERT&#x2F;PRIVATEKEY</h4><p>The cert or private-key should not be encrypted. And usually, the private-key is the standard of <code>PKCS#8</code>.</p>
+<p>If you have a binary DER, it cannot be used in wireshark, and we ought to make a convert. </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">openssl pkcs8 -nocrypt -<span class="keyword">in</span> der.key -informat DER -out pem.key -outformat PEM</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><em>der.key: the name and root of DER</em></li>
+<li><em>pem.key: the output file</em></li>
+</ul>
+<p>And, the private-key ought to be like this: </p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/1.png" class="" title="Private-key">
+
+<p>which shows that the beginning is <code>-----BEGIN RSA PRIVATE KEY-----</code>.</p>
+<h4 id="DECRYPT-KEY"><a href="#DECRYPT-KEY" class="headerlink" title="DECRYPT KEY"></a>DECRYPT KEY</h4><blockquote>
+<p><a href="https://www.openssl.org/docs/manmaster/man1/rsa.html#EXAMPLES">&#x2F;docs&#x2F;manmaster&#x2F;man1&#x2F;rsa.html (openssl.org)</a></p>
+</blockquote>
+<p>If the beginning is <code>-----BEGIN ENCRYPTED PRIVATE KEY-----</code>, we should decrypt the key in a proper way. </p>
+<p>a common command is:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">openssl rsa -<span class="keyword">in</span> [source file] -out [outfile]</span><br><span class="line"><span class="comment"># ?Maybe.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="step"><a href="#step" class="headerlink" title="step"></a>step</h3><ul>
+<li>OPEN the wireshark and import the private-key or cert.</li>
+</ul>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/2.png" class="" title="setting">
+
+<ol>
+<li><strong>RSA keys list.</strong> Import private key, add the <code>port</code>, <code>ip</code>, <code>protocol</code>, <code>root</code> and the chosen <code>password</code>. <strong>Mainly used.</strong> </li>
+<li><strong>TLS debug file.</strong> Some debug file.</li>
+<li><strong>Master-Secret log.</strong> Key log file.</li>
+</ol>
+<ul>
+<li>If all things right, and we will see the <code>http traffic</code>.</li>
+</ul>
+<h2 id="Key-log-file"><a href="#Key-log-file" class="headerlink" title="Key log file"></a>Key log file</h2><p>Use the <code>key log file</code>. Usually, this file is in the traffic packets. The key log file is like this.</p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/3.png" class="" title="key log file">
+
+<h2 id="Relate-to-D-H"><a href="#Relate-to-D-H" class="headerlink" title="Relate to D-H"></a>Relate to D-H</h2><p>Sometimes, the encrypted traffic packets cannot be decrypted by using methods above. </p>
+<h3 id="how-to-recognize"><a href="#how-to-recognize" class="headerlink" title="how to recognize"></a>how to recognize</h3><p>When we analyze the traffic packets, we use command like <code>ip.addr == xxx.xxx.xxx.xxx &amp;&amp; tls</code> to find the target packets. </p>
+<p>If we see the <code>Client Hello</code>, we should make a notice that it maybe a <code>D-H encrypted traffic packet</code>. </p>
+<p>For example: </p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/4.png" class="" title="D-H encrypted">
+
+<p>We can change the browser to catch the traffic again.</p>
+<h3 id="set-the-firefox"><a href="#set-the-firefox" class="headerlink" title="set the firefox"></a>set the firefox</h3><p>The address is <code>about:config</code>, and search for the <code>dhe</code>. </p>
+<p>We can change the target according to the traffic packets or make all things   <code>false</code>. </p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/5.png" class="" title="change firefox setting">
+
+<h3 id="recatch-the-traffic-and-analyze"><a href="#recatch-the-traffic-and-analyze" class="headerlink" title="recatch the traffic and analyze"></a>recatch the traffic and analyze</h3><img src="/2022/12/20/22-12-20-Encrypto-Wireshark/6.png" class="" title="remove dhe">
+
+<p>After importing the private key, we can see the  decrypted<code>http traffic</code>. </p>
+<img src="/2022/12/20/22-12-20-Encrypto-Wireshark/7.png" class="" title="decrypted http traffic">
+
+<h1 id="CONCLUSION"><a href="#CONCLUSION" class="headerlink" title="CONCLUSION"></a>CONCLUSION</h1><p>The <code>Diffie-Hellman-Exchange</code> is really beyond my imagination. </p>
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>wireshark</tag>
+        <tag>diffie_hellman</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>23-02-14-Abstract</title>
+    <url>/2023/02/14/23-02-14-Abstract/</url>
+    <content><![CDATA[<p>I am reading <em>Ideal, varieties, and algorithms</em>, however I haven’t learnt the abstract algebra. Thus I will make some records for some typical definitions, which can help me learn well about this book. </p>
+<span id="more"></span><!--toc-->
+
+<h1 id="Fields-and-Rings"><a href="#Fields-and-Rings" class="headerlink" title="Fields and Rings"></a>Fields and Rings</h1><p><strong>Def1</strong> a set $k$ and two binary operations $\cdot$ and $+$ defined on $k$.</p>
+<h2 id="Conditions"><a href="#Conditions" class="headerlink" title="Conditions"></a>Conditions</h2><ul>
+<li>$(a + b) + c &#x3D; a + (b + c)$ and $(a \cdot b) \cdot c &#x3D; a \cdot(b \cdot c)$ for all $a, b, c$</li>
 </ul>
 ]]></content>
       <categories>
         <category>Math</category>
       </categories>
       <tags>
-        <tag>fermat_little_theorem</tag>
+        <tag>abstract</tag>
+        <tag>basic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>22-12-21-UNknown</title>
+    <url>/2022/12/21/22-12-21-UNknown/</url>
+    <content><![CDATA[<p>Figure out 2 tasks. </p>
+<p>One is for crypto, and the other is for misc. </p>
+<p>Both of them are easy. </p>
+<span id="more"></span><!--toc-->
+
+<h1 id="poem"><a href="#poem" class="headerlink" title="poem"></a>poem</h1><blockquote>
+<p>reference: [ACTF新生赛2020]base64隐写</p>
+</blockquote>
+<ul>
+<li>base64stego</li>
+<li>caeser cipher</li>
+</ul>
+<h2 id="base64stego"><a href="#base64stego" class="headerlink" title="base64stego"></a>base64stego</h2><p><a href="22-12-21-UNknown/poem.txt">poem.txt</a></p>
+<p><em>Make sure that the end of each line. This ending is <code>\r\n</code></em></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">base64stego</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">b64chars = <span class="string">&#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;poem.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    bin_str = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># print(f.readlines())</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">        stegb64 = <span class="built_in">str</span>(line, <span class="string">&#x27;utf-8&#x27;</span>).strip(<span class="string">&#x27;\r\n&#x27;</span>) <span class="comment"># edit</span></span><br><span class="line">        <span class="comment"># print(stegb64)</span></span><br><span class="line">        row64 = <span class="built_in">str</span>(base64.b64encode(base64.b64decode(stegb64)), <span class="string">&#x27;utf-8&#x27;</span>).strip(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        offset = <span class="built_in">abs</span>(b64chars.index(stegb64.replace(<span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;&#x27;</span>)[-<span class="number">1</span>]) - b64chars.index(row64.replace(<span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;&#x27;</span>)[-<span class="number">1</span>]))</span><br><span class="line">        equalnum = stegb64.count(<span class="string">&#x27;=&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> equalnum:</span><br><span class="line">            bin_str += <span class="built_in">bin</span>(offset)[<span class="number">2</span>:].zfill(equalnum * <span class="number">2</span>)</span><br><span class="line">    output = [<span class="built_in">chr</span>(<span class="built_in">int</span>(bin_str[i:i + <span class="number">8</span>], <span class="number">2</span>)) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(bin_str), <span class="number">8</span>)]</span><br><span class="line">    flag = <span class="string">&#x27;&#x27;</span>.join(output)</span><br><span class="line">    <span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
+
+<h2 id="caeser-cipher"><a href="#caeser-cipher" class="headerlink" title="caeser cipher"></a>caeser cipher</h2><p><em>Just crack!</em></p>
+<p>key is <code>13</code>.</p>
+<h1 id="Alex2Bob"><a href="#Alex2Bob" class="headerlink" title="Alex2Bob"></a>Alex2Bob</h1><p><a href="22-12-21-UNknown/Alex2Bob.zip">Alex2Bob</a></p>
+<ul>
+<li>ARCHPR-mask</li>
+<li>PNG-header</li>
+<li>PNG-crack width</li>
+<li>LSB</li>
+</ul>
+<h2 id="ARCHPR-mask"><a href="#ARCHPR-mask" class="headerlink" title="ARCHPR-mask"></a>ARCHPR-mask</h2><p>Known the end of the key is <code>kitty</code>.</p>
+<p>This is the <code>mask attack</code>. We don’t know the length of the key, so we try some possibilities. </p>
+<p>Until we try to set unknown length is 4, we get the key. </p>
+<img src="/2022/12/21/22-12-21-UNknown/1.png" class="" title="setting&amp;output">
+
+<h2 id="PNG-header"><a href="#PNG-header" class="headerlink" title="PNG-header"></a>PNG-header</h2><p>Use the <code>winhex</code> and analyze the png. We find that the file header is wrong, so we should edit the file header <code>88 -&gt; 89</code>. </p>
+<img src="/2022/12/21/22-12-21-UNknown/2.png" class="" title="PNG-header">
+
+<p>Still can’t open the picture or see the content. </p>
+<h2 id="PNG-crack-width"><a href="#PNG-crack-width" class="headerlink" title="PNG-crack width"></a>PNG-crack width</h2><p>Crack the true width, and we will get the width is <code>0x260</code>. </p>
+<img src="/2022/12/21/22-12-21-UNknown/3.png" class="" title="real width">
+
+<p>Edit the width by winhex or 010Editor, and we will get the real picture. </p>
+<img src="/2022/12/21/22-12-21-UNknown/newcat.png" class="" title="newcat">
+
+<h2 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a>LSB</h2><p>Two ways to get the information embedded in LSB. </p>
+<ul>
+<li>stegsolve-original</li>
+<li>zsteg</li>
+</ul>
+<img src="/2022/12/21/22-12-21-UNknown/4.png" class="" title="stegsolve-original">
+
+<img src="/2022/12/21/22-12-21-UNknown/5.png" class="" title="zsteg">
+
+<p>The cipher is <code>ZmxhZ3tsb3ZlX3JhZ2RvbGxfY2F0fQ==</code>, and base64 decode. </p>
+]]></content>
+      <categories>
+        <category>Writeup</category>
+      </categories>
+      <tags>
+        <tag>base64steg</tag>
+        <tag>mask_attack</tag>
+        <tag>lsb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Arnold Transform</title>
+    <url>/2023/07/04/Arnold-Transform/</url>
+    <content><![CDATA[<p>AKA <code>cat map</code>.</p>
+<p>The classic <code>Arnold Transform</code> is a two-dimensional reversible map. The discrete form of the <code>Arnold Transform</code> is periodic and changes with the size of the image.</p>
+<span id="more"></span><!--toc-->
+
+<h1 id="Special-Arnold-Transform"><a href="#Special-Arnold-Transform" class="headerlink" title="Special Arnold Transform"></a>Special Arnold Transform</h1><h2 id="Def-1"><a href="#Def-1" class="headerlink" title="Def.1"></a>Def.1</h2><p>$$<br>\begin{bmatrix}<br>    x’\\<br>    y’<br>\end{bmatrix}<br>&#x3D;<br>A<br>\begin{bmatrix}<br>    x\\<br>    y<br>\end{bmatrix}<br>\mod N, A &#x3D;<br>\begin{bmatrix}<br>    1 &amp; 1 \\<br>    1 &amp; 2<br>\end{bmatrix}<br>, 0\le x, y \le 1, 0\le x’, y’ \le 1<br>$$</p>
+<p>$$<br>\Longrightarrow<br>\left\{<br>\begin{array}{lr}<br>    x’ &#x3D; (x + y) \mod N \\<br>    y’ &#x3D; (x + 2y) \mod N<br>\end{array}<br>\right.<br>$$<br>Two-dimensional Arnold Transform.</p>
+<h2 id="Def-2"><a href="#Def-2" class="headerlink" title="Def.2"></a>Def.2</h2><p>$$<br>\begin{bmatrix}<br>    x\\<br>    y<br>\end{bmatrix}<br>&#x3D;<br>A^{-1}<br>\begin{bmatrix}<br>    x’\\<br>    y’<br>\end{bmatrix}<br>\mod N, A^{-1} &#x3D;<br>\begin{bmatrix}<br>    2 &amp; -1 \\<br>    -1 &amp; 1<br>\end{bmatrix}<br>, 0\le x, y \le 1, 0\le x’, y’ \le 1<br>$$</p>
+<p>$$<br>\Longrightarrow<br>\left\{<br>\begin{array}{lr}<br>    x &#x3D; (2x’ - y’) \mod N \\<br>    y &#x3D; (-x’ + y’) \mod N<br>\end{array}<br>\right.<br>$$</p>
+<p>Two-dimensional Arnold inverse transformation. </p>
+<h1 id="General-Arnold-Transform"><a href="#General-Arnold-Transform" class="headerlink" title="General Arnold Transform"></a>General Arnold Transform</h1><h2 id="Def-1-1"><a href="#Def-1-1" class="headerlink" title="Def.1"></a>Def.1</h2><p>$$<br>\begin{bmatrix}<br>    x’\\<br>    y’<br>\end{bmatrix}<br>&#x3D;<br>\begin{bmatrix}<br>    1 &amp; a \\<br>    b &amp; ab + 1<br>\end{bmatrix}<br>\begin{bmatrix}<br>    x\\<br>    y<br>\end{bmatrix}<br>\mod N<br>$$</p>
+<p>$$<br>\Longrightarrow<br>\left\{<br>\begin{array}{lr}<br>    x’ &#x3D; (x + ay) \mod N \\<br>    y’ &#x3D; (bx + (ab + 1)y) \mod N<br>\end{array}<br>\right.<br>$$</p>
+<h2 id="Def-2-1"><a href="#Def-2-1" class="headerlink" title="Def.2"></a>Def.2</h2><p>$$<br>\begin{bmatrix}<br>    x\\<br>    y<br>\end{bmatrix}<br>&#x3D;<br>\begin{bmatrix}<br>    ab + 1 &amp; -a \\<br>    -b &amp; 1<br>\end{bmatrix}<br>\begin{bmatrix}<br>    x’\\<br>    y’<br>\end{bmatrix}<br>\mod N<br>$$</p>
+<p>$$<br>\Longrightarrow<br>\left\{<br>\begin{array}{lr}<br>    x &#x3D; ((ab + 1)x’ - ay’) \mod N \\<br>    y &#x3D; (-bx’ + y’) \mod N<br>\end{array}<br>\right.<br>$$</p>
+<h1 id="Accomplish"><a href="#Accomplish" class="headerlink" title="Accomplish"></a>Accomplish</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">arnold</span>(<span class="params">image, arnold_times</span>):</span><br><span class="line">    a = </span><br><span class="line">    b = </span><br><span class="line">    <span class="comment"># Create a new image, a three-dimensional array of all 0s</span></span><br><span class="line">    decode_image = np.zeros(shape=image.shape)</span><br><span class="line">    <span class="comment"># Read the length and width pixels of the picture</span></span><br><span class="line">    height, width = image.shape[<span class="number">0</span>], image.shape[<span class="number">1</span>]</span><br><span class="line">    N = height  <span class="comment"># if it is a square, height is equal to width</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> time <span class="keyword">in</span> <span class="built_in">range</span>(arnold_times):  <span class="comment"># transformation times</span></span><br><span class="line">        <span class="comment"># Traverse the pixel coordinates of the image</span></span><br><span class="line">        <span class="keyword">for</span> old_x <span class="keyword">in</span> <span class="built_in">range</span>(height):</span><br><span class="line">            <span class="keyword">for</span> old_y <span class="keyword">in</span> <span class="built_in">range</span>(width):</span><br><span class="line">                <span class="comment"># Arnold Inverse Transform</span></span><br><span class="line">                new_x = ((a * b + <span class="number">1</span>) * old_x + (-a) * old_y) % N <span class="comment"># N = height</span></span><br><span class="line">                new_y = ((-b) * old_x + old_y) % N <span class="comment"># N = width</span></span><br><span class="line">                <span class="comment"># Arnold Transform</span></span><br><span class="line">                <span class="comment"># new_x = (old_x + a * old_y) % N # N = height</span></span><br><span class="line">                <span class="comment"># new_y = (b * old_x + (a * b + 1) * old_y) % N # N = width</span></span><br><span class="line"></span><br><span class="line">                decode_image[new_x, new_y, :] = image[old_x, old_y, :]</span><br><span class="line">    cv2.imwrite(<span class="string">&#x27;xxx&#x27;</span>, decode_image, [<span class="built_in">int</span>(cv2.IMWRITE_PNG_COMPRESSION), <span class="number">0</span>])  <span class="comment"># write as PNG</span></span><br><span class="line">    <span class="keyword">return</span> decode_image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># imread(path,flag) reads the picture, the default parameter value of loading a color picture is flag=1, the grayscale is 0, the transparency is -1, the result is a three-dimensional array, the first two dimensions are pixel coordinates, and the last one is the channel index</span></span><br><span class="line">    it = cv2.imread(<span class="string">&#x27;xxx&#x27;</span>)</span><br><span class="line">    arnold(it, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Math</category>
+      </categories>
+      <tags>
+        <tag>cat</tag>
       </tags>
   </entry>
   <entry>
@@ -1457,171 +1502,6 @@
       </tags>
   </entry>
   <entry>
-    <title>23-01-11-ECC</title>
-    <url>/2023/01/11/23-01-11-ECC/</url>
-    <content><![CDATA[<p>Some basics about elliptic curves. Make a description about ECC, and show the attacks and conversions to code. </p>
-<p>ECC is somewhat difficult, and also the analysis which is necessary ought to be detailed. </p>
-<p>The ECC always connects to the usage of sagemath, this post also introduces some common usages about ECC in sagemath. </p>
-<span id="more"></span><!--toc-->
-
-<h1 id="PARALLEL"><a href="#PARALLEL" class="headerlink" title="PARALLEL"></a>PARALLEL</h1><p><strong>Assume:</strong> Parallel lines intersect at infinity which is called the infinity point <code>P</code>. (parallel and intersecting unity)</p>
-<p>The properties of infinite <code>P</code>: </p>
-<ul>
-<li>The infinite <code>P</code> of Line L has only one.</li>
-<li>The lines which are parallel to each other have the public infinite $P_{\infty}$. </li>
-<li>Any lines which are intersect have different infinite points $P_{\infty}$s. (If they have public infinity,  it will contrary to assumption.)</li>
-<li>All infinity points formulate a infinity line.</li>
-<li>The total infinity points and all ordinary points in the plane form the projective plane.</li>
-</ul>
-<h1 id="PROJECTIVE-PLANE-COORDINATE-SYSTEM"><a href="#PROJECTIVE-PLANE-COORDINATE-SYSTEM" class="headerlink" title="PROJECTIVE PLANE COORDINATE SYSTEM"></a>PROJECTIVE PLANE COORDINATE SYSTEM</h1><p><strong>Formulate:</strong> Make $x &#x3D; X&#x2F;Z$, $y &#x3D; Y&#x2F;Z$, ($Z \neq 0$), and the Point <code>A</code> is $(X:Y:Z)$. </p>
-<p>The infinity points are expressed as $(X:Y:0)$. The ordinary points is $Z \neq 0$,and the infinities are $Z &#x3D; 0$, meaning that the equation of infinity points is $Z &#x3D; 0$. </p>
-<p>Thus, $(X:Y:Z)$ is called as projective plane coordinate system. </p>
-<h1 id="ELLIPTIC-CURVE"><a href="#ELLIPTIC-CURVE" class="headerlink" title="ELLIPTIC CURVE"></a>ELLIPTIC CURVE</h1><p><strong>Definition:</strong>  The elliptic curve in projective plane satisfies the equation that $Y^2Z + a_1XYZ + a_3YZ^2 &#x3D; X^3 + a_2X^2Z + a_4XZ^2 + a_6Z^3$, or Weierstrass homogeneous equation $Y^2&#x3D;X^3+AX+B$, where the whole points are non-singular or smooth.</p>
-<p> <strong>Non-singular&#x2F;Smooth:</strong> Mathematically, the partial derivatives $F_x(x,y,z), F_y(x,y,z),F_z(x,y,z)$ at any point on the curve cannot be 0 at same time, meaning that any point exists tangent. </p>
-<p>Assume that $x &#x3D; X&#x2F;Z, y&#x3D; Y&#x2F;Z$ and substitute into the equation above, we can obtain $y^2 + a_1xy + a_3y &#x3D; x^3 + a_2x^2+a_4x+a_6$ and also the slope is $k &#x3D; (3x^2+2a_2x+a_4 - a_1y)&#x2F;(2y + a_1x+a_3)$. </p>
-<img src="/2023/01/11/23-01-11-ECC/1_hashhash.png" class="" title="common ecc">
-
-<p><em>Two curves below which are not satisfied the definition are not elliptic curves , and they are called Singular Curves.</em></p>
-<h1 id="ALGORITHM-ON-AN-ELLIPTIC-CURVE"><a href="#ALGORITHM-ON-AN-ELLIPTIC-CURVE" class="headerlink" title="ALGORITHM ON AN ELLIPTIC CURVE"></a>ALGORITHM ON AN ELLIPTIC CURVE</h1><p><strong>Algorithm:</strong>  Arbitrarily take two points <code>P</code> and <code>Q</code> on the elliptic curve (if the two points <code>P</code> and <code>Q</code> coincide, then make the tangent of point <code>P</code>), make the line intersect the other point <code>R&#39;</code> of the elliptic curve, and cross <code>R&#39;</code> to make the parallel line of the y axis intersect the point <code>R</code>, we specify $P+Q &#x3D; R$.</p>
-<img src="/2023/01/11/23-01-11-ECC/2_hashhash.png" class="" title="find R">
-
-<p>The infinity $O_{\infty}$ and the point $P$ on the elliptic curve intersect at the point $P$. The action of of infinity $O_{\infty}$ is equivalent to 0, which is called the zero element. The equation is that $O_{\infty} + P &#x3D; P$. </p>
-<p><strong>Deduction:</strong> </p>
-<ul>
-<li>Three points on elliptic curve are in the straight line $A + B + C &#x3D; O_{\infty}$. </li>
-<li>The sum of $k$ identical points is denoted $kP$. eg: $P+P+P &#x3D; 2P+P &#x3D; 3P$</li>
-</ul>
-<p><strong>Notice:</strong> <em>Elliptic curves are not necessarily symmetric with respect to x-axis.</em></p>
-<h1 id="ELLIPTIC-CURVE-IN-CRYPTOGRAPHY"><a href="#ELLIPTIC-CURVE-IN-CRYPTOGRAPHY" class="headerlink" title="ELLIPTIC CURVE IN CRYPTOGRAPHY"></a>ELLIPTIC CURVE IN CRYPTOGRAPHY</h1><p><strong>Discretization:</strong> Define elliptic curves on finite field. </p>
-<p><strong>Algorithm:</strong> </p>
-<ul>
-<li><p>Finite field $F_p$ only has finite elements. </p>
-</li>
-<li><p>$F_p$ has $p$ elements. $F_p \in {0, 1, 2, 3, \dots, p-1}$</p>
-</li>
-<li><p>+:$a + b \equiv c \mod p$</p>
-</li>
-<li><p>×:$a \times b \equiv c \mod p$</p>
-</li>
-<li><p>÷:$a \times b^{-1} \equiv c \mod p$</p>
-</li>
-<li><p>Unit element &#x3D; 1 ; Zero element &#x3D; 0</p>
-</li>
-</ul>
-<p>The elliptic curves that are suitable for encryption: $y^2 &#x3D; x^3 + ax + b$. </p>
-<p>The relationship among $P(x_1, y_1), Q(x_2, y_2)$ and $R(x_3, y_3)$: </p>
-<ul>
-<li>$x_3 \equiv k - x_1 - x_2 (\mod p)$</li>
-<li>$y_3 \equiv k(x_1 - x_3) - y1(\mod p)$</li>
-<li>$k$<ul>
-<li>if $P &#x3D; Q$, the $k &#x3D; (3x^2 + a)&#x2F;2y_1$</li>
-<li>if $P \neq Q$, the $k &#x3D; (y_2 - y_1)&#x2F;(x_2 - x_1)$</li>
-</ul>
-</li>
-</ul>
-<p>Point P exists the minimum positive integer $n$, which make $np &#x3D; O_{\infty}$, and we will call $n$ as the order of n. Otherwise, it is called infinite order. </p>
-<p><em>n always exists.</em></p>
-<h1 id="SIMPLE-ENCRYPTION-AND-DECRYPTION-ON-ELLIPTIC-CURVES"><a href="#SIMPLE-ENCRYPTION-AND-DECRYPTION-ON-ELLIPTIC-CURVES" class="headerlink" title="SIMPLE ENCRYPTION AND DECRYPTION ON ELLIPTIC CURVES"></a>SIMPLE ENCRYPTION AND DECRYPTION ON ELLIPTIC CURVES</h1><img src="/2023/01/11/23-01-11-ECC/3.png" class="" title="description">
-
-<ul>
-<li><p>A as the generator and decryptor. B as the encryptor. </p>
-</li>
-<li><p>A generates the basic parameters. The $(a, b)$ is to generate the elliptic curve. The $G$ is the chosen base point. Then, send $E_p(a, b), K, G$ to B.</p>
-</li>
-<li><p>B generates the random $r$. Make a encryption and send $C_1 &#x3D; M + rK,C_2 &#x3D; rG$ to A.</p>
-</li>
-<li><p>A decrypts the ciphers by the equation $M &#x3D; C1 - kG_2$. Finally, A will get message $M$. </p>
-</li>
-<li><p>PubKey: $K &#x3D; kG$</p>
-</li>
-<li><p>PriKey: $k$</p>
-</li>
-</ul>
-<p>Common 6 parameters $F(p,a,b,G,n,h)$: </p>
-<ul>
-<li>$p, a, b \rightarrow E_p(a, b)$: $p$ 200 more digits can ensure the security. </li>
-<li>$G$: the chosen base point of $E_p(a, b)$ </li>
-<li>$n$: the order of $E_p(a, b)$</li>
-<li>$h$: the cofactor and the integer part that $m$, the sum of all points on elliptic curve, divides $n$.</li>
-</ul>
-<h1 id="ATTACKs"><a href="#ATTACKs" class="headerlink" title="ATTACKs"></a>ATTACKs</h1><p>The important part. </p>
-<p>Make some description about the common attacks on elliptic curves in cryptography.</p>
-<h2 id="Pohlig-Hellman"><a href="#Pohlig-Hellman" class="headerlink" title="Pohlig-Hellman"></a>Pohlig-Hellman</h2><blockquote>
-<p>The order of elliptic curve is factorized into small primes. </p>
-</blockquote>
-<p><strong>Main idea:</strong> </p>
-<ol>
-<li>Factorize the order. </li>
-<li>Discrete logarithmic problems in factorized primes. </li>
-<li>Chinese reminder theorem.</li>
-</ol>
-<p><strong>Deduction:</strong> </p>
-<img src="/2023/01/11/23-01-11-ECC/4.png" class="" title="deduction">
-
-<p><strong>Example:</strong> ECC-2</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># polig_hellman</span></span><br><span class="line">a2 = <span class="number">377999945830334462584412960368612</span></span><br><span class="line">b2 = <span class="number">604811648267717218711247799143415167229480</span></span><br><span class="line">p2 = <span class="number">1256438680873352167711863680253958927079458741172412327087203</span></span><br><span class="line">E2 = EllipticCurve(GF(p2), [a2, b2])</span><br><span class="line">P2 = E2(<span class="number">550637390822762334900354060650869238926454800955557622817950</span> ,<span class="number">700751312208881169841494663466728684704743091638451132521079</span> )</span><br><span class="line">Q2 = E2(<span class="number">1152079922659509908913443110457333432642379532625238229329830</span> , <span class="number">819973744403969324837069647827669815566569448190043645544592</span> )</span><br><span class="line"></span><br><span class="line">factors, exponents = <span class="built_in">zip</span>(*factor(P2.order()))</span><br><span class="line"><span class="comment"># print(factors)</span></span><br><span class="line"><span class="comment"># print(exponents)</span></span><br><span class="line">primes = [factors[i] ^ exponents[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(factors))][:-<span class="number">1</span>]</span><br><span class="line"><span class="comment"># print(primes)</span></span><br><span class="line">dlogs = []</span><br><span class="line"><span class="keyword">for</span> fac <span class="keyword">in</span> primes:</span><br><span class="line">    t = <span class="built_in">int</span>(P2.order()) // <span class="built_in">int</span>(fac)</span><br><span class="line">    dlog = discrete_log(t*Q2, t*P2, operation = <span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">    dlogs += [dlog]</span><br><span class="line"><span class="comment"># print(dlogs)</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(primes) == <span class="built_in">len</span>(dlogs):</span><br><span class="line">    m2 = crt(dlogs, primes)</span><br><span class="line">flag2 = long_to_bytes(m2).decode()</span><br><span class="line"><span class="built_in">print</span>(flag2)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Smart-Attack"><a href="#Smart-Attack" class="headerlink" title="Smart Attack"></a>Smart Attack</h2><blockquote>
-<p>$E(F_p) &#x3D; p$, the order of the elliptic curve is a prime. </p>
-</blockquote>
-<p><em>It will be updated, if I have time.</em></p>
-<p><strong>Exp:</strong> ECC-3</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># smart_attack</span></span><br><span class="line">a3 = <span class="number">490963434153515882934487973185142842357175523008183292296815140698999054658777820556076794490414610737654365807063916602037816955706321036900113929329671</span></span><br><span class="line">b3 = <span class="number">7668542654793784988436499086739239442915170287346121645884096222948338279165302213440060079141960679678526016348025029558335977042712382611197995002316466</span></span><br><span class="line">p3 = <span class="number">11093300438765357787693823122068501933326829181518693650897090781749379503427651954028543076247583697669597230934286751428880673539155279232304301123931419</span></span><br><span class="line">E3 = EllipticCurve(GF(p3), [a3, b3])</span><br><span class="line">P3 = E3(<span class="number">10121571443191913072732572831490534620810835306892634555532657696255506898960536955568544782337611042739846570602400973952350443413585203452769205144937861</span> , <span class="number">8425218582467077730409837945083571362745388328043930511865174847436798990397124804357982565055918658197831123970115905304092351218676660067914209199149610</span> )</span><br><span class="line">Q3 = E3(<span class="number">964864009142237137341389653756165935542611153576641370639729304570649749004810980672415306977194223081235401355646820597987366171212332294914445469010927</span> , <span class="number">5162185780511783278449342529269970453734248460302908455520831950343371147566682530583160574217543701164101226640565768860451999819324219344705421407572537</span> )</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">SmartAttack</span>(<span class="params">P,Q,p</span>):</span><br><span class="line">    E = P.curve()</span><br><span class="line">    Eqp = EllipticCurve(Qp(p, <span class="number">2</span>), [ ZZ(t) + randint(<span class="number">0</span>,p)*p <span class="keyword">for</span> t <span class="keyword">in</span> E.a_invariants() ])</span><br><span class="line"></span><br><span class="line">    P_Qps = Eqp.lift_x(ZZ(P.xy()[<span class="number">0</span>]), <span class="built_in">all</span>=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">for</span> P_Qp <span class="keyword">in</span> P_Qps:</span><br><span class="line">        <span class="keyword">if</span> GF(p)(P_Qp.xy()[<span class="number">1</span>]) == P.xy()[<span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    Q_Qps = Eqp.lift_x(ZZ(Q.xy()[<span class="number">0</span>]), <span class="built_in">all</span>=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">for</span> Q_Qp <span class="keyword">in</span> Q_Qps:</span><br><span class="line">        <span class="keyword">if</span> GF(p)(Q_Qp.xy()[<span class="number">1</span>]) == Q.xy()[<span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    p_times_P = p*P_Qp</span><br><span class="line">    p_times_Q = p*Q_Qp</span><br><span class="line"></span><br><span class="line">    x_P,y_P = p_times_P.xy()</span><br><span class="line">    x_Q,y_Q = p_times_Q.xy()</span><br><span class="line"></span><br><span class="line">    phi_P = -(x_P/y_P)</span><br><span class="line">    phi_Q = -(x_Q/y_Q)</span><br><span class="line">    k = phi_Q/phi_P</span><br><span class="line">    <span class="keyword">return</span> ZZ(k)</span><br><span class="line"></span><br><span class="line"><span class="comment"># from gmpy2 import is_prime</span></span><br><span class="line"><span class="comment"># print(is_prime(P3.order()))</span></span><br><span class="line">m3 = SmartAttack(P3, Q3, p3)</span><br><span class="line">flag3 = long_to_bytes(m3).decode() + <span class="string">&#x27;&#125;&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(flag3)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="BSGS"><a href="#BSGS" class="headerlink" title="BSGS"></a>BSGS</h2><blockquote>
-<p>baby step giant step</p>
-</blockquote>
-<p>discrete_log(P,Q,operation &#x3D; ‘+’)</p>
-<p><strong>Problems:</strong> $y^x \equiv z \mod p$</p>
-<p>To solve out the $x$.</p>
-<h3 id="Original"><a href="#Original" class="headerlink" title="Original"></a>Original</h3><blockquote>
-<p>$gcd(y, p) &#x3D; 1$</p>
-</blockquote>
-<p>Assume $x &#x3D; am - b,m &#x3D; \sqrt{p}$, $a \in [0, m), b\in[0, m)$. </p>
-<p><strong>Derivation:</strong><br>$$<br>y^{am-b}\equiv z (\mod p)<br>$$</p>
-<p>$$<br>y^{am} \equiv z \cdot y^{b}(\mod p)<br>$$</p>
-<p>Brute force enumeration, enumerate the right in $[0, m)$ and calculate into list. At the same time, we enumerate the left in $[0, m)$, comparing the two list to find the $x$. </p>
-<h3 id="Extended"><a href="#Extended" class="headerlink" title="Extended"></a>Extended</h3><blockquote>
-<p>$gcd(y, p) \neq 1$</p>
-</blockquote>
-<p>Assume $d &#x3D; gcd(y, p)$. </p>
-<p><strong>Derivation:</strong><br>$$<br>y^{x} + kp &#x3D;z<br>$$</p>
-<p>$$<br>y\cdot y^{x-1} +kp &#x3D; z<br>$$</p>
-<p>If we divide it by $d$., we will get that:<br>$$<br>\frac{y}{d}\cdot y^{x-1} + k \cdot \frac{p}{d} &#x3D;\frac{z}{d}<br>$$<br>Recursive the equation, unless $d &#x3D; 1 $. Assume that the product of all $d$ and we enumerate $c$ times. Thus, we can obtain the condition that $x’ &#x3D; x -c, p’ &#x3D; \frac{p}{g}, z’ &#x3D; \frac{z}{g}$.<br>$$<br>y^{x’} \cdot \frac{y^{c}}{g} \equiv z’ (\mod p’)<br>$$<br>And it convert to the <code>original BSGS</code>.</p>
-<p><strong>Example:</strong> ECC-1</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># bsgs</span></span><br><span class="line">a1 = <span class="number">46056180</span></span><br><span class="line">b1 = <span class="number">2316783294673</span></span><br><span class="line">p1 = <span class="number">146808027458411567</span></span><br><span class="line">E1 = EllipticCurve(GF(p1), [a1, b1])</span><br><span class="line">P1 = E1(<span class="number">119851377153561800</span> , <span class="number">50725039619018388</span>)</span><br><span class="line">Q1 = E1(<span class="number">22306318711744209</span> , <span class="number">111808951703508717</span>)</span><br><span class="line">m1 = discrete_log(Q1, P1, operation = <span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">flag1 = <span class="string">&#x27;flag&#123;&#x27;</span> + long_to_bytes(m1).decode()</span><br><span class="line"><span class="comment"># print(flag1)</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="ECC"><a href="#ECC" class="headerlink" title="ECC"></a>ECC</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>The equation:<br>$$<br>(a, b)\in F, y^2 &#x3D; x^3 + ax + b<br>$$<br>if the ECC satisfies the equation, we calculate its discriminant by:<br>$$<br>y^2 + axy + by &#x3D; x^3 + cx^2 + dx + c<br>$$</p>
-]]></content>
-      <categories>
-        <category>Math</category>
-      </categories>
-      <tags>
-        <tag>ecc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>23-02-14-Abstract</title>
-    <url>/2023/02/14/23-02-14-Abstract/</url>
-    <content><![CDATA[<p>I am reading <em>Ideal, varieties, and algorithms</em>, however I haven’t learnt the abstract algebra. Thus I will make some records for some typical definitions, which can help me learn well about this book. </p>
-<span id="more"></span><!--toc-->
-
-<h1 id="Fields-and-Rings"><a href="#Fields-and-Rings" class="headerlink" title="Fields and Rings"></a>Fields and Rings</h1><p><strong>Def1</strong> a set $k$ and two binary operations $\cdot$ and $+$ defined on $k$.</p>
-<h2 id="Conditions"><a href="#Conditions" class="headerlink" title="Conditions"></a>Conditions</h2><ul>
-<li>$(a + b) + c &#x3D; a + (b + c)$ and $(a \cdot b) \cdot c &#x3D; a \cdot(b \cdot c)$ for all $a, b, c$</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Math</category>
-      </categories>
-      <tags>
-        <tag>abstract</tag>
-        <tag>basic</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Description-About-Common-Difficult-Problems-in-Cryptography</title>
     <url>/2023/03/02/Description-about-common-difficult-problems-in-cryptography/</url>
     <content><![CDATA[<p>Descriptions about the common difficult problems in cryptography.</p>
@@ -1814,32 +1694,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Arnold Transform</title>
-    <url>/2023/07/04/Arnold-Transform/</url>
-    <content><![CDATA[<p>AKA <code>cat map</code>.</p>
-<p>The classic <code>Arnold Transform</code> is a two-dimensional reversible map. The discrete form of the <code>Arnold Transform</code> is periodic and changes with the size of the image.</p>
-<span id="more"></span><!--toc-->
-
-<h1 id="Special-Arnold-Transform"><a href="#Special-Arnold-Transform" class="headerlink" title="Special Arnold Transform"></a>Special Arnold Transform</h1><h2 id="Def-1"><a href="#Def-1" class="headerlink" title="Def.1"></a>Def.1</h2><p>$$<br>\begin{bmatrix}<br>    x’\\<br>    y’<br>\end{bmatrix}<br>&#x3D;<br>A<br>\begin{bmatrix}<br>    x\\<br>    y<br>\end{bmatrix}<br>\mod N, A &#x3D;<br>\begin{bmatrix}<br>    1 &amp; 1 \\<br>    1 &amp; 2<br>\end{bmatrix}<br>, 0\le x, y \le 1, 0\le x’, y’ \le 1<br>$$</p>
-<p>$$<br>\Longrightarrow<br>\left\{<br>\begin{array}{lr}<br>    x’ &#x3D; (x + y) \mod N \\<br>    y’ &#x3D; (x + 2y) \mod N<br>\end{array}<br>\right.<br>$$<br>Two-dimensional Arnold Transform.</p>
-<h2 id="Def-2"><a href="#Def-2" class="headerlink" title="Def.2"></a>Def.2</h2><p>$$<br>\begin{bmatrix}<br>    x\\<br>    y<br>\end{bmatrix}<br>&#x3D;<br>A^{-1}<br>\begin{bmatrix}<br>    x’\\<br>    y’<br>\end{bmatrix}<br>\mod N, A^{-1} &#x3D;<br>\begin{bmatrix}<br>    2 &amp; -1 \\<br>    -1 &amp; 1<br>\end{bmatrix}<br>, 0\le x, y \le 1, 0\le x’, y’ \le 1<br>$$</p>
-<p>$$<br>\Longrightarrow<br>\left\{<br>\begin{array}{lr}<br>    x &#x3D; (2x’ - y’) \mod N \\<br>    y &#x3D; (-x’ + y’) \mod N<br>\end{array}<br>\right.<br>$$</p>
-<p>Two-dimensional Arnold inverse transformation. </p>
-<h1 id="General-Arnold-Transform"><a href="#General-Arnold-Transform" class="headerlink" title="General Arnold Transform"></a>General Arnold Transform</h1><h2 id="Def-1-1"><a href="#Def-1-1" class="headerlink" title="Def.1"></a>Def.1</h2><p>$$<br>\begin{bmatrix}<br>    x’\\<br>    y’<br>\end{bmatrix}<br>&#x3D;<br>\begin{bmatrix}<br>    1 &amp; a \\<br>    b &amp; ab + 1<br>\end{bmatrix}<br>\begin{bmatrix}<br>    x\\<br>    y<br>\end{bmatrix}<br>\mod N<br>$$</p>
-<p>$$<br>\Longrightarrow<br>\left\{<br>\begin{array}{lr}<br>    x’ &#x3D; (x + ay) \mod N \\<br>    y’ &#x3D; (bx + (ab + 1)y) \mod N<br>\end{array}<br>\right.<br>$$</p>
-<h2 id="Def-2-1"><a href="#Def-2-1" class="headerlink" title="Def.2"></a>Def.2</h2><p>$$<br>\begin{bmatrix}<br>    x\\<br>    y<br>\end{bmatrix}<br>&#x3D;<br>\begin{bmatrix}<br>    ab + 1 &amp; -a \\<br>    -b &amp; 1<br>\end{bmatrix}<br>\begin{bmatrix}<br>    x’\\<br>    y’<br>\end{bmatrix}<br>\mod N<br>$$</p>
-<p>$$<br>\Longrightarrow<br>\left\{<br>\begin{array}{lr}<br>    x &#x3D; ((ab + 1)x’ - ay’) \mod N \\<br>    y &#x3D; (-bx’ + y’) \mod N<br>\end{array}<br>\right.<br>$$</p>
-<h1 id="Accomplish"><a href="#Accomplish" class="headerlink" title="Accomplish"></a>Accomplish</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">arnold</span>(<span class="params">image, arnold_times</span>):</span><br><span class="line">    a = </span><br><span class="line">    b = </span><br><span class="line">    <span class="comment"># Create a new image, a three-dimensional array of all 0s</span></span><br><span class="line">    decode_image = np.zeros(shape=image.shape)</span><br><span class="line">    <span class="comment"># Read the length and width pixels of the picture</span></span><br><span class="line">    height, width = image.shape[<span class="number">0</span>], image.shape[<span class="number">1</span>]</span><br><span class="line">    N = height  <span class="comment"># if it is a square, height is equal to width</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> time <span class="keyword">in</span> <span class="built_in">range</span>(arnold_times):  <span class="comment"># transformation times</span></span><br><span class="line">        <span class="comment"># Traverse the pixel coordinates of the image</span></span><br><span class="line">        <span class="keyword">for</span> old_x <span class="keyword">in</span> <span class="built_in">range</span>(height):</span><br><span class="line">            <span class="keyword">for</span> old_y <span class="keyword">in</span> <span class="built_in">range</span>(width):</span><br><span class="line">                <span class="comment"># Arnold Inverse Transform</span></span><br><span class="line">                new_x = ((a * b + <span class="number">1</span>) * old_x + (-a) * old_y) % N <span class="comment"># N = height</span></span><br><span class="line">                new_y = ((-b) * old_x + old_y) % N <span class="comment"># N = width</span></span><br><span class="line">                <span class="comment"># Arnold Transform</span></span><br><span class="line">                <span class="comment"># new_x = (old_x + a * old_y) % N # N = height</span></span><br><span class="line">                <span class="comment"># new_y = (b * old_x + (a * b + 1) * old_y) % N # N = width</span></span><br><span class="line"></span><br><span class="line">                decode_image[new_x, new_y, :] = image[old_x, old_y, :]</span><br><span class="line">    cv2.imwrite(<span class="string">&#x27;xxx&#x27;</span>, decode_image, [<span class="built_in">int</span>(cv2.IMWRITE_PNG_COMPRESSION), <span class="number">0</span>])  <span class="comment"># write as PNG</span></span><br><span class="line">    <span class="keyword">return</span> decode_image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># imread(path,flag) reads the picture, the default parameter value of loading a color picture is flag=1, the grayscale is 0, the transparency is -1, the result is a three-dimensional array, the first two dimensions are pixel coordinates, and the last one is the channel index</span></span><br><span class="line">    it = cv2.imread(<span class="string">&#x27;xxx&#x27;</span>)</span><br><span class="line">    arnold(it, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Math</category>
-      </categories>
-      <tags>
-        <tag>cat</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Crypto-Write-Up-Zh</title>
     <url>/2023/03/09/Crypto-Write-Up-zh/</url>
     <content><![CDATA[<p>As a routine notepad to record some recurrent tasks in Chinese.</p>
@@ -1847,11 +1701,18 @@
 <p>Timelines are <strong>from new to old</strong>.</p>
 <span id="more"></span><!--toc-->
 
+<h1 id="DASCTF-2023-amp-0X401-ezAlgebra"><a href="#DASCTF-2023-amp-0X401-ezAlgebra" class="headerlink" title="[DASCTF 2023 &amp; 0X401]ezAlgebra"></a>[DASCTF 2023 &amp; 0X401]ezAlgebra</h1><ul>
+<li>Coppersmith-已知高位攻击</li>
+<li>方程组求解-groebner_basis()</li>
+</ul>
 <h1 id="DASCTF-2023-amp-0X401-ezRSA"><a href="#DASCTF-2023-amp-0X401-ezRSA" class="headerlink" title="[DASCTF 2023 &amp; 0X401]ezRSA"></a>[DASCTF 2023 &amp; 0X401]ezRSA</h1><ul>
 <li>coppersmith-已知高位求解p</li>
 <li>Franklin Reiter 相关信息攻击</li>
 </ul>
-<h2 id="coppersmith-已知高位求解p"><a href="#coppersmith-已知高位求解p" class="headerlink" title="coppersmith-已知高位求解p"></a>coppersmith-已知高位求解p</h2><p>$$<br>gift &#x3D; P (Q &gt;&gt; 16)\\<br>c_1 &#x3D; pow(n, e, N) \equiv n^{e} \mod N\\<br>c_2 &#x3D; pow(secret, e, N) \equiv secret^{e} \mod N\\<br>c_3 &#x3D; pow(flag, e, n) \equiv flag^{e} \mod N<br>$$</p>
+<h2 id="coppersmith-已知高位求解p"><a href="#coppersmith-已知高位求解p" class="headerlink" title="coppersmith-已知高位求解p"></a>coppersmith-已知高位求解p</h2><p>$$<br>gift &#x3D; P (Q &gt;&gt; 16)<br>$$</p>
+<p>$$<br>c_1 &#x3D; pow(n, e, N) \equiv n^{e} \mod N<br>$$</p>
+<p>$$<br>c_2 &#x3D; pow(secret, e, N) \equiv secret^{e} \mod N<br>$$</p>
+<p>$$<br>c_3 &#x3D; pow(flag, e, n) \equiv flag^{e} \mod N<br>$$</p>
 <p>*已知，$N$,$gift$,$c_1$,$c_2$,$c_3$*，求解<code>flag</code>。</p>
 <p>只能从gift入手，P高16位已知，又N &#x3D; P * Q ，那么Q的高位也能得出，考虑到进位问题，可以将Q的高位位数求小一点（假设为x），之后再根据Q的高位和异或性质，又能求出P的高16 + x位，这里取x &#x3D; 10，如此循环往复，最后大概剩6比特没恢复，枚举下即可。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">from gmpy2 import *</span><br><span class="line"></span><br><span class="line">P_h = gift &gt;&gt; (512 - 16)</span><br><span class="line"></span><br><span class="line"># def find_p(p, q, q_):</span><br><span class="line">#     if len(p) == (512 - 16):</span><br><span class="line">#         pp = int(p, 2) + P_h * 2 ** (512 - 16)</span><br><span class="line">#         if gcd(N, pp) &gt; 1:</span><br><span class="line">#             print(pp)</span><br><span class="line">#             print(N//pp)</span><br><span class="line">#         else:</span><br><span class="line">#             l = len(p)</span><br><span class="line">#             pp = int(p, 2)</span><br><span class="line">#             qq = int(q, 2)</span><br><span class="line">#             if (pp ^ qq) % (2 ** l) == gift % (2 ** l) and pp*(qq * 2 ** 16 + q_) % (2 ** l) == N % (2 ** l):</span><br><span class="line">#                 find_p(&#x27;1&#x27; + p, &#x27;1&#x27; + q, q_)</span><br><span class="line">#                 find_p(&#x27;1&#x27; + p, &#x27;0&#x27; + q, q_)</span><br><span class="line">#                 find_p(&#x27;0&#x27; + p, &#x27;1&#x27; + q, q_)</span><br><span class="line">#                 find_p(&#x27;0&#x27; + p, &#x27;0&#x27; + q, q_)</span><br><span class="line"># for q_ in range(2 ** 16):</span><br><span class="line">#     find_p(&#x27;1&#x27;, &#x27;1&#x27;, q_)</span><br><span class="line"></span><br><span class="line"># while True:</span><br><span class="line">#     try:</span><br><span class="line">#         Q_h = (N &gt;&gt; (1024 - P_h.bit_length() * 2)) // P_h</span><br><span class="line">#         print(Q_h, Q_h.bit_length())</span><br><span class="line">#         Q_h = Q_h &gt;&gt; 6</span><br><span class="line">#         gifts = gift ^ (Q_h &lt;&lt; (512 - 16 - Q_h.bit_length()))</span><br><span class="line">#         P_h = gifts &gt;&gt; (512 - 16 - Q_h.bit_length())</span><br><span class="line">#         print(P_h, P_h.bit_length())</span><br><span class="line">#     except:</span><br><span class="line">#         break</span><br><span class="line"></span><br><span class="line"># for i in range(64):</span><br><span class="line">#     P = (P_h &lt;&lt; 6) + i</span><br><span class="line">#     if N % P == 0:</span><br><span class="line">#         print(P)</span><br><span class="line">#         break</span><br><span class="line"></span><br><span class="line">ph = bin(gift)[2:][:16] + &#x27;0&#x27;*(512-16)</span><br><span class="line">ph = int(ph,2)</span><br><span class="line">x = bin(gift)[2:][17:]</span><br><span class="line"> </span><br><span class="line">def fac(x,tp,tq):</span><br><span class="line">    if len(x) == 0:</span><br><span class="line">        return</span><br><span class="line">    if tp*tq&gt;N:</span><br><span class="line">        return </span><br><span class="line">    if N%(tp+1)==0:</span><br><span class="line">        print(tp+1)</span><br><span class="line">        return</span><br><span class="line">    </span><br><span class="line">    v = x[0]</span><br><span class="line">    r = x[1:]</span><br><span class="line">    l = len(r)</span><br><span class="line">    </span><br><span class="line">    if (tp+(1&lt;&lt;(l+1)))*(tq+(1&lt;&lt;(l+17)))&lt;N:</span><br><span class="line">        print(bin(tp)[:50])</span><br><span class="line">        print(bin(tq)[:50])</span><br><span class="line">        print(l)</span><br><span class="line">        return</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    if v == &#x27;0&#x27;:</span><br><span class="line">       fac(r, tp, tq)</span><br><span class="line">       fac(r, tp+(1&lt;&lt;l), tq+(1&lt;&lt;(l+16)))</span><br><span class="line">    else:</span><br><span class="line">       fac(r, tp+(1&lt;&lt;l), tq)</span><br><span class="line">       fac(r, tp, tq+(1&lt;&lt;(l+16)))</span><br><span class="line"> </span><br><span class="line">#q第1位为1 x[0]==&#x27;0&#x27;</span><br><span class="line">tq = 1&lt;&lt;511</span><br><span class="line">tp = ph + (1&lt;&lt;(512-16-1))</span><br><span class="line"> </span><br><span class="line">fac(x,tp,tq)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -1910,8 +1771,12 @@
 <p><strong>已知信息</strong></p>
 <img src="/2023/03/09/Crypto-Write-Up-zh/image-20230706171746617.png" class="" title="image-20230706171746617">
 
-<p><strong>推导</strong><br>$$<br>P &#x3D; 10^{t}p + q\\<br>Q &#x3D; 10^{s}q + p\\<br>PP &#x3D; 10^{s + t}P + Q &#x3D; 10^{s + t}(10^{t}P + Q) + 10^{s}Q + P \\<br>QQ &#x3D; 10^{s + t}Q + P &#x3D; 10^{s + t}(10^{t}Q + P) + 10^{s}P + Q<br>$$</p>
-<p>$$<br>N &#x3D; PP \cdot QQ &#x3D; 10^{3(t+s)}pq + \dots + pq\\<br>\Longrightarrow (10^{s + t}(10^{t}p + q) + 10^{s}q + p)(10^{t + s}(10^{s}q + p) + 10^{t}p + q)<br>$$</p>
+<p><strong>推导</strong><br>$$<br>P &#x3D; 10^{t}p + q<br>$$</p>
+<p>$$<br>Q &#x3D; 10^{s}q + p<br>$$</p>
+<p>$$<br>PP &#x3D; 10^{s + t}P + Q &#x3D; 10^{s + t}(10^{t}P + Q) + 10^{s}Q + P<br>$$</p>
+<p>$$<br>QQ &#x3D; 10^{s + t}Q + P &#x3D; 10^{s + t}(10^{t}Q + P) + 10^{s}P + Q<br>$$</p>
+<p>$$<br>N &#x3D; PP \cdot QQ &#x3D; 10^{3(t+s)}pq + \dots + pq<br>$$</p>
+<p>$$<br>\Longrightarrow (10^{s + t}(10^{t}p + q) + 10^{s}q + p)(10^{t + s}(10^{s}q + p) + 10^{t}p + q)<br>$$</p>
 <p>对$N$进行整除和求模分析，从而得到$pq$十进制的高位和低位。</p>
 <p>大致确定$p$，$q$的位数进行爆破。</p>
 <p>从而$str(N)[:?] &lt;—&gt; str(pq)[:?]$</p>
@@ -1970,10 +1835,6 @@
 <p>很直接，跟靶机交互，做100道简单数学题。惯例先过哈希，然后交互做题。</p>
 <p>适合作为交互题目的练习题。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> sha256</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">proof_of_work</span>(<span class="params">known: <span class="built_in">bytes</span>,hashcode</span>):</span><br><span class="line">	<span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">	know sha256(XXXX+known) == hashcode</span></span><br><span class="line"><span class="string">	get the XXXX</span></span><br><span class="line"><span class="string">	charset = letter + digits</span></span><br><span class="line"><span class="string">	XXXX has four char</span></span><br><span class="line"><span class="string">	&quot;&quot;&quot;</span></span><br><span class="line">	charset = string.ascii_letters + string.digits</span><br><span class="line">	<span class="keyword">for</span> a <span class="keyword">in</span> charset:</span><br><span class="line">		<span class="keyword">for</span> b <span class="keyword">in</span> charset:</span><br><span class="line">			<span class="keyword">for</span> c <span class="keyword">in</span> charset:</span><br><span class="line">				<span class="keyword">for</span> d <span class="keyword">in</span> charset:</span><br><span class="line">					guess = a + b + c + d</span><br><span class="line">					<span class="keyword">if</span> sha256(guess.encode()+known).hexdigest() == hashcode:</span><br><span class="line">						<span class="keyword">return</span> guess</span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">link = remote(<span class="string">&#x27;&#x27;</span>, )</span><br><span class="line"></span><br><span class="line"><span class="comment"># 过SHA256</span></span><br><span class="line"><span class="comment"># 接收</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">[+] sha256(XXXX+B79N1NIZWlK7gHKB) == 40183d93c30a0316b45ebfabb07db7dc951e143e3fa3c4a004667e2f081c144b</span></span><br><span class="line"><span class="string">[+] Plz Tell Me XXXX :Hvoc</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 读取到一直读到 sha256(XXXX+ 的 pattern 出现为止</span></span><br><span class="line">link.recvuntil(<span class="string">b&#x27;sha256(XXXX+&#x27;</span>)</span><br><span class="line">str1 = link.recvuntil(<span class="string">b&#x27;)&#x27;</span>, drop=<span class="literal">True</span>)</span><br><span class="line">link.recvuntil(<span class="string">b&#x27;== &#x27;</span>)</span><br><span class="line">str2 = link.recvuntil(<span class="string">b&#x27;\n&#x27;</span>, drop=<span class="literal">True</span>)</span><br><span class="line">send_XXXX = proof_of_work(str1, str2.decode()).encode()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送</span></span><br><span class="line">link.sendlineafter(<span class="string">b&#x27;Plz Tell Me XXXX :&#x27;</span>, send_XXXX)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 100次数学计算</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    link.recvline(keepends=<span class="literal">True</span>)</span><br><span class="line">    link.recvuntil(<span class="string">b&#x27; &#x27;</span>, drop=<span class="literal">True</span>)</span><br><span class="line">    s = link.recvuntil(<span class="string">b&#x27;= &#x27;</span>, drop=<span class="literal">True</span>)</span><br><span class="line">    sol_out = <span class="built_in">str</span>(<span class="built_in">eval</span>(s)).encode()</span><br><span class="line">    send_sol_out = link.sendlineafter(<span class="string">b&#x27;?&#x27;</span>, sol_out)</span><br><span class="line">    link.recvline()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结束连接</span></span><br><span class="line">link.recvall()</span><br><span class="line"><span class="comment"># NSSCTF&#123;c629810b-e1b2-40f6-ac92-c88fb041d422&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
 
 
 
@@ -2157,132 +2018,149 @@
 ]]></content>
   </entry>
   <entry>
-    <title>LCGs</title>
-    <url>/2023/06/27/LCGs/</url>
-    <content><![CDATA[<p>The LCG algorithm is applied to the generation of pseudo random numbers.<br>$$<br>X_{n + 1} \equiv (a X_{n} + b) \mod m<br>$$</p>
-<p>The LCG defines three variables——multiplier a, increment b, and modulus m, which decide the generator. </p>
+    <title>23-01-11-ECC</title>
+    <url>/2023/01/11/23-01-11-ECC/</url>
+    <content><![CDATA[<p>Some basics about elliptic curves. Make a description about ECC, and show the attacks and conversions to code. </p>
+<p>ECC is somewhat difficult, and also the analysis which is necessary ought to be detailed. </p>
+<p>The ECC always connects to the usage of sagemath, this post also introduces some common usages about ECC in sagemath. </p>
 <span id="more"></span><!--toc-->
 
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><blockquote>
-<p><a href="https://blog.csdn.net/superprintf/article/details/108964563">ctf-lcg</a></p>
+<h1 id="PARALLEL"><a href="#PARALLEL" class="headerlink" title="PARALLEL"></a>PARALLEL</h1><p><strong>Assume:</strong> Parallel lines intersect at infinity which is called the infinity point <code>P</code>. (parallel and intersecting unity)</p>
+<p>The properties of infinite <code>P</code>: </p>
+<ul>
+<li>The infinite <code>P</code> of Line L has only one.</li>
+<li>The lines which are parallel to each other have the public infinite $P_{\infty}$. </li>
+<li>Any lines which are intersect have different infinite points $P_{\infty}$s. (If they have public infinity,  it will contrary to assumption.)</li>
+<li>All infinity points formulate a infinity line.</li>
+<li>The total infinity points and all ordinary points in the plane form the projective plane.</li>
+</ul>
+<h1 id="PROJECTIVE-PLANE-COORDINATE-SYSTEM"><a href="#PROJECTIVE-PLANE-COORDINATE-SYSTEM" class="headerlink" title="PROJECTIVE PLANE COORDINATE SYSTEM"></a>PROJECTIVE PLANE COORDINATE SYSTEM</h1><p><strong>Formulate:</strong> Make $x &#x3D; X&#x2F;Z$, $y &#x3D; Y&#x2F;Z$, ($Z \neq 0$), and the Point <code>A</code> is $(X:Y:Z)$. </p>
+<p>The infinity points are expressed as $(X:Y:0)$. The ordinary points is $Z \neq 0$,and the infinities are $Z &#x3D; 0$, meaning that the equation of infinity points is $Z &#x3D; 0$. </p>
+<p>Thus, $(X:Y:Z)$ is called as projective plane coordinate system. </p>
+<h1 id="ELLIPTIC-CURVE"><a href="#ELLIPTIC-CURVE" class="headerlink" title="ELLIPTIC CURVE"></a>ELLIPTIC CURVE</h1><p><strong>Definition:</strong>  The elliptic curve in projective plane satisfies the equation that $Y^2Z + a_1XYZ + a_3YZ^2 &#x3D; X^3 + a_2X^2Z + a_4XZ^2 + a_6Z^3$, or Weierstrass homogeneous equation $Y^2&#x3D;X^3+AX+B$, where the whole points are non-singular or smooth.</p>
+<p> <strong>Non-singular&#x2F;Smooth:</strong> Mathematically, the partial derivatives $F_x(x,y,z), F_y(x,y,z),F_z(x,y,z)$ at any point on the curve cannot be 0 at same time, meaning that any point exists tangent. </p>
+<p>Assume that $x &#x3D; X&#x2F;Z, y&#x3D; Y&#x2F;Z$ and substitute into the equation above, we can obtain $y^2 + a_1xy + a_3y &#x3D; x^3 + a_2x^2+a_4x+a_6$ and also the slope is $k &#x3D; (3x^2+2a_2x+a_4 - a_1y)&#x2F;(2y + a_1x+a_3)$. </p>
+<img src="/2023/01/11/23-01-11-ECC/1_hashhash.png" class="" title="common ecc">
+
+<p><em>Two curves below which are not satisfied the definition are not elliptic curves , and they are called Singular Curves.</em></p>
+<h1 id="ALGORITHM-ON-AN-ELLIPTIC-CURVE"><a href="#ALGORITHM-ON-AN-ELLIPTIC-CURVE" class="headerlink" title="ALGORITHM ON AN ELLIPTIC CURVE"></a>ALGORITHM ON AN ELLIPTIC CURVE</h1><p><strong>Algorithm:</strong>  Arbitrarily take two points <code>P</code> and <code>Q</code> on the elliptic curve (if the two points <code>P</code> and <code>Q</code> coincide, then make the tangent of point <code>P</code>), make the line intersect the other point <code>R&#39;</code> of the elliptic curve, and cross <code>R&#39;</code> to make the parallel line of the y axis intersect the point <code>R</code>, we specify $P+Q &#x3D; R$.</p>
+<img src="/2023/01/11/23-01-11-ECC/2_hashhash.png" class="" title="find R">
+
+<p>The infinity $O_{\infty}$ and the point $P$ on the elliptic curve intersect at the point $P$. The action of of infinity $O_{\infty}$ is equivalent to 0, which is called the zero element. The equation is that $O_{\infty} + P &#x3D; P$. </p>
+<p><strong>Deduction:</strong> </p>
+<ul>
+<li>Three points on elliptic curve are in the straight line $A + B + C &#x3D; O_{\infty}$. </li>
+<li>The sum of $k$ identical points is denoted $kP$. eg: $P+P+P &#x3D; 2P+P &#x3D; 3P$</li>
+</ul>
+<p><strong>Notice:</strong> <em>Elliptic curves are not necessarily symmetric with respect to x-axis.</em></p>
+<h1 id="ELLIPTIC-CURVE-IN-CRYPTOGRAPHY"><a href="#ELLIPTIC-CURVE-IN-CRYPTOGRAPHY" class="headerlink" title="ELLIPTIC CURVE IN CRYPTOGRAPHY"></a>ELLIPTIC CURVE IN CRYPTOGRAPHY</h1><p><strong>Discretization:</strong> Define elliptic curves on finite field. </p>
+<p><strong>Algorithm:</strong> </p>
+<ul>
+<li><p>Finite field $F_p$ only has finite elements. </p>
+</li>
+<li><p>$F_p$ has $p$ elements. $F_p \in {0, 1, 2, 3, \dots, p-1}$</p>
+</li>
+<li><p>+:$a + b \equiv c \mod p$</p>
+</li>
+<li><p>×:$a \times b \equiv c \mod p$</p>
+</li>
+<li><p>÷:$a \times b^{-1} \equiv c \mod p$</p>
+</li>
+<li><p>Unit element &#x3D; 1 ; Zero element &#x3D; 0</p>
+</li>
+</ul>
+<p>The elliptic curves that are suitable for encryption: $y^2 &#x3D; x^3 + ax + b$. </p>
+<p>The relationship among $P(x_1, y_1), Q(x_2, y_2)$ and $R(x_3, y_3)$: </p>
+<ul>
+<li>$x_3 \equiv k - x_1 - x_2 (\mod p)$</li>
+<li>$y_3 \equiv k(x_1 - x_3) - y1(\mod p)$</li>
+<li>$k$<ul>
+<li>if $P &#x3D; Q$, the $k &#x3D; (3x^2 + a)&#x2F;2y_1$</li>
+<li>if $P \neq Q$, the $k &#x3D; (y_2 - y_1)&#x2F;(x_2 - x_1)$</li>
+</ul>
+</li>
+</ul>
+<p>Point P exists the minimum positive integer $n$, which make $np &#x3D; O_{\infty}$, and we will call $n$ as the order of n. Otherwise, it is called infinite order. </p>
+<p><em>n always exists.</em></p>
+<h1 id="SIMPLE-ENCRYPTION-AND-DECRYPTION-ON-ELLIPTIC-CURVES"><a href="#SIMPLE-ENCRYPTION-AND-DECRYPTION-ON-ELLIPTIC-CURVES" class="headerlink" title="SIMPLE ENCRYPTION AND DECRYPTION ON ELLIPTIC CURVES"></a>SIMPLE ENCRYPTION AND DECRYPTION ON ELLIPTIC CURVES</h1><img src="/2023/01/11/23-01-11-ECC/3.png" class="" title="description">
+
+<ul>
+<li><p>A as the generator and decryptor. B as the encryptor. </p>
+</li>
+<li><p>A generates the basic parameters. The $(a, b)$ is to generate the elliptic curve. The $G$ is the chosen base point. Then, send $E_p(a, b), K, G$ to B.</p>
+</li>
+<li><p>B generates the random $r$. Make a encryption and send $C_1 &#x3D; M + rK,C_2 &#x3D; rG$ to A.</p>
+</li>
+<li><p>A decrypts the ciphers by the equation $M &#x3D; C1 - kG_2$. Finally, A will get message $M$. </p>
+</li>
+<li><p>PubKey: $K &#x3D; kG$</p>
+</li>
+<li><p>PriKey: $k$</p>
+</li>
+</ul>
+<p>Common 6 parameters $F(p,a,b,G,n,h)$: </p>
+<ul>
+<li>$p, a, b \rightarrow E_p(a, b)$: $p$ 200 more digits can ensure the security. </li>
+<li>$G$: the chosen base point of $E_p(a, b)$ </li>
+<li>$n$: the order of $E_p(a, b)$</li>
+<li>$h$: the cofactor and the integer part that $m$, the sum of all points on elliptic curve, divides $n$.</li>
+</ul>
+<h1 id="ATTACKs"><a href="#ATTACKs" class="headerlink" title="ATTACKs"></a>ATTACKs</h1><p>The important part. </p>
+<p>Make some description about the common attacks on elliptic curves in cryptography.</p>
+<h2 id="Pohlig-Hellman"><a href="#Pohlig-Hellman" class="headerlink" title="Pohlig-Hellman"></a>Pohlig-Hellman</h2><blockquote>
+<p>The order of elliptic curve is factorized into small primes. </p>
 </blockquote>
-<h1 id="Solving-Formula"><a href="#Solving-Formula" class="headerlink" title="Solving Formula"></a>Solving Formula</h1><table>
-<thead>
-<tr>
-<th>targets</th>
-<th>formulae</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$X_{n+1} \rightarrow X_{n}$</td>
-<td>$X_{n}\equiv a^{-1}(X_{n+1} - b) \mod m$</td>
-</tr>
-<tr>
-<td>$\rightarrow a$</td>
-<td>$a \equiv (X_{n+2} - X_{n+1})(X_{n+1} - X_{n})^{-1} \mod m$</td>
-</tr>
-<tr>
-<td>$\rightarrow b$</td>
-<td>$b \equiv (X_{n+1} - X_{n}) \mod m$</td>
-</tr>
-<tr>
-<td>$\rightarrow m$</td>
-<td>$t_{n} &#x3D; X_{n + 1} - X_{n}$</td>
-</tr>
-<tr>
-<td></td>
-<td>$m &#x3D; gcd((t_{n+1}\cdot t_{n-1} - t_n\cdot t_n), (t_n\cdot t_{n-2} - t_{n-1}\cdot t_{n-1}))$</td>
-</tr>
-</tbody></table>
-<h1 id="Proofs"><a href="#Proofs" class="headerlink" title="Proofs"></a>Proofs</h1><h2 id="formula-1"><a href="#formula-1" class="headerlink" title="formula 1"></a>formula 1</h2><p>$$<br>X_{n+1} \equiv a X_{n} + b \mod m<br>$$</p>
-<p>$$<br>aX_{n} \equiv X_{n+1} - b \mod m<br>$$</p>
-<p>$$<br>X_{n} \equiv a^{-1} (X_{n+1} - b) \mod m<br>$$</p>
-<p>How to calculate $a^{-1}$? We can use <code>Extended Euclidean algorithm</code>.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">MMI = <span class="keyword">lambda</span> A, n,s=<span class="number">1</span>,t=<span class="number">0</span>,N=<span class="number">0</span>: (n &lt; <span class="number">2</span> <span class="keyword">and</span> t%N <span class="keyword">or</span> MMI(n, A%n, t, s-A//n*t, N <span class="keyword">or</span> n),-<span class="number">1</span>)[n&lt;<span class="number">1</span>]</span><br><span class="line"><span class="comment"># &lt;==&gt; MMI = lambda a, n: gmpy2.gcdext(a, n)[1]</span></span><br><span class="line"><span class="comment"># &lt;==&gt; gmpy2.invert(a, n)</span></span><br></pre></td></tr></table></figure>
+<p><strong>Main idea:</strong> </p>
+<ol>
+<li>Factorize the order. </li>
+<li>Discrete logarithmic problems in factorized primes. </li>
+<li>Chinese reminder theorem.</li>
+</ol>
+<p><strong>Deduction:</strong> </p>
+<img src="/2023/01/11/23-01-11-ECC/4.png" class="" title="deduction">
+
+<p><strong>Example:</strong> ECC-2</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># polig_hellman</span></span><br><span class="line">a2 = <span class="number">377999945830334462584412960368612</span></span><br><span class="line">b2 = <span class="number">604811648267717218711247799143415167229480</span></span><br><span class="line">p2 = <span class="number">1256438680873352167711863680253958927079458741172412327087203</span></span><br><span class="line">E2 = EllipticCurve(GF(p2), [a2, b2])</span><br><span class="line">P2 = E2(<span class="number">550637390822762334900354060650869238926454800955557622817950</span> ,<span class="number">700751312208881169841494663466728684704743091638451132521079</span> )</span><br><span class="line">Q2 = E2(<span class="number">1152079922659509908913443110457333432642379532625238229329830</span> , <span class="number">819973744403969324837069647827669815566569448190043645544592</span> )</span><br><span class="line"></span><br><span class="line">factors, exponents = <span class="built_in">zip</span>(*factor(P2.order()))</span><br><span class="line"><span class="comment"># print(factors)</span></span><br><span class="line"><span class="comment"># print(exponents)</span></span><br><span class="line">primes = [factors[i] ^ exponents[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(factors))][:-<span class="number">1</span>]</span><br><span class="line"><span class="comment"># print(primes)</span></span><br><span class="line">dlogs = []</span><br><span class="line"><span class="keyword">for</span> fac <span class="keyword">in</span> primes:</span><br><span class="line">    t = <span class="built_in">int</span>(P2.order()) // <span class="built_in">int</span>(fac)</span><br><span class="line">    dlog = discrete_log(t*Q2, t*P2, operation = <span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">    dlogs += [dlog]</span><br><span class="line"><span class="comment"># print(dlogs)</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(primes) == <span class="built_in">len</span>(dlogs):</span><br><span class="line">    m2 = crt(dlogs, primes)</span><br><span class="line">flag2 = long_to_bytes(m2).decode()</span><br><span class="line"><span class="built_in">print</span>(flag2)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Smart-Attack"><a href="#Smart-Attack" class="headerlink" title="Smart Attack"></a>Smart Attack</h2><blockquote>
+<p>$E(F_p) &#x3D; p$, the order of the elliptic curve is a prime. </p>
+</blockquote>
+<p><em>It will be updated, if I have time.</em></p>
+<p><strong>Exp:</strong> ECC-3</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># smart_attack</span></span><br><span class="line">a3 = <span class="number">490963434153515882934487973185142842357175523008183292296815140698999054658777820556076794490414610737654365807063916602037816955706321036900113929329671</span></span><br><span class="line">b3 = <span class="number">7668542654793784988436499086739239442915170287346121645884096222948338279165302213440060079141960679678526016348025029558335977042712382611197995002316466</span></span><br><span class="line">p3 = <span class="number">11093300438765357787693823122068501933326829181518693650897090781749379503427651954028543076247583697669597230934286751428880673539155279232304301123931419</span></span><br><span class="line">E3 = EllipticCurve(GF(p3), [a3, b3])</span><br><span class="line">P3 = E3(<span class="number">10121571443191913072732572831490534620810835306892634555532657696255506898960536955568544782337611042739846570602400973952350443413585203452769205144937861</span> , <span class="number">8425218582467077730409837945083571362745388328043930511865174847436798990397124804357982565055918658197831123970115905304092351218676660067914209199149610</span> )</span><br><span class="line">Q3 = E3(<span class="number">964864009142237137341389653756165935542611153576641370639729304570649749004810980672415306977194223081235401355646820597987366171212332294914445469010927</span> , <span class="number">5162185780511783278449342529269970453734248460302908455520831950343371147566682530583160574217543701164101226640565768860451999819324219344705421407572537</span> )</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">SmartAttack</span>(<span class="params">P,Q,p</span>):</span><br><span class="line">    E = P.curve()</span><br><span class="line">    Eqp = EllipticCurve(Qp(p, <span class="number">2</span>), [ ZZ(t) + randint(<span class="number">0</span>,p)*p <span class="keyword">for</span> t <span class="keyword">in</span> E.a_invariants() ])</span><br><span class="line"></span><br><span class="line">    P_Qps = Eqp.lift_x(ZZ(P.xy()[<span class="number">0</span>]), <span class="built_in">all</span>=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">for</span> P_Qp <span class="keyword">in</span> P_Qps:</span><br><span class="line">        <span class="keyword">if</span> GF(p)(P_Qp.xy()[<span class="number">1</span>]) == P.xy()[<span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    Q_Qps = Eqp.lift_x(ZZ(Q.xy()[<span class="number">0</span>]), <span class="built_in">all</span>=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">for</span> Q_Qp <span class="keyword">in</span> Q_Qps:</span><br><span class="line">        <span class="keyword">if</span> GF(p)(Q_Qp.xy()[<span class="number">1</span>]) == Q.xy()[<span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    p_times_P = p*P_Qp</span><br><span class="line">    p_times_Q = p*Q_Qp</span><br><span class="line"></span><br><span class="line">    x_P,y_P = p_times_P.xy()</span><br><span class="line">    x_Q,y_Q = p_times_Q.xy()</span><br><span class="line"></span><br><span class="line">    phi_P = -(x_P/y_P)</span><br><span class="line">    phi_Q = -(x_Q/y_Q)</span><br><span class="line">    k = phi_Q/phi_P</span><br><span class="line">    <span class="keyword">return</span> ZZ(k)</span><br><span class="line"></span><br><span class="line"><span class="comment"># from gmpy2 import is_prime</span></span><br><span class="line"><span class="comment"># print(is_prime(P3.order()))</span></span><br><span class="line">m3 = SmartAttack(P3, Q3, p3)</span><br><span class="line">flag3 = long_to_bytes(m3).decode() + <span class="string">&#x27;&#125;&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(flag3)</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="formula-2"><a href="#formula-2" class="headerlink" title="formula 2"></a>formula 2</h2><p>$$<br>X_{n + 2} \equiv aX_{n + 1} + b \mod m<br>$$</p>
-<p>$$<br>X_{n+1} \equiv aX_{n} + b \mod m<br>$$</p>
-<p>$$<br>X_{n+2} - X_{n+1} \equiv a(X_{n + 1} - X_{n}) \mod m<br>$$</p>
-<p>$$<br>a \equiv (X_{n+2} - X_{n+1})(X_{n+1} - X_{n})^{-1} \mod m<br>$$</p>
-<h2 id="formula-3"><a href="#formula-3" class="headerlink" title="formula 3"></a>formula 3</h2><p>$$<br>X_{n + 1} \equiv aX_{n} + b \mod m<br>$$</p>
-<p>$$<br>b \equiv X_{n+1} - aX_{n} \mod m<br>$$</p>
-<h2 id="formula-4"><a href="#formula-4" class="headerlink" title="formula 4"></a>formula 4</h2><p>Define that $t_n \equiv X_{n +1} - X_{n} \mod m$.<br>$$<br>t_n \equiv (aX_{n} + b) - (aX_{n-1} + b) \mod m<br>$$</p>
-<p>$$<br>t_n \equiv a(X_{n} - X_{n-1}) \mod m<br>$$</p>
-<p>$$<br>\Longrightarrow t_n \equiv at_{n-1} \mod m<br>$$</p>
-<p>Thus, we can make the deduction by followings.<br>$$<br>t_{n+1}\cdot t_{n-1} - t_{n}\cdot t_{n} \mod m<br>$$</p>
-<p>$$<br>\rightarrow a\cdot t_{n} \cdot a^{-1} \cdot t_{n} - t_n\cdot t_n \mod m<br>$$</p>
-<p>$$<br>\Longrightarrow 0 \mod m<br>$$</p>
-<p>$$<br>\Longrightarrow t_{n+1}\cdot t_{n-1} - t_{n}\cdot t_{n} | m<br>$$</p>
-<p>Similarly, it can be concluded that $t_{n}\cdot t_{n-2} - t_{n-1}\cdot t_{n-1} | m$<br>$$<br>\Longrightarrow m &#x3D; gcd ((t_{n+1}\cdot t_{n-1} - t_{n}\cdot t_{n}), (t_{n}\cdot t_{n-2} - t_{n-1}\cdot t_{n-1}))<br>$$</p>
-<h1 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h1><h2 id="lcg-1"><a href="#lcg-1" class="headerlink" title="lcg_1"></a>lcg_1</h2><h3 id="task"><a href="#task" class="headerlink" title="task"></a>task</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">flag = <span class="string">b&#x27;Spirit&#123;***********************&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">plaintext = bytes_to_long(flag)</span><br><span class="line">length = plaintext.bit_length()</span><br><span class="line"></span><br><span class="line">a = getPrime(length)</span><br><span class="line">b = getPrime(length)</span><br><span class="line">n = getPrime(length)</span><br><span class="line"></span><br><span class="line">seed = <span class="number">33477128523140105764301644224721378964069</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;seed = &quot;</span>,seed)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a*seed+b)%n</span><br><span class="line">ciphertext = seed^plaintext</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;a = &quot;</span>,a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;b = &quot;</span>,b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n = &quot;</span>,n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;c = &quot;</span>,ciphertext)</span><br></pre></td></tr></table></figure>
+<h2 id="BSGS"><a href="#BSGS" class="headerlink" title="BSGS"></a>BSGS</h2><blockquote>
+<p>baby step giant step</p>
+</blockquote>
+<p>discrete_log(P,Q,operation &#x3D; ‘+’)</p>
+<p><strong>Problems:</strong> $y^x \equiv z \mod p$</p>
+<p>To solve out the $x$.</p>
+<h3 id="Original"><a href="#Original" class="headerlink" title="Original"></a>Original</h3><blockquote>
+<p>$gcd(y, p) &#x3D; 1$</p>
+</blockquote>
+<p>Assume $x &#x3D; am - b,m &#x3D; \sqrt{p}$, $a \in [0, m), b\in[0, m)$. </p>
+<p><strong>Derivation:</strong><br>$$<br>y^{am-b}\equiv z (\mod p)<br>$$</p>
+<p>$$<br>y^{am} \equiv z \cdot y^{b}(\mod p)<br>$$</p>
+<p>Brute force enumeration, enumerate the right in $[0, m)$ and calculate into list. At the same time, we enumerate the left in $[0, m)$, comparing the two list to find the $x$. </p>
+<h3 id="Extended"><a href="#Extended" class="headerlink" title="Extended"></a>Extended</h3><blockquote>
+<p>$gcd(y, p) \neq 1$</p>
+</blockquote>
+<p>Assume $d &#x3D; gcd(y, p)$. </p>
+<p><strong>Derivation:</strong><br>$$<br>y^{x} + kp &#x3D;z<br>$$</p>
+<p>$$<br>y\cdot y^{x-1} +kp &#x3D; z<br>$$</p>
+<p>If we divide it by $d$., we will get that:<br>$$<br>\frac{y}{d}\cdot y^{x-1} + k \cdot \frac{p}{d} &#x3D;\frac{z}{d}<br>$$<br>Recursive the equation, unless $d &#x3D; 1 $. Assume that the product of all $d$ and we enumerate $c$ times. Thus, we can obtain the condition that $x’ &#x3D; x -c, p’ &#x3D; \frac{p}{g}, z’ &#x3D; \frac{z}{g}$.<br>$$<br>y^{x’} \cdot \frac{y^{c}}{g} \equiv z’ (\mod p’)<br>$$<br>And it convert to the <code>original BSGS</code>.</p>
+<p><strong>Example:</strong> ECC-1</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># bsgs</span></span><br><span class="line">a1 = <span class="number">46056180</span></span><br><span class="line">b1 = <span class="number">2316783294673</span></span><br><span class="line">p1 = <span class="number">146808027458411567</span></span><br><span class="line">E1 = EllipticCurve(GF(p1), [a1, b1])</span><br><span class="line">P1 = E1(<span class="number">119851377153561800</span> , <span class="number">50725039619018388</span>)</span><br><span class="line">Q1 = E1(<span class="number">22306318711744209</span> , <span class="number">111808951703508717</span>)</span><br><span class="line">m1 = discrete_log(Q1, P1, operation = <span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">flag1 = <span class="string">&#x27;flag&#123;&#x27;</span> + long_to_bytes(m1).decode()</span><br><span class="line"><span class="comment"># print(flag1)</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h3><p><strong>known:</strong> </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">seed = (a * seed + b) % n</span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">n</span><br><span class="line">---<span class="number">10</span>---&gt; seed</span><br><span class="line">ciphertext = seed ^ plaintext</span><br><span class="line"></span><br><span class="line">=&gt; plaintext = ciphertext ^ seed</span><br></pre></td></tr></table></figure>
-
-<p><strong>exp:</strong> </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">seed = </span><br><span class="line">a = </span><br><span class="line">b = </span><br><span class="line">n = </span><br><span class="line">c = </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a*seed + b) % n</span><br><span class="line">plaintext = seed ^ c</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(plaintext))</span><br></pre></td></tr></table></figure>
-
-<h2 id="lcg-2"><a href="#lcg-2" class="headerlink" title="lcg_2"></a>lcg_2</h2><h3 id="task-1"><a href="#task-1" class="headerlink" title="task"></a>task</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">flag = <span class="string">b&#x27;Spirit&#123;*****************************&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">plaintext = bytes_to_long(flag)</span><br><span class="line">length = plaintext.bit_length()</span><br><span class="line"></span><br><span class="line">a = getPrime(length)</span><br><span class="line">b = getPrime(length)</span><br><span class="line">n = getPrime(length)</span><br><span class="line"></span><br><span class="line">seed = plaintext</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a*seed+b)%n</span><br><span class="line">ciphertext = seed</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;a = &quot;</span>,a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;b = &quot;</span>,b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n = &quot;</span>,n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;c = &quot;</span>,ciphertext)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="solution-1"><a href="#solution-1" class="headerlink" title="solution"></a>solution</h3><p><strong>known:</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">seed = plaintext</span><br><span class="line">seed = (a * seed + b) % n</span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">n</span><br><span class="line">---<span class="number">10</span>---&gt; seed</span><br><span class="line">ciphertext = seed</span><br><span class="line"></span><br><span class="line">use formula <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>exp:</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_ = invert(a, n)</span><br><span class="line"></span><br><span class="line">seed = c</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a_ * (seed - b)) % n</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(seed))</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="lcg-3"><a href="#lcg-3" class="headerlink" title="lcg_3"></a>lcg_3</h2><h3 id="task-2"><a href="#task-2" class="headerlink" title="task"></a>task</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">flag = <span class="string">b&#x27;Spirit&#123;*********************&#125;&#x27;</span></span><br><span class="line">plaintext = bytes_to_long(flag)</span><br><span class="line">length = plaintext.bit_length()</span><br><span class="line"></span><br><span class="line">a = getPrime(length)</span><br><span class="line">seed = getPrime(length)</span><br><span class="line">n = getPrime(length)</span><br><span class="line"></span><br><span class="line">b = plaintext</span><br><span class="line"></span><br><span class="line">output = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a*seed+b)%n</span><br><span class="line">    output.append(seed)</span><br><span class="line">ciphertext = seed</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;a = &quot;</span>,a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n = &quot;</span>,n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;output1 = &quot;</span>,output[<span class="number">6</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;output2 = &quot;</span>,output[<span class="number">7</span>])</span><br></pre></td></tr></table></figure>
-
-<h3 id="solution-2"><a href="#solution-2" class="headerlink" title="solution"></a>solution</h3><p><strong>known:</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a</span><br><span class="line">n</span><br><span class="line">output = (a * seed + b) % n</span><br><span class="line">	-&gt; output1 = output[<span class="number">6</span>]</span><br><span class="line">	-&gt; output2 = output[<span class="number">7</span>]</span><br><span class="line">b = plaintext</span><br></pre></td></tr></table></figure>
-
-<p><strong>exp:</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># formula 3</span></span><br><span class="line">b = (output2 - a*output1) % n</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(b))</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="lcg-4"><a href="#lcg-4" class="headerlink" title="lcg_4"></a>lcg_4</h2><h3 id="task-3"><a href="#task-3" class="headerlink" title="task"></a>task</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">flag = <span class="string">b&#x27;Spirit&#123;********************************&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">plaintext = bytes_to_long(flag)</span><br><span class="line">length = plaintext.bit_length()</span><br><span class="line"></span><br><span class="line">a = getPrime(length)</span><br><span class="line">b = getPrime(length)</span><br><span class="line">n = getPrime(length)</span><br><span class="line"></span><br><span class="line">seed = plaintext</span><br><span class="line">output = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a*seed+b)%n</span><br><span class="line">    output.append(seed)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n = &quot;</span>,n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;output = &quot;</span>,output)</span><br></pre></td></tr></table></figure>
-
-<h3 id="solution-3"><a href="#solution-3" class="headerlink" title="solution"></a>solution</h3><p><strong>known:</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n</span><br><span class="line">seed = (a * seed + b) % n   ---&gt; output</span><br></pre></td></tr></table></figure>
-
-<p><strong>target:</strong> </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">to solve out a, b</span><br><span class="line">a  &lt;---  formula <span class="number">2</span></span><br><span class="line">b  &lt;---  formula <span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>exp:</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solve out a</span></span><br><span class="line">a = invert(output[<span class="number">1</span>] - output[<span class="number">0</span>], n) * (output[<span class="number">2</span>] - output[<span class="number">1</span>]) % n</span><br><span class="line">a_ = invert(a, n)</span><br><span class="line"><span class="comment"># solve out b</span></span><br><span class="line">b = (output[<span class="number">1</span>] - a * output[<span class="number">0</span>]) % n</span><br><span class="line"><span class="comment"># solve out the initial seed</span></span><br><span class="line">plaintext = a_ * (output[<span class="number">0</span>] - b) % n</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(plaintext))</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="lcg-5"><a href="#lcg-5" class="headerlink" title="lcg_5"></a>lcg_5</h2><h3 id="task-4"><a href="#task-4" class="headerlink" title="task"></a>task</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">flag = <span class="string">b&#x27;Spirit&#123;****************************************&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">plaintext = bytes_to_long(flag)</span><br><span class="line">length = plaintext.bit_length()</span><br><span class="line"></span><br><span class="line">a = getPrime(length)</span><br><span class="line">b = getPrime(length)</span><br><span class="line">n = getPrime(length)</span><br><span class="line"></span><br><span class="line">seed = plaintext</span><br><span class="line">output = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a*seed+b)%n</span><br><span class="line">    output.append(seed)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;output = &quot;</span>,output)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="solution-4"><a href="#solution-4" class="headerlink" title="solution"></a>solution</h3><p><strong>known:</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">seed = (a * seed + b) % n   ---&gt; output</span><br></pre></td></tr></table></figure>
-
-<p><strong>target:</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">to solve out a, b, m</span><br><span class="line"></span><br><span class="line">m  &lt;--- formula <span class="number">4</span></span><br><span class="line">a  &lt;--- formula <span class="number">2</span></span><br><span class="line">b  &lt;--- formula <span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>exp:</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solve out n</span></span><br><span class="line">t = [output[i + <span class="number">1</span>] - output[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(output) - <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">T</span>(<span class="params">i</span>):</span><br><span class="line">    <span class="keyword">return</span> t[i + <span class="number">1</span>] * t[i - <span class="number">1</span>] - t[i] * t[i]</span><br><span class="line"></span><br><span class="line">ns = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(output) - <span class="number">3</span>):</span><br><span class="line">    ns.append(<span class="built_in">int</span>(gcd(T(i), T(i+<span class="number">1</span>))))</span><br><span class="line">    <span class="comment"># print(ns)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> ns:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># solve out a</span></span><br><span class="line">        a = invert(output[<span class="number">1</span>] - output[<span class="number">0</span>], n) * (output[<span class="number">2</span>] - output[<span class="number">1</span>]) % n</span><br><span class="line">        a_ = invert(a, n)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># solve out b</span></span><br><span class="line">        b = (output[<span class="number">1</span>] - a * output[<span class="number">0</span>]) % n</span><br><span class="line"></span><br><span class="line">        <span class="comment"># solve out the initial seed</span></span><br><span class="line">        plaintext = a_ * (output[<span class="number">0</span>] - b) % n</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(long_to_bytes(plaintext))</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="lcg-6"><a href="#lcg-6" class="headerlink" title="lcg_6"></a>lcg_6</h2><h3 id="task-5"><a href="#task-5" class="headerlink" title="task"></a>task</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">flag = <span class="string">b&#x27;Spirit&#123;*****************&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">plaintext = bytes_to_long(flag)</span><br><span class="line">length = plaintext.bit_length()</span><br><span class="line"></span><br><span class="line">a = getPrime(length)</span><br><span class="line">b = getPrime(length)</span><br><span class="line">n = getPrime(length)</span><br><span class="line"></span><br><span class="line">seed = plaintext</span><br><span class="line"></span><br><span class="line">output = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (seed*a+b)%n</span><br><span class="line">    output.append(seed&gt;&gt;<span class="number">64</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;a = &quot;</span>,a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;b = &quot;</span>,b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n = &quot;</span>,n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;output = &quot;</span>,output)</span><br></pre></td></tr></table></figure>
-
+<h1 id="ECC"><a href="#ECC" class="headerlink" title="ECC"></a>ECC</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>The equation:<br>$$<br>(a, b)\in F, y^2 &#x3D; x^3 + ax + b<br>$$<br>if the ECC satisfies the equation, we calculate its discriminant by:<br>$$<br>y^2 + axy + by &#x3D; x^3 + cx^2 + dx + c<br>$$</p>
 ]]></content>
       <categories>
-        <category>Crypto</category>
+        <category>Math</category>
       </categories>
       <tags>
-        <tag>lcg</tag>
-        <tag>recursion</tag>
+        <tag>ecc</tag>
       </tags>
   </entry>
   <entry>
@@ -2440,6 +2318,26 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2022/10/21/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Paillier-Cryptosystem</title>
     <url>/2023/03/15/paillier-cryptosystem/</url>
     <content><![CDATA[<p>Two different approaches to homomorphic encryption. These ways are called as “paillier-cryptosystem”. </p>
@@ -2560,24 +2458,133 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/10/21/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
+    <title>LCGs</title>
+    <url>/2023/06/27/LCGs/</url>
+    <content><![CDATA[<p>The LCG algorithm is applied to the generation of pseudo random numbers.<br>$$<br>X_{n + 1} \equiv (a X_{n} + b) \mod m<br>$$</p>
+<p>The LCG defines three variables——multiplier a, increment b, and modulus m, which decide the generator. </p>
+<span id="more"></span><!--toc-->
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><blockquote>
+<p><a href="https://blog.csdn.net/superprintf/article/details/108964563">ctf-lcg</a></p>
+</blockquote>
+<h1 id="Solving-Formula"><a href="#Solving-Formula" class="headerlink" title="Solving Formula"></a>Solving Formula</h1><table>
+<thead>
+<tr>
+<th>targets</th>
+<th>formulae</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$X_{n+1} \rightarrow X_{n}$</td>
+<td>$X_{n}\equiv a^{-1}(X_{n+1} - b) \mod m$</td>
+</tr>
+<tr>
+<td>$\rightarrow a$</td>
+<td>$a \equiv (X_{n+2} - X_{n+1})(X_{n+1} - X_{n})^{-1} \mod m$</td>
+</tr>
+<tr>
+<td>$\rightarrow b$</td>
+<td>$b \equiv (X_{n+1} - X_{n}) \mod m$</td>
+</tr>
+<tr>
+<td>$\rightarrow m$</td>
+<td>$t_{n} &#x3D; X_{n + 1} - X_{n}$</td>
+</tr>
+<tr>
+<td></td>
+<td>$m &#x3D; gcd((t_{n+1}\cdot t_{n-1} - t_n\cdot t_n), (t_n\cdot t_{n-2} - t_{n-1}\cdot t_{n-1}))$</td>
+</tr>
+</tbody></table>
+<h1 id="Proofs"><a href="#Proofs" class="headerlink" title="Proofs"></a>Proofs</h1><h2 id="formula-1"><a href="#formula-1" class="headerlink" title="formula 1"></a>formula 1</h2><p>$$<br>X_{n+1} \equiv a X_{n} + b \mod m<br>$$</p>
+<p>$$<br>aX_{n} \equiv X_{n+1} - b \mod m<br>$$</p>
+<p>$$<br>X_{n} \equiv a^{-1} (X_{n+1} - b) \mod m<br>$$</p>
+<p>How to calculate $a^{-1}$? We can use <code>Extended Euclidean algorithm</code>.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">MMI = <span class="keyword">lambda</span> A, n,s=<span class="number">1</span>,t=<span class="number">0</span>,N=<span class="number">0</span>: (n &lt; <span class="number">2</span> <span class="keyword">and</span> t%N <span class="keyword">or</span> MMI(n, A%n, t, s-A//n*t, N <span class="keyword">or</span> n),-<span class="number">1</span>)[n&lt;<span class="number">1</span>]</span><br><span class="line"><span class="comment"># &lt;==&gt; MMI = lambda a, n: gmpy2.gcdext(a, n)[1]</span></span><br><span class="line"><span class="comment"># &lt;==&gt; gmpy2.invert(a, n)</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="formula-2"><a href="#formula-2" class="headerlink" title="formula 2"></a>formula 2</h2><p>$$<br>X_{n + 2} \equiv aX_{n + 1} + b \mod m<br>$$</p>
+<p>$$<br>X_{n+1} \equiv aX_{n} + b \mod m<br>$$</p>
+<p>$$<br>X_{n+2} - X_{n+1} \equiv a(X_{n + 1} - X_{n}) \mod m<br>$$</p>
+<p>$$<br>a \equiv (X_{n+2} - X_{n+1})(X_{n+1} - X_{n})^{-1} \mod m<br>$$</p>
+<h2 id="formula-3"><a href="#formula-3" class="headerlink" title="formula 3"></a>formula 3</h2><p>$$<br>X_{n + 1} \equiv aX_{n} + b \mod m<br>$$</p>
+<p>$$<br>b \equiv X_{n+1} - aX_{n} \mod m<br>$$</p>
+<h2 id="formula-4"><a href="#formula-4" class="headerlink" title="formula 4"></a>formula 4</h2><p>Define that $t_n \equiv X_{n +1} - X_{n} \mod m$.<br>$$<br>t_n \equiv (aX_{n} + b) - (aX_{n-1} + b) \mod m<br>$$</p>
+<p>$$<br>t_n \equiv a(X_{n} - X_{n-1}) \mod m<br>$$</p>
+<p>$$<br>\Longrightarrow t_n \equiv at_{n-1} \mod m<br>$$</p>
+<p>Thus, we can make the deduction by followings.<br>$$<br>t_{n+1}\cdot t_{n-1} - t_{n}\cdot t_{n} \mod m<br>$$</p>
+<p>$$<br>\rightarrow a\cdot t_{n} \cdot a^{-1} \cdot t_{n} - t_n\cdot t_n \mod m<br>$$</p>
+<p>$$<br>\Longrightarrow 0 \mod m<br>$$</p>
+<p>$$<br>\Longrightarrow t_{n+1}\cdot t_{n-1} - t_{n}\cdot t_{n} | m<br>$$</p>
+<p>Similarly, it can be concluded that $t_{n}\cdot t_{n-2} - t_{n-1}\cdot t_{n-1} | m$<br>$$<br>\Longrightarrow m &#x3D; gcd ((t_{n+1}\cdot t_{n-1} - t_{n}\cdot t_{n}), (t_{n}\cdot t_{n-2} - t_{n-1}\cdot t_{n-1}))<br>$$</p>
+<h1 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h1><h2 id="lcg-1"><a href="#lcg-1" class="headerlink" title="lcg_1"></a>lcg_1</h2><h3 id="task"><a href="#task" class="headerlink" title="task"></a>task</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">flag = <span class="string">b&#x27;Spirit&#123;***********************&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">plaintext = bytes_to_long(flag)</span><br><span class="line">length = plaintext.bit_length()</span><br><span class="line"></span><br><span class="line">a = getPrime(length)</span><br><span class="line">b = getPrime(length)</span><br><span class="line">n = getPrime(length)</span><br><span class="line"></span><br><span class="line">seed = <span class="number">33477128523140105764301644224721378964069</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;seed = &quot;</span>,seed)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a*seed+b)%n</span><br><span class="line">ciphertext = seed^plaintext</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;a = &quot;</span>,a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;b = &quot;</span>,b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n = &quot;</span>,n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;c = &quot;</span>,ciphertext)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h3><p><strong>known:</strong> </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">seed = (a * seed + b) % n</span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">n</span><br><span class="line">---<span class="number">10</span>---&gt; seed</span><br><span class="line">ciphertext = seed ^ plaintext</span><br><span class="line"></span><br><span class="line">=&gt; plaintext = ciphertext ^ seed</span><br></pre></td></tr></table></figure>
+
+<p><strong>exp:</strong> </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">seed = </span><br><span class="line">a = </span><br><span class="line">b = </span><br><span class="line">n = </span><br><span class="line">c = </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a*seed + b) % n</span><br><span class="line">plaintext = seed ^ c</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(plaintext))</span><br></pre></td></tr></table></figure>
+
+<h2 id="lcg-2"><a href="#lcg-2" class="headerlink" title="lcg_2"></a>lcg_2</h2><h3 id="task-1"><a href="#task-1" class="headerlink" title="task"></a>task</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">flag = <span class="string">b&#x27;Spirit&#123;*****************************&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">plaintext = bytes_to_long(flag)</span><br><span class="line">length = plaintext.bit_length()</span><br><span class="line"></span><br><span class="line">a = getPrime(length)</span><br><span class="line">b = getPrime(length)</span><br><span class="line">n = getPrime(length)</span><br><span class="line"></span><br><span class="line">seed = plaintext</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a*seed+b)%n</span><br><span class="line">ciphertext = seed</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;a = &quot;</span>,a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;b = &quot;</span>,b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n = &quot;</span>,n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;c = &quot;</span>,ciphertext)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="solution-1"><a href="#solution-1" class="headerlink" title="solution"></a>solution</h3><p><strong>known:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">seed = plaintext</span><br><span class="line">seed = (a * seed + b) % n</span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">n</span><br><span class="line">---<span class="number">10</span>---&gt; seed</span><br><span class="line">ciphertext = seed</span><br><span class="line"></span><br><span class="line">use formula <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_ = invert(a, n)</span><br><span class="line"></span><br><span class="line">seed = c</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a_ * (seed - b)) % n</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(seed))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="lcg-3"><a href="#lcg-3" class="headerlink" title="lcg_3"></a>lcg_3</h2><h3 id="task-2"><a href="#task-2" class="headerlink" title="task"></a>task</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">flag = <span class="string">b&#x27;Spirit&#123;*********************&#125;&#x27;</span></span><br><span class="line">plaintext = bytes_to_long(flag)</span><br><span class="line">length = plaintext.bit_length()</span><br><span class="line"></span><br><span class="line">a = getPrime(length)</span><br><span class="line">seed = getPrime(length)</span><br><span class="line">n = getPrime(length)</span><br><span class="line"></span><br><span class="line">b = plaintext</span><br><span class="line"></span><br><span class="line">output = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a*seed+b)%n</span><br><span class="line">    output.append(seed)</span><br><span class="line">ciphertext = seed</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;a = &quot;</span>,a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n = &quot;</span>,n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;output1 = &quot;</span>,output[<span class="number">6</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;output2 = &quot;</span>,output[<span class="number">7</span>])</span><br></pre></td></tr></table></figure>
+
+<h3 id="solution-2"><a href="#solution-2" class="headerlink" title="solution"></a>solution</h3><p><strong>known:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a</span><br><span class="line">n</span><br><span class="line">output = (a * seed + b) % n</span><br><span class="line">	-&gt; output1 = output[<span class="number">6</span>]</span><br><span class="line">	-&gt; output2 = output[<span class="number">7</span>]</span><br><span class="line">b = plaintext</span><br></pre></td></tr></table></figure>
+
+<p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># formula 3</span></span><br><span class="line">b = (output2 - a*output1) % n</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(b))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="lcg-4"><a href="#lcg-4" class="headerlink" title="lcg_4"></a>lcg_4</h2><h3 id="task-3"><a href="#task-3" class="headerlink" title="task"></a>task</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">flag = <span class="string">b&#x27;Spirit&#123;********************************&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">plaintext = bytes_to_long(flag)</span><br><span class="line">length = plaintext.bit_length()</span><br><span class="line"></span><br><span class="line">a = getPrime(length)</span><br><span class="line">b = getPrime(length)</span><br><span class="line">n = getPrime(length)</span><br><span class="line"></span><br><span class="line">seed = plaintext</span><br><span class="line">output = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a*seed+b)%n</span><br><span class="line">    output.append(seed)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n = &quot;</span>,n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;output = &quot;</span>,output)</span><br></pre></td></tr></table></figure>
+
+<h3 id="solution-3"><a href="#solution-3" class="headerlink" title="solution"></a>solution</h3><p><strong>known:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n</span><br><span class="line">seed = (a * seed + b) % n   ---&gt; output</span><br></pre></td></tr></table></figure>
+
+<p><strong>target:</strong> </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">to solve out a, b</span><br><span class="line">a  &lt;---  formula <span class="number">2</span></span><br><span class="line">b  &lt;---  formula <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solve out a</span></span><br><span class="line">a = invert(output[<span class="number">1</span>] - output[<span class="number">0</span>], n) * (output[<span class="number">2</span>] - output[<span class="number">1</span>]) % n</span><br><span class="line">a_ = invert(a, n)</span><br><span class="line"><span class="comment"># solve out b</span></span><br><span class="line">b = (output[<span class="number">1</span>] - a * output[<span class="number">0</span>]) % n</span><br><span class="line"><span class="comment"># solve out the initial seed</span></span><br><span class="line">plaintext = a_ * (output[<span class="number">0</span>] - b) % n</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(plaintext))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="lcg-5"><a href="#lcg-5" class="headerlink" title="lcg_5"></a>lcg_5</h2><h3 id="task-4"><a href="#task-4" class="headerlink" title="task"></a>task</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">flag = <span class="string">b&#x27;Spirit&#123;****************************************&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">plaintext = bytes_to_long(flag)</span><br><span class="line">length = plaintext.bit_length()</span><br><span class="line"></span><br><span class="line">a = getPrime(length)</span><br><span class="line">b = getPrime(length)</span><br><span class="line">n = getPrime(length)</span><br><span class="line"></span><br><span class="line">seed = plaintext</span><br><span class="line">output = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (a*seed+b)%n</span><br><span class="line">    output.append(seed)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;output = &quot;</span>,output)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="solution-4"><a href="#solution-4" class="headerlink" title="solution"></a>solution</h3><p><strong>known:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">seed = (a * seed + b) % n   ---&gt; output</span><br></pre></td></tr></table></figure>
+
+<p><strong>target:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">to solve out a, b, m</span><br><span class="line"></span><br><span class="line">m  &lt;--- formula <span class="number">4</span></span><br><span class="line">a  &lt;--- formula <span class="number">2</span></span><br><span class="line">b  &lt;--- formula <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solve out n</span></span><br><span class="line">t = [output[i + <span class="number">1</span>] - output[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(output) - <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">T</span>(<span class="params">i</span>):</span><br><span class="line">    <span class="keyword">return</span> t[i + <span class="number">1</span>] * t[i - <span class="number">1</span>] - t[i] * t[i]</span><br><span class="line"></span><br><span class="line">ns = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(output) - <span class="number">3</span>):</span><br><span class="line">    ns.append(<span class="built_in">int</span>(gcd(T(i), T(i+<span class="number">1</span>))))</span><br><span class="line">    <span class="comment"># print(ns)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> ns:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># solve out a</span></span><br><span class="line">        a = invert(output[<span class="number">1</span>] - output[<span class="number">0</span>], n) * (output[<span class="number">2</span>] - output[<span class="number">1</span>]) % n</span><br><span class="line">        a_ = invert(a, n)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># solve out b</span></span><br><span class="line">        b = (output[<span class="number">1</span>] - a * output[<span class="number">0</span>]) % n</span><br><span class="line"></span><br><span class="line">        <span class="comment"># solve out the initial seed</span></span><br><span class="line">        plaintext = a_ * (output[<span class="number">0</span>] - b) % n</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(long_to_bytes(plaintext))</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="lcg-6"><a href="#lcg-6" class="headerlink" title="lcg_6"></a>lcg_6</h2><h3 id="task-5"><a href="#task-5" class="headerlink" title="task"></a>task</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">flag = <span class="string">b&#x27;Spirit&#123;*****************&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">plaintext = bytes_to_long(flag)</span><br><span class="line">length = plaintext.bit_length()</span><br><span class="line"></span><br><span class="line">a = getPrime(length)</span><br><span class="line">b = getPrime(length)</span><br><span class="line">n = getPrime(length)</span><br><span class="line"></span><br><span class="line">seed = plaintext</span><br><span class="line"></span><br><span class="line">output = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    seed = (seed*a+b)%n</span><br><span class="line">    output.append(seed&gt;&gt;<span class="number">64</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;a = &quot;</span>,a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;b = &quot;</span>,b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n = &quot;</span>,n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;output = &quot;</span>,output)</span><br></pre></td></tr></table></figure>
+
 ]]></content>
+      <categories>
+        <category>Crypto</category>
+      </categories>
+      <tags>
+        <tag>lcg</tag>
+        <tag>recursion</tag>
+      </tags>
   </entry>
   <entry>
     <title>MISC-Write-Up-Zh</title>
@@ -3301,8 +3308,36 @@
 
 
 
+<h1 id="coppersmith边界问题"><a href="#coppersmith边界问题" class="headerlink" title="coppersmith边界问题"></a>coppersmith边界问题</h1><blockquote>
+<p><a href="https://blog.csdn.net/qq_51999772/article/details/123620932">RSA中coppersmith定理的应用条件_small_roots_M3ng@L的博客-CSDN博客</a></p>
+</blockquote>
+<img src="/2023/02/22/weekly-descriptions-about-crypto/image-20230803144033492.png" class="" title="image-20230803144033492">
+
+<img src="/2023/02/22/weekly-descriptions-about-crypto/image-20230803144106079.png" class="" title="image-20230803144106079">
+
+<img src="/2023/02/22/weekly-descriptions-about-crypto/image-20230803144137890.png" class="" title="image-20230803144137890">
+
+<img src="/2023/02/22/weekly-descriptions-about-crypto/image-20230803144155489.png" class="" title="image-20230803144155489">
+
+<img src="/2023/02/22/weekly-descriptions-about-crypto/image-20230803144224670.png" class="" title="image-20230803144224670">
+
+<img src="/2023/02/22/weekly-descriptions-about-crypto/image-20230803144334288.png" class="" title="image-20230803144334288">
 
 
+
+<ul>
+<li><p>在<code>sagemath</code>中应用<code>coppersmith</code>定理的函数有两个：<code>small_roots</code>， <code>coppersmith_howgrave_univariate</code>。</p>
+</li>
+<li><p>这里求解coppersmith我们统一使用sagemath的<code>small_roots()</code>函数；该函数导入的 $\beta$起作用的只有一位小数（如果是两位小数，其求解范围还是相当于一位小数的求解范围），这就意味着一般形如<code>p = getPrime(bits)</code>,<code>q = geyPrime(bits)</code>的RSA应用<code>coppersmith</code>求解$p$的低位时，$\beta$只能是最接近$0.5$ 的$0.4$。</p>
+</li>
+</ul>
+<p>关于<code>small_roots()</code>的使用方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">small_roots(X = ,beta = ) 有两个参数</span><br></pre></td></tr></table></figure>
+
+<p>$X$代表所需要求解根的上限；虽然是根的上限，并不是说上限越高越好，当上限超过某个值的时候就会计算失效，即使已知二进制位数满足条件，也无法用此函数求得结果；所以一般来说$X$取在给定情况下的最大求解上限。</p>
+<p>$beta$即是前面提到的$\beta$ ，当$p$,$q$二进制位数相同时一般只能取$0.4$；如果$p$,$q$二进制位数不同，就按照之前的方法具体问题具体分析。</p>
+<p>经过测试得到，当未知量小于等于$454bits$时（$p$,$q$为$1024bits$），coppersmith定理可以求解</p>
+<p>之后改变了$p$,$q$的大小，经过测试发现，当$p$,$q$同二进制位数时，要使用<code>small_roots()</code>应用<code>coppersmith</code>定理求解$n$的某个因数的低位，需要满足未知的二进制位数与因数之间的二进制位数的关系是：<br>$$<br>bits_{unknown} \div bits_{p} &lt; &#x3D; 0.44<br>$$</p>
 ]]></content>
       <categories>
         <category>Crypto</category>
