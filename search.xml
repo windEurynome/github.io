@@ -254,10 +254,35 @@
 <h1 id="Euler’s-criterion"><a href="#Euler’s-criterion" class="headerlink" title="Euler’s criterion"></a>Euler’s criterion</h1><p>If the modulo $p$ is a odd prime and is prime to $a$, we can get $a^{p-1}\equiv 1 \mod p$ by using the fermat’s little theorem. </p>
 <p>We define that $p &#x3D; 2q + 1$， and we will get $a^{2q} \equiv 1 \mod p$:<br>$$<br>\Longrightarrow (a^{2q} - 1) \times (2^{2q} + 1) \equiv 0 \mod p<br>$$<br>So the $a^q \equiv \pm 1 \mod p$，means that $a^{\frac{p-1}{2}} \equiv \pm 1 \mod p$. </p>
 <p>In fact, we have the equation which is called euler’s criterion.<br>$$<br>(\frac{a}{p}) \equiv a^{\frac{p - 1}{2}} \mod p<br>$$</p>
-<h2 id="proof"><a href="#proof" class="headerlink" title="proof"></a>proof</h2><p>“$a$ is the quadratic remainder of modulo $p$” is a sufficient condition for “$a^{\frac{p-1}{2}} \equiv 1 \mod p$”. </p>
+<h1 id="Groups-and-Abelian-group"><a href="#Groups-and-Abelian-group" class="headerlink" title="Groups and Abelian group"></a>Groups and Abelian group</h1><p>Usually needs to satisfy the qualities below.</p>
+<p>首先说下群论的基础。代数中的群简单来说就是一组元素集合和定义在元素上的运算。比如说全体整数构成了一个群，运算包括加法等。这里的集合用 G（group）表示，集合要变成群，一般要满足以下性质：</p>
+<ol>
+<li>封闭性：如果 $a$ 和 $b$ 都属于 $G$ 集合，那么 $a+b$ 也属于$G$;</li>
+<li>结合律：$(a+b)+c&#x3D;a+(b+c)$</li>
+<li>存在单位元（<em>在二元运算中，单位元指与任意元素运算不改变其值的元素，以实数为例，乘法单位元为1，加法单位元为0</em>）$O$ 使得$a+O&#x3D;O+a&#x3D;a$ ;</li>
+</ol>
+<p>4.每个元素都存在逆元素，就是说对于任意元素 $a$ 必存在 $b$ 使得 $a+b&#x3D;O$ ($O$是单位元) 。</p>
+<p>集合满足以上四个性质就是称为群，还有一些特殊的群，如阿贝尔群（Abelian Group）除了满足群的基本性质，还满足交换律即：<br>$$<br>a+b&#x3D;b+a<br>$$<br>故阿贝尔群又称交换群。根据这些性质，我们可以知道整数集Z是一个阿贝尔群，自然数集N却并不是一个群，因为它不满足第四条性质。</p>
+<h2 id="Elliptic-Curve-Group"><a href="#Elliptic-Curve-Group" class="headerlink" title="Elliptic Curve Group"></a>Elliptic Curve Group</h2><p><strong>椭圆曲线上的群元素是椭圆曲线上的点</strong> 单位元是无穷远点记为 $O$</p>
+<p>任意点 $P$ 的逆是该点关于 $x$  轴对称点。</p>
+<p>椭圆曲线群的加法也不同于整数的加法，它的加法定义可以描述为：</p>
+<p>给定三个共线非零的点 $P$ ，$Q$，$R$ ，它们的和为 $P+Q+R&#x3D;O$。</p>
+<h3 id="几何意义"><a href="#几何意义" class="headerlink" title="几何意义"></a>几何意义</h3><p>过 $𝑃$ 、$𝑄$ 两点做直线 $𝐿$，与椭圆曲线相交于第三点，该点关于 $x$ 轴的对称点即是所求的 $𝑅$ 点。椭圆曲线的这种加法运算有比较明确的几何含义。</p>
+<h3 id="异常情况"><a href="#异常情况" class="headerlink" title="异常情况"></a>异常情况</h3><ol>
+<li>$𝑂+𝑂&#x3D;𝑂$，对任意的 $𝑃$，有 $𝑃+𝑂&#x3D;𝑃$ ；$𝑂$看做零点</li>
+<li>$𝑃&#x3D;(𝑥,𝑦)$ 的负元是关于 $x$ 中对称的点 $−𝑃&#x3D;(𝑥,−𝑦)$（而不是关于原点对称），$𝑃+(−𝑃)&#x3D;𝑂$，可以看做 $P$ 与 $-P$ 连线与椭圆曲线相交于无穷远点</li>
+<li>计算 $𝑃$ 点（$𝑃≠𝑂$）的两倍时，是做该点的切线，再取切线与椭圆曲线交点 $𝑆$ 关于 $x$ 轴的对称点$−𝑆$，也即是 $2𝑃&#x3D;𝑃+𝑃&#x3D;−𝑆$ ，得出2倍值可以递推到若干倍。</li>
+</ol>
+<p>可以看出，椭圆曲线的点集（包含无穷远点$O$）和上述定义的加法运算构成了一个阿贝尔群：<br>单位元是 $𝑂$ 点，$𝑃(𝑥,𝑦)$ 的逆元是 $𝑃(𝑥,−𝑦)$ ，封闭性，结合性以及交换性也是显然满足的。</p>
+<h3 id="椭圆曲线代数计算"><a href="#椭圆曲线代数计算" class="headerlink" title="椭圆曲线代数计算"></a>椭圆曲线代数计算</h3><p>几何解释主要方便理解椭圆曲线的加法意义，代数便于计算。过曲线 $P(x_p, y_p)$以及 $Q(x_q, y_q)$两点（*$P$ 与 $Q$ 不互为负元*）做直线，求第三个交点很容易用代数求解出来。<br>$$<br>y^2 &#x3D; x_3 + ax + b \tag{1}<br>$$</p>
+<p>$$<br>y - y_p &#x3D; k(x - x_p) \tag{2}<br>$$</p>
+<p>于是斜率为$k &#x3D; \frac{y_q - y_p}{x_q - x_p}$（ $P$ 与 $Q$ 不同点）&#x2F; $k &#x3D; \frac{3x_{q}^2 + a}{3y_p}$（ $P$ 与 $Q$ 相同点） 。</p>
+<p>将$(2)$代入$(1)$再利用次数对齐的方法从而求得第三个交点的对称点，也就是$P,Q$之和$R(x_r, y_r)$为：<br>$$<br>x_r &#x3D; k^2 - x_p - x_q<br>$$</p>
+<p>$$<br>y_r &#x3D; -y_p + k(x_p - x_r)<br>$$</p>
+<p>如果 $P &#x3D; Q$，则两者相加为倍乘运算。例如 $P+P &#x3D; 2P &#x3D; R$。<br>$$<br>x_r &#x3D; ((3x_p^{2} + a)&#x2F;2y_p)^2 - 2x_p<br>$$</p>
+<p>$$<br>y_r &#x3D; ((3x_p^{2} + a)&#x2F;2y_p)(x_p - x_r) - y_p<br>$$</p>
 <ul>
-<li>Sufficiency: </li>
-<li>Necessity:</li>
+<li><a href="https://learnblockchain.cn/article/1549">https://learnblockchain.cn/article/1549</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -1705,6 +1730,37 @@
 <li>Coppersmith-已知高位攻击</li>
 <li>方程组求解-groebner_basis()</li>
 </ul>
+<p>$$<br>n &#x3D; p\times q\times r<br>$$</p>
+<p>$$<br>c_1 \equiv (t+p)^{4} + (t+p)^{3} + (t+p)^{2} + (t+p) + 1997 \mod n<br>$$</p>
+<p>$$<br>c_2 \equiv (mt)^{19} + (mt)^{18} + \cdots +(mt)^{2} + (mt) + 1997 \mod q<br>$$</p>
+<p>$$<br>c_3 \equiv (m+t)^{19} + (m+t)^{18}+\cdots + (m+t)^{2} + (m+t) + 1997 \mod q<br>$$</p>
+<p>因为$\mod n \rightarrow \mod q $，所以对公式进行变形可以得到：<br>$$<br>\Longrightarrow kp &#x3D; c_1 - (t^{4} + t^{3} + t^{2} + t + 1997)<br>$$</p>
+<h2 id="Coppersmith-已知高位攻击"><a href="#Coppersmith-已知高位攻击" class="headerlink" title="Coppersmith-已知高位攻击"></a>Coppersmith-已知高位攻击</h2><p>此处我们假设$(t + p)$为未知数，利用多项式环进行求解：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PR.&lt;x&gt; = PolynomialRing(Zmod(n))</span><br><span class="line">f = x^4 + x^3 + x^2 + x + 1997 - c1</span><br><span class="line">t = f.small_roots(X = 2 ^ 32, beta = 0.4)[0]</span><br><span class="line"># print(t)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>small_roots(X, beta)</code></p>
+<ul>
+<li><code>X</code>为该式的需要求解根的上限；虽然是根的上限，并不是说上限越高越好，当上限超过某个值的时候就会计算失效，即使已知二进制位数满足条件，也无法用此函数求得结果；所以一般来说<code>X</code>取在给定情况下的最大求解上限。</li>
+<li><code>beta</code>，当p,q二进制位数相同时一般只能取$0.4$；如果p,q二进制位数不同，就按照之前的方法具体问题具体分析。$p,q \ge n^{\beta}$</li>
+</ul>
+</li>
+<li><p>经过测试得到，当未知量小于等于$454bits$时（$p$,$q$为$1024bits$），coppersmith定理可以求解。</p>
+</li>
+</ul>
+<p>$$<br>gcd(kp, n) &#x3D; p<br>$$</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">kp = t^<span class="number">4</span> + t^<span class="number">3</span> + t^<span class="number">2</span> + t + <span class="number">1997</span> - c1</span><br><span class="line">p = gcd(mpz(kp), mpz(n))</span><br><span class="line">qr = n // p</span><br><span class="line"><span class="keyword">assert</span> isPrime(p)</span><br></pre></td></tr></table></figure>
+
+<p>此时，利用倍数关系，直接把$p$利用<code>gcd()</code>函数进行求解。</p>
+<h2 id="方程组求解-groebner-basis"><a href="#方程组求解-groebner-basis" class="headerlink" title="方程组求解-groebner_basis()"></a>方程组求解-groebner_basis()</h2><p>同样的操作，设置未知数。</p>
+<p>利用<code>groebner_basis()</code>函数进行求解，此时必须三个方程才能求解对应未知量。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P.&lt;x, t&gt; = PolynomialRing(Zmod(qr))</span><br><span class="line">f1 = t - 2915836867</span><br><span class="line">f2 = 1997 - c2</span><br><span class="line">f3 = 1997 - c3</span><br><span class="line">for i in range(1, 20):</span><br><span class="line">    f2 += (x * t) ^ i</span><br><span class="line">    f3 += (x + t) ^ i</span><br><span class="line">G = [f1, f2, f3]</span><br><span class="line">I = Ideal(G)</span><br><span class="line">B = I.groebner_basis()</span><br><span class="line">print(B)</span><br><span class="line">res = [i.constant_coefficient() for i in B]</span><br><span class="line">print(res)</span><br><span class="line">q = int(res[2])</span><br><span class="line">m = int(-res[0] % q)</span><br><span class="line">tt = -res[1] % q</span><br><span class="line">print(q)</span><br><span class="line">print(m)</span><br></pre></td></tr></table></figure>
+
+<p>求出m转字符，发现得不到结果，结果是m % q，猜测比q大，爆破一下。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0x1000000</span>):</span><br><span class="line">    v = long_to_bytes(m + i * q)</span><br><span class="line">    <span class="comment"># if b&#x27;ctf&#x27; in v:</span></span><br><span class="line">    <span class="comment">#     print(v)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">all</span>(<span class="number">0x20</span> &lt;= k &lt; <span class="number">0x7f</span> <span class="keyword">for</span> k <span class="keyword">in</span> v):</span><br><span class="line">        <span class="built_in">print</span>(v,i)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h1 id="DASCTF-2023-amp-0X401-ezRSA"><a href="#DASCTF-2023-amp-0X401-ezRSA" class="headerlink" title="[DASCTF 2023 &amp; 0X401]ezRSA"></a>[DASCTF 2023 &amp; 0X401]ezRSA</h1><ul>
 <li>coppersmith-已知高位求解p</li>
 <li>Franklin Reiter 相关信息攻击</li>
@@ -2154,7 +2210,28 @@
 <p><strong>Example:</strong> ECC-1</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># bsgs</span></span><br><span class="line">a1 = <span class="number">46056180</span></span><br><span class="line">b1 = <span class="number">2316783294673</span></span><br><span class="line">p1 = <span class="number">146808027458411567</span></span><br><span class="line">E1 = EllipticCurve(GF(p1), [a1, b1])</span><br><span class="line">P1 = E1(<span class="number">119851377153561800</span> , <span class="number">50725039619018388</span>)</span><br><span class="line">Q1 = E1(<span class="number">22306318711744209</span> , <span class="number">111808951703508717</span>)</span><br><span class="line">m1 = discrete_log(Q1, P1, operation = <span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">flag1 = <span class="string">&#x27;flag&#123;&#x27;</span> + long_to_bytes(m1).decode()</span><br><span class="line"><span class="comment"># print(flag1)</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="ECC"><a href="#ECC" class="headerlink" title="ECC"></a>ECC</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>The equation:<br>$$<br>(a, b)\in F, y^2 &#x3D; x^3 + ax + b<br>$$<br>if the ECC satisfies the equation, we calculate its discriminant by:<br>$$<br>y^2 + axy + by &#x3D; x^3 + cx^2 + dx + c<br>$$</p>
+<h1 id="ECC"><a href="#ECC" class="headerlink" title="ECC"></a>ECC</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>The equation:<br>$$<br>(a, b)\in F, y^2 &#x3D; x^3 + ax + b<br>$$<br>$$<br>\Delta &#x3D; 4a^{3} + 27b^{2} \ne 0<br>$$</p>
+<p>if the ECC satisfies the equation, we calculate its discriminant by:<br>$$<br>y^2 + axy + by &#x3D; x^3 + cx^2 + dx + c<br>$$</p>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><blockquote>
+<p><a href="https://lbwang.github.io/2020/04/08/ecc/">https://lbwang.github.io/2020/04/08/ecc/</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = -5; b = 4</span><br><span class="line">E1 = EllipticCurve(RR, [a, b])</span><br><span class="line">show(plot(E1, hue=.9))</span><br></pre></td></tr></table></figure>
+
+<img src="/2023/01/11/23-01-11-ECC/tmp_6b2u08zf.png" class="" title="tmp_6b2u08zf">
+
+<p>if we change the figure of $a$ and $b$, we can get the other EllipticCurves.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = 2; b = 3</span><br><span class="line">E2 = EllipticCurve(RR, [a, b])</span><br><span class="line">show(plot(E2, hue=.9))</span><br></pre></td></tr></table></figure>
+
+<img src="/2023/01/11/23-01-11-ECC/tmp_o58hsxb2.png" class="" title="tmp_o58hsxb2">
+
+<p>or we make the $a$ and $b$ random, thus we can not predict the curves.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">E3 = EllipticCurve(RR, [RR.random_element(), RR.random_element()])</span><br><span class="line">show(plot(EE, hue=.7))</span><br></pre></td></tr></table></figure>
+
+<img src="/2023/01/11/23-01-11-ECC/tmp_iaubxs_y.png" class="" title="tmp_iaubxs_y">
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sage: p = 137</span><br><span class="line">sage: F = GF(p)</span><br><span class="line">sage: F = FiniteField(p)</span><br><span class="line">sage: F = GF(p)</span><br><span class="line">sage: E137 = EllipticCurve(F, [F.random_element(), F.random_element()])</span><br><span class="line">sage: show(plot(E137, hue=.7))</span><br><span class="line">Launched png viewer for Graphics object consisting of 1 graphics primitive</span><br><span class="line">sage:</span><br></pre></td></tr></table></figure>
+
+<img src="/2023/01/11/23-01-11-ECC/tmp_pcrtf2_a.png" class="" title="tmp_pcrtf2_a">
 ]]></content>
       <categories>
         <category>Math</category>
@@ -2190,6 +2267,7 @@
 <p><a href="https://practice.rs/why-exercise.html">https://practice.rs/why-exercise.html</a></p>
 <p><a href="https://practice.rs/why-exercise.html">https://practice.rs/why-exercise.html</a></p>
 <p><a href="https://www.runoob.com/rust/rust-tutorial.html">https://www.runoob.com/rust/rust-tutorial.html</a></p>
+<p><a href="https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html">Programming a Guessing Game - The Rust Programming Language (rust-lang.org)</a></p>
 </blockquote>
 <h1 id="Install-rust"><a href="#Install-rust" class="headerlink" title="Install rust"></a>Install rust</h1><h2 id="fix-success-or-fail"><a href="#fix-success-or-fail" class="headerlink" title="fix success or fail"></a>fix success or fail</h2><p>After installation, we run <code>rustc -V</code> and <code>cargo -V</code> and will see the details of version.</p>
 <img src="/2023/06/07/Rust-Study/1.png" class="" title="successful installation">
@@ -2261,8 +2339,12 @@
 
 
 
-<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p>test code: </p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">greet_world</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">southern_germany</span> = <span class="string">&quot;Grüß Gott!&quot;</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">chinese</span> = <span class="string">&quot;世界，你好&quot;</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">english</span> = <span class="string">&quot;World, hello&quot;</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">regions</span> = [southern_germany, chinese, english];</span><br><span class="line">    <span class="keyword">for</span> <span class="variable">region</span> <span class="keyword">in</span> regions.<span class="title function_ invoke__">iter</span>() &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, &amp;region);</span><br><span class="line">    &#125;</span><br><span class="line">    # or we can <span class="keyword">use</span> this way to run:</span><br><span class="line">    # <span class="keyword">for</span> <span class="variable">region</span> <span class="keyword">in</span> <span class="title function_ invoke__">regions</span>()&#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, &amp;region);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="title function_ invoke__">greet_world</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><blockquote>
+<p>RustProject&#x2F;greeting</p>
+<p>RustProject&#x2F;advanced_code</p>
+</blockquote>
+<p>test code: </p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">greet_world</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">southern_germany</span> = <span class="string">&quot;Grüß Gott!&quot;</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">chinese</span> = <span class="string">&quot;世界，你好&quot;</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">english</span> = <span class="string">&quot;World, hello&quot;</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">regions</span> = [southern_germany, chinese, english];</span><br><span class="line">    <span class="keyword">for</span> <span class="variable">region</span> <span class="keyword">in</span> regions.<span class="title function_ invoke__">iter</span>() &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, &amp;region);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// or we can use this way to run:</span></span><br><span class="line">    <span class="comment">// for region in regions()&#123;</span></span><br><span class="line">    <span class="comment">//     println!(&quot;&#123;&#125;&quot;, &amp;region);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="title function_ invoke__">greet_world</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>How to run?</p>
 <ul>
@@ -2309,6 +2391,124 @@
 <li>Method syntax: Since Rust has no inheritance, Rust is not an object-oriented language in the traditional sense, but it steals methods from the OO language using <code>record.trim()</code>, <code>record.split(&#39;,&#39;)</code>, etc.</li>
 <li>Lambda function: Functions can be taken as parameters or as return values.</li>
 </ul>
+<h1 id="Guess-game"><a href="#Guess-game" class="headerlink" title="Guess game"></a>Guess game</h1><blockquote>
+<p>RustProject&#x2F;guessing_game</p>
+</blockquote>
+<h2 id="accept-the-user’s-input"><a href="#accept-the-user’s-input" class="headerlink" title="accept the user’s input"></a>accept the user’s input</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::io; </span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Guessing the number!&quot;</span>);</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Please input your guess:&quot;</span>); </span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">guess</span> = <span class="type">String</span>::<span class="title function_ invoke__">new</span>(); </span><br><span class="line">    io::<span class="title function_ invoke__">stdin</span>()</span><br><span class="line">        .<span class="title function_ invoke__">read_line</span>(&amp;<span class="keyword">mut</span> guess)</span><br><span class="line">        .<span class="title function_ invoke__">except</span>(<span class="string">&quot;Failed to read line&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;You guessed: &#123;&#125;&quot;</span>, guess);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="go-over-it-line-by-line"><a href="#go-over-it-line-by-line" class="headerlink" title="go over it line by line"></a>go over it line by line</h3><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::io; </span><br></pre></td></tr></table></figure>
+
+<p>bring the io library which comes from the standard library (std)</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>()&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>fn</code> means a new function</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;Guessing the number!&quot;</span>);</span><br><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;Please input your guess:&quot;</span>); </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>state what the game is</p>
+</li>
+<li><p>request input from the user</p>
+</li>
+</ul>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">guess</span> = <span class="type">String</span>::<span class="title function_ invoke__">new</span>();</span><br></pre></td></tr></table></figure>
+
+<p><code>let</code> statement to create a variable to store the user’s input, to remember that once given it will not change, for example:</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">apples</span> = <span class="number">5</span>;</span><br><span class="line"><span class="comment">// a new variable named apples and binds to the value 5</span></span><br></pre></td></tr></table></figure>
+
+<p>Thus, we add <code>mut</code> before the variable name.</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="comment">//example</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">apples</span> = <span class="number">5</span>; <span class="comment">//immutable</span></span><br><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">bananas</span> = <span class="number">5</span>; <span class="comment">//mutable</span></span><br></pre></td></tr></table></figure>
+
+<p>the <code>::</code>  in <code>::new</code> line indicates that <code>new</code> is an associated function of the <code>String </code> type.</p>
+<p><em><code>let mut guess = String::new();</code>means that it created a mutable variable that is currently bound to a new, empty instance of a <code>String</code>.</em></p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line">io::<span class="title function_ invoke__">stdin</span>()</span><br><span class="line">        .<span class="title function_ invoke__">read_line</span>(&amp;<span class="keyword">mut</span> guess)</span><br></pre></td></tr></table></figure>
+
+<p>call <code>stdin</code> function from <code>io</code> module, which allows us to handle user input</p>
+<p><code>.read_line(&amp;mut guess)</code> call the <code>read_line</code> method on the standard input to get input from the user.</p>
+<p>pass <code>&amp;mut guess</code> to <code>read_line</code> to tell string to store the user’s input</p>
+<p><code>&amp;</code> indicates that this argument is a reference, no need to copy that data into memory multiple times</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line">.<span class="title function_ invoke__">expect</span>(<span class="string">&quot;Failed to read line&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>return a <code>Result</code> type to encode error-handling information</p>
+<p><code>Result</code>‘s variants are <code>Ok</code> and <code>Err</code>.</p>
+<p>If we don’t call <code>expect</code>, the program will compile, but it will get a warning.</p>
+<p>The right way to suppress the warning is to actually write error-handling code, but in our case we just want to crash this program when a problem occurs, so we can use <code>expect</code>.</p>
+<p>PAY ATTENTION ! <code>Expect</code> NOT <code>Except</code> !!!</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;You guessed: &#123;&#125;&quot;</span>, guess);</span><br></pre></td></tr></table></figure>
+
+<p>The line prints the string that now contains the user’s input.</p>
+<h2 id="generate-a-random-number"><a href="#generate-a-random-number" class="headerlink" title="generate a random number"></a>generate a random number</h2><p>Aim to generate a secret number that we will try to guess.</p>
+<p>The random number between 1 and 100.</p>
+<p>The <code>rand</code> crate is a library crate, which contains code that is intended to be used in other programs and can’t be executed on its own.</p>
+<p><em>crate is a term in Rust, meaning a stand-alone library or project</em></p>
+<p><em><code>library crate</code> which means the project contains library code</em></p>
+<p>So we should import it in <code>Cargo.toml</code> which include the <code>rand</code> crate as a dependency.</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line">[dependencies]</span><br><span class="line">rand = <span class="string">&quot;0.8.5&quot;</span></span><br><span class="line"><span class="comment">// rand = &quot;^0.8.5&quot; at least 0.8.5 but below 0.9.0</span></span><br></pre></td></tr></table></figure>
+
+<p>contains below:</p>
+<ul>
+<li>crate name</li>
+<li>crate version</li>
+</ul>
+<p>run <code>cargo build</code> after adding the rand crate as a dependency</p>
+<p>After updating the registry, Cargo checks the <code>[dependencies]</code> section and downloads any crates listed that aren’t already downloaded. In this case, although we only listed <code>rand</code> as a dependency, Cargo also grabbed other crates that <code>rand</code> depends on to work. After downloading the crates, Rust compiles them and then compiles the project with the dependencies available.</p>
+<p>add code to generate a random number:</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> rand::Rng;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="variable">secret_number</span> = rand::<span class="title function_ invoke__">thread_rng</span>().<span class="title function_ invoke__">gen_range</span>(<span class="number">1</span>..=<span class="number">100</span>);</span><br><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;The secret number is: &#123;secret_number&#125;&quot;</span>); </span><br></pre></td></tr></table></figure>
+
+<h3 id="go-over-it-line-by-line-1"><a href="#go-over-it-line-by-line-1" class="headerlink" title="go over it line by line"></a>go over it line by line</h3><p>First, add the line <code>use rand::Rng;</code>. <code>Rng</code>  trait defines methods that random generators implement, and the trait must be in scope for us to use those methods.</p>
+<p>Second, we call <code>rand::thread_rng</code> function that gives us the random generator, and it is local to the current thread of execution and is seeded by the operating system.</p>
+<p>Third, <code>gen_range</code>is a function that define the random number range, which we brought into scope with the <code>rand::Rng;</code> statement.</p>
+<p><em>The usage is that <code>start..=end</code>, is inclusive on the lower and upper bounds. For example <code>1..=100</code> means request a number between 1 and 100.</em></p>
+<blockquote>
+<p>You won’t just know which traits to use and which methods and functions to call from a crate, so each crate has documentation with instructions for using it.</p>
+</blockquote>
+<h2 id="ensure-reproducible-build-with-the-cargo-lock-file"><a href="#ensure-reproducible-build-with-the-cargo-lock-file" class="headerlink" title="ensure reproducible build with the cargo.lock file"></a>ensure reproducible build with the <code>cargo.lock</code> file</h2><p>Rust creates the <code>Cargo.lock</code> file the first time when running <code>cargo build</code>.</p>
+<p>The <code>Cargo.lock</code> file is important for reproducible builds, and it’s often checked into source control with the rest of the code in your project.</p>
+<h2 id="update-a-crat-to-get-a-new-version"><a href="#update-a-crat-to-get-a-new-version" class="headerlink" title="update a crat to get a new version"></a>update a crat to get a new version</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line">cargo update</span><br></pre></td></tr></table></figure>
+
+<p>and the dependencies will change.</p>
+<p>The next time you run <code>cargo build</code>, Cargo will update the registry of crates available and reevaluate your <code>rand</code> requirements according to the new version you have specified.</p>
+<p>Cargo makes it very easy to reuse libraries, so Rustaceans are able to write smaller projects that are assembled from a number of packages.</p>
+<p><em>Rustaceans means users or developers who use the <code>Rust</code></em></p>
+<p>at this time, the complete code is:</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::io; <span class="comment">//bring the io library which comes from the standard library (std)</span></span><br><span class="line"><span class="keyword">use</span> rand::Rng;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123; <span class="comment">//fn means a new function</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Guessing the number!&quot;</span>); <span class="comment">//state what the game is</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">secret_number</span> = rand::<span class="title function_ invoke__">thread_rng</span>().<span class="title function_ invoke__">gen_range</span>(<span class="number">1</span>..=<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;The secret number is: &#123;secret_number&#125;&quot;</span>); </span><br><span class="line"></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Please input your guess:&quot;</span>); <span class="comment">//request input from the user</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">guess</span> = <span class="type">String</span>::<span class="title function_ invoke__">new</span>(); <span class="comment">//&#x27;let&#x27; statement to create a variable to store the user&#x27;s input, to rmember that once given it will not change</span></span><br><span class="line">    io::<span class="title function_ invoke__">stdin</span>()</span><br><span class="line">        .<span class="title function_ invoke__">read_line</span>(&amp;<span class="keyword">mut</span> guess)</span><br><span class="line">        .<span class="title function_ invoke__">expect</span>(<span class="string">&quot;Failed to read line&quot;</span>); <span class="comment">// not except</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;You guessed: &#123;&#125;&quot;</span>, guess);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>when we run <code>cargo run</code>, we will see:</p>
+<img src="/2023/06/07/Rust-Study/image-20231107103926686.png" class="" title="image-20231107103926686">
+
+<p>However it won’t achieve the aim to generate a secret number and compare it to the guessing number.</p>
+<h2 id="compare-the-guess-to-the-secret-number"><a href="#compare-the-guess-to-the-secret-number" class="headerlink" title="compare the guess to the secret number"></a>compare the guess to the secret number</h2><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><p><strong>make a comparison</strong></p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::cmp::Ordering</span><br><span class="line"></span><br><span class="line"><span class="comment">// based on the original foundation</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">guess</span>: <span class="type">u32</span> = guess.<span class="title function_ invoke__">trim</span>().<span class="title function_ invoke__">parse</span>().<span class="title function_ invoke__">expect</span>(<span class="string">&quot;Please type a number!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">match</span> guess.<span class="title function_ invoke__">cmp</span>(&amp;secret_number) &#123;</span><br><span class="line">            Ordering::Less =&gt; <span class="built_in">println!</span>(<span class="string">&quot;Too small!&quot;</span>),</span><br><span class="line">            Ordering::Greater =&gt; <span class="built_in">println!</span>(<span class="string">&quot;Too big!&quot;</span>),</span><br><span class="line">            Ordering::Equal =&gt; <span class="built_in">println!</span>(<span class="string">&quot;YOU WIN!&quot;</span>),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>However it return a number comparison and break.</p>
+<h3 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h3><p><strong>turn into a loop</strong></p>
+<p>Notice the numbers’ usage and the order of using these different numbers.</p>
+<p>We ought to generate different <code>guess</code> to solve out the <code>secret_number</code> which is generated by the system.</p>
+<p>So <code>secret_number</code> is above loop.</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">secret_number</span> = rand::<span class="title function_ invoke__">thread_rng</span>().<span class="title function_ invoke__">gen_range</span>(<span class="number">1</span>..=<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">loop</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">guess</span> = <span class="type">String</span>::<span class="title function_ invoke__">new</span>();</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">guess</span>: <span class="type">u32</span> = guess.<span class="title function_ invoke__">trim</span>().<span class="title function_ invoke__">parse</span>().<span class="title function_ invoke__">expect</span>(<span class="string">&quot;Please type a number!&quot;</span>);</span><br><span class="line">    <span class="keyword">match</span> guess.<span class="title function_ invoke__">cmp</span>(&amp;secret_number) &#123;</span><br><span class="line">            Ordering::Less =&gt; <span class="built_in">println!</span>(<span class="string">&quot;Too small!&quot;</span>),</span><br><span class="line">            Ordering::Greater =&gt; <span class="built_in">println!</span>(<span class="string">&quot;Too big!&quot;</span>),</span><br><span class="line">            Ordering::Equal =&gt; <span class="built_in">println!</span>(<span class="string">&quot;YOU WIN!&quot;</span>),</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h3><p><strong>equal then break</strong></p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">match</span> guess.<span class="title function_ invoke__">cmp</span>(&amp;secret_number) &#123;</span><br><span class="line">            Ordering::Less =&gt; <span class="built_in">println!</span>(<span class="string">&quot;Too small!&quot;</span>),</span><br><span class="line">            Ordering::Greater =&gt; <span class="built_in">println!</span>(<span class="string">&quot;Too big!&quot;</span>),</span><br><span class="line">            Ordering::Equal =&gt; &#123;</span><br><span class="line">                <span class="built_in">println!</span>(<span class="string">&quot;YOU WIN!&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;      </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="complete-code"><a href="#complete-code" class="headerlink" title="complete code"></a>complete code</h3><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::io;</span><br><span class="line"><span class="keyword">use</span> rand::Rng;</span><br><span class="line"><span class="keyword">use</span> std::cmp::Ordering;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>()&#123;</span><br><span class="line">    <span class="comment">// generte a random number</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">secret_number</span> = rand::<span class="title function_ invoke__">thread_rng</span>().<span class="title function_ invoke__">gen_range</span>(<span class="number">1</span>..=<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// guess number, need to define the type is real a number</span></span><br><span class="line">    <span class="comment">// the precess of guessing is changeable which we should let it in a loop</span></span><br><span class="line">    <span class="keyword">loop</span> &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;Please input your guess!&quot;</span>);</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">guess</span> = <span class="type">String</span>::<span class="title function_ invoke__">new</span>();</span><br><span class="line">        io::<span class="title function_ invoke__">stdin</span>()</span><br><span class="line">            .<span class="title function_ invoke__">read_line</span>(&amp;<span class="keyword">mut</span> guess)</span><br><span class="line">            .<span class="title function_ invoke__">expect</span>(<span class="string">&quot;Fail to read line!&quot;</span>);</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">guess</span>: <span class="type">u32</span> = guess.<span class="title function_ invoke__">trim</span>().<span class="title function_ invoke__">parse</span>().<span class="title function_ invoke__">expect</span>(<span class="string">&quot;Please type a number!&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;You guessed: &#123;guess&#125;&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// compare the two numbers</span></span><br><span class="line">        <span class="keyword">match</span> guess.<span class="title function_ invoke__">cmp</span>(&amp;secret_number) &#123;</span><br><span class="line">            Ordering::Less =&gt; <span class="built_in">println!</span>(<span class="string">&quot;Too small!&quot;</span>),</span><br><span class="line">            Ordering::Greater =&gt; <span class="built_in">println!</span>(<span class="string">&quot;Too big!&quot;</span>),</span><br><span class="line">            Ordering::Equal =&gt; &#123;</span><br><span class="line">                <span class="built_in">println!</span>(<span class="string">&quot;YOU WIN!&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;      </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>run <code>cargo run</code>:</p>
+<img src="/2023/06/07/Rust-Study/image-20231107150820040.png" class="" title="image-20231107150820040">
+
+
+
+<h2 id="handle-invalid-input"><a href="#handle-invalid-input" class="headerlink" title="handle invalid input"></a>handle invalid input</h2><p>To further refine the game’s behavior, rather than crashing the program when the user inputs a non-number, let’s make the game ignore a non-number so the user can continue guessing. We can do that by altering the line where <code>guess</code> is converted from a <code>String</code> to a <code>u32</code>, as shown in Listing 2-5.</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="comment">//let guess: u32 = guess.trim().parse().expect(&quot;Please type a number!&quot;);</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">guess</span>: <span class="type">u32</span> = <span class="keyword">match</span> guess.<span class="title function_ invoke__">trim</span>().<span class="title function_ invoke__">parse</span>() &#123;</span><br><span class="line">            <span class="title function_ invoke__">Ok</span>(num) =&gt; num,</span><br><span class="line">            <span class="title function_ invoke__">Err</span>(_) =&gt; <span class="keyword">continue</span>,</span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="go-over-it-line-by-line-2"><a href="#go-over-it-line-by-line-2" class="headerlink" title="go over it line by line"></a>go over it line by line</h3><p>Switch an <code>expect</code> call to a <code>match</code> expression to move from crashing on an error to handle the error.</p>
+<p>The <code>parse</code> returns a <code>Result</code> type and <code>Result</code> is an <code>enum</code> that has the variants <code>Ok</code> and <code>Err</code>.</p>
+<p>We use a <code>match</code> expression here, same as the <code>Ordering</code> result if the <code>cmp</code> method.</p>
+<ul>
+<li>If <code>parse</code> is able to turn the string into a number, return <code>Ok</code> contains <code>resultant number</code>. The number will end up right where we want it in the new <code>guess</code> variable we’re creating.</li>
+<li>If not, it will return an <code>Err</code> value, we just <code>continue</code> and return to <code>loop</code> to ask for another guess.</li>
+</ul>
+<p>Finally ,the program ignores all errors that <code>parse</code> might encounter.</p>
+<h1 id="Common-programming-concepts"><a href="#Common-programming-concepts" class="headerlink" title="Common programming concepts"></a>Common programming concepts</h1><h2 id="variables-and-mutability"><a href="#variables-and-mutability" class="headerlink" title="variables and mutability"></a>variables and mutability</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="comment">// fn main() &#123;</span></span><br><span class="line"><span class="comment">//     let x = 5;</span></span><br><span class="line"><span class="comment">//     println!(&quot;The value of x is: &#123;x&#125;&quot;);</span></span><br><span class="line"><span class="comment">//     x = 6;</span></span><br><span class="line"><span class="comment">//     println!(&quot;The value of x is: &#123;x&#125;&quot;);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">x</span> = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;The value of x is: &#123;x&#125;&quot;</span>);</span><br><span class="line">    x = <span class="number">6</span>;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;The value of x is: &#123;x&#125;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Language</category>
@@ -2593,6 +2793,147 @@
 <p>These tasks are somewhat special or interesting, which deserve recording. </p>
 <span id="more"></span><!--toc-->
 
+<h1 id="2022首届数据安全大赛-SQLPacket"><a href="#2022首届数据安全大赛-SQLPacket" class="headerlink" title="[2022首届数据安全大赛]SQLPacket"></a>[2022首届数据安全大赛]SQLPacket</h1><h2 id="SQLPacket-1"><a href="#SQLPacket-1" class="headerlink" title="SQLPacket.1"></a>SQLPacket.1</h2><p><strong>题干信息：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230814103402110.png" class="" title="image-20230814103402110">
+
+<p><strong>解题：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230814110938970.png" class="" title="image-20230814110938970">
+
+<p>追踪的路径：</p>
+<ul>
+<li>协议分级，定位<code>http</code></li>
+<li>查看对象，<code>HTTP</code>，发现存在<code>cmd=ls</code>等信息</li>
+<li>过滤数据，<code>http contains &quot;cmd=ls&quot;</code></li>
+<li>右击过滤HTTP流</li>
+<li>发现<code>secret1687456.txt</code></li>
+</ul>
+<h2 id="SQLPacket-2"><a href="#SQLPacket-2" class="headerlink" title="SQLPacket.2"></a>SQLPacket.2</h2><p><strong>题干信息：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230814111422124.png" class="" title="image-20230814111422124">
+
+<p><strong>解密：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230814134745903.png" class="" title="image-20230814134745903">
+
+<ul>
+<li>url解码</li>
+<li>base64解密</li>
+</ul>
+<p>得到如下信息：</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230814135224798.png" class="" title="image-20230814135224798">
+
+<p>可得，密钥为<code>05c1cc9c2deafb75</code>，采用<code>AES128</code>加密。</p>
+<p>到tq 197。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230814135834691.png" class="" title="image-20230814135834691">
+
+<ul>
+<li>AES解密</li>
+<li>base64解码</li>
+</ul>
+<p>得到如下信息：</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230814135946111.png" class="" title="image-20230814135946111">
+
+<p>追踪HTTP流，使用返回包进行求解。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230814140206008.png" class="" title="image-20230814140206008">
+
+<p><em>直接在notepad++中进行转换</em></p>
+<ul>
+<li>base64解码</li>
+<li>hex -&gt; ascii 转换</li>
+</ul>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230814140513980.png" class="" title="image-20230814140513980">
+
+<p>从而得到<code>secret1</code>，即为<code>ae1690a2-8e67-421e-bdcd-c4510995da98</code>。</p>
+<h1 id="2022首届数据安全大赛-账密泄密追踪"><a href="#2022首届数据安全大赛-账密泄密追踪" class="headerlink" title="[2022首届数据安全大赛]账密泄密追踪"></a>[2022首届数据安全大赛]账密泄密追踪</h1><img src="/2023/03/09/MISC-Write-Up-zh/image-20230808132623943.png" class="" title="image-20230808132623943">
+
+<h2 id="账密泄密追踪-1"><a href="#账密泄密追踪-1" class="headerlink" title="账密泄密追踪.1"></a>账密泄密追踪.1</h2><p><strong>题干信息：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808132730673.png" class="" title="image-20230808132730673">
+
+<p><strong>解题：</strong></p>
+<p>直接在GitHub上搜索<code>green berry</code>。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808132934566.png" class="" title="image-20230808132934566">
+
+<p>进入项目中，使用泄露的五个账号依次查找，从而找到了泄露文件位置。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808133348918.png" class="" title="image-20230808133348918">
+
+<p>该url为<code>https://github.com/Tristan-Hao/Green-Berry/blob/main/scrubbers.py</code>。</p>
+<h2 id="账密泄密追踪-2"><a href="#账密泄密追踪-2" class="headerlink" title="账密泄密追踪.2"></a>账密泄密追踪.2</h2><p><strong>题干信息：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808134339166.png" class="" title="image-20230808134339166">
+
+<p><strong>解题：</strong></p>
+<p>因为在gitee平台，利用<code>qingmei</code>进行查找，发现该项目。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808134528131.png" class="" title="image-20230808134528131">
+
+<p>进入项目，进行查找。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808134847640.png" class="" title="image-20230808134847640">
+
+<p>该url为<code>https://gitee.com/datasecurity-qunzhong/qing-mei-login/blob/master/scrubbers.py</code>。</p>
+<h2 id="账密泄密追踪-3"><a href="#账密泄密追踪-3" class="headerlink" title="账密泄密追踪.3"></a>账密泄密追踪.3</h2><p><strong>题干信息：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808135119209.png" class="" title="image-20230808135119209">
+
+<p><strong>解题：</strong></p>
+<p>凡是还得登录以及必须手机号注册的东西，我告辞。</p>
+<p>网上截图。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808140304612.png" class="" title="image-20230808140304612">
+
+<p>以及识别url后得到<code>https://www.yuque.com/shuanxiaoming/gsx1eb/efnpu3</code>。</p>
+<h2 id="账密泄密追踪-4"><a href="#账密泄密追踪-4" class="headerlink" title="账密泄密追踪.4"></a>账密泄密追踪.4</h2><p><strong>题干信息：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808140927064.png" class="" title="image-20230808140927064">
+
+<p><strong>解密：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808141004301.png" class="" title="image-20230808141004301">
+
+<p>得到泄露url，<code>https://zhuanlan.zhihu.com/p/521587651</code>。</p>
+<h2 id="账密泄露追踪-5"><a href="#账密泄露追踪-5" class="headerlink" title="账密泄露追踪.5"></a>账密泄露追踪.5</h2><p><strong>题干信息：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808141435317.png" class="" title="image-20230808141435317">
+
+<p><strong>解题：</strong></p>
+<p>在CSDN上，利用关键词<code>青莓</code>进行查找。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808141713409.png" class="" title="image-20230808141713409">
+
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808141920605.png" class="" title="image-20230808141920605">
+
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808141638834.png" class="" title="image-20230808141638834">
+
+<p>得到两个泄露url。</p>
+<h1 id="2022首届数据安全大赛-泄露溯源定位"><a href="#2022首届数据安全大赛-泄露溯源定位" class="headerlink" title="[2022首届数据安全大赛]泄露溯源定位"></a>[2022首届数据安全大赛]泄露溯源定位</h1><img src="/2023/03/09/MISC-Write-Up-zh/image-20230808102637362.png" class="" title="image-20230808102637362">
+
+<h2 id="泄露溯源定位-1"><a href="#泄露溯源定位-1" class="headerlink" title="泄露溯源定位.1"></a>泄露溯源定位.1</h2><p><strong>题干信息：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808103702696.png" class="" title="image-20230808103702696">
+
+<p><strong>解题：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808103026443.png" class="" title="image-20230808103026443">
+
+<p>这个流相对较大，再加上察觉到mysql的授权以及查看到后续存在隐私信息，所以基本定位该流为关键流。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808103352640.png" class="" title="image-20230808103352640">
+
+<p>所以定位该用户应该为<code>dataUser3</code>。</p>
+<h2 id="泄露溯源定位-2"><a href="#泄露溯源定位-2" class="headerlink" title="泄露溯源定位.2"></a>泄露溯源定位.2</h2><p><strong>题干信息：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808103812434.png" class="" title="image-20230808103812434">
+
+<p><strong>解题：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808104114792.png" class="" title="image-20230808104114792">
+
+<p>点进去得到网址：</p>
+<p><code>https://github.com/Tristan-Hao/Green-Berry/blob/f766064e4f9c38bf4aefa06fd3d4abbda7fe4914/catalogue.py</code></p>
+<p>所以提交即可。</p>
+<h2 id="泄露溯源定位-3"><a href="#泄露溯源定位-3" class="headerlink" title="泄露溯源定位.3"></a>泄露溯源定位.3</h2><p><strong>题干信息：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808104441950.png" class="" title="image-20230808104441950">
+
+<p><strong>解题：</strong></p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808104724692.png" class="" title="image-20230808104724692">
+
+<p>如果无法定位具体使用的数值是什么，那回归数据包进行查看。利用详情界面的值当作密文进行解密。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808154128946.png" class="" title="image-20230808154128946">
+
+<p>根据密文判断采用的解密类型，发现应当是<code>AES</code>，且密钥是<code>aa01</code>。</p>
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808111111322.png" class="" title="image-20230808111111322">
+
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808111237576.png" class="" title="image-20230808111237576">
+
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808111333780.png" class="" title="image-20230808111333780">
+
+<img src="/2023/03/09/MISC-Write-Up-zh/image-20230808111510335.png" class="" title="image-20230808111510335">
+
+<p>根据解密之后得到的信息可以发现，除了<code>姓名</code>，<code>电话</code>以外，还有<code>地址</code>，<code>银行账号</code>以及<code>邮箱地址</code>也被泄露了，即<code>ADE</code>。</p>
 <h1 id="qwb2022-谍影重重"><a href="#qwb2022-谍影重重" class="headerlink" title="[qwb2022]谍影重重"></a>[qwb2022]谍影重重</h1><blockquote>
 <p><a href="https://blog.gztime.cc/posts/2022/fc697ca8/#%E8%B0%8D%E5%BD%B1%E9%87%8D%E9%87%8D">强网杯 2022 Writeup | GZTime’s Blog</a></p>
 <p><a href="http://www.ehangwang.cn/article/detail/post-548934.html">2022年第六届“强网杯”网络安全大赛部分writeup (ehangwang.cn)</a></p>
@@ -3351,5 +3692,151 @@
         <tag>chinese_remainder_theorem</tag>
         <tag>Groebner_basis</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>LLL&#39;s Notes Study</title>
+    <url>/2023/09/18/LLL-s-notes-Study/</url>
+    <content><![CDATA[<span id="more"></span><!--toc-->
+]]></content>
+      <categories>
+        <category>Crypto</category>
+      </categories>
+      <tags>
+        <tag>LLL</tag>
+        <tag>note</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows11安装wsl2以及sagemath</title>
+    <url>/2024/03/19/Windows11%E5%AE%89%E8%A3%85wsl2%E4%BB%A5%E5%8F%8Asagemath/</url>
+    <content><![CDATA[<p>本文章主要介绍如何使用wsl2安装sagemath，实际安装的过程中出现一些问题，将基于遇到的问题来补充对应的解决方式。</p>
+<span id="more"></span><!--toc-->
+
+<blockquote>
+<p><a href="https://learn.microsoft.com/zh-cn/windows/wsl/install">https://learn.microsoft.com/zh-cn/windows/wsl/install</a><br><a href="https://zhuanlan.zhihu.com/p/633782050">https://zhuanlan.zhihu.com/p/633782050</a><br><a href="https://www.cnblogs.com/ZimaBlue/p/18012277">https://www.cnblogs.com/ZimaBlue/p/18012277</a></p>
+</blockquote>
+<h1 id="安装wsl2"><a href="#安装wsl2" class="headerlink" title="安装wsl2"></a>安装wsl2</h1><blockquote>
+<p>必须运行 Windows 10 版本 2004 及更高版本（内部版本 19041 及更高版本）或 Windows 11 才能使用以下命令。</p>
+</blockquote>
+<p>在管理员模式下打开 PowerShell 或 Windows 命令提示符，方法是右键单击并选择“以管理员身份运行”，输入 wsl –install 命令，然后重启计算机。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
+
+<p><em>默认安装的是Ubuntu</em></p>
+<p>需要注意：关键一步是在控制面板-启用或关闭windows功能中勾选<strong>适用于Linux的windows子系统</strong></p>
+<h2 id="检查正在运行的wsl版本"><a href="#检查正在运行的wsl版本" class="headerlink" title="检查正在运行的wsl版本"></a>检查正在运行的wsl版本</h2><p>可列出已安装的 Linux 发行版，并通过在 PowerShell 或 Windows 命令提示符中输入以下命令来检查每个发行版的 WSL 版本：<code>wsl -l -v</code>。</p>
+<p>查看所安装的 <code>Linux</code> 版本，使用命令： <code>wsl --list</code> 。</p>
+<p>如有需要，使用下面命令将ArchLinux设为默认系统：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wsl --set-default Arch</span><br><span class="line"><span class="comment"># 如未修改未默认系统，则使用以下命令</span></span><br><span class="line">wsl -d Arch</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置pacman"><a href="#配置pacman" class="headerlink" title="配置pacman"></a>配置pacman</h2><p>配置<code>pacman</code>镜像源，改为国内的。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
+
+<p>后增加以下内容：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch</span><br></pre></td></tr></table></figure>
+
+<p>输入下面命令，配置pacman key：</p>
+<p><strong>ATTENTION!</strong><br>此处配置不当会在后续更新系统中，验签出现问题。</p>
+<blockquote>
+<p>参考资料：<a href="https://github.com/yuk7/ArchWSL/issues/317">https://github.com/yuk7/ArchWSL/issues/317</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">killall gpg-agent</span><br><span class="line"><span class="built_in">rm</span> -rf /etc/pacman.d/gnupg/</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman-key --init</span><br><span class="line">pacman-key --populate archlinux</span><br><span class="line">pacman -Sy archlinux-keyring</span><br></pre></td></tr></table></figure>
+
+<p><strong>更新系统：</strong>（非常关键，不更新后续安装 jupyter notebook 会出错）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Syu</span><br></pre></td></tr></table></figure>
+
+<p>配置archlinuxcn镜像源：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/pacman.conf</span><br></pre></td></tr></table></figure>
+
+<p>增加以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
+
+<p>安装archlinuxcn的key：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Sy archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置用户"><a href="#配置用户" class="headerlink" title="配置用户"></a>配置用户</h2><p>添加用户名以及对应密码即可。</p>
+<h1 id="安装sage"><a href="#安装sage" class="headerlink" title="安装sage"></a>安装sage</h1><p>使用命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -Sy sagemath</span><br></pre></td></tr></table></figure>
+
+<p>安装即可。<br>安装完成后，可以使用命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sage</span><br></pre></td></tr></table></figure>
+
+<p>来启动 sage 查看是否安装成功。查看完后使用 exit 退出即可。</p>
+<h2 id="安装-JupyterLab"><a href="#安装-JupyterLab" class="headerlink" title="安装 JupyterLab"></a>安装 JupyterLab</h2><p>使用命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S jupyterlab (或者改为 jupyter notebook)</span><br></pre></td></tr></table></figure>
+
+<p>安装即可</p>
+<h2 id="在-JupyterLab-中-启动-Sage"><a href="#在-JupyterLab-中-启动-Sage" class="headerlink" title="在 JupyterLab 中 启动 Sage"></a>在 JupyterLab 中 启动 Sage</h2><p>在 ArchLinux 中使用命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sage -n jupyterlab --no-browser --allow-root</span><br></pre></td></tr></table></figure>
+
+<p>此时可以使用跳转出来的窗口里面包含的<code>token</code>。</p>
+<p>使用vscode + jupyter notebook server的形式，从而实现<code>sagemath10</code>的服务器调用。</p>
+<p>退出时使用 <code>ctrl+c</code> 即可。</p>
+<h1 id="sage中安装第三方库"><a href="#sage中安装第三方库" class="headerlink" title="sage中安装第三方库"></a>sage中安装第三方库</h1><p>虽然不知道原理，但是主要使用以下命令进行安装第三方库：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -S python-pycryptdome</span><br><span class="line">pacman -S python-gmpy2</span><br></pre></td></tr></table></figure>
+
+<p>这样就能把常用的第三方库先安装到<code>sagemath 10</code>。</p>
+<p>其他有需要再说吧哈哈。</p>
+]]></content>
+      <categories>
+        <category>Math</category>
+      </categories>
+      <tags>
+        <tag>Environment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tshark&amp;tcpdump</title>
+    <url>/2023/11/06/tshark-tcpdump/</url>
+    <content><![CDATA[<blockquote>
+<p>reference:</p>
+<p><a href="http://linux.51yip.com/search/tshark">tshark linux 命令 在线中文手册 (51yip.com)</a></p>
+<p><a href="http://linux.51yip.com/search/tcpdump">tcpdump linux 命令 在线中文手册 (51yip.com)</a></p>
+</blockquote>
+<span id="more"></span><!--toc-->
+
+<p>在Linux下，当我们需要抓取网络数据包分析时，通常是使用tcpdump抓取网络raw数据包存到一个文件，然后下载到本地使用wireshark界面网络分析工具进行网络包分析。<br>最近才发现，原来wireshark也提供有Linux命令行工具-tshark。tshark不仅有抓包的功能，还带了解析各种协议的能力。下面我们以两个实例来介绍tshark工具。</p>
+<p>主要参数：</p>
+<ol>
+<li>抓包接口类</li>
+<li>-i 设置抓包的网络接口，不设置则默认为第一个非自环接口。</li>
+<li>-D 列出当前存在的网络接口。在不了解OS所控制的网络设备时，一般先用“tshark -D”查看网络接口的编号以供-i参数使用。</li>
+<li>-f 设定抓包过滤表达式（capture filter expression）。抓包过滤表达式的写法雷同于tcpdump，可参考tcpdump man page的有关部分。</li>
+<li>-s 设置每个抓包的大小，默认为65535，多于这个大小的数据将不会被程序记入内存、写入文件。（这个参数相当于tcpdump的-s，tcpdump默认抓包的大小仅为68）</li>
+<li>-p 设置网络接口以非混合模式工作，即只关心和本机有关的流量。</li>
+<li>-B 设置内核缓冲区大小，仅对windows有效。</li>
+<li>-y 设置抓包的数据链路层协议，不设置则默认为-L找到的第一个协议，局域网一般是EN10MB等。</li>
+<li>-L 列出本机支持的数据链路层协议，供-y参数使用。  </li>
+<li>抓包停止条件</li>
+<li>-c 抓取的packet数，在处理一定数量的packet后，停止抓取，程序退出。</li>
+<li>-a 设置tshark抓包停止向文件书写的条件，事实上是tshark在正常启动之后停止工作并返回的条件。条件写为test:value的形式，如“-a duration:5”表示tshark启动后在5秒内抓包然后停止；“-a filesize:10”表示tshark在输出文件达到10kB后停止；“-a files:n”表示tshark在写满n个文件后停止。（windows版的tshark0.99.3用参数“-a files:n”不起作用——会有无数多个文件生成。由于-b参数有自己的files参数，所谓“和-b的其它参数结合使用”无从说起。这也许是一个bug，或tshark的man page的书写有误。）</li>
+<li>文件输出控制</li>
+<li>-b 设置ring buffer文件参数。ring buffer的文件名由-w参数决定。-b参数采用test:value的形式书写。“-b duration:5”表示每5秒写下一个ring buffer文件；“-b filesize:5”表示每达到5kB写下一个ring buffer文件；“-b files:7”表示ring buffer文件最多7个，周而复始地使用，如果这个参数不设定，tshark会将磁盘写满为止。</li>
+<li>文件输入</li>
+<li>-r 设置tshark分析的输入文件。tshark既可以抓取分析即时的网络流量，又可以分析dump在文件中的数据。-r不能是命名管道和标准输入。</li>
+<li>处理类</li>
+<li>-R 设置读取（显示）过滤表达式（read filter expression）。不符合此表达式的流量同样不会被写入文件。注意，读取（显示）过滤表达式的语法和底层相关的抓包过滤表达式语法不相同，它的语法表达要丰富得多，请参考<a href="http://www.ethereal.com/docs/dfref/%E5%92%8Chttp://www.ethereal.com/docs/man-pages/ethereal-filter.4.html%E3%80%82%E7%B1%BB%E4%BC%BC%E4%BA%8E%E6%8A%93%E5%8C%85%E8%BF%87%E6%BB%A4%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%8C%E5%9C%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BD%BF%E7%94%A8%E6%97%B6%E6%9C%80%E5%A5%BD%E5%B0%86%E5%AE%83%E4%BB%ACquote%E8%B5%B7%E6%9D%A5%E3%80%82">http://www.ethereal.com/docs/dfref/和http://www.ethereal.com/docs/man-pages/ethereal-filter.4.html。类似于抓包过滤表达式，在命令行使用时最好将它们quote起来。</a></li>
+<li>-n 禁止所有地址名字解析（默认为允许所有）。</li>
+<li>-N 启用某一层的地址名字解析。“m”代表MAC层，“n”代表网络层，“t”代表传输层，“C”代表当前异步DNS查找。如果-n和-N参数同时存在，-n将被忽略。如果-n和-N参数都不写，则默认打开所有地址名字解析。</li>
+<li>-d 将指定的数据按有关协议解包输出。如要将tcp 8888端口的流量按http解包，应该写为“-d tcp.port&#x3D;&#x3D;8888,http”。注意选择子和解包协议之间不能留空格。</li>
+<li>输出类</li>
+<li>-w 设置raw数据的输出文件。这个参数不设置，tshark将会把解码结果输出到stdout。“-w-”表示把raw输出到stdout。如果要把解码结果输出到文件，使用重定向“&gt;”而不要-w参数。</li>
+<li>-F 设置输出raw数据的格式，默认为libpcap。“tshark -F”会列出所有支持的raw格式。</li>
+<li>-V 设置将解码结果的细节输出，否则解码结果仅显示一个packet一行的summary。</li>
+<li>-x 设置在解码输出结果中，每个packet后面以HEX dump的方式显示具体数据。</li>
+<li>-T 设置解码结果输出的格式，包括text,ps,psml和pdml，默认为text。</li>
+<li>-t 设置解码结果的时间格式。“ad”表示带日期的绝对时间，“a”表示不带日期的绝对时间，“r”表示从第一个包到现在的相对时间，“d”表示两个相邻包之间的增量时间（delta）。</li>
+<li>-S 在向raw文件输出的同时，将解码结果打印到控制台。</li>
+<li>-l 在处理每个包时即时刷新输出。</li>
+<li>-X 扩展项。</li>
+<li>-q 设置安静的stdout输出（例如做统计时）</li>
+<li>-z 设置统计参数。</li>
+<li>其它</li>
+<li>-h 显示命令行帮助。</li>
+<li>-v 显示tshark的版本信息。</li>
+<li>-o 重载选项。</li>
+</ol>
+]]></content>
   </entry>
 </search>
