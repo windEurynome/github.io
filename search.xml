@@ -3771,7 +3771,7 @@
 <p>退出时使用 <code>ctrl+c</code> 即可。</p>
 <h1>sage中安装第三方库</h1>
 <p>虽然不知道原理，但是主要使用以下命令进行安装第三方库：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -S python-pycryptdome</span><br><span class="line">pacman -S python-gmpy2</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -S python-pycryptdome</span><br><span class="line">pacman -S python-gmpy2</span><br><span class="line">pacman -S netcat(然后默认安装即可)</span><br></pre></td></tr></table></figure>
 <p>这样就能把常用的第三方库先安装到<code>sagemath 10</code>。</p>
 <p>其他有需要再说吧哈哈。</p>
 ]]></content>
