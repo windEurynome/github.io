@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"windeurynome.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac","show_result":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Python OCR相关环境的安装以及搭建。主要用到的是pytesseract。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-OCR-Study">
+<meta property="og:url" content="https://windeurynome.github.io/2024/08/08/Python-OCR-Study/index.html">
+<meta property="og:site_name" content="The Sea &amp; Chaos">
+<meta property="og:description" content="Python OCR相关环境的安装以及搭建。主要用到的是pytesseract。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-08-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-05T02:43:07.311Z">
+<meta property="article:author" content="Eurynome">
+<meta property="article:tag" content="OCR">
+<meta property="article:tag" content="tesseract">
+<meta property="article:tag" content="pytesseract">
+<meta property="article:tag" content="paddle">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://windeurynome.github.io/2024/08/08/Python-OCR-Study/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://windeurynome.github.io/2024/08/08/Python-OCR-Study/","path":"2024/08/08/Python-OCR-Study/","title":"Python-OCR-Study"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python-OCR-Study | The Sea & Chaos</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">The Sea & Chaos</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">FOREVER brave & warm.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pytesseract"><span class="nav-number">1.</span> <span class="nav-text">pytesseract</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8B%B1%E6%96%87"><span class="nav-number">1.2.</span> <span class="nav-text">英文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87"><span class="nav-number">1.3.</span> <span class="nav-text">中文</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Paddle"><span class="nav-number">2.</span> <span class="nav-text">Paddle</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-1"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Eurynome</p>
+  <div class="site-description" itemprop="description">Recording...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://windeurynome.github.io/2024/08/08/Python-OCR-Study/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eurynome">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Sea & Chaos">
+      <meta itemprop="description" content="Recording...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python-OCR-Study | The Sea & Chaos">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python-OCR-Study
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-08-08 00:00:00" itemprop="dateCreated datePublished" datetime="2024-08-08T00:00:00+08:00">2024-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-12-05 10:43:07" itemprop="dateModified" datetime="2024-12-05T10:43:07+08:00">2024-12-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Python OCR相关环境的安装以及搭建。<br>主要用到的是pytesseract。</p>
+<span id="more"></span><!--toc-->
+
+<h1 id="pytesseract"><a href="#pytesseract" class="headerlink" title="pytesseract"></a>pytesseract</h1><blockquote>
+<p>理论上python3.8及以上就可以了。</p>
+</blockquote>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 安装</li>
+<li><input checked="" disabled="" type="checkbox"> 脚本相关运行</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://digi.bib.uni-mannheim.de/tesseract/">Index of &#x2F;tesseract (uni-mannheim.de)</a><br>选择最新的进行下载，相对各个库都会下载到最新的版本。</p>
+</blockquote>
+<p><strong>!</strong> 安装过程中需要把<strong>中文的训练模型</strong>进行下载，最好就是把中文简体相关等下载下来。<br><strong>! 需要配置环境变量</strong></p>
+<ul>
+<li>Path中添加<code>..\Tesseract-OCR</code><ul>
+<li>用户变量</li>
+<li>系统变量</li>
+</ul>
+</li>
+<li>新建变量名<code>TESSDATA_PREFIX</code><ul>
+<li>系统变量</li>
+</ul>
+</li>
+</ul>
+<p>打开命令行界面，运行<code>tesseract -v</code>，如果能正常显示安装的tesseract的版本信息，即说明安装成功。</p>
+<p>不知道为啥，有时候把环境搭建好了稍微处理一下就又无法运行了，目前没什么合适的解决方式，直接卸载重新装<code>tesseract</code>，然后再把对应的训练模型进行下载。</p>
+<h2 id="英文"><a href="#英文" class="headerlink" title="英文"></a>英文</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2  </span><br><span class="line"><span class="keyword">import</span> pytesseract  </span><br><span class="line"><span class="keyword">import</span> os  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 配置pytesseract  </span></span><br><span class="line">pytesseract.pytesseract.tesseract_cmd = <span class="string">&#x27;D:\\Tesseract-OCR\\tesseract.exe&#x27;</span>  <span class="comment"># 修改为你的tesseract安装路径  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 读取图片文件夹  </span></span><br><span class="line">image_folder = <span class="string">&#x27;test&#x27;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 获取文件列表  </span></span><br><span class="line">image_files = [f <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(image_folder) <span class="keyword">if</span> os.path.isfile(os.path.join(image_folder, f))]  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 处理图片并保存结果  </span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;ocr_results_en.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:  </span><br><span class="line">    <span class="keyword">for</span> file_name <span class="keyword">in</span> image_files:  </span><br><span class="line">        file_path = os.path.join(image_folder, file_name)  </span><br><span class="line">  </span><br><span class="line">        <span class="comment"># 读取图片  </span></span><br><span class="line">        image = cv2.imread(file_path)  </span><br><span class="line">  </span><br><span class="line">        <span class="comment"># 使用Tesseract进行OCR识别  </span></span><br><span class="line">        text = pytesseract.image_to_string(image, lang=<span class="string">&#x27;eng&#x27;</span>)  </span><br><span class="line">  </span><br><span class="line">        <span class="comment"># 写入结果到文件  </span></span><br><span class="line">        f.write(<span class="string">f&quot;File: <span class="subst">&#123;file_name&#125;</span>\n&quot;</span>)  </span><br><span class="line">        f.write(<span class="string">f&quot;Text: <span class="subst">&#123;text&#125;</span>\n&quot;</span>)  </span><br><span class="line">        f.write(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+
+<h2 id="中文"><a href="#中文" class="headerlink" title="中文"></a>中文</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2  </span><br><span class="line"><span class="keyword">import</span> pytesseract  </span><br><span class="line"><span class="keyword">import</span> os  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 配置pytesseract  </span></span><br><span class="line">pytesseract.pytesseract.tesseract_cmd = <span class="string">&#x27;D:\\Tesseract-OCR\\tesseract.exe&#x27;</span>  <span class="comment"># 修改为你的tesseract安装路径  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 读取图片文件夹  </span></span><br><span class="line">image_folder = <span class="string">&#x27;test&#x27;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 获取文件列表  </span></span><br><span class="line">image_files = [f <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(image_folder) <span class="keyword">if</span> os.path.isfile(os.path.join(image_folder, f))]  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 处理图片并保存结果  </span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;ocr_results_zh.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:  </span><br><span class="line">    <span class="keyword">for</span> file_name <span class="keyword">in</span> image_files:  </span><br><span class="line">        file_path = os.path.join(image_folder, file_name)  </span><br><span class="line">  </span><br><span class="line">        <span class="comment"># 读取图片  </span></span><br><span class="line">        image = cv2.imread(file_path)  </span><br><span class="line">  </span><br><span class="line">        <span class="comment"># 使用Tesseract进行OCR识别  </span></span><br><span class="line">        text = pytesseract.image_to_string(image, lang=<span class="string">&#x27;chi_sim&#x27;</span>)  </span><br><span class="line">  </span><br><span class="line">        <span class="comment"># 写入结果到文件  </span></span><br><span class="line">        f.write(<span class="string">f&quot;File: <span class="subst">&#123;file_name&#125;</span>\n&quot;</span>)  </span><br><span class="line">        f.write(<span class="string">f&quot;Text: <span class="subst">&#123;text&#125;</span>\n&quot;</span>)  </span><br><span class="line">        f.write(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line"><span class="comment"># 默认保存编码为gbk的，如果需要转换常用编码utf8的，直接在写入到新文件中以utf-8的编码保存即可。</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Paddle"><a href="#Paddle" class="headerlink" title="Paddle"></a>Paddle</h1><h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install paddleocr -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com</span><br><span class="line">pip install paddle -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+
+<p><em>理论上直接按照这种进行pip安装即可。</em></p>
+<p>但是安装<code>paddle</code>会出现<code> error: subprocess-exited-with-error</code>报错，意思说是<code>subprocess</code>模块啥的安装失败。</p>
+<p>emmm</p>
+<blockquote>
+<p>坑：shapely 的版本必须必须必须是 1.7.1 ，不能比这高！！！requirements.txt 也没有这个提示。如果比这个版本高，不会正常运行，而且还不会报错，而是返回 ‘退出代码为 -1073741819 (0xC0000005) 的字样’。 泪奔了，找了2天终于解决了…</p>
+</blockquote>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Fan_shine/article/details/123089196">https://blog.csdn.net/Fan_shine/article/details/123089196</a></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleOCR/issues/212">Win10 CPU环境，OSError: [WinError 126] 找不到指定的模块 · Issue #212 · PaddlePaddle&#x2F;PaddleOCR · GitHub</a></p>
+</blockquote>
+<p>shapely，下载地址：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/shapely/">Links for shapely (tsinghua.edu.cn)</a></p>
+</blockquote>
+
+    </div>
+    <!-- end of the post-->
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------THE <i class="fa-solid fa-cloud"></i> END-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OCR/" rel="tag"><i class="fa fa-tag"></i> OCR</a>
+              <a href="/tags/tesseract/" rel="tag"><i class="fa fa-tag"></i> tesseract</a>
+              <a href="/tags/pytesseract/" rel="tag"><i class="fa fa-tag"></i> pytesseract</a>
+              <a href="/tags/paddle/" rel="tag"><i class="fa fa-tag"></i> paddle</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/19/Windows11%E5%AE%89%E8%A3%85wsl2%E4%BB%A5%E5%8F%8Asagemath/" rel="prev" title="Windows11安装wsl2以及sagemath">
+                  <i class="fa fa-chevron-left"></i> Windows11安装wsl2以及sagemath
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/08/14/Python-xlsx-Study/" rel="next" title="Python-Xlsx-Study">
+                  Python-Xlsx-Study <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eurynome</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">297k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">4:30</span>
+  </span>
+</div>
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+-->
+
+    </div>
+  </footer>
+  <!-- Background picture -->
+    <script type="text/javascript" src="/js/canvas-nest.js"></script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: false,
+  label: '🌓',
+  autoMatchOsTheme: false
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+if (window.darkmode && !window.darkmode.isActivated()) {
+  window.darkmode.toggle();
+  var toggleButtons = document.getElementsByClassName("darkmode-toggle");
+  if (toggleButtons && toggleButtons.length > 0) {
+    for (i = 0; i < toggleButtons.length; i++) {
+      toggleButtons[i].classList.add("darkmode-toggle--white");
+    }
+  }
+}
+</script>
+
+</body>
+</html>

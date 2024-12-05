@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"windeurynome.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac","show_result":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Python里面涉及xlsx文件的相关操作。 记录一下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-Xlsx-Study">
+<meta property="og:url" content="https://windeurynome.github.io/2024/08/14/Python-xlsx-Study/index.html">
+<meta property="og:site_name" content="The Sea &amp; Chaos">
+<meta property="og:description" content="Python里面涉及xlsx文件的相关操作。 记录一下。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-08-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-05T06:02:53.847Z">
+<meta property="article:author" content="Eurynome">
+<meta property="article:tag" content="xlsx">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://windeurynome.github.io/2024/08/14/Python-xlsx-Study/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://windeurynome.github.io/2024/08/14/Python-xlsx-Study/","path":"2024/08/14/Python-xlsx-Study/","title":"Python-Xlsx-Study"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python-Xlsx-Study | The Sea & Chaos</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">The Sea & Chaos</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">FOREVER brave & warm.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%BA%93%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">相关库安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%B0%BF%E3%80%81%E5%B7%A5%E4%BD%9C%E8%A1%A8"><span class="nav-number">2.1.</span> <span class="nav-text">创建工作簿、工作表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E5%85%83%E6%A0%BC%E5%A1%AB%E5%80%BC"><span class="nav-number">2.2.</span> <span class="nav-text">单元格填值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%B8%AA%E5%8D%95%E5%85%83%E6%A0%BC"><span class="nav-number">2.2.1.</span> <span class="nav-text">单个单元格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AA%E5%8D%95%E5%85%83%E6%A0%BC"><span class="nav-number">2.2.2.</span> <span class="nav-text">多个单元格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text">设置格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%8D%95%E5%85%83%E6%A0%BC%E6%A0%B7%E5%BC%8F"><span class="nav-number">2.3.1.</span> <span class="nav-text">设置单元格样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%8D%95%E5%85%83%E6%A0%BC%E8%A1%8C%E9%AB%98%E3%80%81%E5%88%97%E5%AE%BD"><span class="nav-number">2.3.2.</span> <span class="nav-text">设置单元格行高、列宽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%A0%87%E7%AD%BE%E9%A2%9C%E8%89%B2"><span class="nav-number">2.3.3.</span> <span class="nav-text">设置标签颜色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="nav-number">2.4.</span> <span class="nav-text">插入图片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%9B%BE%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">插入图表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAchart%E7%B1%BB"><span class="nav-number">3.1.</span> <span class="nav-text">创建chart类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-number">3.2.1.</span> <span class="nav-text">添加数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEx%E8%BD%B4%E4%BB%A5%E5%8F%8Ay%E8%BD%B4"><span class="nav-number">3.2.2.</span> <span class="nav-text">设置x轴以及y轴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.3.</span> <span class="nav-text">其他方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.2.4.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Eurynome</p>
+  <div class="site-description" itemprop="description">Recording...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://windeurynome.github.io/2024/08/14/Python-xlsx-Study/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eurynome">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Sea & Chaos">
+      <meta itemprop="description" content="Recording...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python-Xlsx-Study | The Sea & Chaos">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python-Xlsx-Study
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-08-14 00:00:00" itemprop="dateCreated datePublished" datetime="2024-08-14T00:00:00+08:00">2024-08-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-12-05 14:02:53" itemprop="dateModified" datetime="2024-12-05T14:02:53+08:00">2024-12-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>9.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>8 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Python里面涉及xlsx文件的相关操作。</p>
+<p>记录一下。</p>
+<span id="more"></span><!--toc-->
+
+<p>#Python&#x2F;xlsx</p>
+<p>Reference: <a target="_blank" rel="noopener" href="https://blog.csdn.net/ixusy88/article/details/106742403">Python3之excel操作–xlsxwriter模块_python 3 xlswriter-CSDN博客</a></p>
+<!--more--><!--toc-->
+
+<h1 id="相关库安装"><a href="#相关库安装" class="headerlink" title="相关库安装"></a>相关库安装</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install xlsxwriter</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h1><h2 id="创建工作簿、工作表"><a href="#创建工作簿、工作表" class="headerlink" title="创建工作簿、工作表"></a>创建工作簿、工作表</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding=gbk</span></span><br><span class="line"><span class="keyword">import</span> xlsxwriter</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 创建工作簿</span></span><br><span class="line">workbook = xlsxwriter.Workbook(<span class="string">&#x27;test.xlsx&#x27;</span>)<span class="comment">#创建一个excel文件</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 创建工作表</span></span><br><span class="line">worksheet = workbook.add_worksheet(<span class="string">&#x27;test-sheet1&#x27;</span>)<span class="comment">#在文件中创建一个名为test-sheet1的sheet,不加名字默认为sheet1</span></span><br><span class="line">worksheet2 = workbook.add_worksheet()   <span class="comment">#  Sheet2</span></span><br><span class="line">worksheet3 = workbook.add_worksheet(<span class="string">&#x27;test-sheet2&#x27;</span>)</span><br><span class="line">worksheet4 = workbook.add_worksheet()  <span class="comment">#  Sheet4</span></span><br><span class="line"> </span><br><span class="line">workbook.close()</span><br></pre></td></tr></table></figure>
+
+<h2 id="单元格填值"><a href="#单元格填值" class="headerlink" title="单元格填值"></a>单元格填值</h2><h3 id="单个单元格"><a href="#单个单元格" class="headerlink" title="单个单元格"></a>单个单元格</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding=gbk</span></span><br><span class="line"><span class="keyword">import</span> xlsxwriter</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 一：创建工作簿</span></span><br><span class="line">workbook = xlsxwriter.Workbook(<span class="string">&#x27;test.xlsx&#x27;</span>)<span class="comment">#创建一个excel文件</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 二：创建工作表</span></span><br><span class="line">worksheet1 = workbook.add_worksheet(<span class="string">&#x27;test-sheet1&#x27;</span>)<span class="comment">#在文件中创建一个名为test-sheet1的sheet,不加名字默认为sheet1</span></span><br><span class="line">worksheet2 = workbook.add_worksheet()   <span class="comment">#  Sheet2</span></span><br><span class="line">worksheet3 = workbook.add_worksheet(<span class="string">&#x27;test-sheet2&#x27;</span>)</span><br><span class="line">worksheet4 = workbook.add_worksheet()  <span class="comment">#  Sheet4</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 三：设置单元格的值</span></span><br><span class="line">worksheet1.write(<span class="string">&#x27;A1&#x27;</span>, <span class="string">&#x27;hello123&#x27;</span>)  <span class="comment"># 在A1单元格写上HELLO</span></span><br><span class="line">worksheet1.write(<span class="string">&#x27;A2&#x27;</span>, <span class="string">&#x27;123测试456&#x27;</span>)  <span class="comment"># 在B2上写上中文加粗</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 使用行列方式,下标从0开始</span></span><br><span class="line">worksheet1.write(<span class="number">2</span>, <span class="number">0</span>, <span class="number">100</span>) <span class="comment">#  第3行第1列（即A3） 写入100</span></span><br><span class="line">worksheet1.write(<span class="number">3</span>, <span class="number">0</span>, <span class="number">99.8</span>)  <span class="comment">#  第4行第1列（即A4） 写入99.8</span></span><br><span class="line">worksheet1.write(<span class="number">4</span>, <span class="number">0</span>, <span class="string">&#x27;=SUM(A3:A4)&#x27;</span>)  <span class="comment"># 写上excel公式</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 合并单元格</span></span><br><span class="line">worksheet1.merge_range(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="string">&#x27;合并01&#x27;</span>)</span><br><span class="line">worksheet1.merge_range(<span class="string">&#x27;C6:E7&#x27;</span>,<span class="string">&#x27;合并02&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># worksheet1.write_number：写入数字</span></span><br><span class="line">worksheet1.write_number(<span class="number">5</span>, <span class="number">0</span>, <span class="number">1001</span>)  <span class="comment">#   Int or float</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># worksheet1.write_blank：写入空格</span></span><br><span class="line">worksheet1.write_blank(<span class="number">6</span>, <span class="number">0</span>,<span class="string">&#x27;xx&#x27;</span>)  <span class="comment"># 不管第三个参数是什么，都写入空格</span></span><br><span class="line"><span class="comment"># worksheet1.write_formula：写入公式</span></span><br><span class="line">worksheet1.write_formula(<span class="number">7</span>, <span class="number">0</span>, <span class="string">&#x27;=SUM(A3:A4)&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># worksheet1.write_datetime：写入时间格式</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line">date_format = workbook.add_format(&#123;<span class="string">&#x27;num_format&#x27;</span>: <span class="string">&#x27;yyyy-mm-dd H:M:S&#x27;</span>&#125;)</span><br><span class="line">worksheet1.write_datetime(<span class="number">8</span>, <span class="number">0</span>, datetime.today(),date_format )</span><br><span class="line"> </span><br><span class="line"><span class="comment"># worksheet1.write_boolean:写入逻辑数据</span></span><br><span class="line">worksheet1.write_boolean(<span class="number">9</span>, <span class="number">0</span>,<span class="literal">False</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># worksheet1.write_url:写入链接地址</span></span><br><span class="line">worksheet1.write_url(<span class="number">10</span>, <span class="number">0</span>,<span class="string">&#x27;www.baidu.com&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">workbook.close()</span><br></pre></td></tr></table></figure>
+
+<h3 id="多个单元格"><a href="#多个单元格" class="headerlink" title="多个单元格"></a>多个单元格</h3><blockquote>
+<p>以<strong>列表</strong>形式进行数值填入。<br>只要填充位置以及填充数值足够清晰就可以完成相关数值的写入。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding=gbk</span></span><br><span class="line"><span class="keyword">import</span> xlsxwriter</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 一：创建工作簿</span></span><br><span class="line">workbook = xlsxwriter.Workbook(<span class="string">&#x27;test.xlsx&#x27;</span>)<span class="comment">#创建一个excel文件</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 二：创建工作表</span></span><br><span class="line">worksheet1 = workbook.add_worksheet(<span class="string">&#x27;test-sheet1&#x27;</span>)<span class="comment">#在文件中创建一个名为test-sheet1的sheet,不加名字默认为sheet1</span></span><br><span class="line"><span class="comment"># worksheet2 = workbook.add_worksheet()   #  Sheet2</span></span><br><span class="line"><span class="comment"># worksheet3 = workbook.add_worksheet(&#x27;test-sheet2&#x27;)</span></span><br><span class="line"><span class="comment"># worksheet4 = workbook.add_worksheet()  #  Sheet4</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># # write_row 写入</span></span><br><span class="line">lst=[<span class="string">&#x27;12&#x27;</span>,<span class="string">&#x27;34&#x27;</span>,<span class="string">&#x27;56&#x27;</span>,<span class="string">&#x27;78&#x27;</span>]</span><br><span class="line">worksheet1.write_row(<span class="number">5</span>, <span class="number">0</span>, lst)  <span class="comment"># 把数据写到第6行的，从第1列开始到第4列上</span></span><br><span class="line"><span class="comment"># # write_column 写入</span></span><br><span class="line">worksheet1.write_column(<span class="number">6</span>, <span class="number">0</span>,lst) <span class="comment"># 把数据写到第1列，从第7行开始到第10行上</span></span><br><span class="line"> </span><br><span class="line">workbook.close()</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置格式"><a href="#设置格式" class="headerlink" title="设置格式"></a>设置格式</h2><h3 id="设置单元格样式"><a href="#设置单元格样式" class="headerlink" title="设置单元格样式"></a>设置单元格样式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding=gbk</span></span><br><span class="line"><span class="keyword">import</span> xlsxwriter</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 一：创建工作簿</span></span><br><span class="line">workbook = xlsxwriter.Workbook(<span class="string">&#x27;test.xlsx&#x27;</span>)<span class="comment">#创建一个excel文件</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 二：创建工作表</span></span><br><span class="line">worksheet1 = workbook.add_worksheet(<span class="string">&#x27;test-sheet1&#x27;</span>)<span class="comment">#在文件中创建一个名为test-sheet1的sheet,不加名字默认为sheet1</span></span><br><span class="line"><span class="comment"># worksheet2 = workbook.add_worksheet()   #  Sheet2</span></span><br><span class="line"><span class="comment"># worksheet3 = workbook.add_worksheet(&#x27;test-sheet2&#x27;)</span></span><br><span class="line"><span class="comment"># worksheet4 = workbook.add_worksheet()  #  Sheet4</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 大部分样式如下：</span></span><br><span class="line"><span class="built_in">format</span> = &#123;</span><br><span class="line">    <span class="string">&#x27;font_size&#x27;</span>: <span class="number">10</span>,  <span class="comment"># 字体大小</span></span><br><span class="line">    <span class="string">&#x27;bold&#x27;</span>: <span class="literal">True</span>,  <span class="comment"># 是否粗体</span></span><br><span class="line">    <span class="comment"># &#x27;bg_color&#x27;: &#x27;#101010&#x27;,  # 表格背景颜色</span></span><br><span class="line">    <span class="string">&#x27;fg_color&#x27;</span>: <span class="string">&#x27;#00FF00&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;font_color&#x27;</span>: <span class="string">&#x27;#0000FF&#x27;</span>,  <span class="comment"># 字体颜色</span></span><br><span class="line">    <span class="string">&#x27;align&#x27;</span>: <span class="string">&#x27;center&#x27;</span>,  <span class="comment"># 水平居中对齐</span></span><br><span class="line">    <span class="string">&#x27;valign&#x27;</span>: <span class="string">&#x27;vcenter&#x27;</span>,  <span class="comment"># 垂直居中对齐</span></span><br><span class="line">    <span class="comment"># &#x27;num_format&#x27;: &#x27;yyyy-mm-dd H:M:S&#x27;,# 设置日期格式</span></span><br><span class="line">    <span class="comment"># 后面参数是线条宽度</span></span><br><span class="line">    <span class="string">&#x27;border&#x27;</span>: <span class="number">1</span>, <span class="comment"># 边框宽度</span></span><br><span class="line">    <span class="string">&#x27;top&#x27;</span>: <span class="number">1</span>,  <span class="comment"># 上边框</span></span><br><span class="line">    <span class="string">&#x27;left&#x27;</span>: <span class="number">1</span>,  <span class="comment"># 左边框</span></span><br><span class="line">    <span class="string">&#x27;right&#x27;</span>: <span class="number">1</span>,  <span class="comment"># 右边框</span></span><br><span class="line">    <span class="string">&#x27;bottom&#x27;</span>: <span class="number">1</span>  <span class="comment"># 底边框</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">style = workbook.add_format(<span class="built_in">format</span>)   <span class="comment"># 设置样式format是一个字典</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># # write_row 写入</span></span><br><span class="line">lst=[<span class="string">&#x27;12&#x27;</span>,<span class="string">&#x27;34&#x27;</span>,<span class="string">&#x27;56&#x27;</span>,<span class="string">&#x27;78&#x27;</span>]</span><br><span class="line">worksheet1.write_row(<span class="number">5</span>, <span class="number">0</span>, lst,style)  <span class="comment"># 把数据写到第6行的，从第1列开始到第4列上</span></span><br><span class="line"><span class="comment"># # write_column 写入</span></span><br><span class="line">worksheet1.write_column(<span class="number">6</span>, <span class="number">0</span>,lst) <span class="comment"># 把数据写到第1列，从第7行开始到第10行上</span></span><br><span class="line">worksheet1.write(<span class="string">&#x27;A1&#x27;</span>,<span class="number">200</span>,style)</span><br><span class="line">worksheet1.write(<span class="number">2</span>,<span class="number">0</span>,<span class="number">900</span>,style)</span><br><span class="line">workbook.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置单元格行高、列宽"><a href="#设置单元格行高、列宽" class="headerlink" title="设置单元格行高、列宽"></a>设置单元格行高、列宽</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding=gbk</span></span><br><span class="line"><span class="keyword">import</span> xlsxwriter</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 一：创建工作簿</span></span><br><span class="line">workbook = xlsxwriter.Workbook(<span class="string">&#x27;test.xlsx&#x27;</span>)<span class="comment">#创建一个excel文件</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 二：创建工作表</span></span><br><span class="line">worksheet1 = workbook.add_worksheet(<span class="string">&#x27;test-sheet1&#x27;</span>)<span class="comment">#在文件中创建一个名为test-sheet1的sheet,不加名字默认为sheet1</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 设置行宽</span></span><br><span class="line">worksheet1.set_row(<span class="number">0</span>,<span class="number">60</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 设置列宽</span></span><br><span class="line">worksheet1.set_column(<span class="number">1</span>,<span class="number">2</span>,<span class="number">30</span>)</span><br><span class="line">worksheet1.set_column(<span class="string">&#x27;D:F&#x27;</span>,<span class="number">40</span>)</span><br><span class="line">workbook.close()</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置标签颜色"><a href="#设置标签颜色" class="headerlink" title="设置标签颜色"></a>设置标签颜色</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">worksheet1.set_tab_color(<span class="string">&#x27;#0000FF&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding=gbk</span></span><br><span class="line"><span class="keyword">import</span> xlsxwriter</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 一：创建工作簿</span></span><br><span class="line">workbook = xlsxwriter.Workbook(<span class="string">&#x27;test.xlsx&#x27;</span>)<span class="comment">#创建一个excel文件</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 二：创建工作表</span></span><br><span class="line">worksheet1 = workbook.add_worksheet(<span class="string">&#x27;test-sheet1&#x27;</span>)<span class="comment">#在文件中创建一个名为test-sheet1的sheet,不加名字默认为sheet1</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># # 设置行宽</span></span><br><span class="line"><span class="comment"># worksheet1.set_row(0,60)</span></span><br><span class="line"><span class="comment"># # 设置列宽</span></span><br><span class="line"><span class="comment"># worksheet1.set_column(1,2,30)</span></span><br><span class="line"><span class="comment"># worksheet1.set_column(&#x27;D:F&#x27;,40)</span></span><br><span class="line"><span class="comment"># worksheet1.set_tab_color(&#x27;#0000FF&#x27;)</span></span><br><span class="line"> </span><br><span class="line">worksheet1.insert_image(<span class="string">&#x27;A3&#x27;</span>, <span class="string">&#x27;00.jpg&#x27;</span>, &#123;<span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;https://blog.csdn.net/&#x27;</span>&#125;)</span><br><span class="line">workbook.close()</span><br></pre></td></tr></table></figure>
+
+<h1 id="插入图表"><a href="#插入图表" class="headerlink" title="插入图表"></a>插入图表</h1><blockquote>
+<p>chart类实图表组件，支持包括面积、条形图、柱状图、折线图、散点图等，一个图表对象是通过Workbook的add_chart方法创建，通过<code>&#123;type, &#39;图表类型&#39;&#125;</code>字典来制定图表类型,常见的图表样式如下：</p>
+<ul>
+<li>area：面积样式的图表</li>
+<li>bar：条形图</li>
+<li>column：柱状图</li>
+<li>line：线条样式的图表</li>
+<li>pie：饼形图</li>
+<li>scatter：散点图</li>
+<li>stock：股票样式的图表</li>
+<li>radar：雷达样式的图表</li>
+</ul>
+</blockquote>
+<h2 id="创建chart类"><a href="#创建chart类" class="headerlink" title="创建chart类"></a>创建chart类</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1:创建chart对象</span></span><br><span class="line">chart = workbook.add_chart(&#123;<span class="string">&#x27;type&#x27;</span>:<span class="string">&#x27;line&#x27;</span>&#125;)</span><br><span class="line"><span class="comment"># 2：设置chart对象相关数据，属性</span></span><br><span class="line"><span class="comment"># 3：然后通过Worksheet的insert_chart()方法插入到指定位置</span></span><br><span class="line">worksheet1.insert_chart(<span class="string">&#x27;A3&#x27;</span>,chart,&#123;<span class="string">&#x27;x_offset&#x27;</span>:<span class="number">25</span>,<span class="string">&#x27;y_offset&#x27;</span>:<span class="number">10</span>&#125;)   <span class="comment">#放置图表位置</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h3><blockquote>
+<p>以字典类型添加数据。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chart.add_series(&#123;</span><br><span class="line">     <span class="string">&#x27;categories&#x27;</span>: <span class="string">&#x27;=Sheet1!$A$1:$A$5&#x27;</span>,</span><br><span class="line">     <span class="string">&#x27;values&#x27;</span>: <span class="string">&#x27;=Sheet1!$B$1:$B$5&#x27;</span>,</span><br><span class="line">     <span class="string">&#x27;line&#x27;</span>: &#123;<span class="string">&#x27;color&#x27;</span>: <span class="string">&#x27;red&#x27;</span>&#125;,</span><br><span class="line"> &#125;) </span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置x轴以及y轴"><a href="#设置x轴以及y轴" class="headerlink" title="设置x轴以及y轴"></a>设置x轴以及y轴</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">chart.set_x_axis(&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;x name&#x27;</span>,</span><br><span class="line">                  <span class="string">&#x27;name_font&#x27;</span>: &#123;<span class="string">&#x27;size&#x27;</span>: <span class="number">14</span>, <span class="string">&#x27;bold&#x27;</span>: <span class="literal">True</span>&#125; ,</span><br><span class="line">                  <span class="string">&#x27;num_font&#x27;</span>: &#123;<span class="string">&#x27;italic&#x27;</span>: <span class="literal">True</span>&#125;</span><br><span class="line">                  &#125;)</span><br><span class="line"> </span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">name：设置x轴名称；</span></span><br><span class="line"><span class="string">name_font：设置x轴字体；</span></span><br><span class="line"><span class="string">num_font：设置x轴数字字体属性；</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set_size(options)方法，用于设置图表大小，示例如下：</span></span><br><span class="line">chart.set_size(&#123;<span class="string">&#x27;width&#x27;</span>: <span class="number">720</span>, <span class="string">&#x27;height&#x27;</span>: <span class="number">576</span>&#125;)</span><br><span class="line"><span class="comment"># width：设置宽度；</span></span><br><span class="line"><span class="comment"># height：设置高度；</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># set_title(options)方法，设置图表标题，示例如下：</span></span><br><span class="line">chart.set_title(&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;test&#x27;</span>&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># set_style(style_id)方法，用于设置图表样式，style_id为不同数字代表不同样式</span></span><br><span class="line">chart.set_style(<span class="number">37</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># set_table(options)方法，设置x轴为数据表格式。</span></span><br><span class="line">chart.set_table()</span><br></pre></td></tr></table></figure>
+
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding=gbk</span></span><br><span class="line"><span class="keyword">import</span> xlsxwriter</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 一：创建工作簿</span></span><br><span class="line">workbook = xlsxwriter.Workbook(<span class="string">&#x27;test.xlsx&#x27;</span>)<span class="comment">#创建一个excel文件</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 二：创建工作表</span></span><br><span class="line">worksheet1 = workbook.add_worksheet(<span class="string">&#x27;test-sheet1&#x27;</span>)<span class="comment">#在文件中创建一个名为test-sheet1的sheet,不加名字默认为sheet1</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 三：数据准备</span></span><br><span class="line">row_data=[<span class="string">&#x27;姓名&#x27;</span>,<span class="string">&#x27;数学&#x27;</span>,<span class="string">&#x27;英语&#x27;</span>,<span class="string">&#x27;语文&#x27;</span>]</span><br><span class="line">col_data = [</span><br><span class="line">    [<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;老王&#x27;</span>,<span class="string">&#x27;德华&#x27;</span>,<span class="string">&#x27;赵四&#x27;</span>],</span><br><span class="line">    [<span class="number">90</span>, <span class="number">85</span>, <span class="number">120</span>, <span class="number">130</span>, <span class="number">99</span>],</span><br><span class="line">    [<span class="number">70</span>, <span class="number">65</span>, <span class="number">120</span>, <span class="number">109</span>, <span class="number">110</span>],</span><br><span class="line">    [<span class="number">60</span>, <span class="number">95</span>, <span class="number">130</span>, <span class="number">120</span>, <span class="number">79</span>]</span><br><span class="line">]</span><br><span class="line"> </span><br><span class="line">worksheet1.write_row(<span class="string">&#x27;A1&#x27;</span>,row_data)</span><br><span class="line">worksheet1.write_column(<span class="string">&#x27;A2&#x27;</span>,col_data[<span class="number">0</span>])</span><br><span class="line">worksheet1.write_column(<span class="string">&#x27;B2&#x27;</span>,col_data[<span class="number">1</span>])</span><br><span class="line">worksheet1.write_column(<span class="string">&#x27;C2&#x27;</span>,col_data[<span class="number">2</span>])</span><br><span class="line">worksheet1.write_column(<span class="string">&#x27;D2&#x27;</span>,col_data[<span class="number">3</span>])</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 四：创建chart对象</span></span><br><span class="line">chart = workbook.add_chart(&#123;<span class="string">&#x27;type&#x27;</span>:<span class="string">&#x27;line&#x27;</span>&#125;)        <span class="comment"># 线条样式的图表</span></span><br><span class="line"><span class="comment"># chart = workbook.add_chart(&#123;&#x27;type&#x27;:&#x27;column&#x27;&#125;)      # 柱状图</span></span><br><span class="line"><span class="comment"># chart = workbook.add_chart(&#123;&#x27;type&#x27;:&#x27;area&#x27;&#125;)       # 面积样式的图表</span></span><br><span class="line"><span class="comment"># chart = workbook.add_chart(&#123;&#x27;type&#x27;:&#x27;stock&#x27;&#125;)      # 股票样式的图表</span></span><br><span class="line"><span class="comment"># chart = workbook.add_chart(&#123;&#x27;type&#x27;:&#x27;bar&#x27;&#125;)        # 条形图</span></span><br><span class="line"><span class="comment"># chart = workbook.add_chart(&#123;&#x27;type&#x27;:&#x27;pie&#x27;&#125;)        # 饼形图</span></span><br><span class="line"><span class="comment"># chart = workbook.add_chart(&#123;&#x27;type&#x27;:&#x27;scatter&#x27;&#125;)    # 散点图</span></span><br><span class="line"><span class="comment"># chart = workbook.add_chart(&#123;&#x27;type&#x27;:&#x27;radar&#x27;&#125;)      # 雷达样式的图表</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">chart.add_series(&#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;=test-sheet1!$B$1&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;categories&#x27;</span>: <span class="string">&#x27;=test-sheet1!$A$2:$A$6&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;values&#x27;</span>: <span class="string">&#x27;=test-sheet1!$B$2:$B$6&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;line&#x27;</span>: &#123;<span class="string">&#x27;color&#x27;</span>: <span class="string">&#x27;red&#x27;</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;pie&#x27;</span>: &#123;<span class="string">&#x27;color&#x27;</span>: <span class="string">&#x27;red&#x27;</span>&#125;,</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line">chart.add_series(&#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;=test-sheet1!$C$1&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;categories&#x27;</span>: <span class="string">&#x27;=test-sheet1!$A$2:$A$6&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;values&#x27;</span>: <span class="string">&#x27;=test-sheet1!$C$2:$C$6&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;line&#x27;</span>: &#123;<span class="string">&#x27;color&#x27;</span>: <span class="string">&#x27;yellow&#x27;</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;pie&#x27;</span>: &#123;<span class="string">&#x27;color&#x27;</span>: <span class="string">&#x27;yellow&#x27;</span>&#125;,</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line">chart.add_series(&#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;=test-sheet1!$D$1&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;categories&#x27;</span>: <span class="string">&#x27;=test-sheet1!$A$2:$A$6&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;values&#x27;</span>: <span class="string">&#x27;=test-sheet1!$D$2:$D$6&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;line&#x27;</span>: &#123;<span class="string">&#x27;color&#x27;</span>: <span class="string">&#x27;blue&#x27;</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;pie&#x27;</span>: &#123;<span class="string">&#x27;color&#x27;</span>: <span class="string">&#x27;blue&#x27;</span>&#125;,</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line">chart.set_title(&#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;测试&#x27;</span>&#125;)</span><br><span class="line">chart.set_x_axis(&#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&quot;x轴&quot;</span>&#125;)</span><br><span class="line">chart.set_y_axis(&#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;y轴&#x27;</span>&#125;)          <span class="comment">#设置图表表头及坐标轴</span></span><br><span class="line"> </span><br><span class="line">chart.set_style(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># chart.set_style(37)</span></span><br><span class="line"> </span><br><span class="line">worksheet1.insert_chart(<span class="string">&#x27;B8&#x27;</span>,chart,&#123;<span class="string">&#x27;x_offset&#x27;</span>:<span class="number">25</span>,<span class="string">&#x27;y_offset&#x27;</span>:<span class="number">10</span>&#125;)   <span class="comment">#放置图表位置</span></span><br><span class="line"> </span><br><span class="line">workbook.close()</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">官方文档：https://xlsxwriter.readthedocs.io/chart.html</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+    </div>
+    <!-- end of the post-->
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------THE <i class="fa-solid fa-cloud"></i> END-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/xlsx/" rel="tag"><i class="fa fa-tag"></i> xlsx</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/08/08/Python-OCR-Study/" rel="prev" title="Python-OCR-Study">
+                  <i class="fa fa-chevron-left"></i> Python-OCR-Study
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/12/02/web-commontools-install/" rel="next" title="Web-Commontools-Install">
+                  Web-Commontools-Install <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eurynome</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">297k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">4:30</span>
+  </span>
+</div>
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+-->
+
+    </div>
+  </footer>
+  <!-- Background picture -->
+    <script type="text/javascript" src="/js/canvas-nest.js"></script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: false,
+  label: '🌓',
+  autoMatchOsTheme: false
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+if (window.darkmode && !window.darkmode.isActivated()) {
+  window.darkmode.toggle();
+  var toggleButtons = document.getElementsByClassName("darkmode-toggle");
+  if (toggleButtons && toggleButtons.length > 0) {
+    for (i = 0; i < toggleButtons.length; i++) {
+      toggleButtons[i].classList.add("darkmode-toggle--white");
+    }
+  }
+}
+</script>
+
+</body>
+</html>
