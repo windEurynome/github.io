@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"windeurynome.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac","show_result":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="主要是一些kali中工具的安装，这些工具安装适用于Kali-2024版本。 中间有一个题目复现，主要涉及画图需要用gimp的场景。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gimp安装-Vol一些用法">
+<meta property="og:url" content="https://windeurynome.github.io/2024/12/05/gimp%E5%AE%89%E8%A3%85-vol%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/index.html">
+<meta property="og:site_name" content="The Sea &amp; Chaos">
+<meta property="og:description" content="主要是一些kali中工具的安装，这些工具安装适用于Kali-2024版本。 中间有一个题目复现，主要涉及画图需要用gimp的场景。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-12-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-05T07:08:14.220Z">
+<meta property="article:author" content="Eurynome">
+<meta property="article:tag" content="basecrack">
+<meta property="article:tag" content="gimp">
+<meta property="article:tag" content="ciphey">
+<meta property="article:tag" content="pwntools">
+<meta property="article:tag" content="volatility">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://windeurynome.github.io/2024/12/05/gimp%E5%AE%89%E8%A3%85-vol%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://windeurynome.github.io/2024/12/05/gimp%E5%AE%89%E8%A3%85-vol%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/","path":"2024/12/05/gimp安装-vol一些用法/","title":"Gimp安装-Vol一些用法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Gimp安装-Vol一些用法 | The Sea & Chaos</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">The Sea & Chaos</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">FOREVER brave & warm.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">安装gimp</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85flatpak"><span class="nav-number">1.1.</span> <span class="nav-text">安装flatpak</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cflatpak"><span class="nav-number">1.2.</span> <span class="nav-text">运行flatpak</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0flatpak"><span class="nav-number">1.3.</span> <span class="nav-text">更新flatpak</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5"><span class="nav-number">1.4.</span> <span class="nav-text">docker启动失败</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">安装ciphey</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">安装pwntools</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">安装basecrack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">镜像文件简单分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.1.</span> <span class="nav-text">了解镜像文件使用系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#netscan"><span class="nav-number">5.1.1.</span> <span class="nav-text">netscan</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPC%E6%BC%8F%E6%B4%9E%E6%8E%A7%E5%88%B6%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">5.2.</span> <span class="nav-text">IPC漏洞控制服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%A6%E5%8F%B7%E7%9B%B8%E5%85%B3%E4%B8%80%E8%88%AC%E8%80%83%E8%99%91%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF"><span class="nav-number">5.3.</span> <span class="nav-text">账号相关一般考虑注册表相关信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hivelist"><span class="nav-number">5.3.1.</span> <span class="nav-text">hivelist</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hivedump"><span class="nav-number">5.3.2.</span> <span class="nav-text">hivedump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#printkey"><span class="nav-number">5.3.3.</span> <span class="nav-text">printkey</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashdump"><span class="nav-number">5.3.4.</span> <span class="nav-text">hashdump</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9B%B8%E5%85%B3%E4%B8%BB%E8%A6%81%E8%80%83%E8%99%91%E5%88%A9%E7%94%A8%E5%8F%AF%E7%96%91%E8%BF%9B%E7%A8%8B%E6%8A%8A%E6%95%B0%E6%8D%AEdump%E4%B8%8B%E6%9D%A5"><span class="nav-number">5.4.</span> <span class="nav-text">文件相关主要考虑利用可疑进程把数据dump下来</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pstree-pslist"><span class="nav-number">5.4.1.</span> <span class="nav-text">pstree&#x2F;pslist</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#memdump"><span class="nav-number">5.4.2.</span> <span class="nav-text">memdump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#editbox"><span class="nav-number">5.4.3.</span> <span class="nav-text">editbox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filescan"><span class="nav-number">5.4.4.</span> <span class="nav-text">filescan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dumpfile"><span class="nav-number">5.4.5.</span> <span class="nav-text">dumpfile</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Eurynome</p>
+  <div class="site-description" itemprop="description">Recording...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://windeurynome.github.io/2024/12/05/gimp%E5%AE%89%E8%A3%85-vol%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eurynome">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Sea & Chaos">
+      <meta itemprop="description" content="Recording...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Gimp安装-Vol一些用法 | The Sea & Chaos">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Gimp安装-Vol一些用法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-12-05 00:00:00 / Modified: 15:08:14" itemprop="dateCreated datePublished" datetime="2024-12-05T00:00:00+08:00">2024-12-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>5.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>5 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>主要是一些kali中工具的安装，这些工具安装适用于<code>Kali-2024</code>版本。</p>
+<p>中间有一个题目复现，主要涉及画图需要用<code>gimp</code>的场景。</p>
+<span id="more"></span><!--toc-->
+<h1>安装gimp</h1>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.gimp.org/">GIMP - GNU Image Manipulation Program</a><br>
+<a target="_blank" rel="noopener" href="https://www.gimp.org/downloads/">GIMP - Downloads</a></p>
+</blockquote>
+<p><em>还得是官方，比较可靠。</em></p>
+<h2 id="安装flatpak">安装flatpak</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref</span><br></pre></td></tr></table></figure>
+<p>直接先进行安装，可能需要稳定网络。<br>
+反正多试试，比docker拉取容易。<br>
+安装<code>gimp</code>相关的环境，一般需要比较多的时间进行安装。<br>
+一共是5/7个环境，需要花费一定时间，可能安装失败。</p>
+<h2 id="运行flatpak">运行flatpak</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak run org.gimp.GIMP//stable</span><br></pre></td></tr></table></figure>
+<p>安装失败，直接重新安装即可。<br>
+打开原始文件的2种方式。</p>
+<ul>
+<li>使用上面的命令之后，在图形化界面中打开<code>data</code>文件</li>
+<li>或者直接使用<code>flatpak run org.gimp.GIMP//stable xxx.data</code></li>
+</ul>
+<h2 id="更新flatpak">更新flatpak</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak update</span><br></pre></td></tr></table></figure>
+<p>还失败的话就更新下<code>flatpak</code>。</p>
+<h2 id="docker启动失败">docker启动失败</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39779233/article/details/142890967">Docker 拉取镜像时配置可用镜像源（包含国内可用镜像源）_docker镜像源-CSDN博客</a></p>
+</blockquote>
+<p>类似如下报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">× docker.service - Docker Application Container Engine</span><br><span class="line">     Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; preset: enabled)</span><br><span class="line">     Active: failed (Result: exit-code) since Mon 2024-11-11 01:26:48 EST; 4s ago</span><br><span class="line"> Invocation: a94a14824532421fa127a297e3857f2e</span><br><span class="line">TriggeredBy: × docker.socket</span><br><span class="line">       Docs: https://docs.docker.com</span><br><span class="line">    Process: 21309 ExecStart=/usr/sbin/dockerd -H fd:// --containerd=/run/containerd/c&gt;</span><br><span class="line">   Main PID: 21309 (code=exited, status=1/FAILURE)</span><br><span class="line"></span><br><span class="line">Nov 11 01:26:48 kali systemd[1]: docker.service: Scheduled restart job, restart counte&gt;</span><br><span class="line">Nov 11 01:26:48 kali systemd[1]: docker.service: Start request repeated too quickly.</span><br><span class="line">Nov 11 01:26:48 kali systemd[1]: docker.service: Failed with result &#x27;exit-code&#x27;.</span><br><span class="line">Nov 11 01:26:48 kali systemd[1]: Failed to start docker.service - Docker Application C&gt;</span><br></pre></td></tr></table></figure>
+<p>报错关键：<code>Result: exit-code</code><br>
+主要由于一些配置文件错误导致报错了。</p>
+<p>一般就直接针对配置文件进行处理：<code>vi /etc/docker/daemon.json</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;registry-mirrors&quot;: [</span><br><span class="line">        &quot;https://docker.1panel.live&quot;,</span><br><span class="line">        &quot;https://hub.rat.dev&quot;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>修改完毕之后，直接使用<code>systemctl daemon-reload</code>，进行reload.</p>
+<p>然后重启docker服务。<code>systemctl restart docker</code></p>
+<p>最后查看是否换源成功。<br>
+<code>docker info</code></p>
+<h1>安装ciphey</h1>
+<blockquote>
+<p>主要存在的困难点就是镜像源被ban掉了所以导致无法下载。<br>
+要么换镜像，要么就是直接挂代理，害。</p>
+</blockquote>
+<p>在上面的换源操作成功之后，突然可以安装<code>ciphey</code>了，神奇。</p>
+<p><code>docker run -it --rm remnux/ciphey</code><br>
+没有镜像的话，会自动索引可以下载的镜像源，然后进行安装。<br>
+安装完毕之后，就可以直接进行调用了。</p>
+<p>一般调用：</p>
+<ul>
+<li><code>docker run -it --rm remnux/ciphey -t &quot;xxx&quot;</code></li>
+<li><code>docker run -it --rm remnux/ciphey -f [filename]</code></li>
+</ul>
+<h1>安装pwntools</h1>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.pwntools.com/en/stable/install.html#python3">https://docs.pwntools.com/en/stable/install.html#python3</a></p>
+</blockquote>
+<p>包含python3的pwntools的安装。<br>
+涉及到<a href="kali-pip3%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.md">kali-pip3安装虚拟环境</a>中提升权限的问题。<br>
+一般安装不上东西基本都是因为权限太低，或者相关依赖库版本不对应的原因。</p>
+<p>python2安装官方方法无法进行安装，暂时无法理解如何进行处理。<br>
+先放着。</p>
+<h1>安装basecrack</h1>
+<p>下载工具：<a target="_blank" rel="noopener" href="https://github.com/mufeedvh/basecrack">https://github.com/mufeedvh/basecrack</a><br>
+下载好包之后就可以直接进入到目录之后使用<code>pip install -r requirements.txt</code>进行安装。</p>
+<p>可能出现问题的主要在跟虚拟环境联合的时候：</p>
+<ul>
+<li>先进入到虚拟环境</li>
+<li>再进入到<code>basecrack</code>的目录之下</li>
+<li>使用<code>pip</code>相关命令进行安装</li>
+</ul>
+<p>具体使用方法见<code>readme.md</code><br>
+一般情况下会用<code>python3 basecrack.py -f [filename] -m</code>即可。<br>
+基本就能直接使用工具去解密base系列的题目了。</p>
+<h1>镜像文件简单分析</h1>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/volatilityfoundation/volatility">GitHub - volatilityfoundation/volatility: An advanced memory forensics framework</a></p>
+</blockquote>
+<blockquote>
+<p>具体的思路需要梳理一下。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">某公司服务器出现了数据泄露，请分析文件回答下列问题</span><br><span class="line"></span><br><span class="line">1、经检查，攻击者利用IPC漏洞监控了服务器，攻击者的IP地址的32位小写md5值即为答案。（如，攻击者ip地址为192.168.1.1，则答案为66efff4c945d3c3b87fc271b47d456db）</span><br><span class="line"></span><br><span class="line">答：2b714710cb93b5eb3295ff8b51819081</span><br><span class="line"></span><br><span class="line">2、攻击者利用服务器内用户命名规则创建了后门账号，请找出该后门账号，该账号的登录密码的32位小写md5值即是答案。（例：密码为123456，则答案为e10adc3949ba59abbe56e057f20f883e）</span><br><span class="line"></span><br><span class="line">答：5e8667a439c68f5145dd2fcbecf02209</span><br><span class="line"></span><br><span class="line">3、攻击者从服务器中窃取了一些个人敏感数据，请分析文件，找到包含的所有身份证信息(共5个)，并按照身份证首位数字从小到大进行排序顺序（首位数字相同则比较第二位数字，以此类推），并以-进行连接，最后计算其32位小写MD5值作为答案（例：身份证1：123456789；身份证2：987654321；身份证3：111111111，则身份证顺序：111111111-123456789-987654321，答案为：1f18992fb75aaa7f34c8b6583fb3ac1e）（注：题目中身份证信息等个人信息为出题需要编写，均为虚假信息，不具备真实性及效益。）</span><br><span class="line"></span><br><span class="line">答：140bc19db32fec044a87d6130eab854f</span><br></pre></td></tr></table></figure>
+<h2 id="了解镜像文件使用系统">了解镜像文件使用系统</h2>
+<ul>
+<li><code>vol.py -f [rawfile] imageinfo</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Suggested Profile(s) : Win7SP1x64, Win7SP0x64, Win2008R2SP0x64, Win2008R2SP1x64_24000, Win2008R2SP1x64_23418, Win2008R2SP1x64, Win7SP1x64_24000, Win7SP1x64_23418</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>基于服务器描述，主要选择的方向就是<code>Win2008</code>系列的，一般情况下，优先考虑相对靠前位置的操作系统。</p>
+<h3 id="netscan"><code>netscan</code></h3>
+<ul>
+<li>查看网络连接</li>
+<li>查看当前系统IP</li>
+</ul>
+<h2 id="IPC漏洞控制服务器">IPC漏洞控制服务器</h2>
+<blockquote>
+<p>题目中提示信息：攻击者利用IPC漏洞监控了服务器</p>
+</blockquote>
+<ul>
+<li>漏洞利用条件：开放了 139、445 端口和 ipc$ 文件共享，并且我们已经获取到用户登录账号和密码。</li>
+<li>主要这个漏洞在WinServer2008中好像比较典型</li>
+</ul>
+<h2 id="账号相关一般考虑注册表相关信息">账号相关一般考虑注册表相关信息</h2>
+<ul>
+<li>hivelist</li>
+<li>hivedump：查看注册表键名
+<ul>
+<li>试了一下暂且不能理解为啥需要这种命令，以及放的虚拟地址具体需要查看啥。</li>
+</ul>
+</li>
+<li>printkey</li>
+<li>hashdump</li>
+</ul>
+<h3 id="hivelist"><code>hivelist</code></h3>
+<ul>
+<li>列出所有的注册表项及其虚拟地址和物理地址</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ntds.dit文件位置: C:\Windows\NTDS\NTDS.dit</span><br><span class="line">system文件位置:C:\Windows\System32\config\SYSTEM</span><br><span class="line">sam文件位置:C:\Windows\System32\config\SAM</span><br><span class="line">#通过SAM数据库获得用户hash的方法</span><br></pre></td></tr></table></figure>
+<p>在这一块基本找具体要分析的注册表的路径位置？<br>
+找比较可行的路径？<br>
+不太理解。</p>
+<h3 id="hivedump"><code>hivedump</code></h3>
+<ul>
+<li>注册表相关信息罗列</li>
+</ul>
+<p>这边能找到一堆<code>user1</code>等相关账号，相对来说比较可疑。<br>
+所以能够定位到<code>\SAM\Domains\Account\Users\Names</code></p>
+<h3 id="printkey"><code>printkey</code></h3>
+<ul>
+<li>
+<p><code>vol.py -f data1.raw --profile=Win2008R2SP0x64 printkey -K &quot;SAM\Domains\Account\Users\Names&quot;</code> 主要这边的路径去看具体内容，看不到F值，没法进行对比</p>
+</li>
+<li>
+<p>稍微往上一级去看具体内容</p>
+</li>
+<li>
+<p><code>vol.py -f data1.raw --profile=Win2008R2SP0x64 printkey -K &quot;SAM\Domains\Account\Users&quot;</code> 上一级可以查看目录下的具体参数</p>
+</li>
+<li>
+<p>逐个进行<code>F</code>值的对比，跟<code>Administrator</code>进行对比</p>
+</li>
+<li>
+<p><code>vol.py -f data1.raw --profile=Win2008R2SP0x64 printkey -K &quot;SAM\Domains\Account\Users\000001F4&quot;</code>，Administrator</p>
+</li>
+<li>
+<p><code>vol.py -f data1.raw --profile=Win2008R2SP0x64 printkey -K &quot;SAM\Domains\Account\Users\000003F1&quot;</code>，user7</p>
+</li>
+<li>
+<p>两者经过对比发现<code>F</code>值比较类似，所以高权限的后门账号是<code>user7</code></p>
+</li>
+<li>
+<p><strong>补充</strong>：<code>printkey -K &quot;ControlSet001\Control\ComputerName\ComputerName&quot;</code>获取主机名</p>
+</li>
+</ul>
+<h3 id="hashdump"><code>hashdump</code></h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://hello-ctf.com/HC_MISC/memory/#mimikatz">https://hello-ctf.com/HC_MISC/memory/#mimikatz</a><br>
+<a target="_blank" rel="noopener" href="https://wiki.wgpsec.org/knowledge/ctf/Volatility.html">【MISC】Volatility取证分析工具 | 狼组安全团队公开知识库</a></p>
+</blockquote>
+<ul>
+<li><code>vol.py -f data1.raw --profile=Win2008R2SP0x64 hashdump</code></li>
+<li>直接定位<code>user7</code>找到哈希值，然后上在线网站进行反向查找得到</li>
+<li><code>87654321</code></li>
+</ul>
+<h2 id="文件相关主要考虑利用可疑进程把数据dump下来">文件相关主要考虑利用可疑进程把数据dump下来</h2>
+<ul>
+<li>pstree/pslist</li>
+<li>memdump</li>
+<li>editbox</li>
+<li>filescan</li>
+<li>dumpfile</li>
+</ul>
+<h3 id="pstree-pslist"><code>pstree/pslist</code></h3>
+<ul>
+<li><code>vol.py -f data1.raw --profile=Win2008R2SP0x64 pstree</code>，存在以下可疑进程
+<ul>
+<li><code>notepad.exe</code>：txt</li>
+<li><code>et.exe</code>：xlsx/xls</li>
+<li><code>mspaint.exe</code>：原始数据<code>.data</code>型</li>
+</ul>
+</li>
+</ul>
+<h3 id="memdump"><code>memdump</code></h3>
+<ul>
+<li><code>vol.py -f data1.raw --profile=Win2008R2SP0x64 memdump -p 952 -D vol_output</code></li>
+<li>得到的dmp文件修改后缀名为<code>.data</code></li>
+<li>使用<code>gimp</code>进行读取查看</li>
+<li>一般查看图片思路：<code>height</code>先确定，<code>offset</code>先找到大概有字符的部分，然后调整<code>width</code>使得图片正常显示</li>
+<li>得到<code>513701199912314701</code></li>
+</ul>
+<h3 id="editbox"><code>editbox</code></h3>
+<ul>
+<li><code>vol.py -f data1.raw --profile=Win2008R2SP0x64 editbox</code><br>
+直接能看到txt文件里面的内容。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">张三    13528790688     430512198908131367</span><br><span class="line">李四    18234924149     310115199110257136</span><br></pre></td></tr></table></figure>
+<h3 id="filescan"><code>filescan</code></h3>
+<ul>
+<li>通过<code>grep</code>辅助查找关键文件类型</li>
+<li><code>vol.py -f data1.raw --profile=Win2008R2SP0x64 filescan | grep -E '|.txt|.xls|.xlsx' </code></li>
+<li>但显示的有点奇奇怪怪的，找到关键文件之后结合<code>dumpfile</code>进行提取</li>
+</ul>
+<h3 id="dumpfile"><code>dumpfile</code></h3>
+<ul>
+<li>导出某一文件(指定虚拟地址)</li>
+<li><code>vol.py -f data1.raw --profile=Win2008R2SP0x64 dumpfiles -Q 0x000000007eddf750 --dump-dir=vol_output</code></li>
+<li>或者<code>--dump-dir=</code>用<code>-D </code>替代</li>
+<li>导出来的一般是<code>.dat</code>的文件，可以使用<code>foremost</code>进行查看</li>
+<li>不过由于格式特殊性，一般情况下，<code>.xlsx</code>文件容易被识别成<code>.zip</code>，需要简单查看内容有没有缺失，然后修改后缀名为<code>.xlsx</code></li>
+</ul>
+<p>查看<code>xlsx</code>里面的内容，可以得到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|客户姓名|身份证|</span><br><span class="line">|张伟|652901196611026716|</span><br><span class="line">|李星怡|123456202001011236|</span><br></pre></td></tr></table></figure>
+<p>然后按照要求进行拼接。</p>
+<p>后面主要涉及结合<code>gimp</code>去dump出来的图片。</p>
+
+    </div>
+    <!-- end of the post-->
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------THE <i class="fa-solid fa-cloud"></i> END-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/basecrack/" rel="tag"><i class="fa fa-tag"></i> basecrack</a>
+              <a href="/tags/gimp/" rel="tag"><i class="fa fa-tag"></i> gimp</a>
+              <a href="/tags/ciphey/" rel="tag"><i class="fa fa-tag"></i> ciphey</a>
+              <a href="/tags/pwntools/" rel="tag"><i class="fa fa-tag"></i> pwntools</a>
+              <a href="/tags/volatility/" rel="tag"><i class="fa fa-tag"></i> volatility</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/12/05/kali-pip3%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" rel="prev" title="Kali-Pip3安装虚拟环境">
+                  <i class="fa fa-chevron-left"></i> Kali-Pip3安装虚拟环境
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eurynome</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">304k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">4:37</span>
+  </span>
+</div>
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+-->
+
+    </div>
+  </footer>
+  <!-- Background picture -->
+    <script type="text/javascript" src="/js/canvas-nest.js"></script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: false,
+  label: '🌓',
+  autoMatchOsTheme: false
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+if (window.darkmode && !window.darkmode.isActivated()) {
+  window.darkmode.toggle();
+  var toggleButtons = document.getElementsByClassName("darkmode-toggle");
+  if (toggleButtons && toggleButtons.length > 0) {
+    for (i = 0; i < toggleButtons.length; i++) {
+      toggleButtons[i].classList.add("darkmode-toggle--white");
+    }
+  }
+}
+</script>
+
+</body>
+</html>
