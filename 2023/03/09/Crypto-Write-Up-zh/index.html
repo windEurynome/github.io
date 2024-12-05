@@ -29,9 +29,11 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://windeurynome.github.io/2023/03/09/Crypto-Write-Up-zh/image-20230802172550696.png">
 <meta property="og:image" content="https://windeurynome.github.io/2023/03/09/Crypto-Write-Up-zh/image-20230706171746617.png">
+<meta property="og:image" content="https://windeurynome.github.io/2023/03/09/Crypto-Write-Up-zh/1.png">
+<meta property="og:image" content="https://windeurynome.github.io/2023/03/09/Crypto-Write-Up-zh/2.png">
 <meta property="og:image" content="https://windeurynome.github.io/2023/03/09/Crypto-Write-Up-zh/1.jpg">
 <meta property="article:published_time" content="2023-03-09T08:02:30.000Z">
-<meta property="article:modified_time" content="2023-10-12T08:06:25.272Z">
+<meta property="article:modified_time" content="2024-08-28T06:32:45.571Z">
 <meta property="article:author" content="Eurynome">
 <meta property="article:tag" content="recurrent">
 <meta name="twitter:card" content="summary">
@@ -161,7 +163,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -171,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -246,7 +248,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-12 16:06:25" itemprop="dateModified" datetime="2023-10-12T16:06:25+08:00">2023-10-12</time>
+      <time title="Modified: 2024-08-28 14:32:45" itemprop="dateModified" datetime="2024-08-28T14:32:45+08:00">2024-08-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -402,7 +404,9 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"># %%</span><br><span class="line">n = </span><br><span class="line">c = </span><br><span class="line"></span><br><span class="line">from Crypto.Util.number import *</span><br><span class="line">from gmpy2 import *</span><br><span class="line">from tqdm import tqdm</span><br><span class="line">low = str(n)[-18:]</span><br><span class="line">high = str(n)[:18]</span><br><span class="line">pq_prob = []</span><br><span class="line"></span><br><span class="line">for i in range(10):</span><br><span class="line">    for j in range(10):</span><br><span class="line">        pq_prob.append(int(high + str(i) + str(j) + low))</span><br><span class="line"># print(pq_prob)</span><br><span class="line"></span><br><span class="line">for pq in tqdm(pq_prob):</span><br><span class="line">    f = factor(pq)</span><br><span class="line">#     print(f)</span><br><span class="line">    if (len(f) == 2 and f[0][0].nbits() == 64):</span><br><span class="line">        p, q = f[0][0], f[1][0]</span><br><span class="line">        break</span><br><span class="line"></span><br><span class="line">P = int(str(p) + str(q))</span><br><span class="line">Q = int(str(q) + str(p))</span><br><span class="line">PP = int(str(P) + str(Q))</span><br><span class="line">QQ = int(str(Q) + str(P))</span><br><span class="line">assert n == PP*QQ</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># %%</span><br><span class="line">d = invert(65537, (PP-1)*(QQ-1))</span><br><span class="line">m = powmod(c, d, n)</span><br><span class="line">print(long_to_bytes(m).decode())</span><br></pre></td></tr></table></figure>
 
+<img src="/2023/03/09/Crypto-Write-Up-zh/1.png" class="" width="1">
 
+<img src="/2023/03/09/Crypto-Write-Up-zh/2.png" class="" width="2">
 
 <h1 id="DCIC2023-final-easybag"><a href="#DCIC2023-final-easybag" class="headerlink" title="[DCIC2023-final]easybag"></a>[DCIC2023-final]easybag</h1><ul>
 <li>LLL规约</li>
@@ -547,7 +551,7 @@
 <li>deduction</li>
 <li>rabin</li>
 </ul>
-<p>$$<br>num1 \equiv p^e \mod - q^e \mod n \equiv p^e - q^e \mod n<br>$$</p>
+<p>$$<br>num1 \equiv p^e \mod n - q^e \mod n \equiv p^e - q^e \mod n<br>$$</p>
 <p>利用二项式展开定理对其进行展开以及模运算：<br>$$<br>num2 \equiv (p + q)^e \mod n \equiv p^e + q^e \mod n<br>$$</p>
 <p>{1}式 + {2}式可得：<br>$$<br>num1 + num2 \equiv 2 p^e \mod n<br>$$<br>又从题目得到$n &#x3D; p \times q$，利用<code>gcd()</code>可得<code>p</code>：<br>$$<br>p &#x3D; gcd(num1 + num2, n)<br>$$<br>而<code>q</code>即为$q &#x3D; n &#x2F;&#x2F; p$.</p>
 <p>得到<code>p</code>以及<code>q</code>后，发现$p\equiv q \equiv 3 \mod 4$，而$e &#x3D; 65536 &#x3D; 2^{16}$，可得下一个知识点为<code>Rabin</code>算法，且循环使用16次。</p>
@@ -670,14 +674,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">182k</span>
+    <span title="Symbols count total">190k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">2:45</span>
+    <span title="Reading time total">2:52</span>
   </span>
 </div>
 <!--
